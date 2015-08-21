@@ -6,7 +6,7 @@ import android.util.Log;
  * Created by Rayce on 8/21/2015.
  */
 public class DBHelper {
-    public void downloadData(){
+    public void downloadDBData(){
         MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, facility_id int, facility_name varchar);");
         MainActivity.db.execSQL("delete from person;");
         MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS assessments_questions(" +
