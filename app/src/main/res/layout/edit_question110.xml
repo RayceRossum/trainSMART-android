@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/textq"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:paddingLeft="32sp"
+        android:paddingRight="32sp"
+        android:paddingTop="8sp"
+        android:minHeight="32dp"
+        android:enabled="false"
+        android:textSize="16sp"
+        android:textIsSelectable="false"
+        android:layout_gravity="center" />
+
+    <SeekBar
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBar"
+        android:paddingLeft="32sp"
+        android:paddingRight="32sp"
+        android:max="5"
+        android:layout_gravity="center" />
+
+</LinearLayout>
