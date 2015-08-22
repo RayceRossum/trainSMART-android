@@ -21,6 +21,7 @@ public class EditFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     public static String TAG = "editTag";
+    DBHelper dbHelp;
     //private static final String ARG_PARAM1 = "param1";
     //private static final String ARG_PARAM2 = "param2";
 
@@ -60,6 +61,7 @@ public class EditFragment extends Fragment {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        dbHelp = new DBHelper();
     }
 
     @Override
@@ -68,21 +70,14 @@ public class EditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-
-        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), getData());
-
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), R.layout.edit_label, getQuestions());
+        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getKeyData(1, 1, 1, 2));
         listView.setAdapter(adapter);
+
         // Inflate the layout for this fragment
         return view;
     }
 
 
-    public String[] getData() {
-        String[] questions = new String[] {"text", "question110", "question110","question110","question110","question110","question110","question110","question110","question110","question110","question110","question110", "text", "question110","question110","question110","question110","question110","question110","question110",};
-
-        return questions;
-    }
     // TODO: Rename method, update argument and hook method into UI event
     public void onListItemPressed(int position) {
         if (mListener != null) {
