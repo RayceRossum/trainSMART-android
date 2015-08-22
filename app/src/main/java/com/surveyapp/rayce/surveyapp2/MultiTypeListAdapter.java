@@ -71,7 +71,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
             case 1:
                 view = inflater.inflate(R.layout.edit_question110, parent, false);
                 text = (TextView) view.findViewById(R.id.textq);
-                text.setText("How old is the candidate? ANd what flavour");
+                text.setText("Is the candidate good at what they're doing?");
                 break;
         }
 

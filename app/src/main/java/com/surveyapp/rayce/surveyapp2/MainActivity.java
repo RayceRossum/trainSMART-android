@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).commit();
 
                 break;
 
