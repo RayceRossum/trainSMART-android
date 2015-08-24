@@ -77,10 +77,9 @@ public class DebugFragment extends Fragment {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbHelp.downloadEditData();
+                dbHelp.downloadDBData();
             }
         });
-
 
         // Inflate the layout for this fragment
         return view;

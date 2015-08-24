@@ -15,7 +15,11 @@ public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks, EditFragment.OnFragmentInteractionListener, CreateFragment.OnFragmentInteractionListener, DebugFragment.OnFragmentInteractionListener {
 
     public static Boolean LOGGED_IN = false;
+
     public static final String BASE_URL = "http://android.trainingdata.org/";
+//    public static final String BASE_URL = "http://50.115.116.23/";
+//    public static final String BASE_URL = "http://173.244.210.165/";
+
     public static final String GET_TABLE_URL = BASE_URL + "getTable.php";
     public static final String TAG_SUCCESS = "success";
     public static final String TAG_MESSAGE = "message";

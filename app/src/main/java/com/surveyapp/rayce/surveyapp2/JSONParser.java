@@ -25,6 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.Objects;
 
 
 public class JSONParser {
@@ -238,33 +239,22 @@ public class JSONParser {
     @SuppressLint("NewApi")
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public String makeHttpRequest(URL url, String method, String data) {
-        Log.d("request!", "makeHttpRequest0> ");
+        //Log.d("request!", "makeHttpRequest0> ");
         String reply = "init";
         try {
             HttpURLConnection urlConnection = null;
-            if (method == "POST") {
+            if (Objects.equals(method, "POST")) {
 
                 try {
 
-                    Log.d("request!", "makeHttpRequest1> ");
                     urlConnection = (HttpURLConnection) url.openConnection();
-                    Log.d("request!", "makeHttpRequest11> ");
                     urlConnection.setDoOutput(true);
-                    Log.d("request!", "makeHttpRequest12> ");
                     urlConnection.setRequestMethod("POST");
-                    Log.d("request!", "makeHttpRequest13> ");
                     urlConnection.setUseCaches(false);
-                    Log.d("request!", "makeHttpRequest14> ");
                     urlConnection.setConnectTimeout(1000);
-                    Log.d("request!", "makeHttpRequest15> ");
                     urlConnection.setReadTimeout(1000);
-                    Log.d("request!", "makeHttpRequest16> ");
                     urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
-
-                    Log.d("request!", "makeHttpRequest17> ");
                     urlConnection.connect();
-                    Log.d("request!", "makeHttpRequest1a> ");
 
 //                    String data = URLEncoder.encode("username", "UTF-8")
 //                            + "=" + URLEncoder.encode("rossumg", "UTF-8");
@@ -275,10 +265,7 @@ public class JSONParser {
                     out.write(data);
                     out.flush();
                     out.close();
-                    Log.d("request!", "makeHttpRequest1b> ");
-
                 } catch (Exception e) {
-                    Log.d("request!", "makeHttpRequest1c> " + e.toString());
                     e.printStackTrace();
                 }
 
