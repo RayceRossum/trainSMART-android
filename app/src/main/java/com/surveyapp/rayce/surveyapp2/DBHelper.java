@@ -1,12 +1,19 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.database.Cursor;
 import android.util.Log;
 
 /**
  * Created by Rayce on 8/21/2015.
  */
 public class DBHelper {
+<<<<<<< HEAD
     public void downloadDBData(){
+=======
+
+
+    public void downloadDBData() {
+>>>>>>> origin/master
         MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, facility_id int, facility_name varchar);");
         MainActivity.db.execSQL("delete from person;");
         MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS assessments_questions(" +
@@ -202,4 +209,64 @@ public class DBHelper {
         MainActivity.db.execSQL("insert into assessments_answers values (3484,42,417,\"2015-07-21\",15,142,\"F\",\"Y\");");
     }
 
+<<<<<<< HEAD
+=======
+    public String[] getKeyData(int personID, int facilityID, int date, int assessmentID) {
+        String[] keyData = new String[4];
+//        Cursor c = MainActivity.db.rawQuery("select " +
+//                "aq.question," +
+//                "aq.itemtype" +
+//                "(select aa.answer from assessments_answers aa where aa.person = pa.person_id and aa.facility = pa.facility_id and aa.date_created = " +
+//                "pa.date_created and a.assessment_id = aq.assessment_id  and aa.question = aq.assessments_questions_id) as answer" +
+//                "from person_to_assessments pa" +
+//                "join person p on p.person_id = pa.person_id" +
+//                "join assessments a on pa.assessment_id = a.assessment_id" +
+//                "join assessments_questions aq on a.assessment_id = aq.assessment_id" +
+//                "where 1=1" +
+//                "and pa.person_id = " + personID +
+//                "and pa.facility_id = " + facilityID +
+//                "and pa.data_created = " + "2015-07-07" +
+//                "and pa.assessment_id = " + assessmentID +
+//                "and aq.status = 1" +
+//                "order by aq.itemorder", null);
+
+        keyData[0] = "text";
+        keyData[1] = "question110";
+        keyData[2] = "question110";
+        keyData[3] = "question110";
+
+//        keyData[0] = c.getString(0);
+//        keyData[1] = c.getString(1);
+//        keyData[2] = c.getString(2);
+//        keyData[3] = c.getString(3);
+
+//        c.close();
+        return keyData;
+    }
+>>>>>>> origin/master
 }
+
+//        select
+//        aq.question,
+//                aq.itemtype,
+//                (select aa.answer from assessments_answers aa where aa.person =
+//                pa.person_id and aa.facility = pa.facility_id and aa.date_created =
+//                pa.date_created and a.assessment_id = aq.assessment_id  and aa.question
+//                = aq.assessments_questions_id) as answer
+//        from person_to_assessments pa
+//        join person p on p.person_id = pa.person_id
+//        join assessments a on pa.assessment_id = a.assessment_id
+//        join assessments_questions aq on a.assessment_id = aq.assessment_id
+//        where  1=1
+//        and pa.person_id = 1
+//        and pa.facility_id = 1
+//        and pa.date_created = "2015-07-07"
+//        and pa.assessment_id = 2
+//        and aq.status = 1
+//                -- and aa.active = 'Y'
+//                -- and aa.question = 14
+//        order by aq.itemorder
+
+
+
+

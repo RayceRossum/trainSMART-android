@@ -55,7 +55,6 @@ public class MainActivity extends ActionBarActivity
         // update the main content by replacing fragments
         Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
 
-        //android.support.v4.app.Fragment fragment;
         Fragment fragment;
         switch(position) {
             case 0:
@@ -82,7 +81,7 @@ public class MainActivity extends ActionBarActivity
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).commit();
 
                 break;
 
