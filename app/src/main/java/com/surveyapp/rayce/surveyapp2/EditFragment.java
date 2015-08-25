@@ -70,7 +70,7 @@ public class EditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getKeyData(1, 1, 1, 2));
+        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
