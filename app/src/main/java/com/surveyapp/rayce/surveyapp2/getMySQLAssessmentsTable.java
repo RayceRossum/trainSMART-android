@@ -10,16 +10,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-class getAssessmentsQuestions extends AsyncTask<String, String, String> {
+/**
+ * Created by rossumg on 8/1/2015.
+ */
+class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
 
     @Override
     protected String doInBackground(String... args) {
-
-
-
-        Log.d("request!", "getAssessmentsQuestions.doInBackground ");
+        Log.d("request!", "getMySQLAssessmentsTable doInBackground ");
 
         try {
             //Thread.sleep(4000); // 4 secs
@@ -33,7 +33,7 @@ class getAssessmentsQuestions extends AsyncTask<String, String, String> {
         int success;
         String username = MainActivity._user.toString();
         String password = MainActivity._pass.toString();
-        String datatable = "AssessmentsQuestions";
+        String datatable = "Assessments";
         try {
             URL url = null;
             try {
@@ -50,44 +50,37 @@ class getAssessmentsQuestions extends AsyncTask<String, String, String> {
             success = json.getInt(MainActivity.TAG_SUCCESS);
             if (success == 1) {
                 LOGGED_IN = true;
-                int num_assessments_questions_recs = json.getInt("number_records");
-                JSONArray assessments_questions_array = json.getJSONArray("posts");
-                for (int i = 0; i< assessments_questions_array.length(); i++) {
-                    JSONObject assessments_questions_rec = assessments_questions_array.getJSONObject(i);
-                    int assessments_questions_id = assessments_questions_rec.getInt("assessments_questions_id");
+                int num_person_recs = json.getInt("number_records");
+                JSONArray assessments_array = json.getJSONArray("posts");
+                for (int i = 0; i< assessments_array.length(); i++) {
+                    JSONObject assessments_rec = assessments_array.getJSONObject(i);
+                    int assessment_id = assessments_rec.getInt("assessment_id");
                     // escape single quotes
-                    int assessment_id = assessments_questions_rec.getInt("assessment_id");
-                    String question = assessments_questions_rec.getString("question");
-                    question = question.replace("'","''");
-                    int itemorder = assessments_questions_rec.getInt("itemorder");
-                    String itemtype = assessments_questions_rec.getString("itemtype");
-                    itemtype = itemtype.replace("'","''");
-                    int status = assessments_questions_rec.getInt("status");
-                    String assessments_questionsInsert =
-                            "insert into assessments_questions values("
-                                    + assessments_questions_id + ","
+                    String assessment_type = assessments_rec.getString("assessment_type");
+                    assessment_type = assessment_type.replace("'","''");
+                    int status = assessments_rec.getInt("status");
+
+                    String assessmentInsert =
+                            "insert into assessments values("
                                     + assessment_id + ","
-                                    + "'" + question + "'" + ","
-                                    + itemorder + ","
-                                    + "'" + itemtype + "'" + ","
+                                    + "'" + assessment_type + "'" + ","
                                     + status + ");";
                     try {
-                        MainActivity.db.execSQL(assessments_questionsInsert.toString());
+                        //Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
+                        MainActivity.db.execSQL(assessmentInsert.toString());
                     } catch (Exception ex) {
-                        Log.d("request!", "getAssessmentsQuestions loop exception > " + assessments_questionsInsert);
+                        Log.d("request!", "getMySQLAssessmentsTable loop exception > " + assessmentInsert);
                     }
-                } // for
-
+                } // foreach
             } else {
                 Log.d("request!", "Login Failed");
                 LOGGED_IN = false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("request!", "assessments_questions exception>" + e.toString());
+            Log.d("request!", "assessments exception>" + e.toString());
         }
-        Log.d("request!", "getAssessmentsQuestions.doInBackground end");
+        Log.d("request!", "getMySQLAssessmentsTable.doInBackground end");
         return null;
     }
-
 }

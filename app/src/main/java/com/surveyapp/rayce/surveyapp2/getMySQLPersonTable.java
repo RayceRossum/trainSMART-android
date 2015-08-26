@@ -1,5 +1,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -13,13 +14,19 @@ import java.net.URLEncoder;
 /**
  * Created by rossumg on 8/1/2015.
  */
-class getPerson extends AsyncTask<String, String, String> {
+class getMySQLPersonTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
+    public SQLiteDatabase _db;
+
+    getMySQLPersonTable(DBHelper dbhelp){
+        this._db = dbhelp.getWritableDatabase();
+        this._db.execSQL("delete from person");
+    }
 
     @Override
     protected String doInBackground(String... args) {
-        Log.d("request!", "getPerson doInBackground ");
+        Log.d("request!", "getMySQLPersonTable doInBackground ");
 
         try {
             //Thread.sleep(4000); // 4 secs
@@ -38,7 +45,7 @@ class getPerson extends AsyncTask<String, String, String> {
             URL url = null;
             try {
                 url = new URL(MainActivity.GET_TABLE_URL);
-                Log.d("request!", "getPerson person GET_TABLE_URL " + url.toString());
+                Log.d("request!", "getMySQLPersonTable person GET_TABLE_URL " + url.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -62,6 +69,7 @@ class getPerson extends AsyncTask<String, String, String> {
                     String last_name = person_rec.getString("last_name");
                     last_name = last_name.replace("'","''");
                     int facility_id = person_rec.getInt("facility_id");
+                    String national_id = person_rec.getString("national_id");
                     String facility_name = person_rec.getString("facility_name");
                     facility_name = facility_name.replace("'","''");
                     String personInsert =
@@ -69,13 +77,14 @@ class getPerson extends AsyncTask<String, String, String> {
                                     + person_id + ","
                                     + "'" + first_name + "'" + ","
                                     + "'" + last_name + "'" + ","
+                                    + "'" + national_id + "'" + ","
                                     + facility_id + ","
                                     + "'" + facility_name + "'" + ");";
                     try {
-                        //Log.d("request!", "getPerson personInsert " + personInsert.toString());
-                       MainActivity.db.execSQL(personInsert.toString());
+                        Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
+                        _db.execSQL(personInsert.toString());
                     } catch (Exception ex) {
-                        Log.d("request!", "getPerson loop exception > " + personInsert);
+                        Log.d("request!", "getMySQLPersonTable loop exception > " + ex.toString());
                     }
                 } // foreach
             } else {
@@ -84,9 +93,9 @@ class getPerson extends AsyncTask<String, String, String> {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Log.d("request!", "person exception>" + e.toString());
+            Log.d("request!", "getMySQLPersonTable exception > " + e.toString());
         }
-        Log.d("request!", "getPerson.doInBackground end");
+        Log.d("request!", "getMySQLPersonTable.doInBackground end");
         return null;
     }
 }

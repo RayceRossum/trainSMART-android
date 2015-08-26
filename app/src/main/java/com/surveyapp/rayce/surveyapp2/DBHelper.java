@@ -1,61 +1,334 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Rayce on 8/21/2015.
  */
-public class DBHelper {
-<<<<<<< HEAD
-    public void downloadDBData(){
-=======
+public class DBHelper extends SQLiteOpenHelper{
 
+    private static final int DATABASE_VERSION = 1;
 
-    public void downloadDBData() {
->>>>>>> origin/master
-        MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, facility_id int, facility_name varchar);");
-        MainActivity.db.execSQL("delete from person;");
-        MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS assessments_questions(" +
+    // Database Name
+    private static final String DATABASE_NAME = "assessments.db";
+
+    // assessments.db table names
+    private static final String TABLE_ASSESSMENTS = "assessments";
+    private static final String TABLE_ASSESSMENTS_ANSWERS = "assessments_answers";
+    private static final String TABLE_ASSESSMENTS_QUESTIONS = "assessments_questions";
+    private static final String TABLE_PERSON = "person";
+    private static final String TABLE_PERSON_TO_ASSESSMENTS = "person_to_assessments";
+
+    // assessments table column names
+    private static final String ASSESSMENTS_ROWID = "rowid";
+    private static final String ASSESSMENTS_ASSESSMENT_ID = "assessment_id";
+    private static final String ASSESSMENTS_ASSESSMENT_TYPE = "assessment_type";
+    private static final String ASSESSMENTS_STATUS = "status";
+
+    // assessments_answers table column names
+    private static final String ASSESSMENTS_ANSWERS_ASSESS_ID = "assess_id";
+    private static final String ASSESSMENTS_ANSWERS_PERSON = "person";
+    private static final String ASSESSMENTS_ANSWERS_FACILITY = "facility";
+    private static final String ASSESSMENTS_ANSWERS_DATE_CREATED = "date_created";
+    private static final String ASSESSMENTS_ANSWERS_ASSESSMENT_ID = "assessment_id";
+    private static final String ASSESSMENTS_ANSWERS_QUESTION = "question";
+    private static final String ASSESSMENTS_ANSWERS_ANSWER = "answer";
+    private static final String ASSESSMENTS_ANSWERS_ACTIVE = "active";
+
+    // assessments_questions table column names
+    private static final String ASSESSMENTS_QUESTIONS_ROWID = "rowid";
+    private static final String ASSESSMENTS_QUESTIONS_ASSESSMENTS_QUESTIONS_ID = "assessments_questions_id";
+    private static final String ASSESSMENTS_QUESTIONS_ASSESSMENT_ID = "assessment_id";
+    private static final String ASSESSMENTS_QUESTIONS_QUESTION = "question";
+    private static final String ASSESSMENTS_QUESTIONS_ITEMORDER = "itemorder";
+    private static final String ASSESSMENTS_QUESTIONS_ITEMTYPE = "itemtype";
+    private static final String ASSESSMENTS_QUESTIONS_STATUS = "status";
+
+    // person table column names
+    private static final String PERSON_ROWID = "rowid";
+    private static final String PERSON_PERSON_ID = "person_id";
+    private static final String PERSON_FIRST_NAME = "first_name";
+    private static final String PERSON_LAST_NAME = "last_name";
+    private static final String PERSON_NATIONAL_ID = "national_id";
+    private static final String PERSON_FACILITY_ID = "facility_id";
+    private static final String PERSON_FACILITY_NAME = "facility_name";
+
+    // person_to_assessments table column names
+    private static final String PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID = "person_to_assessments_id";
+    private static final String PERSON_TO_ASSESSMENTS_PERSON_ID = "person_id";
+    private static final String PERSON_TO_ASSESSMENTS_FACILITY_ID = "facility_id";
+    private static final String PERSON_TO_ASSESSMENTS_DATE_CREATED = "date_created";
+    private static final String PERSON_TO_ASSESSMENTS_ASSESSMENT_ID = "assessment_id";
+    private static final String PERSON_TO_ASSESSMENTS_USER_ID = "user_id";
+    private static final String PERSON_TO_ASSESSMENTS_STATUS = "status";
+
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        Log.d("request!", "DBHelper.onCreate");
+
+        try { db.execSQL("delete from assessments;"); } catch(Exception ex) {}
+
+        String CREATE_ASSESSEMNTS_TABLE = "CREATE TABLE IF NOT EXISTS assessments(assessment_id int, assessment_type varchar, status int);";
+        db.execSQL(CREATE_ASSESSEMNTS_TABLE);
+
+        //db.execSQL("delete from assessments_answers;");
+        String CREATE_ASSESSEMNTS_ANSWERS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_answers(" +
+                "assess_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, " +
+                        "person INTEGER, " +
+                        "facility INTEGER, " +
+                        "date_created DATETIME, " +
+                        "assessment_id INTEGER, " +
+                        "question VARCHAR, " +
+                        "answer VARCHAR, " +
+                        "active CHAR)";
+        db.execSQL(CREATE_ASSESSEMNTS_ANSWERS_TABLE);
+
+        try { db.execSQL("delete from assessments_questions;"); } catch(Exception ex) {}
+
+        String CREATE_ASSESSEMNTS_QUESTIONS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_questions(" +
                 "assessments_questions_id int, " +
                 "assessment_id int, " +
                 "question varchar, " +
                 "itemorder int, " +
                 "itemtype varchar, " +
-                "status int);");
-        MainActivity.db.execSQL("delete from assessments_questions;");
-        MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS assessments(assessment_id int, assessment_type varchar, status int);");
-        MainActivity.db.execSQL("delete from assessments;");
-        //Log.d("request!", "create assessments_answers ");
-        //MainActivity.db.execSQL("drop table assessments_answers");
-        MainActivity.db.execSQL("CREATE TABLE IF NOT EXISTS assessments_answers(" +
-                "assess_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, " +
-                "person INTEGER, " +
-                "facility INTEGER, " +
-                "date_created DATETIME, " +
-                "assessment_id INTEGER, " +
-                "question VARCHAR, " +
-                "answer VARCHAR, " +
-                "active CHAR);");
-        //Log.d("request!", "created assessments_answers ");
-        MainActivity.db.execSQL("CREATE  TABLE IF NOT EXISTS person_to_assessments(" +
+                "status int);";
+        db.execSQL(CREATE_ASSESSEMNTS_QUESTIONS_TABLE);
+
+        try { db.execSQL("delete from person;"); } catch(Exception ex) {}
+
+        String CREATE_PERSON_TABLE = "CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, national_id varchar, facility_id int, facility_name varchar);";
+        db.execSQL(CREATE_PERSON_TABLE);
+
+        //db.execSQL("delete from person_to_assessments;");
+        String CREATE_PERSON_TO_ASSESSEMNTS_TABLE = "CREATE  TABLE IF NOT EXISTS person_to_assessments(" +
                 "person_to_assessments_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , " +
-                "person_id INTEGER, " +
-                "facility_id INTEGER, " +
-                "date_created DATETIME, " +
-                "assessment_id INTEGER, " +
-                "user_id INTEGER, " +
-                "status INTEGER);");
+                        "person_id INTEGER, " +
+                        "facility_id INTEGER, " +
+                        "date_created DATETIME, " +
+                        "assessment_id INTEGER, " +
+                        "user_id INTEGER, " +
+                        "status INTEGER);";
+        db.execSQL(CREATE_PERSON_TO_ASSESSEMNTS_TABLE);
+    }
 
-                Log.d("request!", "load person_to_assessments ");
-                load_person_to_assessments();
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older tables if exists
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ASSESSMENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ASSESSMENTS_ANSWERS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ASSESSMENTS_QUESTIONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSON);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSON_TO_ASSESSMENTS);
 
-                Log.d("request!", "load assessments_answers ");
-                load_assessments_answers();
+        // Create tables again
+        onCreate(db);
+    }
 
-        new getPerson().execute();
-        new getAssessmentsQuestions().execute();
-        new getAssessments().execute();
+    public void helperTest(){
+
+        Log.d("request!", "helperTest ");
+
+        try {
+            String databaseName = this.getDatabaseName();
+            //SQLiteDatabase db = this.getReadableDatabase();
+            //SQLiteDatabase db = this.getWritableDatabase();
+            Person person0 = this.getPerson("Gregory", "Rossum", "%");
+
+            //db.execSQL("drop table assessments");
+            //db.execSQL("drop table person");
+            //db.execSQL("drop table person_to_assessments");
+            //db.execSQL("drop table assessments_answers");
+            //db.execSQL("drop table assessments_questions");
+            Log.d("request!", "helperTest databaseName> " + databaseName );
+            Log.d("request!", "helperTest person0> "
+                            + person0._rowid + " "
+                            + person0._person_id + " "
+                            + person0._first_name + " "
+                            + person0._last_name + " "
+                            + person0._national_id + " "
+                            + person0._facility_id + " "
+                            + person0._facility_name
+            );
+
+            Person person1 = new Person(999, "First", "Last", "national_id", 3, "All Souls' Clinic");
+            this.addPerson(person1);
+
+            List<Person> personList = this.getAllPersons();
+            for (Person p : personList) {
+                Log.d("request!", "helperTest personList> "
+                                //+ p._rowid + " "
+                                + p._person_id + " "
+                                + p._first_name + " "
+                                + p._last_name + " "
+                                + p._national_id + " "
+                                + p._facility_id + " "
+                                + p._facility_name
+                );
+            }
+
+            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
+
+        } catch ( Exception ex) {
+            Log.d("request!", "helperTest catch " + ex.toString());
+        }
+    }
+
+
+    public void addPerson(Person person) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(PERSON_PERSON_ID, person.getPersonId());
+        values.put(PERSON_FIRST_NAME, person.getFirstName());
+        values.put(PERSON_LAST_NAME, person.getLastName());
+        values.put(PERSON_NATIONAL_ID, person.getNationalId());
+        values.put(PERSON_FACILITY_ID, person.getFacilityId());
+        values.put(PERSON_FACILITY_NAME, person.getFacilityName());
+
+        db.insert(TABLE_PERSON, null, values);
+        db.close();
+    }
+
+    public Person getPerson(String person_first_name, String person_last_name, String person_national_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                PERSON_ROWID, PERSON_PERSON_ID, PERSON_FIRST_NAME, PERSON_LAST_NAME, PERSON_NATIONAL_ID, PERSON_FACILITY_ID, PERSON_FACILITY_NAME
+        };
+
+        String whereClause = "1=1 and " +
+                PERSON_FIRST_NAME + " like ? and " +
+                PERSON_LAST_NAME + " like ? and " +
+                PERSON_NATIONAL_ID + " like ?";
+
+        String[] whereArgs = new String [] {
+                person_first_name, person_last_name, person_national_id };
+
+        Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+        Log.d("request!", "getPerson  "
+                + cursor.getString(0) + " "
+                + cursor.getString(1) + " "
+                + cursor.getString(2) + " "
+                + cursor.getString(3) + " "
+                + cursor.getString(4) + " "
+                + cursor.getString(5) + " "
+                + cursor.getString(6) + " "
+        );
+
+        Person person = new Person(
+                Integer.parseInt(cursor.getString(0)),
+                Integer.parseInt(cursor.getString(1)),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                Integer.parseInt(cursor.getString(5)),
+                cursor.getString(6)
+        );
+        cursor.close();
+        db.close();
+        return person;
+    }
+
+    public List<Person> getAllPersons() {
+        List<Person> personList = new ArrayList<Person>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_PERSON;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Person person = new Person();
+                //person.setRowId(Integer.parseInt(cursor.getString(0)));
+                person.setPersonId(Integer.parseInt(cursor.getString(0)));
+                person.setFirstName(cursor.getString(1));
+                person.setLastName(cursor.getString(2));
+                person.setNationalId(cursor.getString(3));
+                person.setFacilityId(Integer.parseInt(cursor.getString(4)));
+                person.setFacilityName(cursor.getString(5));
+
+                // Adding person to list
+                personList.add(person);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return person list
+        return personList;
+    }
+
+
+    public int getPersonsCount() {
+        Log.d("request!", "getPersonsCount0");
+        String countQuery = "SELECT  * FROM " + TABLE_PERSON;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        // return count
+        int returnVal = cursor.getCount();
+        cursor.close();
+        db.close();
+        return returnVal;
+    }
+
+  /*
+public int updatePerson(Person person) {
+    SQLiteDatabase db = this.getWritableDatabase();
+
+    ContentValues values = new ContentValues();
+    values.put(KEY_NAME, person.getName());
+    values.put(KEY_PH_NO, person.getPhoneNumber());
+
+    // updating row
+    return db.update(TABLE_PERSON, values, KEY_ID + " = ?",
+            new String[] { String.valueOf(person.getID()) });
+}
+
+public void deletePerson(Person person) {
+    SQLiteDatabase db = this.getWritableDatabase();
+    db.delete(TABLE_PERSON, KEY_ID + " = ?",
+            new String[] { String.valueOf(person.getID()) });
+    db.close();
+}
+*/
+
+    public void dropDatabase() {
+
+    }
+
+    public void downloadDBData()
+    {
+
+//        Log.d("request!", "load person_to_assessments ");
+//        load_person_to_assessments();
+//
+//        Log.d("request!", "load assessments_answers ");
+//        load_assessments_answers();
+
+
+        Log.d("request!", "downloadDBData getMySQLPersonTable");
+
+        new getMySQLPersonTable(this).execute();
+        //new getMySQLAssessmentsQuestionsTable().execute();
+        //new getMySQLAssessmentsTable().execute();
 
 //        new putPersontoAssessments().execute();
 //        new putAssessmentsAnswers().execute();
@@ -80,6 +353,7 @@ public class DBHelper {
         MainActivity.db.execSQL("insert into person_to_assessments values (18,42,417,\"2015-07-21\",15,1,0);");
 
     }
+
     protected void load_assessments_answers() {
 
         MainActivity.db.execSQL("delete from assessments_answers ");
@@ -209,8 +483,7 @@ public class DBHelper {
         MainActivity.db.execSQL("insert into assessments_answers values (3484,42,417,\"2015-07-21\",15,142,\"F\",\"Y\");");
     }
 
-<<<<<<< HEAD
-=======
+
     public String[] getKeyData(int personID, int facilityID, int date, int assessmentID) {
         String[] keyData = new String[4];
 //        Cursor c = MainActivity.db.rawQuery("select " +
@@ -243,7 +516,6 @@ public class DBHelper {
 //        c.close();
         return keyData;
     }
->>>>>>> origin/master
 }
 
 //        select

@@ -1,7 +1,9 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.*;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -27,7 +29,11 @@ public class DebugFragment extends Fragment {
     //private static final String ARG_PARAM2 = "param2";
 
     public static String TAG = "debugTag";
-    public DBHelper dbHelp = new DBHelper();
+
+    //public DBHelper dbHelp = new DBHelper(getActivity());
+    // moved to onCreate: http://stackoverflow.com/questions/23449384/getwritabledatabase-throwing-null-pointer-exception-in-my-apps
+    public DBHelper _dbHelp;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -63,9 +69,9 @@ public class DebugFragment extends Fragment {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        MainActivity.db = getActivity().openOrCreateDatabase("assessment.db", Context.MODE_PRIVATE, null);
-
+        Log.d("request!", "DebugFragment.onCreate");
+        DBHelper dbHelp = new DBHelper(getActivity());
+        this._dbHelp = dbHelp;
     }
 
     @Override
@@ -77,8 +83,20 @@ public class DebugFragment extends Fragment {
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbHelp.downloadDBData();
+                Log.d("request!", "download button");
+                _dbHelp.downloadDBData();
             }
+        });
+
+        Button btnDelete = (Button) view.findViewById(R.id.btnDelete);
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.d("request!", "delete button");
+                _dbHelp.helperTest();
+            }
+
         });
 
         // Inflate the layout for this fragment
@@ -122,6 +140,14 @@ public class DebugFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(int position);
+    }
+
+    public void showMessage(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
     }
 
 }
