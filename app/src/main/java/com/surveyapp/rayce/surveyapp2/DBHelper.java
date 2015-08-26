@@ -1,5 +1,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,9 +11,19 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.Random;
+
+
 /**
  * Created by Rayce on 8/21/2015.
  */
+
 public class DBHelper extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION = 1;
@@ -330,10 +341,7 @@ public void deletePerson(Person person) {
         //new getMySQLAssessmentsQuestionsTable().execute();
         //new getMySQLAssessmentsTable().execute();
 
-//        new putPersontoAssessments().execute();
-//        new putAssessmentsAnswers().execute();
 
-    }
 
     protected void load_person_to_assessments() {
 
@@ -484,29 +492,51 @@ public void deletePerson(Person person) {
     }
 
 
-    public String[] getKeyData(int personID, int facilityID, int date, int assessmentID) {
-        String[] keyData = new String[4];
-//        Cursor c = MainActivity.db.rawQuery("select " +
-//                "aq.question," +
-//                "aq.itemtype" +
-//                "(select aa.answer from assessments_answers aa where aa.person = pa.person_id and aa.facility = pa.facility_id and aa.date_created = " +
-//                "pa.date_created and a.assessment_id = aq.assessment_id  and aa.question = aq.assessments_questions_id) as answer" +
-//                "from person_to_assessments pa" +
-//                "join person p on p.person_id = pa.person_id" +
-//                "join assessments a on pa.assessment_id = a.assessment_id" +
-//                "join assessments_questions aq on a.assessment_id = aq.assessment_id" +
-//                "where 1=1" +
-//                "and pa.person_id = " + personID +
-//                "and pa.facility_id = " + facilityID +
-//                "and pa.data_created = " + "2015-07-07" +
-//                "and pa.assessment_id = " + assessmentID +
-//                "and aq.status = 1" +
-//                "order by aq.itemorder", null);
 
-        keyData[0] = "text";
-        keyData[1] = "question110";
-        keyData[2] = "question110";
-        keyData[3] = "question110";
+    public String[][] getQuestionData(int personID, int facilityID, int date, int assessmentID) {
+        //String query = "select * from person";
+//        String query = "select " +
+//                "aq.question, " +
+//                "aq.itemtype, " +
+
+//                "(select aa.answer from assessments_answers aa where aa.person = pa.person_id and aa.facility = pa.facility_id and aa.date_created = " +
+//                "pa.date_created and a.assessment_id = aq.assessment_id  and aa.question = aq.assessments_questions_id) as answer " +
+//                "from person_to_assessments pa " +
+//                "join person p on p.person_id = pa.person_id " +
+//                "join assessments a on pa.assessment_id = a.assessment_id " +
+//                "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
+//                "where 1=1 " +
+//                " and pa.person_id = " + personID +
+//                " and pa.facility_id = " + facilityID +
+//                " and pa.date_created = " + "\'2015-07-07\'" +
+//                " and pa.assessment_id = " + assessmentID +
+//                " and aq.status = 1 " +
+//                "order by aq.itemorder; ";
+//        Log.d("Query: ", query);
+
+//        Cursor c = MainActivity.db.rawQuery(query, null);
+//        while (c.moveToNext()) {
+//
+//        }
+//        c.close();
+        int question = 0;
+        int itemtype = 1;
+        int answer = 2;
+        String[][] questionData = new String[30][3];
+
+        String[] itemTypes = {"text", "question110", "questiontext", "questionyesno", "questionmulti"};
+        Random r = new Random();
+
+        questionData[0][question] = "What time is it?";
+        questionData[0][itemtype] = "title";
+        questionData[0][answer] = "3:00PM";
+
+
+        for (int i=1; i<30; i++) {
+            questionData[i][question] = "What time is it?";
+            questionData[i][itemtype] = itemTypes[r.nextInt(itemTypes.length)];
+            questionData[i][answer] = "3:00PM";
+        }
 
 //        keyData[0] = c.getString(0);
 //        keyData[1] = c.getString(1);
@@ -514,7 +544,7 @@ public void deletePerson(Person person) {
 //        keyData[3] = c.getString(3);
 
 //        c.close();
-        return keyData;
+        return questionData;
     }
 }
 

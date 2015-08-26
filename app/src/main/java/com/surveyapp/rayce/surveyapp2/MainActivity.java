@@ -1,6 +1,7 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
