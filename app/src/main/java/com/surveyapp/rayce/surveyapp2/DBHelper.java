@@ -10,13 +10,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
 import java.util.Random;
 
 
@@ -325,8 +318,8 @@ public void deletePerson(Person person) {
 
     }
 
-    public void downloadDBData()
-    {
+
+    public void downloadDBData() {
 
 //        Log.d("request!", "load person_to_assessments ");
 //        load_person_to_assessments();
@@ -341,7 +334,7 @@ public void deletePerson(Person person) {
         //new getMySQLAssessmentsQuestionsTable().execute();
         //new getMySQLAssessmentsTable().execute();
 
-
+    }
 
     protected void load_person_to_assessments() {
 

@@ -32,6 +32,12 @@
         android:layout_below="@+id/textq"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="8sp" />
+        android:layout_marginBottom="8sp"
+        android:clickable="true"
+        android:enabled="true"
+        android:inputType="text"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:textIsSelectable="false" />
 
 </RelativeLayout>
