@@ -1,5 +1,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -13,11 +14,14 @@ import java.net.URLEncoder;
 class getMySQLAssessmentsQuestionsTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
+    public SQLiteDatabase _db;
 
+    getMySQLAssessmentsQuestionsTable(DBHelper dbhelp){
+        this._db = dbhelp.getWritableDatabase();
+        this._db.execSQL("delete from assessments_questions");
+    }
     @Override
     protected String doInBackground(String... args) {
-
-
 
         Log.d("request!", "getMySQLAssessmentsQuestionsTable.doInBackground ");
 
@@ -31,13 +35,14 @@ class getMySQLAssessmentsQuestionsTable extends AsyncTask<String, String, String
         // TODO Auto-generated method stub
         // Check for success tag
         int success;
-        String username = MainActivity._user.toString();
-        String password = MainActivity._pass.toString();
+        String username = MainActivity._user;
+        String password = MainActivity._pass;
         String datatable = "AssessmentsQuestions";
         try {
             URL url = null;
             try {
                 url = new URL(MainActivity.GET_TABLE_URL);
+                Log.d("request!", "getMySQLPersonTable person GET_TABLE_URL " + url.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -72,12 +77,11 @@ class getMySQLAssessmentsQuestionsTable extends AsyncTask<String, String, String
                                     + "'" + itemtype + "'" + ","
                                     + status + ");";
                     try {
-                        MainActivity.db.execSQL(assessments_questionsInsert.toString());
+                        _db.execSQL(assessments_questionsInsert.toString());
                     } catch (Exception ex) {
                         Log.d("request!", "getMySQLAssessmentsQuestionsTable loop exception > " + assessments_questionsInsert);
                     }
                 } // for
-
             } else {
                 Log.d("request!", "Login Failed");
                 LOGGED_IN = false;
@@ -86,7 +90,7 @@ class getMySQLAssessmentsQuestionsTable extends AsyncTask<String, String, String
             e.printStackTrace();
             Log.d("request!", "assessments_questions exception>" + e.toString());
         }
-        Log.d("request!", "getMySQLAssessmentsQuestionsTable.doInBackground end");
+        Log.d("request!", "getMySQLAssessmentsQuestionsTable.doInBackground end ");
         return null;
     }
 

@@ -1,5 +1,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -16,6 +17,12 @@ import java.net.URLEncoder;
 class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
+    public SQLiteDatabase _db;
+
+    getMySQLAssessmentsTable(DBHelper dbhelp){
+        this._db = dbhelp.getWritableDatabase();
+        this._db.execSQL("delete from assessments");
+    }
 
     @Override
     protected String doInBackground(String... args) {
@@ -31,8 +38,8 @@ class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
         // TODO Auto-generated method stub
         // Check for success tag
         int success;
-        String username = MainActivity._user.toString();
-        String password = MainActivity._pass.toString();
+        String username = MainActivity._user;
+        String password = MainActivity._pass;
         String datatable = "Assessments";
         try {
             URL url = null;
@@ -67,7 +74,7 @@ class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
                                     + status + ");";
                     try {
                         //Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
-                        MainActivity.db.execSQL(assessmentInsert.toString());
+                        _db.execSQL(assessmentInsert.toString());
                     } catch (Exception ex) {
                         Log.d("request!", "getMySQLAssessmentsTable loop exception > " + assessmentInsert);
                     }
