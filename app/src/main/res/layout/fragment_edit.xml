@@ -10,5 +10,6 @@ tools:context="com.surveyapp.rayce.surveyapp2.EditFragment">
         android:layout_height="match_parent"
         android:id="@+id/editListView"
         android:layout_gravity="top"
-        android:smoothScrollbar="true" />
+        android:smoothScrollbar="true"
+        android:descendantFocusability="beforeDescendants"/>
 </FrameLayout>
