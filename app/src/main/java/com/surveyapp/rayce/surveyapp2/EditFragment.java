@@ -6,7 +6,11 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
 
 
 /**
@@ -71,6 +75,9 @@ public class EditFragment extends Fragment {
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
+        listView.setItemsCanFocus(true);
+
+
         listView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
@@ -117,4 +124,30 @@ public class EditFragment extends Fragment {
         public void onFragmentInteraction(int position);
 
     }
+    public static class labelViewHolder {
+        public TextView textView;
+    }
+
+    public static class radioViewHolder {
+        public TextView textView;
+        public SeekBar seekBar;
+    }
+
+    public static class singleEditViewHolder {
+        public TextView textView;
+        public EditText editText;
+    }
+
+    public static class multiEditViewHolder {
+        public TextView textView;
+        public EditText editText2;
+    }
+
+    public static class switchViewHolder {
+        public TextView textView;
+        public Switch switchWidget;
+
+    }
+
+
 }

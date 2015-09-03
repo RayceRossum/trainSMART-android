@@ -148,7 +148,7 @@ public class DBHelper extends SQLiteOpenHelper{
             String databaseName = this.getDatabaseName();
             //SQLiteDatabase db = this.getReadableDatabase();
             //SQLiteDatabase db = this.getWritableDatabase();
-            Person person0 = this.getPerson("Gregory", "Rossum", "%");
+            Person person0 = this.getPerson("Greg", "Rossum", "%");
 
             //db.execSQL("drop table assessments");
             //db.execSQL("drop table person");

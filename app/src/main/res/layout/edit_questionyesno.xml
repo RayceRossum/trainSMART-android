@@ -18,14 +18,14 @@
         android:textAlignment="center"
         android:layout_marginLeft="16sp"
         android:layout_marginRight="16sp"
-        android:layout_toStartOf="@+id/switch1"
+        android:layout_toStartOf="@+id/yesnoswitch"
         android:layout_marginTop="8sp"
         android:layout_marginBottom="8sp" />
 
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/switch1"
+        android:id="@+id/yesnoswitch"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="16sp"
