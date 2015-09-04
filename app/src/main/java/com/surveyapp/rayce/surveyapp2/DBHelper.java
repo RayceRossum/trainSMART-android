@@ -186,9 +186,112 @@ public class DBHelper extends SQLiteOpenHelper{
 
             Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
 
+            PersonToAssessments pa = new PersonToAssessments();
+            pa = this.getPersonToAssessments(1);
+            Log.d("request!", "pa.get_assessment_id > " + pa.get_assessment_id());
+
+            Assessments assessment = new Assessments();
+            assessment = getAssessments(pa.get_assessment_id());
+            Log.d("request!", "assessment.get_assessment_type > " + assessment.get_assessment_type());
+//            assessment = getAssessments(2);
+
+
+            Person person2 = new Person();
+            person2 = this.getPerson(pa.get_person_id());
+//            person2 = this.getPerson(1);
+
+            List<EditPageObject> editPageObjectList = this.getEditPageData( pa );
+            for (EditPageObject epo : editPageObjectList) {
+                Log.d("request!", "helperTest editPageObjectList > "
+                                //+ editPageObjectList._rowid + " "
+                                + epo._question + " "
+                                + epo._itemtype + " "
+                                + epo._itemorder + " "
+                                + epo._answer + " "
+                );
+            }
+
+            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
+
         } catch (Exception ex) {
             Log.d("request!", "helperTest catch " + ex.toString());
         }
+    }
+
+    public Assessments getAssessments(int assessments_assessment_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ROWID, ASSESSMENTS_ASSESSMENT_ID, ASSESSMENTS_ASSESSMENT_TYPE, ASSESSMENTS_STATUS
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ASSESSMENT_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(assessments_assessment_id) };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+        Log.d("request!", "geAssessments  "
+                        + cursor.getString(0) + " "
+                        + cursor.getString(1) + " "
+                        + cursor.getString(2) + " "
+        );
+
+        Assessments assessments = new Assessments(
+                Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1)
+
+        );
+        cursor.close();
+        db.close();
+        return assessments;
+    }
+
+    public PersonToAssessments getPersonToAssessments(int pa_pa_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID, PERSON_TO_ASSESSMENTS_PERSON_ID, PERSON_TO_ASSESSMENTS_FACILITY_ID, PERSON_TO_ASSESSMENTS_DATE_CREATED, PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, PERSON_TO_ASSESSMENTS_USER_ID, PERSON_TO_ASSESSMENTS_STATUS
+        };
+
+        String whereClause = "1=1 and " +
+                PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(pa_pa_id) };
+
+        Cursor cursor = db.query(TABLE_PERSON_TO_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+        Log.d("request!", "getPersonToAssessments  "
+                        + cursor.getString(0) + " "
+                        + cursor.getString(1) + " "
+                        + cursor.getString(2) + " "
+                        + cursor.getString(3) + " "
+                        + cursor.getString(4) + " "
+                        + cursor.getString(5) + " "
+                        + cursor.getString(6) + " "
+        );
+
+        PersonToAssessments person_to_assessments = new PersonToAssessments(
+                Integer.parseInt(cursor.getString(0)),
+                Integer.parseInt(cursor.getString(1)),
+                Integer.parseInt(cursor.getString(2)),
+                cursor.getString(3),
+                Integer.parseInt(cursor.getString(4)),
+                Integer.parseInt(cursor.getString(5))
+
+        );
+        cursor.close();
+        db.close();
+        return person_to_assessments;
     }
 
 
@@ -196,12 +299,12 @@ public class DBHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(PERSON_PERSON_ID, person.getPersonId());
-        values.put(PERSON_FIRST_NAME, person.getFirstName());
-        values.put(PERSON_LAST_NAME, person.getLastName());
-        values.put(PERSON_NATIONAL_ID, person.getNationalId());
-        values.put(PERSON_FACILITY_ID, person.getFacilityId());
-        values.put(PERSON_FACILITY_NAME, person.getFacilityName());
+        values.put(PERSON_PERSON_ID, person.get_person_id());
+        values.put(PERSON_FIRST_NAME, person.get_first_name());
+        values.put(PERSON_LAST_NAME, person.get_last_name());
+        values.put(PERSON_NATIONAL_ID, person.get_national_id());
+        values.put(PERSON_FACILITY_ID, person.get_facility_id());
+        values.put(PERSON_FACILITY_NAME, person.get_facility_name());
 
         try {
             db.insert(TABLE_PERSON, null, values);
@@ -234,13 +337,55 @@ public class DBHelper extends SQLiteOpenHelper{
         if (cursor != null)
             cursor.moveToFirst();
         Log.d("request!", "getPerson  "
-                + cursor.getString(0) + " "
-                + cursor.getString(1) + " "
-                + cursor.getString(2) + " "
-                + cursor.getString(3) + " "
-                + cursor.getString(4) + " "
-                + cursor.getString(5) + " "
-                + cursor.getString(6) + " "
+                        + cursor.getString(0) + " "
+                        + cursor.getString(1) + " "
+                        + cursor.getString(2) + " "
+                        + cursor.getString(3) + " "
+                        + cursor.getString(4) + " "
+                        + cursor.getString(5) + " "
+                        + cursor.getString(6) + " "
+        );
+
+        Person person = new Person(
+                Integer.parseInt(cursor.getString(0)),
+                Integer.parseInt(cursor.getString(1)),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4),
+                Integer.parseInt(cursor.getString(5)),
+                cursor.getString(6)
+        );
+        cursor.close();
+        db.close();
+        return person;
+    }
+
+    public Person getPerson(int person_person_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                PERSON_ROWID, PERSON_PERSON_ID, PERSON_FIRST_NAME, PERSON_LAST_NAME, PERSON_NATIONAL_ID, PERSON_FACILITY_ID, PERSON_FACILITY_NAME
+        };
+
+        String whereClause = "1=1 and " +
+                PERSON_PERSON_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(person_person_id) };
+
+        Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+        Log.d("request!", "getPerson  "
+                        + cursor.getString(0) + " "
+                        + cursor.getString(1) + " "
+                        + cursor.getString(2) + " "
+                        + cursor.getString(3) + " "
+                        + cursor.getString(4) + " "
+                        + cursor.getString(5) + " "
+                        + cursor.getString(6) + " "
         );
 
         Person person = new Person(
@@ -270,12 +415,12 @@ public class DBHelper extends SQLiteOpenHelper{
             do {
                 Person person = new Person();
                 //person.setRowId(Integer.parseInt(cursor.getString(0)));
-                person.setPersonId(Integer.parseInt(cursor.getString(0)));
-                person.setFirstName(cursor.getString(1));
-                person.setLastName(cursor.getString(2));
-                person.setNationalId(cursor.getString(3));
-                person.setFacilityId(Integer.parseInt(cursor.getString(4)));
-                person.setFacilityName(cursor.getString(5));
+                person.set_person_id(Integer.parseInt(cursor.getString(0)));
+                person.set_first_name(cursor.getString(1));
+                person.set_last_name(cursor.getString(2));
+                person.set_national_id(cursor.getString(3));
+                person.set_facility_id(Integer.parseInt(cursor.getString(4)));
+                person.set_facility_name(cursor.getString(5));
 
                 // Adding person to list
                 personList.add(person);
@@ -301,8 +446,8 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
 
-public boolean updatePerson(Person person) {
-    SQLiteDatabase db = this.getWritableDatabase();
+    public boolean updatePerson(Person person) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
 //    ContentValues values = new ContentValues();
 //    values.put(KEY_NAME, person.getName());
@@ -311,18 +456,17 @@ public boolean updatePerson(Person person) {
 //    // updating row
 //    return db.update(TABLE_PERSON, values, KEY_ID + " = ?",
 //            new String[] { String.valueOf(person.getID()) });
-    db.close();
-    return true;
-}
+        db.close();
+        return true;
+    }
 
-public boolean deletePerson(Person person) {
-    SQLiteDatabase db = this.getWritableDatabase();
-    //db.delete(TABLE_PERSON, KEY_ID + " = ?", new String[] { String.valueOf(person.getID()) });
+    public boolean deletePerson(Person person) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete(TABLE_PERSON, KEY_ID + " = ?", new String[] { String.valueOf(person.getID()) });
 
-    db.close();
-    return true;
-}
-
+        db.close();
+        return true;
+    }
 
     public void dropDatabase() {
     }
@@ -490,28 +634,71 @@ public boolean deletePerson(Person person) {
         db.execSQL("insert into assessments_answers values (3484,42,417,\"2015-07-21\",15,142,\"F\",\"Y\");");
     }
 
-    //public String[][] getEditPageData(int personID, int facilityID, int date, int assessmentID) {
-    public List<EditPageObject> getEditPageData() {
-            List<EditPageObject> editPageList = new ArrayList<EditPageObject>();
-            // Select All Query
-            String selectQuery = "SELECT  * FROM " + TABLE_PERSON;
+    public List<EditPageObject> getEditPageData(PersonToAssessments person_to_assessment) {
+         List<EditPageObject> editPageList = new ArrayList<EditPageObject>();
+         Log.d("request!", "getEditPageData > ");
+         String query =
+                "select " +
+                "aq.question, " +
+                "aq.itemtype, " +
+                "aq.itemorder, " +
+                "(select aa.answer from assessments_answers aa " +
+                "  where aa.person = pa.person_id " +
+                "  and aa.facility = pa.facility_id " +
+                "  and aa.date_created = pa.date_created " +
+                "  and a.assessment_id = aq.assessment_id  " +
+                "  and aa.question = aq.assessments_questions_id" +
+                ") as answer " +
+                "from person_to_assessments pa " +
+                "join person p on p.person_id = pa.person_id " +
+                "join assessments a on pa.assessment_id = a.assessment_id " +
+                "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
+                "join assessments_answers aa " +
+                "on aa.person = pa.person_id " +
+                "and aa.facility = pa.facility_id " +
+                "and aa.date_created = pa.date_created " +
+                "and aa.assessment_id = pa.assessment_id " +
+                "and aa.question = aq.assessments_questions_id " +
+                "where  1=1 " +
+                " and pa.person_id = " + person_to_assessment.get_person_id() +
+                " and pa.facility_id = " + person_to_assessment.get_facility_id() +
+                " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
+                " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
+                //" and aq.status = 1 " +
+                " union " +
+                "select " +
+                "aq.question, " +
+                "aq.itemtype, " +
+                "aq.itemorder, " +
+                "null " +
+                "from person_to_assessments pa " +
+                "join person p on p.person_id = pa.person_id " +
+                "join assessments a on pa.assessment_id = a.assessment_id " +
+                "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
+                "where  1=1 " +
+                " and pa.person_id = " + person_to_assessment.get_person_id() +
+                " and pa.facility_id = " + person_to_assessment.get_facility_id() +
+                " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
+                " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
+              //" and aq.status = 1 " +
+                " and aq.itemtype = 'text' " +
+                "order by aq.itemorder ";
+
+        Log.d("request!", "Query: " + query);
 
             SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(selectQuery, null);
+            Cursor cursor = db.rawQuery(query, null);
 
             // looping through all rows and adding to list
             if (cursor.moveToFirst()) {
                 do {
-                    EditPageObject editPageObject = new Person();
-                    //person.setRowId(Integer.parseInt(cursor.getString(0)));
-                    editPageObject.setPersonId(Integer.parseInt(cursor.getString(0)));
-                    editPageObject.setFirstName(cursor.getString(1));
-                    editPageObject.setLastName(cursor.getString(2));
-                    editPageObject.setNationalId(cursor.getString(3));
-                    editPageObject.setFacilityId(Integer.parseInt(cursor.getString(4)));
-                    editPageObject.setFacilityName(cursor.getString(5));
+                    EditPageObject editPageObject = new EditPageObject();
+                    editPageObject.set_question(cursor.getString(0));
+                    editPageObject.set_itemtype(cursor.getString(1));
+                    editPageObject.set_itemorder(Integer.parseInt(cursor.getString(2)));
+                    editPageObject.set_answer(cursor.getString(3));
 
-                    // Adding person to list
+                    // Adding object to list
                     editPageList.add(editPageObject);
                 } while (cursor.moveToNext());
             }
@@ -520,7 +707,6 @@ public boolean deletePerson(Person person) {
             // return person list
             return editPageList;
         }
-
 
     public String[][] getQuestionData(int personID, int facilityID, int date, int assessmentID) {
         //String query = "select * from person";

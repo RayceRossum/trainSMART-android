@@ -15,11 +15,12 @@ public class Person {
     String _facility_name;
 
     // Empty constructor
-    public Person(){
+    public Person() {
 
     }
+
     // constructor
-    public Person(int rowid, int person_id, String first_name, String last_name, String national_id, int facility_id, String facility_name){
+    public Person(int rowid, int person_id, String first_name, String last_name, String national_id, int facility_id, String facility_name) {
         this._rowid = rowid;
         this._person_id = person_id;
         this._first_name = first_name;
@@ -30,7 +31,7 @@ public class Person {
     }
 
     // constructor
-    public Person(int person_id, String first_name, String last_name, String national_id, int facility_id, String facility_name){
+    public Person(int person_id, String first_name, String last_name, String national_id, int facility_id, String facility_name) {
         this._person_id = person_id;
         this._first_name = first_name;
         this._last_name = last_name;
@@ -39,73 +40,66 @@ public class Person {
         this._facility_name = facility_name;
     }
 
-    // getting ID
-    public int getRowId(){
-        return this._rowid;
+
+    public String get_facility_name() {
+        return _facility_name;
     }
 
-    // setting id
-    public void setRowId(int rowid){
-        this._rowid = rowid;
+    public void set_facility_name(String _facility_name) {
+        this._facility_name = _facility_name;
     }
 
-    // getting person_id
-    public int getPersonId(){
-        return this._person_id;
+    public int get_facility_id() {
+
+        return _facility_id;
     }
 
-    // setting id
-    public void setPersonId(int person_id){
-        this._person_id = person_id;
+    public void set_facility_id(int _facility_id) {
+        this._facility_id = _facility_id;
     }
 
-    // getting first_name
-    public String getFirstName(){
-        return this._first_name;
+    public String get_national_id() {
+
+        return _national_id;
     }
 
-    // getting last_name
-    public String getLastName(){
-        return this._last_name;
+    public void set_national_id(String _national_id) {
+        this._national_id = _national_id;
     }
 
-    // setting first_name
-    public void setFirstName(String first_name){
-        this._first_name = first_name;
+    public String get_last_name() {
+
+        return _last_name;
     }
 
-    // setting last_name
-    public void setLastName(String last_name){
-        this._last_name = last_name;
+    public void set_last_name(String _last_name) {
+        this._last_name = _last_name;
     }
 
-    // getting national_id
-    public String getNationalId(){
-        return this._national_id;
+    public String get_first_name() {
+
+        return _first_name;
     }
 
-    // setting national_id
-    public void setNationalId(String national_id){
-        this._national_id = national_id;
+    public void set_first_name(String _first_name) {
+        this._first_name = _first_name;
     }
 
-    // getting facility_id
-    public int getFacilityId(){
-        return this._facility_id;
+    public int get_person_id() {
+
+        return _person_id;
     }
 
-    // setting facility_id
-    public void setFacilityId(int facility_id){
-        this._facility_id = facility_id;
+    public void set_person_id(int _person_id) {
+        this._person_id = _person_id;
     }
 
-    // getting facility_name
-    public String getFacilityName(){
-        return this._facility_name;
+    public int get_rowid() {
+
+        return _rowid;
     }
 
-    // setting facility_name
-    public void setFacilityName(String facility_name){
-        this._facility_name = facility_name;
+    public void set_rowid(int _rowid) {
+        this._rowid = _rowid;
     }
 }
