@@ -124,30 +124,12 @@ public class EditFragment extends Fragment {
         public void onFragmentInteraction(int position);
 
     }
-    public static class labelViewHolder {
-        public TextView textView;
-    }
 
-    public static class radioViewHolder {
-        public TextView textView;
-        public SeekBar seekBar;
-    }
-
-    public static class singleEditViewHolder {
-        public TextView textView;
-        public EditText editText;
-    }
-
-    public static class multiEditViewHolder {
-        public TextView textView;
-        public EditText editText2;
-    }
-
-    public static class switchViewHolder {
+    public static class ViewHolder {
         public TextView textView;
         public Switch switchWidget;
-
+        public EditText editText;
+        public EditText editText2;
+        public SeekBar seekBar;
     }
-
-
 }
