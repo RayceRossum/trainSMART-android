@@ -3,6 +3,7 @@ package com.surveyapp.rayce.surveyapp2;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+
 
 
 /**
@@ -73,8 +75,11 @@ public class EditFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
+        Time now = new Time();
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
+        PersonToAssessments pToA = dbHelp.getPersonToAssessments(2);
+        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA));
+//        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
 
 

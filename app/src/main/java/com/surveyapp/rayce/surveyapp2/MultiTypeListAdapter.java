@@ -10,6 +10,8 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by Rayce on 8/7/2015.
  */
@@ -19,16 +21,18 @@ public class MultiTypeListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     private String[][] data;
+    private List<EditPageObject> pageData;
 
-    public MultiTypeListAdapter(Context context, String[][] data) {
+    public MultiTypeListAdapter(Context context, List<EditPageObject> pageData) {
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.data = data;
+        this.pageData = pageData;
     }
 
     @Override
     public int getCount() {
-        return data.length;
+        return pageData.size();
     }
 
     @Override
@@ -50,7 +54,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         int type = -1;
 
-        switch (data[position][1]) { // 1 is itemtype
+        switch (pageData.get(position)._itemtype) {
             case "text":
                 type = 0;
                 break;
@@ -153,7 +157,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
             holder = (EditFragment.ViewHolder) view.getTag();
         }
 
-        holder.textView.setText("Question goes here");
+        holder.textView.setText(pageData.get(position)._question);
         //holder.textView.setText(getQuestion(position));
         return view;
     }
