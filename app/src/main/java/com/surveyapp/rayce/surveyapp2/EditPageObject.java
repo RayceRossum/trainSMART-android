@@ -7,6 +7,16 @@ public class EditPageObject {
 
     //private variables
     int _rowid;
+    int _assessments_questions_id;
+
+    public int get_assessments_questions_id() {
+        return _assessments_questions_id;
+    }
+
+    public void set_assessments_questions_id(int _assessments_questions_id) {
+        this._assessments_questions_id = _assessments_questions_id;
+    }
+
     String _question;
     String _itemtype;
     int _itemorder;

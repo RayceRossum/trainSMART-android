@@ -77,7 +77,6 @@ public class EditFragment extends Fragment {
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
 
-
         listView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
@@ -126,6 +125,7 @@ public class EditFragment extends Fragment {
     }
 
     public static class ViewHolder {
+        public int position;
         public TextView textView;
         public Switch switchWidget;
         public EditText editText;
