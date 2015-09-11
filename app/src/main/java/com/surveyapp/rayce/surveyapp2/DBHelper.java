@@ -224,8 +224,8 @@ public class DBHelper extends SQLiteOpenHelper{
 //                );
 //            }
             for (EditPageObject epo : editPageObjectList) {
-                Log.d("request!", "old answer: " + epo.get_answer() + " " + epo.get_itemtype());
-                epo.set_answer("new "+ epo.get_answer());
+                Log.d("request!", "question and answer: " + epo.get_question() + " " + epo.get_answer());
+                //epo.set_answer("new "+ epo.get_answer());
             }
 
             setEditPageData(pa, editPageObjectList); //  insert/update answers
@@ -911,8 +911,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("insert into assessments_answers values (3347,1,1,\"2015-07-07\",2,18,\"D\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3348,1,1,\"2015-07-07\",2,19,\"E\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3350,1,1,\"2015-07-07\",2,21,\"F\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3351,1,1,\"2015-07-07\",2,22,\"3.2. save 2\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3352,1,1,\"2015-07-07\",2,23,\"3.3. 2015-07-07\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3351,1,1,\"2015-07-07\",2,22,\"3.2.\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3352,1,1,\"2015-07-07\",2,23,\"3.3.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3353,1,1,\"2015-07-07\",2,24,\"3.4.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3354,1,1,\"2015-07-07\",2,25,\"3.5.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3355,1,1,\"2015-07-07\",2,26,\"3.6.\",\"Y\");");

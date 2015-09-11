@@ -3,6 +3,8 @@ package com.surveyapp.rayce.surveyapp2;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.HashMap;
 
 
 /**
@@ -78,7 +81,7 @@ public class EditFragment extends Fragment {
 
         Time now = new Time();
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-        PersonToAssessments pToA = dbHelp.getPersonToAssessments(2);
+        PersonToAssessments pToA = dbHelp.getPersonToAssessments(1);
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA));
 //        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
@@ -130,12 +133,41 @@ public class EditFragment extends Fragment {
 
     }
 
-    public static class ViewHolder {
+    public static class ViewHolder implements TextWatcher {
+        //List<EditPageObject> pageData;
+        public HashMap _saveData = new HashMap();
         public int position;
         public TextView textView;
         public Switch switchWidget;
         public EditText editText;
         public EditText editText2;
         public SeekBar seekBar;
+
+        public ViewHolder(HashMap<String, Integer> saveData) {
+            this._saveData = saveData;
+        }
+
+        public void afterTextChanged(Editable editable) {
+            //Log.d("request!", "atc Position/editable: " + position + ">" + editable.toString() + "<");
+
+//            for (int i = 0; i < pageData.size(); i++) {
+//                Log.d("request!", "atc Position/i/_pageData.answer/io " + " " + position + " " + i + " " + ">" + pageData.get(i).get_answer() + "< " + pageData.get(i).get_itemorder()               );
+//            }
+
+            _saveData.remove(position);
+            _saveData.put(position,editable.toString());
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+            // TODO Auto-generated method stub
+
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            // TODO Auto-generated method stub
+
+        }
     }
 }
