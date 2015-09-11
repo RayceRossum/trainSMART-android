@@ -69,7 +69,6 @@ public class DebugFragment extends Fragment {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        Log.d("request!", "DebugFragment.onCreate");
         DBHelper dbHelp = new DBHelper(getActivity());
         this._dbHelp = dbHelp;
     }
