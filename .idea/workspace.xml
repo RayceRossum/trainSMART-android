@@ -12,11 +12,27 @@
       </filter>
     </filters>
   </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5238bff0-222d-4842-b81f-60fdfd1b0478" name="Default" comment="" />
+    <list default="true" id="5238bff0-222d-4842-b81f-60fdfd1b0478" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Rayce\AndroidStudioProjects\SurveyApp2\.idea\libraries\appcompat_v7_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Rayce\AndroidStudioProjects\SurveyApp2\.idea\libraries\recyclerview_v7_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Rayce\AndroidStudioProjects\SurveyApp2\.idea\libraries\support_annotations_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Rayce\AndroidStudioProjects\SurveyApp2\.idea\libraries\support_v4_22_2_0.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="trainSMART-android.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +58,7 @@
     <favorites_list name="trainSMART-android" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.452726">
+    <splitter split-orientation="horizontal" split-proportion="0.4644243">
       <split-first>
         <leaf>
           <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
@@ -50,39 +66,24 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DebugFragment.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
                   <folding>
-                    <element signature="imports" expanded="true" />
+                    <element signature="e#1218#1219#0" expanded="false" />
+                    <element signature="e#1255#1256#0" expanded="false" />
+                    <element signature="e#1315#1316#0" expanded="false" />
+                    <element signature="e#1367#1368#0" expanded="false" />
+                    <element signature="e#1492#1493#0" expanded="false" />
+                    <element signature="e#1540#1541#0" expanded="false" />
+                    <element signature="e#1671#1672#0" expanded="false" />
+                    <element signature="e#1719#1720#0" expanded="false" />
+                    <element signature="e#1842#1843#0" expanded="false" />
+                    <element signature="e#1886#1887#0" expanded="false" />
+                    <element signature="e#2013#2014#0" expanded="false" />
+                    <element signature="e#2059#2060#0" expanded="false" />
+                    <element signature="e#2176#2177#0" expanded="false" />
+                    <element signature="e#2220#2221#0" expanded="false" />
+                    <element signature="e#2321#2322#0" expanded="false" />
+                    <element signature="e#2357#2358#0" expanded="false" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Fragment.java" pinned="false" current-in-tab="false">
-            <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/app/Fragment.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="1699" column="0" selection-start-line="1699" selection-start-column="0" selection-end-line="1699" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -90,18 +91,9 @@
           <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.7008">
-                  <caret line="159" column="66" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
-                  <folding>
-                    <element signature="e#859#860#0" expanded="true" />
-                    <element signature="e#897#898#0" expanded="true" />
-                    <element signature="e#954#955#0" expanded="true" />
-                    <element signature="e#985#986#0" expanded="true" />
-                    <element signature="e#1042#1043#0" expanded="true" />
-                    <element signature="e#1073#1074#0" expanded="true" />
-                    <element signature="e#1124#1125#0" expanded="true" />
-                    <element signature="e#1148#1149#0" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -110,33 +102,29 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+          <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.103448">
-                  <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
+                <state vertical-scroll-proportion="0.35">
+                  <caret line="147" column="31" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
                   <folding>
-                    <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
-                    <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-                    <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
-                    <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
-                    <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-                    <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="PersonToAssessments.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.68">
-                  <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#1462#1463#0" expanded="true" />
-                    <element signature="e#1495#1496#0" expanded="true" />
-                  </folding>
-                </state>
+          <file leaf-file-name="device-2015-09-11-120519.png" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Pictures/device-2015-09-11-120519.png">
+              <provider selected="true" editor-type-id="images">
+                <state />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="device-2015-09-11-120553.png" pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Pictures/device-2015-09-11-120553.png">
+              <provider selected="true" editor-type-id="images">
+                <state />
               </provider>
             </entry>
           </file>
@@ -150,6 +138,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1596,6 +1587,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/getMySQLAssessmentsQuestionsTable.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditPageObject.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
       </list>
@@ -1605,12 +1598,12 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="865" />
+    <option name="y" value="88" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -1624,7 +1617,7 @@
     <option name="STATE" value="1" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="AndroidView" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1636,6 +1629,136 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surveyapp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trainSMART-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SurveyApp2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1688,10 +1811,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1701,6 +1823,9 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="TrainSMART_Tablet" />
     <property name="FullScreen" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Pictures" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1913,29 +2038,38 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="865" y="88" width="1936" height="1056" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27363738" sideWeight="0.358742" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34593993" sideWeight="0.37686568" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.49573562" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31561086" sideWeight="0.51321006" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31256953" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27363738" sideWeight="0.641258" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34593993" sideWeight="0.6231343" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25016204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22761194" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.48294243" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22867803" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259177" sideWeight="0.46535182" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1972,6 +2106,482 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="25" selection-end-line="115" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="121" selection-start-line="86" selection-start-column="121" selection-end-line="86" selection-end-column="121" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="e#1218#1219#0" expanded="false" />
+            <element signature="e#1255#1256#0" expanded="false" />
+            <element signature="e#1315#1316#0" expanded="false" />
+            <element signature="e#1367#1368#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1540#1541#0" expanded="false" />
+            <element signature="e#1671#1672#0" expanded="false" />
+            <element signature="e#1719#1720#0" expanded="false" />
+            <element signature="e#1842#1843#0" expanded="false" />
+            <element signature="e#1886#1887#0" expanded="false" />
+            <element signature="e#2013#2014#0" expanded="false" />
+            <element signature="e#2059#2060#0" expanded="false" />
+            <element signature="e#2176#2177#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+            <element signature="e#2321#2322#0" expanded="false" />
+            <element signature="e#2357#2358#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1699" column="0" selection-start-line="1699" selection-start-column="0" selection-end-line="1699" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#91797#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4137#4138#0" expanded="false" />
+            <element signature="e#4161#4162#0" expanded="false" />
+            <element signature="e#4799#4800#0" expanded="false" />
+            <element signature="e#4851#4852#0" expanded="false" />
+            <element signature="e#4904#4905#0" expanded="false" />
+            <element signature="e#4958#4959#0" expanded="false" />
+            <element signature="e#20140#20141#0" expanded="false" />
+            <element signature="e#20178#20179#0" expanded="false" />
+            <element signature="e#20451#20452#0" expanded="false" />
+            <element signature="e#20483#20484#0" expanded="false" />
+            <element signature="e#20562#20563#0" expanded="false" />
+            <element signature="e#20610#20611#0" expanded="false" />
+            <element signature="e#20817#20818#0" expanded="false" />
+            <element signature="e#20880#20881#0" expanded="false" />
+            <element signature="e#21080#21081#0" expanded="false" />
+            <element signature="e#21139#21140#0" expanded="false" />
+            <element signature="e#21441#21442#0" expanded="false" />
+            <element signature="e#21482#21483#0" expanded="false" />
+            <element signature="e#26008#26009#0" expanded="false" />
+            <element signature="e#26052#26053#0" expanded="false" />
+            <element signature="e#26168#26169#0" expanded="false" />
+            <element signature="e#26206#26207#0" expanded="false" />
+            <element signature="e#26314#26315#0" expanded="false" />
+            <element signature="e#26353#26354#0" expanded="false" />
+            <element signature="e#27119#27120#0" expanded="false" />
+            <element signature="e#27153#27154#0" expanded="false" />
+            <element signature="e#27260#27261#0" expanded="false" />
+            <element signature="e#27287#27288#0" expanded="false" />
+            <element signature="e#27961#27962#0" expanded="false" />
+            <element signature="e#27994#27995#0" expanded="false" />
+            <element signature="e#29466#29467#0" expanded="false" />
+            <element signature="e#29496#29497#0" expanded="false" />
+            <element signature="e#29632#29633#0" expanded="false" />
+            <element signature="e#29673#29674#0" expanded="false" />
+            <element signature="e#29803#29804#0" expanded="false" />
+            <element signature="e#29835#29836#0" expanded="false" />
+            <element signature="e#30380#30381#0" expanded="false" />
+            <element signature="e#30432#30433#0" expanded="false" />
+            <element signature="e#30645#30646#0" expanded="false" />
+            <element signature="e#30699#30700#0" expanded="false" />
+            <element signature="e#31799#31800#0" expanded="false" />
+            <element signature="e#31838#31839#0" expanded="false" />
+            <element signature="e#32795#32796#0" expanded="false" />
+            <element signature="e#32833#32834#0" expanded="false" />
+            <element signature="e#32958#32959#0" expanded="false" />
+            <element signature="e#33008#33009#0" expanded="false" />
+            <element signature="e#33268#33269#0" expanded="false" />
+            <element signature="e#33300#33301#0" expanded="false" />
+            <element signature="e#33587#33588#0" expanded="false" />
+            <element signature="e#33619#33620#0" expanded="false" />
+            <element signature="e#34047#34048#0" expanded="false" />
+            <element signature="e#34079#34080#0" expanded="false" />
+            <element signature="e#34288#34289#0" expanded="false" />
+            <element signature="e#34319#34320#0" expanded="false" />
+            <element signature="e#35104#35105#0" expanded="false" />
+            <element signature="e#35134#35135#0" expanded="false" />
+            <element signature="e#36566#36567#0" expanded="false" />
+            <element signature="e#36604#36605#0" expanded="false" />
+            <element signature="e#39019#39020#0" expanded="false" />
+            <element signature="e#39058#39059#0" expanded="false" />
+            <element signature="e#39788#39789#0" expanded="false" />
+            <element signature="e#39831#39832#0" expanded="false" />
+            <element signature="e#43666#43667#0" expanded="false" />
+            <element signature="e#43696#43697#0" expanded="false" />
+            <element signature="e#47913#47914#0" expanded="false" />
+            <element signature="e#47943#47944#0" expanded="false" />
+            <element signature="e#48091#48092#0" expanded="false" />
+            <element signature="e#48118#48119#0" expanded="false" />
+            <element signature="e#48865#48866#0" expanded="false" />
+            <element signature="e#48895#48896#0" expanded="false" />
+            <element signature="e#51044#51045#0" expanded="false" />
+            <element signature="e#51072#51073#0" expanded="false" />
+            <element signature="e#51854#51855#0" expanded="false" />
+            <element signature="e#51884#51885#0" expanded="false" />
+            <element signature="e#52485#52486#0" expanded="false" />
+            <element signature="e#52515#52516#0" expanded="false" />
+            <element signature="e#53403#53404#0" expanded="false" />
+            <element signature="e#53433#53434#0" expanded="false" />
+            <element signature="e#54635#54636#0" expanded="false" />
+            <element signature="e#54665#54666#0" expanded="false" />
+            <element signature="e#54889#54890#0" expanded="false" />
+            <element signature="e#54919#54920#0" expanded="false" />
+            <element signature="e#55140#55141#0" expanded="false" />
+            <element signature="e#55170#55171#0" expanded="false" />
+            <element signature="e#55203#55204#0" expanded="false" />
+            <element signature="e#55233#55234#0" expanded="false" />
+            <element signature="e#55276#55277#0" expanded="false" />
+            <element signature="e#55306#55307#0" expanded="false" />
+            <element signature="e#55864#55865#0" expanded="false" />
+            <element signature="e#55894#55895#0" expanded="false" />
+            <element signature="e#57608#57609#0" expanded="false" />
+            <element signature="e#57638#57639#0" expanded="false" />
+            <element signature="e#60127#60128#0" expanded="false" />
+            <element signature="e#60155#60156#0" expanded="false" />
+            <element signature="e#62032#62033#0" expanded="false" />
+            <element signature="e#62089#62090#0" expanded="false" />
+            <element signature="e#62425#62426#0" expanded="false" />
+            <element signature="e#62482#62483#0" expanded="false" />
+            <element signature="e#63386#63387#0" expanded="false" />
+            <element signature="e#63414#63415#0" expanded="false" />
+            <element signature="e#65670#65671#0" expanded="false" />
+            <element signature="e#65715#65716#0" expanded="false" />
+            <element signature="e#66342#66343#0" expanded="false" />
+            <element signature="e#66381#66382#0" expanded="false" />
+            <element signature="e#67409#67410#0" expanded="false" />
+            <element signature="e#67455#67456#0" expanded="false" />
+            <element signature="e#69317#69318#0" expanded="false" />
+            <element signature="e#69361#69362#0" expanded="false" />
+            <element signature="e#70208#70209#0" expanded="false" />
+            <element signature="e#70246#70247#0" expanded="false" />
+            <element signature="e#71201#71202#0" expanded="false" />
+            <element signature="e#71248#71249#0" expanded="false" />
+            <element signature="e#73571#73572#0" expanded="false" />
+            <element signature="e#73623#73624#0" expanded="false" />
+            <element signature="e#82972#82973#0" expanded="false" />
+            <element signature="e#83026#83027#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
+          <folding>
+            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="e#1218#1219#0" expanded="false" />
+            <element signature="e#1255#1256#0" expanded="false" />
+            <element signature="e#1315#1316#0" expanded="false" />
+            <element signature="e#1367#1368#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1540#1541#0" expanded="false" />
+            <element signature="e#1671#1672#0" expanded="false" />
+            <element signature="e#1719#1720#0" expanded="false" />
+            <element signature="e#1842#1843#0" expanded="false" />
+            <element signature="e#1886#1887#0" expanded="false" />
+            <element signature="e#2013#2014#0" expanded="false" />
+            <element signature="e#2059#2060#0" expanded="false" />
+            <element signature="e#2176#2177#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+            <element signature="e#2321#2322#0" expanded="false" />
+            <element signature="e#2357#2358#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1699" column="0" selection-start-line="1699" selection-start-column="0" selection-end-line="1699" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#91797#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4137#4138#0" expanded="false" />
+            <element signature="e#4161#4162#0" expanded="false" />
+            <element signature="e#4799#4800#0" expanded="false" />
+            <element signature="e#4851#4852#0" expanded="false" />
+            <element signature="e#4904#4905#0" expanded="false" />
+            <element signature="e#4958#4959#0" expanded="false" />
+            <element signature="e#20140#20141#0" expanded="false" />
+            <element signature="e#20178#20179#0" expanded="false" />
+            <element signature="e#20451#20452#0" expanded="false" />
+            <element signature="e#20483#20484#0" expanded="false" />
+            <element signature="e#20562#20563#0" expanded="false" />
+            <element signature="e#20610#20611#0" expanded="false" />
+            <element signature="e#20817#20818#0" expanded="false" />
+            <element signature="e#20880#20881#0" expanded="false" />
+            <element signature="e#21080#21081#0" expanded="false" />
+            <element signature="e#21139#21140#0" expanded="false" />
+            <element signature="e#21441#21442#0" expanded="false" />
+            <element signature="e#21482#21483#0" expanded="false" />
+            <element signature="e#26008#26009#0" expanded="false" />
+            <element signature="e#26052#26053#0" expanded="false" />
+            <element signature="e#26168#26169#0" expanded="false" />
+            <element signature="e#26206#26207#0" expanded="false" />
+            <element signature="e#26314#26315#0" expanded="false" />
+            <element signature="e#26353#26354#0" expanded="false" />
+            <element signature="e#27119#27120#0" expanded="false" />
+            <element signature="e#27153#27154#0" expanded="false" />
+            <element signature="e#27260#27261#0" expanded="false" />
+            <element signature="e#27287#27288#0" expanded="false" />
+            <element signature="e#27961#27962#0" expanded="false" />
+            <element signature="e#27994#27995#0" expanded="false" />
+            <element signature="e#29466#29467#0" expanded="false" />
+            <element signature="e#29496#29497#0" expanded="false" />
+            <element signature="e#29632#29633#0" expanded="false" />
+            <element signature="e#29673#29674#0" expanded="false" />
+            <element signature="e#29803#29804#0" expanded="false" />
+            <element signature="e#29835#29836#0" expanded="false" />
+            <element signature="e#30380#30381#0" expanded="false" />
+            <element signature="e#30432#30433#0" expanded="false" />
+            <element signature="e#30645#30646#0" expanded="false" />
+            <element signature="e#30699#30700#0" expanded="false" />
+            <element signature="e#31799#31800#0" expanded="false" />
+            <element signature="e#31838#31839#0" expanded="false" />
+            <element signature="e#32795#32796#0" expanded="false" />
+            <element signature="e#32833#32834#0" expanded="false" />
+            <element signature="e#32958#32959#0" expanded="false" />
+            <element signature="e#33008#33009#0" expanded="false" />
+            <element signature="e#33268#33269#0" expanded="false" />
+            <element signature="e#33300#33301#0" expanded="false" />
+            <element signature="e#33587#33588#0" expanded="false" />
+            <element signature="e#33619#33620#0" expanded="false" />
+            <element signature="e#34047#34048#0" expanded="false" />
+            <element signature="e#34079#34080#0" expanded="false" />
+            <element signature="e#34288#34289#0" expanded="false" />
+            <element signature="e#34319#34320#0" expanded="false" />
+            <element signature="e#35104#35105#0" expanded="false" />
+            <element signature="e#35134#35135#0" expanded="false" />
+            <element signature="e#36566#36567#0" expanded="false" />
+            <element signature="e#36604#36605#0" expanded="false" />
+            <element signature="e#39019#39020#0" expanded="false" />
+            <element signature="e#39058#39059#0" expanded="false" />
+            <element signature="e#39788#39789#0" expanded="false" />
+            <element signature="e#39831#39832#0" expanded="false" />
+            <element signature="e#43666#43667#0" expanded="false" />
+            <element signature="e#43696#43697#0" expanded="false" />
+            <element signature="e#47913#47914#0" expanded="false" />
+            <element signature="e#47943#47944#0" expanded="false" />
+            <element signature="e#48091#48092#0" expanded="false" />
+            <element signature="e#48118#48119#0" expanded="false" />
+            <element signature="e#48865#48866#0" expanded="false" />
+            <element signature="e#48895#48896#0" expanded="false" />
+            <element signature="e#51044#51045#0" expanded="false" />
+            <element signature="e#51072#51073#0" expanded="false" />
+            <element signature="e#51854#51855#0" expanded="false" />
+            <element signature="e#51884#51885#0" expanded="false" />
+            <element signature="e#52485#52486#0" expanded="false" />
+            <element signature="e#52515#52516#0" expanded="false" />
+            <element signature="e#53403#53404#0" expanded="false" />
+            <element signature="e#53433#53434#0" expanded="false" />
+            <element signature="e#54635#54636#0" expanded="false" />
+            <element signature="e#54665#54666#0" expanded="false" />
+            <element signature="e#54889#54890#0" expanded="false" />
+            <element signature="e#54919#54920#0" expanded="false" />
+            <element signature="e#55140#55141#0" expanded="false" />
+            <element signature="e#55170#55171#0" expanded="false" />
+            <element signature="e#55203#55204#0" expanded="false" />
+            <element signature="e#55233#55234#0" expanded="false" />
+            <element signature="e#55276#55277#0" expanded="false" />
+            <element signature="e#55306#55307#0" expanded="false" />
+            <element signature="e#55864#55865#0" expanded="false" />
+            <element signature="e#55894#55895#0" expanded="false" />
+            <element signature="e#57608#57609#0" expanded="false" />
+            <element signature="e#57638#57639#0" expanded="false" />
+            <element signature="e#60127#60128#0" expanded="false" />
+            <element signature="e#60155#60156#0" expanded="false" />
+            <element signature="e#62032#62033#0" expanded="false" />
+            <element signature="e#62089#62090#0" expanded="false" />
+            <element signature="e#62425#62426#0" expanded="false" />
+            <element signature="e#62482#62483#0" expanded="false" />
+            <element signature="e#63386#63387#0" expanded="false" />
+            <element signature="e#63414#63415#0" expanded="false" />
+            <element signature="e#65670#65671#0" expanded="false" />
+            <element signature="e#65715#65716#0" expanded="false" />
+            <element signature="e#66342#66343#0" expanded="false" />
+            <element signature="e#66381#66382#0" expanded="false" />
+            <element signature="e#67409#67410#0" expanded="false" />
+            <element signature="e#67455#67456#0" expanded="false" />
+            <element signature="e#69317#69318#0" expanded="false" />
+            <element signature="e#69361#69362#0" expanded="false" />
+            <element signature="e#70208#70209#0" expanded="false" />
+            <element signature="e#70246#70247#0" expanded="false" />
+            <element signature="e#71201#71202#0" expanded="false" />
+            <element signature="e#71248#71249#0" expanded="false" />
+            <element signature="e#73571#73572#0" expanded="false" />
+            <element signature="e#73623#73624#0" expanded="false" />
+            <element signature="e#82972#82973#0" expanded="false" />
+            <element signature="e#83026#83027#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="159" column="64" selection-start-line="159" selection-start-column="32" selection-end-line="159" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
+          <folding>
+            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1991,16 +2601,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1148#1149#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2023,16 +2624,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1148#1149#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2055,16 +2647,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1148#1149#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2080,13 +2663,6 @@
             <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14731368">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2116,7 +2692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80415946">
           <caret line="64" column="43" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2124,7 +2699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8544195">
           <caret line="92" column="81" selection-start-line="92" selection-start-column="81" selection-end-line="92" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2132,31 +2706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0034662045">
           <caret line="24" column="5" selection-start-line="18" selection-start-column="1" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/app/Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1699" column="0" selection-start-line="1699" selection-start-column="0" selection-end-line="1699" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2168,9 +2717,158 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/app/Fragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1699" column="0" selection-start-line="1699" selection-start-column="0" selection-end-line="1699" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#91797#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4137#4138#0" expanded="false" />
+            <element signature="e#4161#4162#0" expanded="false" />
+            <element signature="e#4799#4800#0" expanded="false" />
+            <element signature="e#4851#4852#0" expanded="false" />
+            <element signature="e#4904#4905#0" expanded="false" />
+            <element signature="e#4958#4959#0" expanded="false" />
+            <element signature="e#20140#20141#0" expanded="false" />
+            <element signature="e#20178#20179#0" expanded="false" />
+            <element signature="e#20451#20452#0" expanded="false" />
+            <element signature="e#20483#20484#0" expanded="false" />
+            <element signature="e#20562#20563#0" expanded="false" />
+            <element signature="e#20610#20611#0" expanded="false" />
+            <element signature="e#20817#20818#0" expanded="false" />
+            <element signature="e#20880#20881#0" expanded="false" />
+            <element signature="e#21080#21081#0" expanded="false" />
+            <element signature="e#21139#21140#0" expanded="false" />
+            <element signature="e#21441#21442#0" expanded="false" />
+            <element signature="e#21482#21483#0" expanded="false" />
+            <element signature="e#26008#26009#0" expanded="false" />
+            <element signature="e#26052#26053#0" expanded="false" />
+            <element signature="e#26168#26169#0" expanded="false" />
+            <element signature="e#26206#26207#0" expanded="false" />
+            <element signature="e#26314#26315#0" expanded="false" />
+            <element signature="e#26353#26354#0" expanded="false" />
+            <element signature="e#27119#27120#0" expanded="false" />
+            <element signature="e#27153#27154#0" expanded="false" />
+            <element signature="e#27260#27261#0" expanded="false" />
+            <element signature="e#27287#27288#0" expanded="false" />
+            <element signature="e#27961#27962#0" expanded="false" />
+            <element signature="e#27994#27995#0" expanded="false" />
+            <element signature="e#29466#29467#0" expanded="false" />
+            <element signature="e#29496#29497#0" expanded="false" />
+            <element signature="e#29632#29633#0" expanded="false" />
+            <element signature="e#29673#29674#0" expanded="false" />
+            <element signature="e#29803#29804#0" expanded="false" />
+            <element signature="e#29835#29836#0" expanded="false" />
+            <element signature="e#30380#30381#0" expanded="false" />
+            <element signature="e#30432#30433#0" expanded="false" />
+            <element signature="e#30645#30646#0" expanded="false" />
+            <element signature="e#30699#30700#0" expanded="false" />
+            <element signature="e#31799#31800#0" expanded="false" />
+            <element signature="e#31838#31839#0" expanded="false" />
+            <element signature="e#32795#32796#0" expanded="false" />
+            <element signature="e#32833#32834#0" expanded="false" />
+            <element signature="e#32958#32959#0" expanded="false" />
+            <element signature="e#33008#33009#0" expanded="false" />
+            <element signature="e#33268#33269#0" expanded="false" />
+            <element signature="e#33300#33301#0" expanded="false" />
+            <element signature="e#33587#33588#0" expanded="false" />
+            <element signature="e#33619#33620#0" expanded="false" />
+            <element signature="e#34047#34048#0" expanded="false" />
+            <element signature="e#34079#34080#0" expanded="false" />
+            <element signature="e#34288#34289#0" expanded="false" />
+            <element signature="e#34319#34320#0" expanded="false" />
+            <element signature="e#35104#35105#0" expanded="false" />
+            <element signature="e#35134#35135#0" expanded="false" />
+            <element signature="e#36566#36567#0" expanded="false" />
+            <element signature="e#36604#36605#0" expanded="false" />
+            <element signature="e#39019#39020#0" expanded="false" />
+            <element signature="e#39058#39059#0" expanded="false" />
+            <element signature="e#39788#39789#0" expanded="false" />
+            <element signature="e#39831#39832#0" expanded="false" />
+            <element signature="e#43666#43667#0" expanded="false" />
+            <element signature="e#43696#43697#0" expanded="false" />
+            <element signature="e#47913#47914#0" expanded="false" />
+            <element signature="e#47943#47944#0" expanded="false" />
+            <element signature="e#48091#48092#0" expanded="false" />
+            <element signature="e#48118#48119#0" expanded="false" />
+            <element signature="e#48865#48866#0" expanded="false" />
+            <element signature="e#48895#48896#0" expanded="false" />
+            <element signature="e#51044#51045#0" expanded="false" />
+            <element signature="e#51072#51073#0" expanded="false" />
+            <element signature="e#51854#51855#0" expanded="false" />
+            <element signature="e#51884#51885#0" expanded="false" />
+            <element signature="e#52485#52486#0" expanded="false" />
+            <element signature="e#52515#52516#0" expanded="false" />
+            <element signature="e#53403#53404#0" expanded="false" />
+            <element signature="e#53433#53434#0" expanded="false" />
+            <element signature="e#54635#54636#0" expanded="false" />
+            <element signature="e#54665#54666#0" expanded="false" />
+            <element signature="e#54889#54890#0" expanded="false" />
+            <element signature="e#54919#54920#0" expanded="false" />
+            <element signature="e#55140#55141#0" expanded="false" />
+            <element signature="e#55170#55171#0" expanded="false" />
+            <element signature="e#55203#55204#0" expanded="false" />
+            <element signature="e#55233#55234#0" expanded="false" />
+            <element signature="e#55276#55277#0" expanded="false" />
+            <element signature="e#55306#55307#0" expanded="false" />
+            <element signature="e#55864#55865#0" expanded="false" />
+            <element signature="e#55894#55895#0" expanded="false" />
+            <element signature="e#57608#57609#0" expanded="false" />
+            <element signature="e#57638#57639#0" expanded="false" />
+            <element signature="e#60127#60128#0" expanded="false" />
+            <element signature="e#60155#60156#0" expanded="false" />
+            <element signature="e#62032#62033#0" expanded="false" />
+            <element signature="e#62089#62090#0" expanded="false" />
+            <element signature="e#62425#62426#0" expanded="false" />
+            <element signature="e#62482#62483#0" expanded="false" />
+            <element signature="e#63386#63387#0" expanded="false" />
+            <element signature="e#63414#63415#0" expanded="false" />
+            <element signature="e#65670#65671#0" expanded="false" />
+            <element signature="e#65715#65716#0" expanded="false" />
+            <element signature="e#66342#66343#0" expanded="false" />
+            <element signature="e#66381#66382#0" expanded="false" />
+            <element signature="e#67409#67410#0" expanded="false" />
+            <element signature="e#67455#67456#0" expanded="false" />
+            <element signature="e#69317#69318#0" expanded="false" />
+            <element signature="e#69361#69362#0" expanded="false" />
+            <element signature="e#70208#70209#0" expanded="false" />
+            <element signature="e#70246#70247#0" expanded="false" />
+            <element signature="e#71201#71202#0" expanded="false" />
+            <element signature="e#71248#71249#0" expanded="false" />
+            <element signature="e#73571#73572#0" expanded="false" />
+            <element signature="e#73623#73624#0" expanded="false" />
+            <element signature="e#82972#82973#0" expanded="false" />
+            <element signature="e#83026#83027#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.103448">
+        <state vertical-scroll-proportion="0.0">
           <caret line="199" column="47" selection-start-line="199" selection-start-column="47" selection-end-line="199" selection-end-column="47" />
           <folding>
             <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
@@ -2183,41 +2881,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_questionyesno.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-22/android/content/res/AssetManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="487" column="0" selection-start-line="487" selection-start-column="0" selection-end-line="487" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/edit_question110.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74242425">
+          <caret line="37" column="43" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54578096">
+          <caret line="63" column="39" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="66" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="e#1218#1219#0" expanded="false" />
+            <element signature="e#1255#1256#0" expanded="false" />
+            <element signature="e#1315#1316#0" expanded="false" />
+            <element signature="e#1367#1368#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
+            <element signature="e#1540#1541#0" expanded="false" />
+            <element signature="e#1671#1672#0" expanded="false" />
+            <element signature="e#1719#1720#0" expanded="false" />
+            <element signature="e#1842#1843#0" expanded="false" />
+            <element signature="e#1886#1887#0" expanded="false" />
+            <element signature="e#2013#2014#0" expanded="false" />
+            <element signature="e#2059#2060#0" expanded="false" />
+            <element signature="e#2176#2177#0" expanded="false" />
+            <element signature="e#2220#2221#0" expanded="false" />
+            <element signature="e#2321#2322#0" expanded="false" />
+            <element signature="e#2357#2358#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Pictures/device-2015-09-11-120519.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Pictures/device-2015-09-11-120553.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35">
+          <caret line="147" column="31" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-          <folding>
-            <element signature="e#1462#1463#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7008">
-          <caret line="159" column="66" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
-          <folding>
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1148#1149#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
