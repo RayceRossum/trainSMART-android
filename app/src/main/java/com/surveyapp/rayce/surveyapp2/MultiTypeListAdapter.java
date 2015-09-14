@@ -25,15 +25,17 @@ import java.util.Set;
 public class MultiTypeListAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
-    private String[][] data;
     public List<EditPageObject> pageData;
     public HashMap saveData = new HashMap();
+    public DBHelper dbHelp;
+    public PersonToAssessments pToA;
 
-    public MultiTypeListAdapter(Context context, List<EditPageObject> pageData) {
+    public MultiTypeListAdapter(Context context, List<EditPageObject> pageData, PersonToAssessments pToA) {
         inflater = LayoutInflater.from(context);
         this.context = context;
-        this.data = data;
         this.pageData = pageData;
+        this.pToA = pToA;
+        dbHelp = new DBHelper(context);
     }
 
     @Override
@@ -91,10 +93,10 @@ public class MultiTypeListAdapter extends BaseAdapter {
         int type = getItemViewType(position);
         //Log.d("request!", "position before new holder: " + position );
 
-        holder = new EditFragment.ViewHolder(saveData);
+        holder = new EditFragment.ViewHolder(saveData, pageData, dbHelp, pToA);
         holder.position = position;
+        //holder = new EditFragment.ViewHolder(pageData, position);
         if (convertView == null) {
-            //holder = new EditFragment.ViewHolder(pageData, position);
             switch (type) {
                 case 0: //Label
                     view = inflater.inflate(R.layout.edit_label, parent, false);
@@ -107,6 +109,10 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_question110, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.seekBar = (SeekBar) view.findViewById(R.id.seekBar);
+
+                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
+                    holder.position = position;
+                    holder.seekBar.setOnSeekBarChangeListener(holder);
                     //holder.textView.setText("Is the candidate good at what they're doing?");
                     view.setTag(holder);
                     break;
@@ -120,6 +126,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 //                  holder.editText.setText(pageData.get(position).get_answer());
 
                     holder.editText = (EditText) view.findViewById(R.id.editText);
+
                     String oldText = pageData.get(position).get_answer();
                     holder.editText.setText(oldText == null ? "" : oldText);
                     holder.position = position;
@@ -132,6 +139,14 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_questionyesno, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.switchWidget = (Switch) view.findViewById(R.id.yesnoswitch);
+
+                    holder.position = position;
+                    String checked = pageData.get(position).get_answer();
+                    holder.switchWidget.setChecked(convertStrToChecked(checked));
+//                    Log.d("Checked:", checked);
+
+                    holder.switchWidget.setOnCheckedChangeListener(holder);
+
                     //holder.textView.setText("Does the candidate like cats?");
                     view.setTag(holder);
                     break;
@@ -152,23 +167,28 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
 
             }
-        } else {
+        }
+        else {
 
             holder = (EditFragment.ViewHolder) view.getTag();
 
             switch(type) {
                 case 1:
+                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     break;
                 case 2:
                     //Log.d("request!", "else 2: " + position + " " + pageData.get(position).get_answer());
                     //holder.editText.removeTextChangedListener(holder);
                     holder.editText.setText(pageData.get(position).get_answer());
-                    holder.position = position;
+                    break;
+                case 3:
+                    holder.switchWidget.setChecked(convertStrToChecked(pageData.get(position).get_answer()));
+                    //Log.d("Answer:", pageData.get(position).get_answer());
                     break;
             }
+            holder.position = position;
+            //dbHelp.setEditPageData(pToA, pageData);
         }
-
-       // holder.textView.setText(pageData.get(position).get_question());
 
         Set set = saveData.entrySet();
         Iterator i = set.iterator();
@@ -186,6 +206,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
             else {
                 //Log.d("request!", "not equal key: " + me.getKey() + ":" + me.getValue() + ":" + position + ":" + pageData.get(position).get_answer());
                 pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
+//                holder.textView.setText(pageData.get(position).get_question());
                 Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer()   );
                // pageData.get(Integer.getInteger(me.getKey().toString())).set_answer(me.getValue().toString());
             }
@@ -194,6 +215,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
         }
 
         holder.textView.setText(pageData.get(position).get_question());
+
 /*
         view = inflater.inflate(R.layout.edit_questiontext, parent, false);
         holder.textView = (TextView) view.findViewById(R.id.textq);
@@ -206,7 +228,40 @@ public class MultiTypeListAdapter extends BaseAdapter {
         */
 
         //Log.d("request!", "end position: " + position + ":" + holder.textView.getText() + ":" + holder.editText.getText());
-        Log.d("request!", "end position: " + position);
+//        Log.d("request!", "end position: " + position);
         return view;
+    }
+
+    public int convertProgressToInt (String progressStr) {
+        int value = -1;
+        switch (progressStr) {
+            case "F" :
+                value = 0;
+                break;
+            case "A" :
+                value = 1;
+                break;
+            case "B" :
+                value = 2;
+                break;
+            case "C" :
+                value = 3;
+                break;
+            case "D" :
+                value = 4;
+                break;
+            case "E" :
+                value = 5;
+                break;
+        }
+        return value;
+    }
+
+    public boolean convertStrToChecked (String checked) {
+        if (checked == "A") {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
