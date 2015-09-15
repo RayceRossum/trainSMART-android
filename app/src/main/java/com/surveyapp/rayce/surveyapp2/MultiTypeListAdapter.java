@@ -155,6 +155,11 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_questionmulti, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.editText2 = (EditText) view.findViewById(R.id.editText2);
+
+                    String oldText2 = pageData.get(position).get_answer();
+                    holder.editText2.setText(pageData.get(position).get_answer());
+                    holder.position = position;
+                    holder.editText2.addTextChangedListener(holder);
                     //holder.textView.setText("Does the candidate like the smell of bacon?");
                     view.setTag(holder);
                     break;
@@ -184,6 +189,9 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 case 3:
                     holder.switchWidget.setChecked(convertStrToChecked(pageData.get(position).get_answer()));
                     //Log.d("Answer:", pageData.get(position).get_answer());
+                    break;
+                case 4:
+                    holder.editText2.setText(pageData.get(position).get_answer());
                     break;
             }
             holder.position = position;
