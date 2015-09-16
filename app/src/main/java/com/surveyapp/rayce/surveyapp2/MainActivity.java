@@ -78,7 +78,10 @@ public class MainActivity extends ActionBarActivity
                 break;
 
             case 4:
+<<<<<<< HEAD
                 // check for save
+=======
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
 
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {

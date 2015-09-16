@@ -27,17 +27,22 @@ public class MultiTypeListAdapter extends BaseAdapter {
     public PersonToAssessments pToA;
     private Context context;
     private LayoutInflater inflater;
-    private String[][] data;
     public List<EditPageObject> pageData;
     public HashMap saveData = new HashMap();
+    public DBHelper dbHelp;
+    public PersonToAssessments pToA;
 
     public MultiTypeListAdapter(Context context, List<EditPageObject> pageData, PersonToAssessments pToA) {
+<<<<<<< HEAD
         dbhelp = new DBHelper(context);
         this.pToA = pToA;
+=======
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         inflater = LayoutInflater.from(context);
         this.context = context;
-        this.data = data;
         this.pageData = pageData;
+        this.pToA = pToA;
+        dbHelp = new DBHelper(context);
     }
 
     @Override
@@ -94,11 +99,21 @@ public class MultiTypeListAdapter extends BaseAdapter {
         View view = convertView;
         EditFragment.ViewHolder holder;
         int type = getItemViewType(position);
+<<<<<<< HEAD
         //dumpPageData(pageData);
         holder = new EditFragment.ViewHolder(saveData, pageData, dbhelp, pToA);
-        holder.position = position;
-        if (convertView == null) {
+=======
+        //Log.d("request!", "position before new holder: " + position );
 
+        holder = new EditFragment.ViewHolder(saveData, pageData, dbHelp, pToA);
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
+        holder.position = position;
+        //holder = new EditFragment.ViewHolder(pageData, position);
+        if (convertView == null) {
+<<<<<<< HEAD
+
+=======
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
             switch (type) {
                 case 0: //Label
                     view = inflater.inflate(R.layout.edit_label, parent, false);
@@ -111,6 +126,10 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_question110, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.seekBar = (SeekBar) view.findViewById(R.id.seekBar);
+
+                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
+                    holder.position = position;
+                    holder.seekBar.setOnSeekBarChangeListener(holder);
                     //holder.textView.setText("Is the candidate good at what they're doing?");
                     view.setTag(holder);
                     break;
@@ -124,6 +143,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 //                  holder.editText.setText(pageData.get(position).get_answer());
 
                     holder.editText = (EditText) view.findViewById(R.id.editText);
+
                     String oldText = pageData.get(position).get_answer();
                     holder.editText.setText(oldText == null ? "" : oldText);
                     holder.position = position;
@@ -136,6 +156,14 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_questionyesno, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.switchWidget = (Switch) view.findViewById(R.id.yesnoswitch);
+
+                    holder.position = position;
+                    String checked = pageData.get(position).get_answer();
+                    holder.switchWidget.setChecked(convertStrToChecked(checked));
+//                    Log.d("Checked:", checked);
+
+                    holder.switchWidget.setOnCheckedChangeListener(holder);
+
                     //holder.textView.setText("Does the candidate like cats?");
                     view.setTag(holder);
                     break;
@@ -144,6 +172,11 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_questionmulti, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.editText2 = (EditText) view.findViewById(R.id.editText2);
+
+                    String oldText2 = pageData.get(position).get_answer();
+                    holder.editText2.setText(pageData.get(position).get_answer());
+                    holder.position = position;
+                    holder.editText2.addTextChangedListener(holder);
                     //holder.textView.setText("Does the candidate like the smell of bacon?");
                     view.setTag(holder);
                     break;
@@ -156,24 +189,38 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
 
             }
-        } else {
+        }
+        else {
 
             holder = (EditFragment.ViewHolder) view.getTag();
 
             switch(type) {
                 case 1:
+                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     break;
                 case 2:
                     //Log.d("request!", "else 2: " + position + " " + pageData.get(position).get_answer());
                     //holder.editText.removeTextChangedListener(holder);
                     holder.editText.setText(pageData.get(position).get_answer());
-                    holder.position = position;
+                    break;
+                case 3:
+                    holder.switchWidget.setChecked(convertStrToChecked(pageData.get(position).get_answer()));
+                    //Log.d("Answer:", pageData.get(position).get_answer());
+                    break;
+                case 4:
+                    holder.editText2.setText(pageData.get(position).get_answer());
                     break;
             }
+            holder.position = position;
+            //dbHelp.setEditPageData(pToA, pageData);
         }
 
+<<<<<<< HEAD
 
         //Set set = saveData.entrySet();
+=======
+        Set set = saveData.entrySet();
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         Iterator i = set.iterator();
         while(i.hasNext()) {
             Map.Entry me = (Map.Entry)i.next();
@@ -189,6 +236,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
             else {
 
                 pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
+<<<<<<< HEAD
                 //Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer());
                 Log.d("request!", "add/update: " +
                                 pToA.get_person_id() + " " +
@@ -197,6 +245,12 @@ public class MultiTypeListAdapter extends BaseAdapter {
                                 pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
                 );
                 dbhelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
+=======
+//                holder.textView.setText(pageData.get(position).get_question());
+                Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer()   );
+
+               // pageData.get(Integer.getInteger(me.getKey().toString())).set_answer(me.getValue().toString());
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
             }
             i.remove();
         }
@@ -204,6 +258,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
 
         holder.textView.setText(pageData.get(position).get_question());
+<<<<<<< HEAD
 
         Log.d("request!", "end position: " + position);
         return view;
@@ -219,6 +274,55 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     eop.get_assessments_questions_id()
 
             );
+=======
+
+/*
+        view = inflater.inflate(R.layout.edit_questiontext, parent, false);
+        holder.textView = (TextView) view.findViewById(R.id.textq);
+        holder.textView.setText(pageData.get(position).get_question());
+        holder.editText = (EditText) view.findViewById(R.id.editText);
+        holder.editText.setText(pageData.get(position).get_answer());
+        holder.position = position;
+        holder.editText.addTextChangedListener(holder);
+        view.setTag(holder);
+        */
+
+        //Log.d("request!", "end position: " + position + ":" + holder.textView.getText() + ":" + holder.editText.getText());
+//        Log.d("request!", "end position: " + position);
+        return view;
+    }
+
+    public int convertProgressToInt (String progressStr) {
+        int value = -1;
+        switch (progressStr) {
+            case "F" :
+                value = 0;
+                break;
+            case "A" :
+                value = 1;
+                break;
+            case "B" :
+                value = 2;
+                break;
+            case "C" :
+                value = 3;
+                break;
+            case "D" :
+                value = 4;
+                break;
+            case "E" :
+                value = 5;
+                break;
+        }
+        return value;
+    }
+
+    public boolean convertStrToChecked (String checked) {
+        if (checked == "A") {
+            return true;
+        } else {
+            return false;
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
     }
 }

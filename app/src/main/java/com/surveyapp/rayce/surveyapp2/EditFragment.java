@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.Time;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -80,9 +82,14 @@ public class EditFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        Time now = new Time();
         ListView listView = (ListView)view.findViewById(R.id.editListView);
+<<<<<<< HEAD
         PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
+=======
+        PersonToAssessments pToA = dbHelp.getPersonToAssessments(1);
+//        PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
+//        dbHelp.putPersonToAssessments(person_id, facility_id, date_created, assessment_id);
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA), pToA);
 //        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
@@ -134,8 +141,13 @@ public class EditFragment extends Fragment {
 
     }
 
+<<<<<<< HEAD
     public static class ViewHolder implements TextWatcher {
         List<EditPageObject> pageData;
+=======
+    public static class ViewHolder implements TextWatcher, SeekBar.OnSeekBarChangeListener, Switch.OnCheckedChangeListener {
+        //List<EditPageObject> pageData;
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         public HashMap _saveData = new HashMap();
         public DBHelper dbhelp;
         public PersonToAssessments pToA;
@@ -145,12 +157,23 @@ public class EditFragment extends Fragment {
         public EditText editText;
         public EditText editText2;
         public SeekBar seekBar;
+//        public DBHelper dbHelp;
+//        public PersonToAssessments pToA;
+//        public List<EditPageObject> pageData;
 
+<<<<<<< HEAD
         public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData, DBHelper dbhelp, PersonToAssessments pToA) {
             this.pageData = pageData;
             this._saveData = saveData;
             this.dbhelp = dbhelp;
             this.pToA = pToA;
+=======
+        public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData,  DBHelper dbHelp, PersonToAssessments pToA) {
+            this._saveData = saveData;
+//            this.dbHelp = dbHelp;
+//            this.pToA = pToA;
+//            this.pageData = pageData;
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
 
         public void afterTextChanged(Editable editable) {
@@ -158,6 +181,10 @@ public class EditFragment extends Fragment {
 
             _saveData.remove(position);
             _saveData.put(position, editable.toString());
+<<<<<<< HEAD
+=======
+//            dbHelp.setEditPageData(pToA, pageData);
+>>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count,
@@ -168,8 +195,69 @@ public class EditFragment extends Fragment {
 
         public void onTextChanged(CharSequence s, int start, int before,
                                   int count) {
+
             // TODO Auto-generated method stub
 
         }
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            _saveData.remove(position);
+            _saveData.put(position, convertProgressToStr(progress));
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            _saveData.remove(position);
+            //Log.d("Checked:", convertCheckedToStr(isChecked));
+            String pos = position + "";
+            //Log.d("Position:", pos);
+            _saveData.put(position, convertCheckedToStr(isChecked));
+        }
+
+        public String convertProgressToStr (int progressInt) {
+            String value = "";
+            switch (progressInt) {
+                case 0 :
+                    value = "F";
+                    break;
+                case 1 :
+                    value = "A";
+                    break;
+                case 2 :
+                    value = "B";
+                    break;
+                case 3 :
+                    value = "C";
+                    break;
+                case 4 :
+                    value = "D";
+                    break;
+                case 5 :
+                    value = "E";
+                    break;
+            }
+            return value;
+        }
+
+        public String convertCheckedToStr (boolean checked) {
+            if (checked) {
+                return "A";
+            } else {
+                return "B";
+            }
+        }
+
+
     }
 }
