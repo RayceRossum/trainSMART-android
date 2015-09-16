@@ -74,21 +74,32 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String PERSON_TO_ASSESSMENTS_USER_ID = "user_id";
     private static final String PERSON_TO_ASSESSMENTS_STATUS = "status";
 
+    // answer types
+    private static final String ANSWER_TYPE_TEXT = "text";
+    private static final String ANSWER_TYPE_QUESTION110 = "question110";
+    private static final String ANSWER_TYPE_QUESTIONTEXT = "questiontext";
+    private static final String ANSWER_TYPE_QUESTIONYESNO = "questionyesno";
+    private static final String ANSWER_TYPE_QUESTIONMULTI = "questionmulti";
+    private static final String ANSWER_TYPE_TITLE = "title";
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("request!", "DBHelper.onCreate");
 
-        try { db.execSQL("delete from assessments;"); } catch(Exception ex) {}
+        Log.d("request!", "DBHelper.onCreate0");
 
-        String CREATE_ASSESSEMNTS_TABLE = "CREATE TABLE IF NOT EXISTS assessments(assessment_id int, assessment_type varchar, status int);";
-        db.execSQL(CREATE_ASSESSEMNTS_TABLE);
+        //try { db.execSQL("delete from assessments;"); } catch(Exception ex) {Log.d("request!", "DBHelper.onCreate nothing to delete" + ex.toString());}
+        try {
+            String CREATE_ASSESSMENTS_TABLE = "CREATE TABLE IF NOT EXISTS assessments(assessment_id int, assessment_type varchar, status int);";
+            db.execSQL(CREATE_ASSESSMENTS_TABLE);
+
+
 
         //db.execSQL("delete from assessments_answers;");
-        String CREATE_ASSESSEMNTS_ANSWERS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_answers(" +
+        String CREATE_ASSESSMENTS_ANSWERS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_answers(" +
                 "assess_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, " +
                         "person INTEGER, " +
                         "facility INTEGER, " +
@@ -97,20 +108,19 @@ public class DBHelper extends SQLiteOpenHelper{
                         "question VARCHAR, " +
                         "answer VARCHAR, " +
                         "active CHAR)";
-        db.execSQL(CREATE_ASSESSEMNTS_ANSWERS_TABLE);
+        db.execSQL(CREATE_ASSESSMENTS_ANSWERS_TABLE);
 
-        try { db.execSQL("delete from assessments_questions;"); } catch(Exception ex) {}
+        //try { db.execSQL("delete from assessments_questions;"); } catch(Exception ex) {}
 
-        String CREATE_ASSESSEMNTS_QUESTIONS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_questions(" +
+        String CREATE_ASSESSMENTS_QUESTIONS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_questions(" +
                 "assessments_questions_id int, " +
                 "assessment_id int, " +
                 "question varchar, " +
                 "itemorder int, " +
                 "itemtype varchar, " +
                 "status int);";
-        db.execSQL(CREATE_ASSESSEMNTS_QUESTIONS_TABLE);
-
-        try { db.execSQL("delete from person;"); } catch(Exception ex) {}
+        db.execSQL(CREATE_ASSESSMENTS_QUESTIONS_TABLE);
+        //try { db.execSQL("delete from person;"); } catch(Exception ex) {}
 
         String CREATE_PERSON_TABLE = "CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, national_id varchar, facility_id int, facility_name varchar);";
         db.execSQL(CREATE_PERSON_TABLE);
@@ -125,6 +135,10 @@ public class DBHelper extends SQLiteOpenHelper{
                         "user_id INTEGER, " +
                         "status INTEGER);";
         db.execSQL(CREATE_PERSON_TO_ASSESSEMNTS_TABLE);
+
+        } catch (Exception ex) {
+            Log.d("request!", "DBHelper.onCreate catch" + ex.toString());
+        }
     }
 
     @Override
@@ -146,11 +160,9 @@ public class DBHelper extends SQLiteOpenHelper{
 
         try {
             String databaseName = this.getDatabaseName();
-            Log.d("request!", "helperTest1 ");
             //SQLiteDatabase db = this.getReadableDatabase();
             //SQLiteDatabase db = this.getWritableDatabase();
             Person person0 = this.getPerson("Greg", "Rossum", "%");
-            Log.d("request!", "helperTest2 ");
 
             //db.execSQL("drop table assessments");
             //db.execSQL("drop table person");
@@ -201,22 +213,173 @@ public class DBHelper extends SQLiteOpenHelper{
 //            person2 = this.getPerson(1);
 
             List<EditPageObject> editPageObjectList = this.getEditPageData( pa );
+//            for (EditPageObject epo : editPageObjectList) {
+//                Log.d("request!", "helperTest editPageObjectList > "
+//                                //+ editPageObjectList._rowid + " "
+//                                + epo._assessments_questions_id + " "
+//                                + epo._question + " "
+//                                + epo._itemtype + " "
+//                                + epo._itemorder + " "
+//                                + epo._answer + " "
+//                );
+//            }
             for (EditPageObject epo : editPageObjectList) {
-                Log.d("request!", "helperTest editPageObjectList > "
-                                //+ editPageObjectList._rowid + " "
-                                + epo._question + " "
-                                + epo._itemtype + " "
-                                + epo._itemorder + " "
-                                + epo._answer + " "
-                );
+                Log.d("request!", "question and answer: " + epo.get_question() + " " + epo.get_answer());
+                //epo.set_answer("new "+ epo.get_answer());
             }
 
+            setEditPageData(pa, editPageObjectList); //  insert/update answers
+
             Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
+
+//            if(assessmentsAnswers != null)
+//                Log.d("request!", "helperTest assessmentsAnswers "
+//                        + assessmentsAnswers._assess_id + " "
+//                        + assessmentsAnswers._person + " "
+//                        + assessmentsAnswers._facility + " "
+//                        + assessmentsAnswers._date_created + " "
+//                        + assessmentsAnswers._assessment_id + " "
+//                        + assessmentsAnswers._question + " "
+//                        + assessmentsAnswers._answer);
+//            else
+//                Log.d("request1", "assessments_answers record not found");
+
+            this.updateAssessmentsAnswers(1, 1, "2015-07-07", 2, 22, Integer.toString((getPersonsCount())));
+            AssessmentsAnswers assessmentsAnswers1 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
+            Log.d("request!", "helperTest assessmentsAnswers1 " + assessmentsAnswers1.get_answer());
+            this.updateAssessmentsAnswers(assessmentsAnswers1.get_assess_id(), Integer.toString((getPersonsCount() + 1)));
+            AssessmentsAnswers assessmentsAnswers2 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
+            Log.d("request!", "helperTest assessmentsAnswers2 " + assessmentsAnswers2.get_answer());
+            this.insertAssessmentsAnswers(0, 1, "2015-07-07", 2, 22, "this is a new answer");
+            AssessmentsAnswers assessmentsAnswers3 = this.getAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
+            AssessmentsAnswers assessmentsAnswers4 = this.getAssessmentsAnswers(assessmentsAnswers3.get_assess_id());
+            Log.d("request!", "helperTest inserted new assess_id from insert: " +  assessmentsAnswers3.get_assess_id());
+            Log.d("request!", "helperTest inserted new answer from insert: " +  assessmentsAnswers4.get_answer());
+            this.deleteAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
+
+
+            Log.d("request!", "helperTest Done");
 
         } catch (Exception ex) {
             Log.d("request!", "helperTest catch " + ex.toString());
         }
     }
+
+    public List<EditPageObject> getEditPageData(PersonToAssessments person_to_assessment) {
+        List<EditPageObject> editPageList = new ArrayList<EditPageObject>();
+        Log.d("request!", "getEditPageData > ");
+        String query =
+                "select " +
+                        "aq.assessments_questions_id, " +
+                        "aq.question, " +
+                        "aq.itemtype, " +
+                        "aq.itemorder, " +
+                        "(select aa.answer from assessments_answers aa " +
+                        "  where aa.person = pa.person_id " +
+                        "  and aa.facility = pa.facility_id " +
+                        "  and aa.date_created = pa.date_created " +
+                        "  and a.assessment_id = aq.assessment_id  " +
+                        "  and aa.question = aq.assessments_questions_id" +
+                        ") as answer " +
+                        "from person_to_assessments pa " +
+                        "join person p on p.person_id = pa.person_id " +
+                        "join assessments a on pa.assessment_id = a.assessment_id " +
+                        "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
+                        "join assessments_answers aa " +
+                        "on aa.person = pa.person_id " +
+                        "and aa.facility = pa.facility_id " +
+                        "and aa.date_created = pa.date_created " +
+                        "and aa.assessment_id = pa.assessment_id " +
+                        "and aa.question = aq.assessments_questions_id " +
+                        "where  1=1 " +
+                        " and pa.person_id = " + person_to_assessment.get_person_id() +
+                        " and pa.facility_id = " + person_to_assessment.get_facility_id() +
+                        " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
+                        " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
+                        //" and aq.status = 1 " +
+                        " union " +
+                        "select " +
+                        "aq.assessments_questions_id, " +
+                        "aq.question, " +
+                        "aq.itemtype, " +
+                        "aq.itemorder, " +
+                        "null " +
+                        "from person_to_assessments pa " +
+                        "join person p on p.person_id = pa.person_id " +
+                        "join assessments a on pa.assessment_id = a.assessment_id " +
+                        "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
+                        "where  1=1 " +
+                        " and pa.person_id = " + person_to_assessment.get_person_id() +
+                        " and pa.facility_id = " + person_to_assessment.get_facility_id() +
+                        " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
+                        " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
+                        //" and aq.status = 1 " +
+                        " and aq.itemtype = 'text' " +
+                        "order by aq.itemorder ";
+
+        Log.d("request!", "Query: " + query);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                EditPageObject editPageObject = new EditPageObject();
+                editPageObject.set_assessments_questions_id(Integer.parseInt(cursor.getString(0)));
+                editPageObject.set_question(cursor.getString(1));
+                editPageObject.set_itemtype(cursor.getString(2));
+                editPageObject.set_itemorder(Integer.parseInt(cursor.getString(3)));
+                editPageObject.set_answer(cursor.getString(4));
+
+                // Adding object to list
+                editPageList.add(editPageObject);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return person list
+        return editPageList;
+    }
+
+    public void setEditPageData(PersonToAssessments pa, List<EditPageObject> editPageObjectList){
+        Log.d("request!", "setEditPageData");
+        Log.d("request!", "pa >" + pa._person_id + " " + pa._facility_id + " " + pa._date_created + " " + pa._assessment_id);
+        // for each questions, select from answers, if (answer) update answer else insert answer
+        for (EditPageObject epo : editPageObjectList) {
+
+            AssessmentsAnswers assessmentsAnswers =
+                    this.getAssessmentsAnswers(
+                            pa.get_person_id(),
+                            pa.get_facility_id(),
+                            pa.get_date_created(),
+                            pa.get_assessment_id(),
+                            epo.get_assessments_questions_id());
+
+            if(assessmentsAnswers != null){
+                Log.d("request!", "setEditPageData update: " + epo.get_answer());
+                this.updateAssessmentsAnswers(assessmentsAnswers.get_assess_id(), epo.get_answer());
+            } else if (epo.get_itemtype() != ANSWER_TYPE_TEXT) {
+                Log.d("request!", "setEditPageData insert: ");
+                this.insertAssessmentsAnswers(
+                        pa.get_person_id(),
+                        pa.get_facility_id(),
+                        pa.get_date_created(),
+                        pa.get_assessment_id(),
+                        epo.get_assessments_questions_id(),
+                        epo.get_answer() );
+            }
+
+//            Log.d("request!", "helperTest setEditPageData editPageObjectList > "
+//                            //+ editPageObjectList._rowid + " "
+//                            + epo._assessments_questions_id + " "
+//                            + epo._question + " "
+//                            + epo._itemtype + " "
+//                            + epo._itemorder + " "
+//                            + epo._answer + " "
+//            );
+        }
+    };
 
     public Assessments getAssessments(int assessments_assessment_id) {
 
@@ -250,6 +413,242 @@ public class DBHelper extends SQLiteOpenHelper{
         cursor.close();
         db.close();
         return assessments;
+    }
+
+    public AssessmentsAnswers getAssessmentsAnswers(int assess_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ANSWERS_ASSESS_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(assess_id) };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS_ANSWERS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+
+//        Log.d("request!", "getAssessmentsAnswers  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//                        + cursor.getString(3) + " "
+//                        + cursor.getString(4) + " "
+//                        + cursor.getString(5) + " "
+//                        + cursor.getString(6) + " "
+//        );
+
+            AssessmentsAnswers assessments_answers = new AssessmentsAnswers(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)),
+                    cursor.getString(3),
+                    Integer.parseInt(cursor.getString(4)),
+                    Integer.parseInt(cursor.getString(5)),
+                    cursor.getString(6)
+
+            );
+            cursor.close();
+            db.close();
+            return assessments_answers;
+        }
+        else {
+            cursor.close();
+            db.close();
+            return null;
+        }
+    }
+
+    public AssessmentsAnswers getAssessmentsAnswers(int person, int facility, String date_created, int assessment_id, int question) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ANSWERS_PERSON + " = ? and " +
+                ASSESSMENTS_ANSWERS_FACILITY + " = ? and " +
+                ASSESSMENTS_ANSWERS_DATE_CREATED + " = ? and " +
+                ASSESSMENTS_ANSWERS_ASSESSMENT_ID + " = ? and " +
+                ASSESSMENTS_ANSWERS_QUESTION + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(person), Integer.toString(facility), date_created, Integer.toString(assessment_id), Integer.toString(question) };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS_ANSWERS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+
+//        Log.d("request!", "getAssessmentsAnswers  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//                        + cursor.getString(3) + " "
+//                        + cursor.getString(4) + " "
+//                        + cursor.getString(5) + " "
+//                        + cursor.getString(6) + " "
+//        );
+
+            AssessmentsAnswers assessments_answers = new AssessmentsAnswers(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)),
+                    cursor.getString(3),
+                    Integer.parseInt(cursor.getString(4)),
+                    Integer.parseInt(cursor.getString(5)),
+                    cursor.getString(6)
+
+            );
+            cursor.close();
+            db.close();
+            return assessments_answers;
+        }
+        else {
+            cursor.close();
+            db.close();
+            return null;
+        }
+    }
+
+    public void updateAssessmentsAnswers(int person, int facility, String date_created, int assessment_id, int question, String new_answer) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ANSWERS_PERSON + " = ? and " +
+                ASSESSMENTS_ANSWERS_FACILITY + " = ? and " +
+                ASSESSMENTS_ANSWERS_DATE_CREATED + " = ? and " +
+                ASSESSMENTS_ANSWERS_ASSESSMENT_ID + " = ? and " +
+                ASSESSMENTS_ANSWERS_QUESTION + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(person), Integer.toString(facility), date_created, Integer.toString(assessment_id), Integer.toString(question) };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS_ANSWERS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor.moveToFirst()) {
+
+//        Log.d("request!", "getAssessmentsAnswers  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//                        + cursor.getString(3) + " "
+//                        + cursor.getString(4) + " "
+//                        + cursor.getString(5) + " "
+//                        + cursor.getString(6) + " "
+//        );
+
+            AssessmentsAnswers assessments_answers = new AssessmentsAnswers(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)),
+                    cursor.getString(3),
+                    Integer.parseInt(cursor.getString(4)),
+                    Integer.parseInt(cursor.getString(5)),
+                    cursor.getString(6)
+
+            );
+            cursor.close();
+            // use assess_id to update
+            ContentValues cv = new ContentValues();
+            cv.put(ASSESSMENTS_ANSWERS_ANSWER, new_answer);
+            String updateWhereClause = "1=1 and " + ASSESSMENTS_ANSWERS_ASSESS_ID + " = " + assessments_answers.get_assess_id();
+            db.update(TABLE_ASSESSMENTS_ANSWERS, cv, updateWhereClause, null);
+            db.close();
+        }
+        else {
+            cursor.close();
+            db.close();
+        }
+    }
+
+    public void updateAssessmentsAnswers(int assess_id, String new_answer) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+
+            // use assess_id to update
+            ContentValues cv = new ContentValues();
+            cv.put(ASSESSMENTS_ANSWERS_ANSWER, new_answer);
+            String updateWhereClause = "1=1 and " + ASSESSMENTS_ANSWERS_ASSESS_ID + " = " + assess_id;
+            db.update(TABLE_ASSESSMENTS_ANSWERS, cv, updateWhereClause, null);
+            db.close();
+    }
+
+    public void insertAssessmentsAnswers(int person, int facility, String date_created, int assessment_id, int question, String answer) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        // use assess_id to update
+        ContentValues cv = new ContentValues();
+        cv.put(ASSESSMENTS_ANSWERS_PERSON, person);
+        cv.put(ASSESSMENTS_ANSWERS_FACILITY, facility);
+        cv.put(ASSESSMENTS_ANSWERS_DATE_CREATED, date_created);
+        cv.put(ASSESSMENTS_ANSWERS_ASSESSMENT_ID, assessment_id);
+        cv.put(ASSESSMENTS_ANSWERS_QUESTION, question);
+        cv.put(ASSESSMENTS_ANSWERS_ANSWER, answer);
+        cv.put(ASSESSMENTS_ANSWERS_ACTIVE, "Y"); // not used
+        db.insert(TABLE_ASSESSMENTS_ANSWERS, null, cv);
+        db.close();
+    }
+
+    public void deleteAssessmentsAnswers(int person, int facility, String date_created, int assessment_id, int question){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ANSWERS_PERSON + " = ? and " +
+                ASSESSMENTS_ANSWERS_FACILITY + " = ? and " +
+                ASSESSMENTS_ANSWERS_DATE_CREATED + " = ? and " +
+                ASSESSMENTS_ANSWERS_ASSESSMENT_ID + " = ? and " +
+                ASSESSMENTS_ANSWERS_QUESTION + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(person), Integer.toString(facility), date_created, Integer.toString(assessment_id), Integer.toString(question) };
+
+        db.delete(TABLE_ASSESSMENTS_ANSWERS, whereClause, whereArgs);
+        db.close();
+    }
+
+    public void deleteAssessmentsAnswers(int assess_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ANSWERS_ASSESS_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(assess_id) };
+
+        db.delete(TABLE_ASSESSMENTS_ANSWERS, whereClause, whereArgs);
+        db.close();
     }
 
     public PersonToAssessments getPersonToAssessments(int pa_pa_id) {
@@ -293,7 +692,6 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
         return person_to_assessments;
     }
-
 
     public boolean addPerson(Person person) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -433,7 +831,7 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     public int getPersonsCount() {
-        Log.d("request!", "getPersonsCount0");
+        Log.d("request!", "getPersonsCount");
         String countQuery = "SELECT  * FROM " + TABLE_PERSON;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
@@ -444,7 +842,6 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
         return returnVal;
     }
-
 
     public boolean updatePerson(Person person) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -514,8 +911,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("insert into assessments_answers values (3347,1,1,\"2015-07-07\",2,18,\"D\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3348,1,1,\"2015-07-07\",2,19,\"E\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3350,1,1,\"2015-07-07\",2,21,\"F\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3351,1,1,\"2015-07-07\",2,22,\"3.2. save 2\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3352,1,1,\"2015-07-07\",2,23,\"3.3. 2015-07-07\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3351,1,1,\"2015-07-07\",2,22,\"3.2.\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3352,1,1,\"2015-07-07\",2,23,\"3.3.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3353,1,1,\"2015-07-07\",2,24,\"3.4.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3354,1,1,\"2015-07-07\",2,25,\"3.5.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3355,1,1,\"2015-07-07\",2,26,\"3.6.\",\"Y\");");
@@ -634,80 +1031,6 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("insert into assessments_answers values (3484,42,417,\"2015-07-21\",15,142,\"F\",\"Y\");");
     }
 
-    public List<EditPageObject> getEditPageData(PersonToAssessments person_to_assessment) {
-         List<EditPageObject> editPageList = new ArrayList<EditPageObject>();
-         Log.d("request!", "getEditPageData > ");
-         String query =
-                "select " +
-                "aq.question, " +
-                "aq.itemtype, " +
-                "aq.itemorder, " +
-                "(select aa.answer from assessments_answers aa " +
-                "  where aa.person = pa.person_id " +
-                "  and aa.facility = pa.facility_id " +
-                "  and aa.date_created = pa.date_created " +
-                "  and a.assessment_id = aq.assessment_id  " +
-                "  and aa.question = aq.assessments_questions_id" +
-                ") as answer " +
-                "from person_to_assessments pa " +
-                "join person p on p.person_id = pa.person_id " +
-                "join assessments a on pa.assessment_id = a.assessment_id " +
-                "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
-                "join assessments_answers aa " +
-                "on aa.person = pa.person_id " +
-                "and aa.facility = pa.facility_id " +
-                "and aa.date_created = pa.date_created " +
-                "and aa.assessment_id = pa.assessment_id " +
-                "and aa.question = aq.assessments_questions_id " +
-                "where  1=1 " +
-                " and pa.person_id = " + person_to_assessment.get_person_id() +
-                " and pa.facility_id = " + person_to_assessment.get_facility_id() +
-                " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
-                " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
-                //" and aq.status = 1 " +
-                " union " +
-                "select " +
-                "aq.question, " +
-                "aq.itemtype, " +
-                "aq.itemorder, " +
-                "null " +
-                "from person_to_assessments pa " +
-                "join person p on p.person_id = pa.person_id " +
-                "join assessments a on pa.assessment_id = a.assessment_id " +
-                "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
-                "where  1=1 " +
-                " and pa.person_id = " + person_to_assessment.get_person_id() +
-                " and pa.facility_id = " + person_to_assessment.get_facility_id() +
-                " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
-                " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
-              //" and aq.status = 1 " +
-                " and aq.itemtype = 'text' " +
-                "order by aq.itemorder ";
-
-        Log.d("request!", "Query: " + query);
-
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(query, null);
-
-            // looping through all rows and adding to list
-            if (cursor.moveToFirst()) {
-                do {
-                    EditPageObject editPageObject = new EditPageObject();
-                    editPageObject.set_question(cursor.getString(0));
-                    editPageObject.set_itemtype(cursor.getString(1));
-                    editPageObject.set_itemorder(Integer.parseInt(cursor.getString(2)));
-                    editPageObject.set_answer(cursor.getString(3));
-
-                    // Adding object to list
-                    editPageList.add(editPageObject);
-                } while (cursor.moveToNext());
-            }
-            cursor.close();
-            db.close();
-            // return person list
-            return editPageList;
-        }
-
     public String[][] getQuestionData(int personID, int facilityID, int date, int assessmentID) {
         //String query = "select * from person";
 //        String query = "select " +
@@ -749,7 +1072,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
         for (int i=1; i<30; i++) {
             questionData[i][question] = "What time is it?";
-            questionData[i][itemtype] = itemTypes[r.nextInt(itemTypes.length)];
+            //questionData[i][itemtype] = itemTypes[r.nextInt(itemTypes.length)];
+            questionData[i][itemtype] = itemTypes[1];
             questionData[i][answer] = "3:00PM";
         }
 
@@ -761,29 +1085,5 @@ public class DBHelper extends SQLiteOpenHelper{
 //        c.close();
         return questionData;
     }
-}
 
-//        select
-//        aq.question,
-//                aq.itemtype,
-//                (select aa.answer from assessments_answers aa where aa.person =
-//                pa.person_id and aa.facility = pa.facility_id and aa.date_created =
-//                pa.date_created and a.assessment_id = aq.assessment_id  and aa.question
-//                = aq.assessments_questions_id) as answer
-//        from person_to_assessments pa
-//        join person p on p.person_id = pa.person_id
-//        join assessments a on pa.assessment_id = a.assessment_id
-//        join assessments_questions aq on a.assessment_id = aq.assessment_id
-//        where  1=1
-//        and pa.person_id = 1
-//        and pa.facility_id = 1
-//        and pa.date_created = "2015-07-07"
-//        and pa.assessment_id = 2
-//        and aq.status = 1
-//                -- and aa.active = 'Y'
-//                -- and aa.question = 14
-//        order by aq.itemorder
-
-
-
-
+} // class

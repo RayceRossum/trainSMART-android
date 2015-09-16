@@ -1,18 +1,24 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -67,6 +73,7 @@ public class EditFragment extends Fragment {
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
         dbHelp = new DBHelper(getActivity());
     }
 
@@ -75,13 +82,11 @@ public class EditFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        Time now = new Time();
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-        PersonToAssessments pToA = dbHelp.getPersonToAssessments(2);
-        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA));
+        PersonToAssessments pToA = dbHelp.getPersonToAssessments(1);
+        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA), pToA);
 //        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
-
 
         listView.setAdapter(adapter);
 
@@ -130,11 +135,109 @@ public class EditFragment extends Fragment {
 
     }
 
-    public static class ViewHolder {
+    public static class ViewHolder implements TextWatcher, SeekBar.OnSeekBarChangeListener, Switch.OnCheckedChangeListener {
+        //List<EditPageObject> pageData;
+        public HashMap _saveData = new HashMap();
+        public int position;
         public TextView textView;
         public Switch switchWidget;
         public EditText editText;
         public EditText editText2;
         public SeekBar seekBar;
+//        public DBHelper dbHelp;
+//        public PersonToAssessments pToA;
+//        public List<EditPageObject> pageData;
+
+        public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData,  DBHelper dbHelp, PersonToAssessments pToA) {
+            this._saveData = saveData;
+//            this.dbHelp = dbHelp;
+//            this.pToA = pToA;
+//            this.pageData = pageData;
+        }
+
+        public void afterTextChanged(Editable editable) {
+            //Log.d("request!", "atc Position/editable: " + position + ">" + editable.toString() + "<");
+
+//            for (int i = 0; i < pageData.size(); i++) {
+//                Log.d("request!", "atc Position/i/_pageData.answer/io " + " " + position + " " + i + " " + ">" + pageData.get(i).get_answer() + "< " + pageData.get(i).get_itemorder()               );
+//            }
+
+            _saveData.remove(position);
+            _saveData.put(position, editable.toString());
+//            dbHelp.setEditPageData(pToA, pageData);
+        }
+
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+            // TODO Auto-generated method stub
+
+        }
+
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+
+            // TODO Auto-generated method stub
+
+        }
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            _saveData.remove(position);
+            _saveData.put(position, convertProgressToStr(progress));
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            _saveData.remove(position);
+            //Log.d("Checked:", convertCheckedToStr(isChecked));
+            String pos = position + "";
+            //Log.d("Position:", pos);
+            _saveData.put(position, convertCheckedToStr(isChecked));
+        }
+
+        public String convertProgressToStr (int progressInt) {
+            String value = "";
+            switch (progressInt) {
+                case 0 :
+                    value = "F";
+                    break;
+                case 1 :
+                    value = "A";
+                    break;
+                case 2 :
+                    value = "B";
+                    break;
+                case 3 :
+                    value = "C";
+                    break;
+                case 4 :
+                    value = "D";
+                    break;
+                case 5 :
+                    value = "E";
+                    break;
+            }
+            return value;
+        }
+
+        public String convertCheckedToStr (boolean checked) {
+            if (checked) {
+                return "A";
+            } else {
+                return "B";
+            }
+        }
+
+
     }
 }

@@ -1,7 +1,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -41,7 +40,6 @@ public class MainActivity extends ActionBarActivity
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.fragment_drawer);
         // Set up the drawer.
@@ -58,7 +56,7 @@ public class MainActivity extends ActionBarActivity
 
         Fragment fragment;
         switch(position) {
-            case 0:
+            case 1:
                 fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
                 if (fragment == null) {
                     fragment = EditFragment.newInstance();
@@ -68,7 +66,7 @@ public class MainActivity extends ActionBarActivity
 
                 break;
 
-            case 1:
+            case 0:
                 fragment = getFragmentManager().findFragmentByTag(CreateFragment.TAG);
                 if (fragment == null) {
                     fragment = CreateFragment.newInstance();
