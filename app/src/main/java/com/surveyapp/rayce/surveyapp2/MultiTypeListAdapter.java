@@ -1,3 +1,5 @@
+
+
 package com.surveyapp.rayce.surveyapp2;
 
 import android.content.Context;
@@ -23,8 +25,6 @@ import java.util.Set;
 
 
 public class MultiTypeListAdapter extends BaseAdapter {
-    public DBHelper dbhelp;
-    public PersonToAssessments pToA;
     private Context context;
     private LayoutInflater inflater;
     public List<EditPageObject> pageData;
@@ -33,11 +33,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
     public PersonToAssessments pToA;
 
     public MultiTypeListAdapter(Context context, List<EditPageObject> pageData, PersonToAssessments pToA) {
-<<<<<<< HEAD
-        dbhelp = new DBHelper(context);
-        this.pToA = pToA;
-=======
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.pageData = pageData;
@@ -95,25 +90,15 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-
         View view = convertView;
         EditFragment.ViewHolder holder;
         int type = getItemViewType(position);
-<<<<<<< HEAD
-        //dumpPageData(pageData);
-        holder = new EditFragment.ViewHolder(saveData, pageData, dbhelp, pToA);
-=======
         //Log.d("request!", "position before new holder: " + position );
 
         holder = new EditFragment.ViewHolder(saveData, pageData, dbHelp, pToA);
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         holder.position = position;
         //holder = new EditFragment.ViewHolder(pageData, position);
         if (convertView == null) {
-<<<<<<< HEAD
-
-=======
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
             switch (type) {
                 case 0: //Label
                     view = inflater.inflate(R.layout.edit_label, parent, false);
@@ -161,10 +146,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     String checked = pageData.get(position).get_answer();
                     holder.switchWidget.setChecked(convertStrToChecked(checked));
 //                    Log.d("Checked:", checked);
-
                     holder.switchWidget.setOnCheckedChangeListener(holder);
-
-                    //holder.textView.setText("Does the candidate like cats?");
                     view.setTag(holder);
                     break;
 
@@ -215,80 +197,27 @@ public class MultiTypeListAdapter extends BaseAdapter {
             //dbHelp.setEditPageData(pToA, pageData);
         }
 
-<<<<<<< HEAD
-
-        //Set set = saveData.entrySet();
-=======
         Set set = saveData.entrySet();
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         Iterator i = set.iterator();
         while(i.hasNext()) {
             Map.Entry me = (Map.Entry)i.next();
-                // do something, update view/holder/db ???
-//            Log.d("request!", "compare0: " + me.getValue() + ":" + pageData.get(position).get_answer() + ":");
-//            Log.d("request!", "compare0: " + me.getKey() + ":" + me.getValue() + ":");
-//            Log.d("request!", "compare1: " + position + ":" + pageData.get(position).get_answer() + ":");
-//            Log.d("request!", "compare2: " + me.getKey().toString() + ":");
-//            Log.d("request!", "compare3: " + Integer.parseInt(me.getKey().toString()) + ":");
-                    //+ pageData.get(Integer.getInteger(me.getKey().toString())).get_answer() + ":");
 
             if(me.getValue().equals(pageData.get(position).get_answer()) ) {}
             else {
-
+                //Log.d("request!", "not equal key: " + me.getKey() + ":" + me.getValue() + ":" + position + ":" + pageData.get(position).get_answer());
                 pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
-<<<<<<< HEAD
-                //Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer());
                 Log.d("request!", "add/update: " +
                                 pToA.get_person_id() + " " +
                                 pToA.get_date_created() + " " +
                                 pToA.get_assessment_id() + " " +
                                 pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
                 );
+                DBHelper dbhelp = new DBHelper(context);
                 dbhelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
-=======
-//                holder.textView.setText(pageData.get(position).get_question());
-                Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer()   );
-
-               // pageData.get(Integer.getInteger(me.getKey().toString())).set_answer(me.getValue().toString());
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
             }
             i.remove();
         }
-
-
-
         holder.textView.setText(pageData.get(position).get_question());
-<<<<<<< HEAD
-
-        Log.d("request!", "end position: " + position);
-        return view;
-    }
-
-    public void dumpPageData(List<EditPageObject> pageDataList) {
-        for (EditPageObject eop: pageDataList) {
-            Log.d("request!", "dumpPageData: " +
-                    eop.get_question() + " " +
-                    eop.get_answer() + " " +
-                    eop.get_itemtype() + " " +
-                    eop.get_itemorder() + " " +
-                    eop.get_assessments_questions_id()
-
-            );
-=======
-
-/*
-        view = inflater.inflate(R.layout.edit_questiontext, parent, false);
-        holder.textView = (TextView) view.findViewById(R.id.textq);
-        holder.textView.setText(pageData.get(position).get_question());
-        holder.editText = (EditText) view.findViewById(R.id.editText);
-        holder.editText.setText(pageData.get(position).get_answer());
-        holder.position = position;
-        holder.editText.addTextChangedListener(holder);
-        view.setTag(holder);
-        */
-
-        //Log.d("request!", "end position: " + position + ":" + holder.textView.getText() + ":" + holder.editText.getText());
-//        Log.d("request!", "end position: " + position);
         return view;
     }
 
@@ -318,11 +247,11 @@ public class MultiTypeListAdapter extends BaseAdapter {
     }
 
     public boolean convertStrToChecked (String checked) {
-        if (checked == "A") {
+        if (checked.equals("A")) {
             return true;
         } else {
             return false;
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
     }
 }
+

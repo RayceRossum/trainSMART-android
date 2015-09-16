@@ -259,6 +259,15 @@ public class DBHelper extends SQLiteOpenHelper{
             this.deleteAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
 */
 
+            // if you know it's there
+            PersonToAssessments personToAssessments0 = this.getPersonToAssessments(1, 1, "2015-09-15", 2);
+            if(personToAssessments0 != null) personToAssessments0.dump(); else Log.d("request!", "helperTest not found");
+
+            // if you're checking if it's there
+            try {
+                PersonToAssessments personToAssessments1 = this.getPersonToAssessments(1, 1, "not_found", 2);
+            } catch (Exception ex) { Log.d("request!", "helperTest getPersonToAssessments not found");}
+
             List<PersonToAssessments> personToAssessmentsList = this.getAllPersonToAssessments();
             for (PersonToAssessments poa: personToAssessmentsList) { poa.dump(); }
 
@@ -343,10 +352,7 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     public void setEditPageRow(PersonToAssessments pa, int question_id, String new_answer){
-        Log.d("request!", "setEditPageRow");
-        //Log.d("request!", "pa> " + pa._person_id + " " + pa._facility_id + " " + pa._date_created + " " + pa._assessment_id);
         // select from answers, if (answer) update answer else insert answer
-
         AssessmentsAnswers assessmentsAnswers =
                 this.getAssessmentsAnswers(
                         pa.get_person_id(),
@@ -356,10 +362,8 @@ public class DBHelper extends SQLiteOpenHelper{
                         question_id);
 
         if(assessmentsAnswers != null){
-            Log.d("request!", "setEditPageRow update: " );
             this.updateAssessmentsAnswers(assessmentsAnswers.get_assess_id(), new_answer);
         } else {
-            Log.d("request!", "setEditPageRow insert: ");
             this.insertAssessmentsAnswers(
                     pa.get_person_id(),
                     pa.get_facility_id(),
@@ -617,8 +621,6 @@ public class DBHelper extends SQLiteOpenHelper{
         String[] tableColumns = new String[] {
                 ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
         };
-
-
             // use assess_id to update
             ContentValues cv = new ContentValues();
             cv.put(ASSESSMENTS_ANSWERS_ANSWER, new_answer);
@@ -715,6 +717,51 @@ public class DBHelper extends SQLiteOpenHelper{
                         + cursor.getString(5) + " "
                         + cursor.getString(6) + " "
         );
+
+        PersonToAssessments person_to_assessments = new PersonToAssessments(
+                Integer.parseInt(cursor.getString(0)),
+                Integer.parseInt(cursor.getString(1)),
+                Integer.parseInt(cursor.getString(2)),
+                cursor.getString(3),
+                Integer.parseInt(cursor.getString(4)),
+                Integer.parseInt(cursor.getString(5))
+
+        );
+        cursor.close();
+        db.close();
+        return person_to_assessments;
+    }
+
+    public PersonToAssessments getPersonToAssessments(int person_id, int facility_id, String date_created, int assessment_id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID, PERSON_TO_ASSESSMENTS_PERSON_ID, PERSON_TO_ASSESSMENTS_FACILITY_ID, PERSON_TO_ASSESSMENTS_DATE_CREATED, PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, PERSON_TO_ASSESSMENTS_USER_ID, PERSON_TO_ASSESSMENTS_STATUS
+        };
+
+        String whereClause = "1=1 and " +
+                PERSON_TO_ASSESSMENTS_PERSON_ID + " = ? and " +
+                PERSON_TO_ASSESSMENTS_FACILITY_ID + " = ? and " +
+                PERSON_TO_ASSESSMENTS_DATE_CREATED + " = ? and " +
+                PERSON_TO_ASSESSMENTS_ASSESSMENT_ID + " = ?";
+
+        String[] whereArgs = new String[]{
+                Integer.toString(person_id), Integer.toString(facility_id), date_created, Integer.toString(assessment_id) };
+
+        Cursor cursor = db.query(TABLE_PERSON_TO_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null) cursor.moveToFirst();
+
+//        Log.d("request!", "getPersonToAssessments  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//                        + cursor.getString(3) + " "
+//                        + cursor.getString(4) + " "
+//                        + cursor.getString(5) + " "
+//                        + cursor.getString(6) + " "
+//        );
 
         PersonToAssessments person_to_assessments = new PersonToAssessments(
                 Integer.parseInt(cursor.getString(0)),

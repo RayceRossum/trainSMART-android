@@ -5,8 +5,6 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.format.Time;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +27,9 @@ import java.util.List;
  * Use the {@link EditFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EditFragment extends Fragment {
+public class
+
+        EditFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     public static String TAG = "editTag";
@@ -83,13 +83,9 @@ public class EditFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-<<<<<<< HEAD
         PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
-=======
-        PersonToAssessments pToA = dbHelp.getPersonToAssessments(1);
 //        PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
 //        dbHelp.putPersonToAssessments(person_id, facility_id, date_created, assessment_id);
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA), pToA);
 //        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
         listView.setItemsCanFocus(true);
@@ -141,13 +137,8 @@ public class EditFragment extends Fragment {
 
     }
 
-<<<<<<< HEAD
-    public static class ViewHolder implements TextWatcher {
-        List<EditPageObject> pageData;
-=======
     public static class ViewHolder implements TextWatcher, SeekBar.OnSeekBarChangeListener, Switch.OnCheckedChangeListener {
         //List<EditPageObject> pageData;
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         public HashMap _saveData = new HashMap();
         public DBHelper dbhelp;
         public PersonToAssessments pToA;
@@ -161,19 +152,11 @@ public class EditFragment extends Fragment {
 //        public PersonToAssessments pToA;
 //        public List<EditPageObject> pageData;
 
-<<<<<<< HEAD
-        public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData, DBHelper dbhelp, PersonToAssessments pToA) {
-            this.pageData = pageData;
-            this._saveData = saveData;
-            this.dbhelp = dbhelp;
-            this.pToA = pToA;
-=======
         public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData,  DBHelper dbHelp, PersonToAssessments pToA) {
             this._saveData = saveData;
 //            this.dbHelp = dbHelp;
 //            this.pToA = pToA;
 //            this.pageData = pageData;
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
 
         public void afterTextChanged(Editable editable) {
@@ -181,10 +164,6 @@ public class EditFragment extends Fragment {
 
             _saveData.remove(position);
             _saveData.put(position, editable.toString());
-<<<<<<< HEAD
-=======
-//            dbHelp.setEditPageData(pToA, pageData);
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count,

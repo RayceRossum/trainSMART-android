@@ -78,11 +78,6 @@ public class MainActivity extends ActionBarActivity
                 break;
 
             case 4:
-<<<<<<< HEAD
-                // check for save
-=======
->>>>>>> d4fb715fac2036da43fe1d69a048e184408d40a3
-
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
@@ -93,7 +88,6 @@ public class MainActivity extends ActionBarActivity
         }
     }
 
-
     @Override
     public void onBackPressed() {
         if (mNavigationDrawerFragment.isDrawerOpen())
@@ -101,7 +95,6 @@ public class MainActivity extends ActionBarActivity
         else
             super.onBackPressed();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -114,7 +107,6 @@ public class MainActivity extends ActionBarActivity
         //}
         return super.onCreateOptionsMenu(menu);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
