@@ -42,7 +42,7 @@ class getMySQLAssessmentsQuestionsTable extends AsyncTask<String, String, String
             URL url = null;
             try {
                 url = new URL(MainActivity.GET_TABLE_URL);
-                Log.d("request!", "getMySQLPersonTable person GET_TABLE_URL " + url.toString());
+                Log.d("request!", "getMySQLAssessmentsQuestionsTable GET_TABLE_URL " + url.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

@@ -159,6 +159,7 @@ public class DBHelper extends SQLiteOpenHelper{
         Log.d("request!", "helperTest0 ");
 
         try {
+            /*
             String databaseName = this.getDatabaseName();
             //SQLiteDatabase db = this.getReadableDatabase();
             //SQLiteDatabase db = this.getWritableDatabase();
@@ -256,7 +257,10 @@ public class DBHelper extends SQLiteOpenHelper{
             Log.d("request!", "helperTest inserted new assess_id from insert: " +  assessmentsAnswers3.get_assess_id());
             Log.d("request!", "helperTest inserted new answer from insert: " +  assessmentsAnswers4.get_answer());
             this.deleteAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
+*/
 
+            List<PersonToAssessments> personToAssessmentsList = this.getAllPersonToAssessments();
+            for (PersonToAssessments poa: personToAssessmentsList) { poa.dump(); }
 
             Log.d("request!", "helperTest Done");
 
@@ -285,17 +289,13 @@ public class DBHelper extends SQLiteOpenHelper{
                         "join person p on p.person_id = pa.person_id " +
                         "join assessments a on pa.assessment_id = a.assessment_id " +
                         "join assessments_questions aq on a.assessment_id = aq.assessment_id " +
-                        "join assessments_answers aa " +
-                        "on aa.person = pa.person_id " +
-                        "and aa.facility = pa.facility_id " +
-                        "and aa.date_created = pa.date_created " +
-                        "and aa.assessment_id = pa.assessment_id " +
-                        "and aa.question = aq.assessments_questions_id " +
+
                         "where  1=1 " +
                         " and pa.person_id = " + person_to_assessment.get_person_id() +
                         " and pa.facility_id = " + person_to_assessment.get_facility_id() +
                         " and pa.date_created = '" + person_to_assessment.get_date_created() + "' " +
                         " and pa.assessment_id = " + person_to_assessment.get_assessment_id() +
+                        " and aq.itemtype != 'text' " +
                         //" and aq.status = 1 " +
                         " union " +
                         "select " +
@@ -340,6 +340,43 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
         // return person list
         return editPageList;
+    }
+
+    public void setEditPageRow(PersonToAssessments pa, int question_id, String new_answer){
+        Log.d("request!", "setEditPageRow");
+        //Log.d("request!", "pa> " + pa._person_id + " " + pa._facility_id + " " + pa._date_created + " " + pa._assessment_id);
+        // select from answers, if (answer) update answer else insert answer
+
+        AssessmentsAnswers assessmentsAnswers =
+                this.getAssessmentsAnswers(
+                        pa.get_person_id(),
+                        pa.get_facility_id(),
+                        pa.get_date_created(),
+                        pa.get_assessment_id(),
+                        question_id);
+
+        if(assessmentsAnswers != null){
+            Log.d("request!", "setEditPageRow update: " );
+            this.updateAssessmentsAnswers(assessmentsAnswers.get_assess_id(), new_answer);
+        } else {
+            Log.d("request!", "setEditPageRow insert: ");
+            this.insertAssessmentsAnswers(
+                    pa.get_person_id(),
+                    pa.get_facility_id(),
+                    pa.get_date_created(),
+                    pa.get_assessment_id(),
+                    question_id,
+                    new_answer );
+        }
+
+//            Log.d("request!", "helperTest setEditPageData editPageObjectList > "
+//                            //+ editPageObjectList._rowid + " "
+//                            + epo._assessments_questions_id + " "
+//                            + epo._question + " "
+//                            + epo._itemtype + " "
+//                            + epo._itemorder + " "
+//                            + epo._answer + " "
+//            );
     }
 
     public void setEditPageData(PersonToAssessments pa, List<EditPageObject> editPageObjectList){
@@ -805,7 +842,7 @@ public class DBHelper extends SQLiteOpenHelper{
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_PERSON;
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
@@ -828,6 +865,67 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
         // return person list
         return personList;
+    }
+
+    public List<AssessmentsAnswers> getAllAssessmentsAnswers() {
+        List<AssessmentsAnswers> assessmentsAnswersList = new ArrayList<AssessmentsAnswers>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_ASSESSMENTS_ANSWERS;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                AssessmentsAnswers assessmentsAnswers = new AssessmentsAnswers();
+                //person.setRowId(Integer.parseInt(cursor.getString(0)));
+                assessmentsAnswers.set_assess_id(Integer.parseInt(cursor.getString(0)));
+                assessmentsAnswers.set_person(Integer.parseInt(cursor.getString(1)));
+                assessmentsAnswers.set_facility(Integer.parseInt(cursor.getString(2)));
+                assessmentsAnswers.set_date_created(cursor.getString(3));
+                assessmentsAnswers.set_assessment_id(Integer.parseInt(cursor.getString(4)));
+                assessmentsAnswers.set_question(Integer.parseInt(cursor.getString(5)));
+                assessmentsAnswers.set_answer(cursor.getString(6));
+
+                // Adding person to list
+                assessmentsAnswersList.add(assessmentsAnswers);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return personToAssessments list
+        return assessmentsAnswersList;
+    }
+
+    public List<PersonToAssessments> getAllPersonToAssessments() {
+        List<PersonToAssessments> personToAssessmentsList = new ArrayList<PersonToAssessments>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_PERSON_TO_ASSESSMENTS;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                PersonToAssessments personToAssessments = new PersonToAssessments();
+                //person.setRowId(Integer.parseInt(cursor.getString(0)));
+                personToAssessments.set_person_to_assessments_id(Integer.parseInt(cursor.getString(0)));
+                personToAssessments.set_person_id(Integer.parseInt(cursor.getString(1)));
+                personToAssessments.set_facility_id(Integer.parseInt(cursor.getString(2)));
+                personToAssessments.set_date_created(cursor.getString(3));
+                personToAssessments.set_assessment_id(Integer.parseInt(cursor.getString(4)));
+                personToAssessments.set_user_id(Integer.parseInt(cursor.getString(5)));
+
+                // Adding person to list
+                personToAssessmentsList.add(personToAssessments);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return personToAssessments list
+        return personToAssessmentsList;
     }
 
     public int getPersonsCount() {
@@ -868,6 +966,12 @@ public class DBHelper extends SQLiteOpenHelper{
     public void dropDatabase() {
     }
 
+    public void uploadDBData() {
+        Log.d("request!", "uploadDBData putMySQLPersonToAssessmentsTable");
+        new putMySQLPersonToAssessmentsTable(this).execute();
+        new putMySQLAssessmentsAnswersTable(this).execute();
+    }
+
     public void downloadDBData() {
         Log.d("request!", "load person_to_assessments ");
         load_person_to_assessments();
@@ -882,6 +986,36 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     protected void load_person_to_assessments() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("delete from person_to_assessments ");
+        db.execSQL("insert into person_to_assessments values (19,1,1,\"2015-09-15\",2,1,1);");
+    }
+
+    protected void load_assessments_answers() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL("delete from assessments_answers ");
+        db.execSQL("insert into assessments_answers values (3485,1,1,\"2015-09-15\",2,14,\"A\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3486,1,1,\"2015-09-15\",2,16,\"B\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3487,1,1,\"2015-09-15\",2,17,\"C\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3488,1,1,\"2015-09-15\",2,18,\"F\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3489,1,1,\"2015-09-15\",2,19,\"D\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3490,1,1,\"2015-09-15\",2,21,\"E\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3491,1,1,\"2015-09-15\",2,22,\"3.2\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3492,1,1,\"2015-09-15\",2,23,\"3.3\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3493,1,1,\"2015-09-15\",2,24,\"3.4\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3494,1,1,\"2015-09-15\",2,25,\"3.5\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3495,1,1,\"2015-09-15\",2,26,\"3.6\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3496,1,1,\"2015-09-15\",2,27,\"3.7\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3497,1,1,\"2015-09-15\",2,28,\"3.8\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3498,1,1,\"2015-09-15\",2,29,\"3.9\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3499,1,1,\"2015-09-15\",2,30,\"3.10\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3500,1,1,\"2015-09-15\",2,40,\"5.1\",\"Y\");");
+
+    }
+
+    protected void not_load_person_to_assessments() {
         SQLiteDatabase db = this.getWritableDatabase();
 
         db.execSQL("delete from person_to_assessments ");
@@ -901,7 +1035,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     }
 
-    protected void load_assessments_answers() {
+    protected void not_load_assessments_answers() {
         SQLiteDatabase db = this.getWritableDatabase();
 
         db.execSQL("delete from assessments_answers ");
@@ -921,7 +1055,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("insert into assessments_answers values (3358,1,1,\"2015-07-07\",2,29,\"3.9.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3359,1,1,\"2015-07-07\",2,30,\"3.10\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3361,1,1,\"2015-07-07\",2,32,\"4.1.\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3362,1,1,\"2015-07-07\",2,33,\"4.2.\",\"Y\");");
+        //db.execSQL("insert into assessments_answers values (3362,1,1,\"2015-07-07\",2,33,\"4.2.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3363,1,1,\"2015-07-07\",2,34,\"4.3.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3364,1,1,\"2015-07-07\",2,36,\"4.5.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3374,1,1,\"2015-07-07\",2,38,\"4.7.\",\"Y\");");
@@ -944,7 +1078,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("insert into assessments_answers values (3393,1,1,\"2015-09-07\",2,29,\"3.9.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3394,1,1,\"2015-09-07\",2,30,\"3.10\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3395,1,1,\"2015-09-07\",2,32,\"4.1.\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3396,1,1,\"2015-09-07\",2,33,\"4.2.\",\"Y\");");
+        //db.execSQL("insert into assessments_answers values (3396,1,1,\"2015-09-07\",2,33,\"4.2.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3397,1,1,\"2015-09-07\",2,34,\"4.3.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3398,1,1,\"2015-09-07\",2,36,\"4.5.\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3399,1,1,\"2015-09-07\",2,38,\"4.7.\",\"Y\");");

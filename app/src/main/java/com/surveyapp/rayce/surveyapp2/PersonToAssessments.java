@@ -1,5 +1,7 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.util.Log;
+
 /**
  * Created by rossumg on 9/4/2015.
  */
@@ -16,6 +18,14 @@ public class PersonToAssessments {
 
     // Empty constructor
     public PersonToAssessments() {
+    }
+
+    public int get_person_to_assessments_id() {
+        return _person_to_assessments_id;
+    }
+
+    public void set_person_to_assessments_id(int _person_to_assessments_id) {
+        this._person_to_assessments_id = _person_to_assessments_id;
     }
 
     // constructor
@@ -40,6 +50,16 @@ public class PersonToAssessments {
         this._user_id = user_id;
     }
 
+    public void dump() {
+        Log.d("request!", "dumpPersonToAssessments: " +
+                        this.get_person_to_assessments_id() + " " +
+                        this.get_person_id() + " " +
+                        this.get_facility_id() + " " +
+                        this.get_date_created() + " " +
+                        this.get_assessment_id() + " " +
+                        this.get_user_id()
+             );
+    }
 
     public int get_rowid() {
         return _rowid;

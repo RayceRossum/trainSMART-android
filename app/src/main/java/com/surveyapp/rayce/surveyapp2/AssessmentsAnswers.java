@@ -1,5 +1,7 @@
 package com.surveyapp.rayce.surveyapp2;
 
+import android.util.Log;
+
 /**
  * Created by rossumg on 9/8/2015.
  */
@@ -13,6 +15,18 @@ public class AssessmentsAnswers {
     int _assessment_id;
     int _question;
     String _answer;
+
+    public void dump() {
+        Log.d("request!", "dumpAssessmentsAnswers: " +
+                        this.get_assess_id() + " " +
+                        this.get_person() + " " +
+                        this.get_facility() + " " +
+                        this.get_date_created() + " " +
+                        this.get_assessment_id() + " " +
+                        this.get_question() + " " +
+                        this.get_answer()
+        );
+    }
 
     public int get_assess_id() {
         return _assess_id;

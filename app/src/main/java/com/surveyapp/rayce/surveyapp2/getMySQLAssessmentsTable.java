@@ -45,6 +45,7 @@ class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
             URL url = null;
             try {
                 url = new URL(MainActivity.GET_TABLE_URL);
+                Log.d("request!", "getMySQLAssessmentsTable GET_TABLE_URL " + url.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -57,7 +58,7 @@ class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
             success = json.getInt(MainActivity.TAG_SUCCESS);
             if (success == 1) {
                 LOGGED_IN = true;
-                int num_person_recs = json.getInt("number_records");
+                int num_recs = json.getInt("number_records");
                 JSONArray assessments_array = json.getJSONArray("posts");
                 for (int i = 0; i< assessments_array.length(); i++) {
                     JSONObject assessments_rec = assessments_array.getJSONObject(i);

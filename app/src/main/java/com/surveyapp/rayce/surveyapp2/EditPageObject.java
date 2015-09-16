@@ -13,13 +13,7 @@ public class EditPageObject {
     int _itemorder;
     String _answer;
 
-    public int get_assessments_questions_id() {
-        return _assessments_questions_id;
-    }
 
-    public void set_assessments_questions_id(int _assessments_questions_id) {
-        this._assessments_questions_id = _assessments_questions_id;
-    }
 
     // Empty constructor
     public EditPageObject() {
@@ -34,19 +28,18 @@ public class EditPageObject {
     }
 
     public EditPageObject(String _question, int _question_id, String _itemtype, int _itemorder, String _answer) {
-        this._rowid = _rowid;
         this._question = _question;
         this._itemtype = _itemtype;
         this._itemorder = _itemorder;
         this._answer = _answer;
     }
 
-    public int get_rowid() {
-        return _rowid;
+    public int get_assessments_questions_id() {
+        return _assessments_questions_id;
     }
 
-    public void set_rowid(int _rowid) {
-        this._rowid = _rowid;
+    public void set_assessments_questions_id(int _assessments_questions_id) {
+        this._assessments_questions_id = _assessments_questions_id;
     }
 
     public String get_question() {
@@ -74,10 +67,13 @@ public class EditPageObject {
     }
 
     public String get_answer() {
+
         return _answer;
     }
 
     public void set_answer(String _answer) {
         this._answer = _answer;
     }
+
+
 }

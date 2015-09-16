@@ -23,13 +23,17 @@ import java.util.Set;
 
 
 public class MultiTypeListAdapter extends BaseAdapter {
+    public DBHelper dbhelp;
+    public PersonToAssessments pToA;
     private Context context;
     private LayoutInflater inflater;
     private String[][] data;
     public List<EditPageObject> pageData;
     public HashMap saveData = new HashMap();
 
-    public MultiTypeListAdapter(Context context, List<EditPageObject> pageData) {
+    public MultiTypeListAdapter(Context context, List<EditPageObject> pageData, PersonToAssessments pToA) {
+        dbhelp = new DBHelper(context);
+        this.pToA = pToA;
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.data = data;
@@ -86,15 +90,15 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
+
         View view = convertView;
         EditFragment.ViewHolder holder;
         int type = getItemViewType(position);
-        //Log.d("request!", "position before new holder: " + position );
-
-        holder = new EditFragment.ViewHolder(saveData);
+        //dumpPageData(pageData);
+        holder = new EditFragment.ViewHolder(saveData, pageData, dbhelp, pToA);
         holder.position = position;
         if (convertView == null) {
-            //holder = new EditFragment.ViewHolder(pageData, position);
+
             switch (type) {
                 case 0: //Label
                     view = inflater.inflate(R.layout.edit_label, parent, false);
@@ -168,8 +172,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
             }
         }
 
-       // holder.textView.setText(pageData.get(position).get_question());
-
         Set set = saveData.entrySet();
         Iterator i = set.iterator();
         while(i.hasNext()) {
@@ -184,29 +186,38 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
             if(me.getValue().equals(pageData.get(position).get_answer()) ) {}
             else {
-                //Log.d("request!", "not equal key: " + me.getKey() + ":" + me.getValue() + ":" + position + ":" + pageData.get(position).get_answer());
-                pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
-                Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer()   );
-               // pageData.get(Integer.getInteger(me.getKey().toString())).set_answer(me.getValue().toString());
-            }
 
+                pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
+                //Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer());
+                Log.d("request!", "add/update: " +
+                                pToA.get_person_id() + " " +
+                                pToA.get_date_created() + " " +
+                                pToA.get_assessment_id() + " " +
+                                pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
+                );
+                dbhelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
+            }
             i.remove();
         }
 
-        holder.textView.setText(pageData.get(position).get_question());
-/*
-        view = inflater.inflate(R.layout.edit_questiontext, parent, false);
-        holder.textView = (TextView) view.findViewById(R.id.textq);
-        holder.textView.setText(pageData.get(position).get_question());
-        holder.editText = (EditText) view.findViewById(R.id.editText);
-        holder.editText.setText(pageData.get(position).get_answer());
-        holder.position = position;
-        holder.editText.addTextChangedListener(holder);
-        view.setTag(holder);
-        */
 
-        //Log.d("request!", "end position: " + position + ":" + holder.textView.getText() + ":" + holder.editText.getText());
+
+        holder.textView.setText(pageData.get(position).get_question());
+
         Log.d("request!", "end position: " + position);
         return view;
+    }
+
+    public void dumpPageData(List<EditPageObject> pageDataList) {
+        for (EditPageObject eop: pageDataList) {
+            Log.d("request!", "dumpPageData: " +
+                    eop.get_question() + " " +
+                    eop.get_answer() + " " +
+                    eop.get_itemtype() + " " +
+                    eop.get_itemorder() + " " +
+                    eop.get_assessments_questions_id()
+
+            );
+        }
     }
 }

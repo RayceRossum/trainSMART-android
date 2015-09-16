@@ -95,7 +95,16 @@ public class DebugFragment extends Fragment {
                 Log.d("request!", "delete button");
                 _dbHelp.helperTest();
             }
+        });
 
+        Button btnUpload = (Button) view.findViewById(R.id.btnUpload);
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.d("request!", "upload button");
+                _dbHelp.uploadDBData();
+            }
         });
 
         // Inflate the layout for this fragment

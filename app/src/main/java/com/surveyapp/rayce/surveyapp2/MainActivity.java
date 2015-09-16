@@ -28,6 +28,8 @@ public class MainActivity extends ActionBarActivity
     static String _pass = "rossumg";
 
 
+
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -76,6 +78,8 @@ public class MainActivity extends ActionBarActivity
                 break;
 
             case 4:
+                // check for save
+
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
@@ -83,7 +87,6 @@ public class MainActivity extends ActionBarActivity
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).commit();
 
                 break;
-
         }
     }
 

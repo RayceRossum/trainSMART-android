@@ -45,7 +45,7 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
             URL url = null;
             try {
                 url = new URL(MainActivity.GET_TABLE_URL);
-                Log.d("request!", "getMySQLPersonTable person GET_TABLE_URL " + url.toString());
+                Log.d("request!", "getMySQLPersonTable GET_TABLE_URL " + url.toString());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -81,7 +81,7 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
                                     + facility_id + ","
                                     + "'" + facility_name + "'" + ");";
                     try {
-                        Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
+                        //Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
                         _db.execSQL(personInsert.toString());
                     } catch (Exception ex) {
                         Log.d("request!", "getMySQLPersonTable loop exception > " + ex.toString());
