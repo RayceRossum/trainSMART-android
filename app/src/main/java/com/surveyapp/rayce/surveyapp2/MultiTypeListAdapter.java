@@ -216,6 +216,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
 //                holder.textView.setText(pageData.get(position).get_question());
                 Log.d("request!", "key:newValue: " + me.getKey() + ":" + pageData.get(Integer.parseInt(me.getKey().toString())).get_answer()   );
+
                // pageData.get(Integer.getInteger(me.getKey().toString())).set_answer(me.getValue().toString());
             }
 

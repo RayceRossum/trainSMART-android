@@ -76,6 +76,7 @@ public class MainActivity extends ActionBarActivity
                 break;
 
             case 4:
+
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
