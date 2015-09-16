@@ -172,7 +172,8 @@ public class MultiTypeListAdapter extends BaseAdapter {
             }
         }
 
-        Set set = saveData.entrySet();
+
+        //Set set = saveData.entrySet();
         Iterator i = set.iterator();
         while(i.hasNext()) {
             Map.Entry me = (Map.Entry)i.next();

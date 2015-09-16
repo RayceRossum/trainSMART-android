@@ -72,3 +72,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /trainSMART-android.iml
+/.idea/workspace.xml
