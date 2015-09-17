@@ -5,4 +5,89 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:id="@+id/textView"
+        android:paddingTop="128dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/multiAutoCompleteTextView"
+        />
+
+    <MultiAutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiAutoCompleteTextView"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/last_name"
+        android:id="@+id/textView2"
+        android:paddingTop="12dp"
+        android:layout_below="@+id/multiAutoCompleteTextView"
+        android:layout_alignStart="@+id/multiAutoCompleteTextView" />
+
+    <MultiAutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiAutoCompleteTextView2"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/facility_name"
+        android:id="@+id/textView3"
+        android:paddingTop="12dp"
+        android:layout_below="@+id/multiAutoCompleteTextView2"
+        android:layout_alignStart="@+id/multiAutoCompleteTextView3" />
+
+    <MultiAutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/multiAutoCompleteTextView3"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/multiAutoCompleteTextView2"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/assessment_name"
+        android:id="@+id/textView4"
+        android:paddingTop="12dp"
+        android:layout_below="@+id/multiAutoCompleteTextView3"
+        android:layout_alignStart="@+id/multiAutoCompleteTextView3" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="128dp"
+        android:layout_marginRight="128dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"/>
+
+
 </RelativeLayout>
