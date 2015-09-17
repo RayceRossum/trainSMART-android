@@ -164,6 +164,7 @@ public class
 
             _saveData.remove(position);
             _saveData.put(position, editable.toString());
+
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count,

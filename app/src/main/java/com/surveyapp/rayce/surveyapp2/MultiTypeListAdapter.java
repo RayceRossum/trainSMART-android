@@ -212,8 +212,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                                 pToA.get_assessment_id() + " " +
                                 pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
                 );
-                DBHelper dbhelp = new DBHelper(context);
-                dbhelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
+                dbHelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
             }
             i.remove();
         }
