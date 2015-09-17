@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 
 /**
@@ -159,123 +161,298 @@ public class DBHelper extends SQLiteOpenHelper{
         Log.d("request!", "helperTest0 ");
 
         try {
-            /*
-            String databaseName = this.getDatabaseName();
-            //SQLiteDatabase db = this.getReadableDatabase();
-            //SQLiteDatabase db = this.getWritableDatabase();
-            Person person0 = this.getPerson("Greg", "Rossum", "%");
 
-            //db.execSQL("drop table assessments");
-            //db.execSQL("drop table person");
-            //db.execSQL("drop table person_to_assessments");
-            //db.execSQL("drop table assessments_answers");
-            //db.execSQL("drop table assessments_questions");
-            Log.d("request!", "helperTest databaseName> " + databaseName );
-            Log.d("request!", "helperTest person0> "
-                            + person0._rowid + " "
-                            + person0._person_id + " "
-                            + person0._first_name + " "
-                            + person0._last_name + " "
-                            + person0._national_id + " "
-                            + person0._facility_id + " "
-                            + person0._facility_name
-            );
-
-            Person person1 = new Person(999, "First", "Last", "national_id", 3, "All Souls' Clinic");
-            boolean _success = this.addPerson(person1);
-
-            List<Person> personList = this.getAllPersons();
-            for (Person p : personList) {
-                Log.d("request!", "helperTest personList> "
-                                //+ p._rowid + " "
-                                + p._person_id + " "
-                                + p._first_name + " "
-                                + p._last_name + " "
-                                + p._national_id + " "
-                                + p._facility_id + " "
-                                + p._facility_name
-                );
-            }
-
-            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
-
-            PersonToAssessments pa = new PersonToAssessments();
-            pa = this.getPersonToAssessments(1);
-            Log.d("request!", "pa.get_assessment_id > " + pa.get_assessment_id());
-
-            Assessments assessment = new Assessments();
-            assessment = getAssessments(pa.get_assessment_id());
-            Log.d("request!", "assessment.get_assessment_type > " + assessment.get_assessment_type());
-//            assessment = getAssessments(2);
-
-
-            Person person2 = new Person();
-            person2 = this.getPerson(pa.get_person_id());
-//            person2 = this.getPerson(1);
-
-            List<EditPageObject> editPageObjectList = this.getEditPageData( pa );
-//            for (EditPageObject epo : editPageObjectList) {
-//                Log.d("request!", "helperTest editPageObjectList > "
-//                                //+ editPageObjectList._rowid + " "
-//                                + epo._assessments_questions_id + " "
-//                                + epo._question + " "
-//                                + epo._itemtype + " "
-//                                + epo._itemorder + " "
-//                                + epo._answer + " "
+//            String databaseName = this.getDatabaseName();
+//            //SQLiteDatabase db = this.getReadableDatabase();
+//            //SQLiteDatabase db = this.getWritableDatabase();
+//            Person person0 = this.getPerson("Greg", "Rossum", "%");
+//
+//            //db.execSQL("drop table assessments");
+//            //db.execSQL("drop table person");
+//            //db.execSQL("drop table person_to_assessments");
+//            //db.execSQL("drop table assessments_answers");
+//            //db.execSQL("drop table assessments_questions");
+//            Log.d("request!", "helperTest databaseName> " + databaseName );
+//            Log.d("request!", "helperTest person0> "
+//                            + person0._rowid + " "
+//                            + person0._person_id + " "
+//                            + person0._first_name + " "
+//                            + person0._last_name + " "
+//                            + person0._national_id + " "
+//                            + person0._facility_id + " "
+//                            + person0._facility_name
+//            );
+//
+//            Person person1 = new Person(999, "First", "Last", "national_id", 3, "All Souls' Clinic");
+//            boolean _success = this.addPerson(person1);
+//
+//            List<Person> personList = this.getAllPersons();
+//            for (Person p : personList) {
+//                Log.d("request!", "helperTest personList> "
+//                                //+ p._rowid + " "
+//                                + p._person_id + " "
+//                                + p._first_name + " "
+//                                + p._last_name + " "
+//                                + p._national_id + " "
+//                                + p._facility_id + " "
+//                                + p._facility_name
 //                );
 //            }
-            for (EditPageObject epo : editPageObjectList) {
-                Log.d("request!", "question and answer: " + epo.get_question() + " " + epo.get_answer());
-                //epo.set_answer("new "+ epo.get_answer());
-            }
+//
+//            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
+//
+//            PersonToAssessments pa = new PersonToAssessments();
+//            pa = this.getPersonToAssessments(1);
+//            Log.d("request!", "pa.get_assessment_id > " + pa.get_assessment_id());
+//
+//            Assessments assessment = new Assessments();
+//            assessment = getAssessments(pa.get_assessment_id());
+//            Log.d("request!", "assessment.get_assessment_type > " + assessment.get_assessment_type());
+////            assessment = getAssessments(2);
+//
+//
+//            Person person2 = new Person();
+//            person2 = this.getPerson(pa.get_person_id());
+////            person2 = this.getPerson(1);
+//
+//            List<EditPageObject> editPageObjectList = this.getEditPageData( pa );
+////            for (EditPageObject epo : editPageObjectList) {
+////                Log.d("request!", "helperTest editPageObjectList > "
+////                                //+ editPageObjectList._rowid + " "
+////                                + epo._assessments_questions_id + " "
+////                                + epo._question + " "
+////                                + epo._itemtype + " "
+////                                + epo._itemorder + " "
+////                                + epo._answer + " "
+////                );
+////            }
+//            for (EditPageObject epo : editPageObjectList) {
+//                Log.d("request!", "question and answer: " + epo.get_question() + " " + epo.get_answer());
+//                //epo.set_answer("new "+ epo.get_answer());
+//            }
+//
+//            setEditPageData(pa, editPageObjectList); //  insert/update answers
+//
+//            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
+//
+////            if(assessmentsAnswers != null)
+////                Log.d("request!", "helperTest assessmentsAnswers "
+////                        + assessmentsAnswers._assess_id + " "
+////                        + assessmentsAnswers._person + " "
+////                        + assessmentsAnswers._facility + " "
+////                        + assessmentsAnswers._date_created + " "
+////                        + assessmentsAnswers._assessment_id + " "
+////                        + assessmentsAnswers._question + " "
+////                        + assessmentsAnswers._answer);
+////            else
+////                Log.d("request1", "assessments_answers record not found");
+//
+//            this.updateAssessmentsAnswers(1, 1, "2015-07-07", 2, 22, Integer.toString((getPersonsCount())));
+//            AssessmentsAnswers assessmentsAnswers1 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
+//            Log.d("request!", "helperTest assessmentsAnswers1 " + assessmentsAnswers1.get_answer());
+//            this.updateAssessmentsAnswers(assessmentsAnswers1.get_assess_id(), Integer.toString((getPersonsCount() + 1)));
+//            AssessmentsAnswers assessmentsAnswers2 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
+//            Log.d("request!", "helperTest assessmentsAnswers2 " + assessmentsAnswers2.get_answer());
+//            this.insertAssessmentsAnswers(0, 1, "2015-07-07", 2, 22, "this is a new answer");
+//            AssessmentsAnswers assessmentsAnswers3 = this.getAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
+//            AssessmentsAnswers assessmentsAnswers4 = this.getAssessmentsAnswers(assessmentsAnswers3.get_assess_id());
+//            Log.d("request!", "helperTest inserted new assess_id from insert: " +  assessmentsAnswers3.get_assess_id());
+//            Log.d("request!", "helperTest inserted new answer from insert: " +  assessmentsAnswers4.get_answer());
+//            this.deleteAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
 
-            setEditPageData(pa, editPageObjectList); //  insert/update answers
-
-            Log.d("request!", "helperTest personCount> " + this.getPersonsCount());
-
-//            if(assessmentsAnswers != null)
-//                Log.d("request!", "helperTest assessmentsAnswers "
-//                        + assessmentsAnswers._assess_id + " "
-//                        + assessmentsAnswers._person + " "
-//                        + assessmentsAnswers._facility + " "
-//                        + assessmentsAnswers._date_created + " "
-//                        + assessmentsAnswers._assessment_id + " "
-//                        + assessmentsAnswers._question + " "
-//                        + assessmentsAnswers._answer);
-//            else
-//                Log.d("request1", "assessments_answers record not found");
-
-            this.updateAssessmentsAnswers(1, 1, "2015-07-07", 2, 22, Integer.toString((getPersonsCount())));
-            AssessmentsAnswers assessmentsAnswers1 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
-            Log.d("request!", "helperTest assessmentsAnswers1 " + assessmentsAnswers1.get_answer());
-            this.updateAssessmentsAnswers(assessmentsAnswers1.get_assess_id(), Integer.toString((getPersonsCount() + 1)));
-            AssessmentsAnswers assessmentsAnswers2 = this.getAssessmentsAnswers(1, 1, "2015-07-07", 2, 22);
-            Log.d("request!", "helperTest assessmentsAnswers2 " + assessmentsAnswers2.get_answer());
-            this.insertAssessmentsAnswers(0, 1, "2015-07-07", 2, 22, "this is a new answer");
-            AssessmentsAnswers assessmentsAnswers3 = this.getAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
-            AssessmentsAnswers assessmentsAnswers4 = this.getAssessmentsAnswers(assessmentsAnswers3.get_assess_id());
-            Log.d("request!", "helperTest inserted new assess_id from insert: " +  assessmentsAnswers3.get_assess_id());
-            Log.d("request!", "helperTest inserted new answer from insert: " +  assessmentsAnswers4.get_answer());
-            this.deleteAssessmentsAnswers(0, 1, "2015-07-07", 2, 22);
-*/
 
             // if you know it's there
-            PersonToAssessments personToAssessments0 = this.getPersonToAssessments(1, 1, "2015-09-15", 2);
-            if(personToAssessments0 != null) personToAssessments0.dump(); else Log.d("request!", "helperTest not found");
+//            PersonToAssessments personToAssessments0 = this.getPersonToAssessments(1, 1, "2015-09-15", 2);
+//
+//            // if you're checking if it's there
+//            try {
+//                PersonToAssessments personToAssessments1 = this.getPersonToAssessments(1, 1, "not_found", 2);
+//            } catch (Exception ex) { Log.d("request!", "helperTest getPersonToAssessments not found");}
+//
+//            List<PersonToAssessments> personToAssessmentsList = this.getAllPersonToAssessments();
+//            for (PersonToAssessments poa: personToAssessmentsList) { poa.dump(); }
 
-            // if you're checking if it's there
-            try {
-                PersonToAssessments personToAssessments1 = this.getPersonToAssessments(1, 1, "not_found", 2);
-            } catch (Exception ex) { Log.d("request!", "helperTest getPersonToAssessments not found");}
 
-            List<PersonToAssessments> personToAssessmentsList = this.getAllPersonToAssessments();
-            for (PersonToAssessments poa: personToAssessmentsList) { poa.dump(); }
+            // returns "person_id_last_name first_name national_id facility_name"
+            //  split off person_id using "_", might have to use hashmap with person_id as key and rest as value
+            //  sorted by last, first, national
+            String[] allPersonID = {""};
+            allPersonID = getAllPersonIDs();
+            String parts[] = {};
+            for (String personID : allPersonID){
+                parts = personID.split("_");
+                Log.d("request!", "person_id: " + parts[0] + " last, first, national, facility: " + parts[1]);
+            }
+
+//            // returns unique sorted facility_names
+//            String[] allFacilityNames = {""};
+//            allFacilityNames = getAllFacilityNames();
+//            for (String facility_name : allFacilityNames){
+//                Log.d("request!", "facility_name: " + facility_name);
+//            }
+
+//            // returns unique sorted national_ids
+//            String[] allNationalIDs = {""};
+//            allNationalIDs = getAllNationalIDs();
+//            for (String nationalId : allNationalIDs){
+//                    Log.d("request!", "national_id: " + nationalId);
+//            }
+
+//            // returns Person object based on first_name, last_name, national_id
+//            Person person0 = this.getPerson("Greg", "Rossum", "%");
+//            Log.d("request!", "helperTest person0> "
+//                            //+ person0._rowid + " "
+//                            + person0.get_person_id() + " "
+//                            + person0.get_first_name() + " "
+//                            + person0.get_last_name() + " "
+//                            + person0.get_national_id() + " "
+//                            + person0.get_facility_id() + " "
+//                            + person0.get_facility_name()
+//            );
+
+
+            // returns all Person objects
+//            List<Person> personList = this.getAllPersons();
+//            for (Person p : personList) {
+//
+//                Log.d("request!", " first_last_name: " +
+//                                p.get_first_name() + " " + p.get_last_name() + " " +
+//                                p.get_national_id() + " " +
+//                                p.get_facility_name()
+//                );
+//            }
 
             Log.d("request!", "helperTest Done");
 
         } catch (Exception ex) {
             Log.d("request!", "helperTest catch " + ex.toString());
         }
+    }
+
+    public String[] getAllPersonIDs(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> personID = new ArrayList<String>();
+
+        String[] tableColumns = new String[] {
+                PERSON_PERSON_ID, PERSON_LAST_NAME, PERSON_FIRST_NAME,  PERSON_NATIONAL_ID, PERSON_FACILITY_NAME
+        };
+
+        String whereClause = "1=1 ";
+
+        String[] whereArgs = new String[]{};
+
+        String orderBy = PERSON_LAST_NAME + "," + PERSON_FIRST_NAME + "," + PERSON_NATIONAL_ID + "," + PERSON_FACILITY_NAME;
+
+        Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, orderBy);
+
+        if (cursor.moveToFirst()) {
+            do {
+//                Log.d("request!", "getAllPersonIDs  "
+//                                + cursor.getString(0) + " "
+//                                + cursor.getString(1) + " "
+//                                + cursor.getString(2) + " "
+//                                + cursor.getString(3) + " "
+//                );
+
+                personID.add(cursor.getString(0) + "_" + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3) + " " + cursor.getString(4));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // remove duplicates
+        Set<String> noDups = new LinkedHashSet<>(personID);
+        personID.clear();;
+        personID.addAll(noDups);
+
+        // convert to array
+        String[] stringArrayPersonID = new String[ personID.size() ];
+        personID.toArray(stringArrayPersonID);
+
+        return stringArrayPersonID;
+    }
+
+    public String[] getAllFacilityNames(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> facility_names = new ArrayList<String>();
+
+        String[] tableColumns = new String[] {
+                PERSON_FACILITY_NAME
+        };
+
+        String whereClause = "1=1 ";
+
+        String[] whereArgs = new String[]{};
+
+        String orderBy = PERSON_FACILITY_NAME;
+
+        Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, orderBy);
+
+        if (cursor.moveToFirst()) {
+            do {
+//                Log.d("request!", "getAllFacilityNames  "
+//                                + cursor.getString(0)
+//                );
+
+                facility_names.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // remove duplicates
+        Set<String> noDups = new LinkedHashSet<>(facility_names);
+        facility_names.clear();;
+        facility_names.addAll(noDups);
+
+        // convert to array
+        String[] stringArrayFacilityNames = new String[ facility_names.size() ];
+        facility_names.toArray(stringArrayFacilityNames);
+
+        return stringArrayFacilityNames;
+    }
+
+    public String[] getAllNationalIDs(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> nationalIds = new ArrayList<String>();
+
+        String[] tableColumns = new String[] {
+                PERSON_NATIONAL_ID
+        };
+
+        String whereClause = "1=1 ";
+
+        String[] whereArgs = new String[]{};
+
+        String orderBy = PERSON_NATIONAL_ID;
+
+        Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, orderBy);
+
+        if (cursor.moveToFirst()) {
+            do {
+//                Log.d("request!", "getAllNationalIds  "
+//                                + cursor.getString(0)
+//                );
+
+                nationalIds.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // remove duplicates
+        Set<String> noDups = new LinkedHashSet<>(nationalIds);
+        nationalIds.clear();;
+        nationalIds.addAll(noDups);
+
+        // convert to array
+        String[] stringArrayNationalIDS = new String[ nationalIds.size() ];
+        nationalIds.toArray(stringArrayNationalIDS);
+
+        return stringArrayNationalIDS;
     }
 
     public List<EditPageObject> getEditPageData(PersonToAssessments person_to_assessment) {
@@ -1045,8 +1222,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("delete from assessments_answers ");
         db.execSQL("insert into assessments_answers values (3485,1,1,\"2015-09-15\",2,14,\"A\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3486,1,1,\"2015-09-15\",2,16,\"B\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3487,1,1,\"2015-09-15\",2,17,\"C\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3488,1,1,\"2015-09-15\",2,18,\"F\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3487,1,1,\"2015-09-15\",2,17,\"text area\",\"Y\");");
+        db.execSQL("insert into assessments_answers values (3488,1,1,\"2015-09-15\",2,18,\"text area\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3489,1,1,\"2015-09-15\",2,19,\"D\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3490,1,1,\"2015-09-15\",2,21,\"E\",\"Y\");");
         db.execSQL("insert into assessments_answers values (3491,1,1,\"2015-09-15\",2,22,\"3.2\",\"Y\");");
