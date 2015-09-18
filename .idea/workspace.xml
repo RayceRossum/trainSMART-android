@@ -16,7 +16,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Unnamed-0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="919711f1-01f6-4c17-9356-0b0cbd292d96" name="Default" comment="" />
+    <list default="true" id="dc049944-85d8-4ba8-ac3a-16ed9bfcb0eb" name="Default" comment="" />
     <ignored path="trainSMART-android.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,29 +43,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="213" column="18" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
+            <state vertical-scroll-proportion="55.24138">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1129#1130#0" expanded="true" />
-                <element signature="e#1167#1168#0" expanded="true" />
-                <element signature="e#1224#1225#0" expanded="true" />
-                <element signature="e#1255#1256#0" expanded="true" />
-                <element signature="e#1312#1313#0" expanded="true" />
-                <element signature="e#1343#1344#0" expanded="true" />
                 <element signature="e#1394#1395#0" expanded="true" />
                 <element signature="e#1418#1419#0" expanded="true" />
               </folding>
@@ -73,40 +56,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.32762313">
+              <caret line="234" column="14" selection-start-line="234" selection-start-column="14" selection-end-line="234" selection-end-column="14" />
+              <folding>
+                <element signature="docComment;class#EditFragment#0" expanded="false" />
+                <element signature="e#1239#1255#0" expanded="true" />
+                <element signature="e#1263#1315#0" expanded="false" />
+                <element signature="docComment;method#newInstance#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#newInstance#0;class#EditFragment#0" expanded="false" />
+                <element signature="e#2084#2121#0" expanded="false" />
+                <element signature="e#2240#2266#0" expanded="false" />
+                <element signature="e#4042#4097#0" expanded="false" />
+                <element signature="e#4664#4713#0" expanded="false" />
+                <element signature="e#5214#5334#0" expanded="false" />
+                <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
+                <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
+                <element signature="class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
+                <element signature="e#8525#8624#0" expanded="false" />
+                <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#onStopTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#onCheckedChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#convertProgressToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+                <element signature="method#convertCheckedToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61748636">
-              <caret line="298" column="4" selection-start-line="293" selection-start-column="2" selection-end-line="298" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="570" column="45" selection-start-line="570" selection-start-column="45" selection-end-line="570" selection-end-column="45" />
               <folding>
                 <element signature="docComment;class#DBHelper#0" expanded="false" />
-                <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4325#4326#0" expanded="true" />
                 <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#7605#7664#0" expanded="false" />
+                <element signature="e#14453#14506#0" expanded="false" />
+                <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#17030#17085#0" expanded="false" />
+                <element signature="e#17743#17751#0" expanded="true" />
+                <element signature="e#18299#18354#0" expanded="false" />
                 <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#18509#18568#0" expanded="false" />
+                <element signature="e#19778#19837#0" expanded="false" />
                 <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#19730#19787#0" expanded="false" />
+                <element signature="e#20999#21056#0" expanded="false" />
                 <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#25205#25287#0" expanded="false" />
+                <element signature="e#26726#26808#0" expanded="false" />
                 <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#27150#27232#0" expanded="false" />
+                <element signature="e#28671#28753#0" expanded="false" />
                 <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#29517#29570#0" expanded="false" />
                 <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#31849#31902#0" expanded="false" />
+                <element signature="e#33370#33423#0" expanded="false" />
                 <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#34189#34242#0" expanded="false" />
+                <element signature="e#35710#35763#0" expanded="false" />
                 <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
                 <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
                 <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#42282#42336#0" expanded="false" />
+                <element signature="e#44985#45039#0" expanded="false" />
                 <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
@@ -115,7 +136,7 @@
                 <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#51928#51977#0" expanded="false" />
+                <element signature="e#54631#54680#0" expanded="false" />
                 <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
@@ -124,42 +145,10 @@
                 <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#68953#69092#0" expanded="false" />
+                <element signature="e#71656#71795#0" expanded="false" />
                 <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#70271#70311#0" expanded="false" />
-                <element signature="e#72235#72273#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getMySQLPersonTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/getMySQLPersonTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonToAssessments.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#72974#73014#0" expanded="false" />
+                <element signature="e#74938#74976#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1609,8 +1598,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
       </list>
     </option>
   </component>
@@ -1618,9 +1607,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="159" />
-    <option name="y" value="2" />
-    <option name="width" value="1733" />
+    <option name="x" value="187" />
+    <option name="y" value="13" />
+    <option name="width" value="1574" />
     <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -1646,6 +1635,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1699,9 +1691,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1736,6 +1725,31 @@
       <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_SELECTION_ERROR" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1749,6 +1763,22 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1770,6 +1800,11 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1854,16 +1889,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="919711f1-01f6-4c17-9356-0b0cbd292d96" name="Default" comment="" />
-      <created>1442429939897</created>
+      <changelist id="dc049944-85d8-4ba8-ac3a-16ed9bfcb0eb" name="Default" comment="" />
+      <created>1442533116932</created>
       <option name="number" value="Default" />
-      <updated>1442429939897</updated>
+      <updated>1442533116932</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="159" y="2" width="1733" height="1000" extended-state="0" />
-    <editor active="true" />
+    <frame x="187" y="13" width="1574" height="1000" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
@@ -1877,9 +1912,10 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31553975" sideWeight="0.51321006" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31553975" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4128114" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20621638" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22787318" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25016204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="4" side_tool="true" content_ui="tabs" />
@@ -1891,7 +1927,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25885558" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1902,99 +1937,55 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="213" column="18" selection-start-line="213" selection-start-column="18" selection-end-line="213" selection-end-column="18" />
+        <state vertical-scroll-proportion="55.24138">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1129#1130#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1343#1344#0" expanded="true" />
             <element signature="e#1394#1395#0" expanded="true" />
             <element signature="e#1418#1419#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/getMySQLPersonTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-22/android/database/sqlite/SQLiteDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7978142">
-          <caret line="1197" column="18" selection-start-line="1197" selection-start-column="18" selection-end-line="1197" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61748636">
-          <caret line="298" column="4" selection-start-line="293" selection-start-column="2" selection-end-line="298" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="570" column="45" selection-start-line="570" selection-start-column="45" selection-end-line="570" selection-end-column="45" />
           <folding>
             <element signature="docComment;class#DBHelper#0" expanded="false" />
-            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4325#4326#0" expanded="true" />
             <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#7605#7664#0" expanded="false" />
+            <element signature="e#14453#14506#0" expanded="false" />
+            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#17030#17085#0" expanded="false" />
+            <element signature="e#17743#17751#0" expanded="true" />
+            <element signature="e#18299#18354#0" expanded="false" />
             <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#18509#18568#0" expanded="false" />
+            <element signature="e#19778#19837#0" expanded="false" />
             <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#19730#19787#0" expanded="false" />
+            <element signature="e#20999#21056#0" expanded="false" />
             <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#25205#25287#0" expanded="false" />
+            <element signature="e#26726#26808#0" expanded="false" />
             <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#27150#27232#0" expanded="false" />
+            <element signature="e#28671#28753#0" expanded="false" />
             <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#29517#29570#0" expanded="false" />
             <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#31849#31902#0" expanded="false" />
+            <element signature="e#33370#33423#0" expanded="false" />
             <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#34189#34242#0" expanded="false" />
+            <element signature="e#35710#35763#0" expanded="false" />
             <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
             <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#42282#42336#0" expanded="false" />
+            <element signature="e#44985#45039#0" expanded="false" />
             <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
@@ -2003,7 +1994,7 @@
             <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
             <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#51928#51977#0" expanded="false" />
+            <element signature="e#54631#54680#0" expanded="false" />
             <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
             <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
@@ -2012,10 +2003,41 @@
             <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
             <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#68953#69092#0" expanded="false" />
+            <element signature="e#71656#71795#0" expanded="false" />
             <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#70271#70311#0" expanded="false" />
-            <element signature="e#72235#72273#0" expanded="false" />
+            <element signature="e#72974#73014#0" expanded="false" />
+            <element signature="e#74938#74976#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32762313">
+          <caret line="234" column="14" selection-start-line="234" selection-start-column="14" selection-end-line="234" selection-end-column="14" />
+          <folding>
+            <element signature="docComment;class#EditFragment#0" expanded="false" />
+            <element signature="e#1239#1255#0" expanded="true" />
+            <element signature="e#1263#1315#0" expanded="false" />
+            <element signature="docComment;method#newInstance#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#newInstance#0;class#EditFragment#0" expanded="false" />
+            <element signature="e#2084#2121#0" expanded="false" />
+            <element signature="e#2240#2266#0" expanded="false" />
+            <element signature="e#4042#4097#0" expanded="false" />
+            <element signature="e#4664#4713#0" expanded="false" />
+            <element signature="e#5214#5334#0" expanded="false" />
+            <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
+            <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
+            <element signature="class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
+            <element signature="e#8525#8624#0" expanded="false" />
+            <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onStopTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onCheckedChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#convertProgressToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#convertCheckedToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>

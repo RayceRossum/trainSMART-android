@@ -321,12 +321,45 @@ public class DBHelper extends SQLiteOpenHelper{
 //                                p.get_facility_name()
 //                );
 //            }
-
+            int question =  this.getAssessmentsQuestionsQuestion(2, 26);
+            Log.d("request!", "question: " + question);
             Log.d("request!", "helperTest Done");
 
         } catch (Exception ex) {
             Log.d("request!", "helperTest catch " + ex.toString());
         }
+    }
+
+    public int getAssessmentsQuestionsQuestion(int assessment_id, int itemorder){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_QUESTIONS_ASSESSMENTS_QUESTIONS_ID
+        };
+
+        String whereClause = "1=1 and " +
+
+                ASSESSMENTS_QUESTIONS_ASSESSMENT_ID + " = ? and " +
+                ASSESSMENTS_QUESTIONS_ITEMORDER + " = ? ";
+
+        String assessment_id_string = new Integer(assessment_id).toString();
+        String itemorder_string = new Integer(itemorder).toString();
+        String[] whereArgs = new String [] {
+                assessment_id_string, itemorder_string };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS_QUESTIONS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+        Log.d("request!", "getAssessmentsQuestionsQuestion  "
+                        + cursor.getString(0) + " "
+        );
+
+        int returnQuestion = Integer.parseInt(cursor.getString(0));
+        cursor.close();
+        db.close();
+        return returnQuestion;
     }
 
     public String[] getAllPersonIDs(){
@@ -464,13 +497,13 @@ public class DBHelper extends SQLiteOpenHelper{
                         "aq.question, " +
                         "aq.itemtype, " +
                         "aq.itemorder, " +
-                        "(select aa.answer from assessments_answers aa " +
+                        "ifnull((select aa.answer from assessments_answers aa " +
                         "  where aa.person = pa.person_id " +
                         "  and aa.facility = pa.facility_id " +
                         "  and aa.date_created = pa.date_created " +
                         "  and a.assessment_id = aq.assessment_id  " +
                         "  and aa.question = aq.assessments_questions_id" +
-                        ") as answer " +
+                        "), ' ') as answer " +
                         "from person_to_assessments pa " +
                         "join person p on p.person_id = pa.person_id " +
                         "join assessments a on pa.assessment_id = a.assessment_id " +
@@ -518,7 +551,7 @@ public class DBHelper extends SQLiteOpenHelper{
                 editPageObject.set_itemorder(Integer.parseInt(cursor.getString(3)));
                 editPageObject.set_answer(cursor.getString(4));
 
-                // Adding object to list
+                        // Adding object to list
                 editPageList.add(editPageObject);
             } while (cursor.moveToNext());
         }
@@ -529,6 +562,8 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     public void setEditPageRow(PersonToAssessments pa, int question_id, String new_answer){
+        // when scrolling viewHolder we get events without value, do nothing
+        if(new_answer.equals("")) return;
         // select from answers, if (answer) update answer else insert answer
         AssessmentsAnswers assessmentsAnswers =
                 this.getAssessmentsAnswers(
@@ -540,6 +575,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         if(assessmentsAnswers != null){
             this.updateAssessmentsAnswers(assessmentsAnswers.get_assess_id(), new_answer);
+            Log.d("request!", "update: " + new_answer);
         } else {
             this.insertAssessmentsAnswers(
                     pa.get_person_id(),
@@ -548,6 +584,7 @@ public class DBHelper extends SQLiteOpenHelper{
                     pa.get_assessment_id(),
                     question_id,
                     new_answer );
+            Log.d("request!", "insert: " + new_answer);
         }
 
 //            Log.d("request!", "helperTest setEditPageData editPageObjectList > "
@@ -822,6 +859,27 @@ public class DBHelper extends SQLiteOpenHelper{
         cv.put(ASSESSMENTS_ANSWERS_ASSESSMENT_ID, assessment_id);
         cv.put(ASSESSMENTS_ANSWERS_QUESTION, question);
         cv.put(ASSESSMENTS_ANSWERS_ANSWER, answer);
+        cv.put(ASSESSMENTS_ANSWERS_ACTIVE, "Y"); // not used
+        db.insert(TABLE_ASSESSMENTS_ANSWERS, null, cv);
+        db.close();
+    }
+
+    public void insertAssessmentsAnswers(AssessmentsAnswers assessmentsAnswers) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ANSWERS_ASSESS_ID, ASSESSMENTS_ANSWERS_PERSON, ASSESSMENTS_ANSWERS_FACILITY, ASSESSMENTS_ANSWERS_DATE_CREATED, ASSESSMENTS_ANSWERS_ASSESSMENT_ID, ASSESSMENTS_ANSWERS_QUESTION, ASSESSMENTS_ANSWERS_ANSWER, ASSESSMENTS_ANSWERS_ACTIVE,
+        };
+
+        // use assess_id to update
+        ContentValues cv = new ContentValues();
+        cv.put(ASSESSMENTS_ANSWERS_PERSON, assessmentsAnswers.get_person());
+        cv.put(ASSESSMENTS_ANSWERS_FACILITY, assessmentsAnswers.get_facility());
+        cv.put(ASSESSMENTS_ANSWERS_DATE_CREATED, assessmentsAnswers.get_date_created());
+        cv.put(ASSESSMENTS_ANSWERS_ASSESSMENT_ID, assessmentsAnswers.get_assessment_id());
+        cv.put(ASSESSMENTS_ANSWERS_QUESTION, assessmentsAnswers.get_question());
+        cv.put(ASSESSMENTS_ANSWERS_ANSWER, assessmentsAnswers.get_answer());
         cv.put(ASSESSMENTS_ANSWERS_ACTIVE, "Y"); // not used
         db.insert(TABLE_ASSESSMENTS_ANSWERS, null, cv);
         db.close();

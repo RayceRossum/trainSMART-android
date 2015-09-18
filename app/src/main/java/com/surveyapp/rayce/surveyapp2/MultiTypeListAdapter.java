@@ -88,15 +88,16 @@ public class MultiTypeListAdapter extends BaseAdapter {
         return type;
     }
 
+
+
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
         View view = convertView;
         EditFragment.ViewHolder holder;
         int type = getItemViewType(position);
-        //Log.d("request!", "position before new holder: " + position );
-
         holder = new EditFragment.ViewHolder(saveData, pageData, dbHelp, pToA);
         holder.position = position;
+        //Log.d("request!", "pageData: " + pageData.get(position).get_assessments_questions_id() + ":" + pageData.get(position).get_answer() );
         //holder = new EditFragment.ViewHolder(pageData, position);
         if (convertView == null) {
             switch (type) {
@@ -202,16 +203,22 @@ public class MultiTypeListAdapter extends BaseAdapter {
         while(i.hasNext()) {
             Map.Entry me = (Map.Entry)i.next();
 
-            if(me.getValue().equals(pageData.get(position).get_answer()) ) {}
+            if(me.getValue().equals(pageData.get(position).get_answer()) || me.getValue().equals("") ) {
+                if( me.getValue().equals("")) {
+                    Log.d("request!", "Empty: " + me.getKey());
+                }
+
+            }
             else {
                 //Log.d("request!", "not equal key: " + me.getKey() + ":" + me.getValue() + ":" + position + ":" + pageData.get(position).get_answer());
+
+//                Log.d("request!", "add/update: " +
+//                                pToA.get_person_id() + " " +
+//                                pToA.get_date_created() + " " +
+//                                pToA.get_assessment_id() + " " +
+//                                pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
+//                );
                 pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
-                Log.d("request!", "add/update: " +
-                                pToA.get_person_id() + " " +
-                                pToA.get_date_created() + " " +
-                                pToA.get_assessment_id() + " " +
-                                pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
-                );
                 dbHelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
             }
             i.remove();

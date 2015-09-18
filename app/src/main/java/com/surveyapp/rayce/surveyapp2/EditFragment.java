@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,10 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -34,6 +38,7 @@ public class
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     public static String TAG = "editTag";
     DBHelper dbHelp;
+    public static Map<String, Object> _buffer = new HashMap<String, Object>();
     //private static final String ARG_PARAM1 = "param1";
     //private static final String ARG_PARAM2 = "param2";
 
@@ -67,6 +72,70 @@ public class
     //}
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("request!", "onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d("request!", "onPause");
+
+        for (Map.Entry<String, Object> entry : _buffer.entrySet()) {
+
+            if (entry.getValue() instanceof String) {
+                Log.d("request!", "String: " + entry.getValue());
+            } else if (entry.getValue() instanceof PersonToAssessments) {
+                PersonToAssessments pToA = (PersonToAssessments)entry.getValue();
+                Log.d("request!", "pToA: " +
+                        pToA.get_person_id() + ":" +
+                        pToA.get_facility_id() + ":" +
+                        pToA.get_date_created() + ":" +
+                        pToA.get_assessment_id());
+            } else {
+                throw new IllegalStateException("Expecting either String or Class as entry value");
+            }
+        }
+
+        PersonToAssessments pToA = null;
+        int itemOrder = 0;
+        String newAnswer = "";
+        Set set = _buffer.entrySet();
+        Iterator i = set.iterator();
+        while(i.hasNext()) {
+
+            Map.Entry entry = (Map.Entry)i.next();
+            itemOrder = Integer.parseInt(entry.getValue().toString());
+            Map.Entry obj = (Map.Entry)i.next();
+            pToA = (PersonToAssessments)obj.getValue();
+            Map.Entry answer = (Map.Entry)i.next();
+            newAnswer = answer.getValue().toString();
+
+            int question_id =  dbHelp.getAssessmentsQuestionsQuestion(pToA.get_assessment_id(), itemOrder);
+            dbHelp.setEditPageRow(pToA, question_id, newAnswer);
+
+        }
+        _buffer.clear();
+
+//        Log.d("request!", "itemOrder: " + itemOrder);
+//        Log.d("request!", "pToA: " +
+//                pToA.get_person_id() + ":" +
+//                pToA.get_facility_id() + ":" +
+//                pToA.get_date_created() + ":" +
+//                pToA.get_assessment_id());
+//        Log.d("request!", "newAnswer: " + newAnswer);
+
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d("request!", "onStop");
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -95,7 +164,6 @@ public class
         // Inflate the layout for this fragment
         return view;
     }
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onListItemPressed(int position) {
@@ -138,43 +206,65 @@ public class
     }
 
     public static class ViewHolder implements TextWatcher, SeekBar.OnSeekBarChangeListener, Switch.OnCheckedChangeListener {
-        //List<EditPageObject> pageData;
+
         public HashMap _saveData = new HashMap();
-        public DBHelper dbhelp;
-        public PersonToAssessments pToA;
         public int position;
         public TextView textView;
         public Switch switchWidget;
         public EditText editText;
         public EditText editText2;
         public SeekBar seekBar;
-//        public DBHelper dbHelp;
-//        public PersonToAssessments pToA;
-//        public List<EditPageObject> pageData;
+        public DBHelper dbHelp;
+        public PersonToAssessments pToA;
+        public List<EditPageObject> pageData;
 
         public ViewHolder(HashMap<String, Integer> saveData, List<EditPageObject> pageData,  DBHelper dbHelp, PersonToAssessments pToA) {
             this._saveData = saveData;
-//            this.dbHelp = dbHelp;
-//            this.pToA = pToA;
-//            this.pageData = pageData;
+            this.dbHelp = dbHelp;
+            this.pToA = pToA;
+            this.pageData = pageData;
         }
 
         public void afterTextChanged(Editable editable) {
-            //Log.d("request!", "afterTextChanged:editable: " + editable.toString());
 
             _saveData.remove(position);
             _saveData.put(position, editable.toString());
+
+
+            Integer relativePos = position+1;
+            //Log.d("request!", "load: " + relativePos + " " + editable.toString());
+            _buffer.put("0",editable.toString());
+            _buffer.put("1",pToA);
+            _buffer.put("2", relativePos.toString());
 
         }
 
         public void beforeTextChanged(CharSequence s, int start, int count,
                                       int after) {
+            //Log.d("request!", "beforeTextChanged:editable: " + s +  ":" + start + ":" + count + ":" + after);
             // TODO Auto-generated method stub
 
         }
 
-        public void onTextChanged(CharSequence s, int start, int before,
-                                  int count) {
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            if(s.toString().equals("")){
+
+            } else {
+//                int real_pos = position + 1;
+//                Log.d("request!", "onTextChanged:s:" + s + ":" +
+//                                //start + ":" + before + ":" + count +
+//                                " > " +
+//                                //pToA.get_person_id() + " " +
+//                                //pToA.get_facility_id() + " " +
+//                                //pToA.get_date_created() + " " +
+//                                //pToA.get_assessment_id() + " " +
+//                                pageData.get(position).get_assessments_questions_id() + ":" +
+//                                //position + ":" +
+//                                real_pos
+//
+//                );
+            }
 
             // TODO Auto-generated method stub
 
@@ -237,7 +327,6 @@ public class
                 return "B";
             }
         }
-
 
     }
 }
