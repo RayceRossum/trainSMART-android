@@ -16,10 +16,11 @@
     <string name="hello">Hello World, MainActivity!</string>
     <string name="title">Person Details</string>
     <string name="person_id">Enter Person Id: </string>
-    <string name="first_name">Enter First Name: </string>
-    <string name="last_name">Enter Last Name: </string>
+    <string name="first_name">First Name </string>
+    <string name="last_name">Last Name </string>
     <string name="facility_id">Enter Facility Id: </string>
-    <string name="facility_name">Enter Facility Name: </string>
+    <string name="facility_name">Facility Name </string>
+    <string name="assessment_name">Assessment Type </string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>
     <string name="modify">Modify</string>
@@ -31,5 +32,4 @@
     <string name="download">Download</string>
     <string name="upload">Upload</string>
     <string name="error">There was an error</string>
-
 </resources>

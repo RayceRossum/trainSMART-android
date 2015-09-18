@@ -43,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="55.24138">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
                 <element signature="e#1394#1395#0" expanded="true" />
                 <element signature="e#1418#1419#0" expanded="true" />
@@ -56,28 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32762313">
-              <caret line="234" column="14" selection-start-line="234" selection-start-column="14" selection-end-line="234" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#EditFragment#0" expanded="false" />
-                <element signature="e#1239#1255#0" expanded="true" />
-                <element signature="e#1263#1315#0" expanded="false" />
-                <element signature="docComment;method#newInstance#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#newInstance#0;class#EditFragment#0" expanded="false" />
-                <element signature="e#2084#2121#0" expanded="false" />
-                <element signature="e#2240#2266#0" expanded="false" />
-                <element signature="e#4042#4097#0" expanded="false" />
-                <element signature="e#4664#4713#0" expanded="false" />
-                <element signature="e#5214#5334#0" expanded="false" />
+                <element signature="e#1212#1228#0" expanded="true" />
                 <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
                 <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
                 <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
                 <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
                 <element signature="class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
-                <element signature="e#8525#8624#0" expanded="false" />
+                <element signature="e#8286#8385#0" expanded="false" />
                 <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
                 <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
                 <element signature="method#onStopTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
@@ -1597,9 +1589,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
       </list>
     </option>
   </component>
@@ -1898,7 +1890,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="187" y="13" width="1574" height="1000" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
@@ -1912,7 +1904,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31553975" sideWeight="0.51321006" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4128114" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4128114" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22787318" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1937,17 +1929,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="55.24138">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#1418#1419#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2013,31 +1994,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32762313">
-          <caret line="234" column="14" selection-start-line="234" selection-start-column="14" selection-end-line="234" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#EditFragment#0" expanded="false" />
-            <element signature="e#1239#1255#0" expanded="true" />
-            <element signature="e#1263#1315#0" expanded="false" />
-            <element signature="docComment;method#newInstance#0;class#EditFragment#0" expanded="false" />
-            <element signature="method#newInstance#0;class#EditFragment#0" expanded="false" />
-            <element signature="e#2084#2121#0" expanded="false" />
-            <element signature="e#2240#2266#0" expanded="false" />
-            <element signature="e#4042#4097#0" expanded="false" />
-            <element signature="e#4664#4713#0" expanded="false" />
-            <element signature="e#5214#5334#0" expanded="false" />
+            <element signature="e#1212#1228#0" expanded="true" />
             <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
-            <element signature="e#8525#8624#0" expanded="false" />
+            <element signature="e#8286#8385#0" expanded="false" />
             <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onStopTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onCheckedChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#convertProgressToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#convertCheckedToStr#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <folding>
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1418#1419#0" expanded="true" />
           </folding>
         </state>
       </provider>

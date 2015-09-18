@@ -55,13 +55,15 @@ public class MainActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
-
+        DBHelper dbHelp = new DBHelper(this);
         Fragment fragment;
         switch(position) {
             case 1:
                 fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
                 if (fragment == null) {
-                    fragment = EditFragment.newInstance();
+                    PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
+//                  PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
+                    fragment = EditFragment.newInstance(pToA);
                 }
 
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
