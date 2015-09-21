@@ -4,7 +4,6 @@
     android:stretchColumns="0"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
     <Button	  android:id="@+id/btnAdd"
         android:text="@string/add"
         android:layout_x="22dp"
