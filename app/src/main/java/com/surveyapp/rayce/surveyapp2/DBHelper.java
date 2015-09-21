@@ -276,6 +276,10 @@ public class DBHelper extends SQLiteOpenHelper{
             // returns "person_id_last_name first_name national_id facility_name"
             //  split off person_id using "_", might have to use hashmap with person_id as key and rest as value
             //  sorted by last, first, national
+
+
+
+
             String[] allPersonID = {""};
             allPersonID = getAllPersonIDs();
             String parts[] = {};
@@ -352,9 +356,9 @@ public class DBHelper extends SQLiteOpenHelper{
 
         if (cursor != null)
             cursor.moveToFirst();
-        Log.d("request!", "getAssessmentsQuestionsQuestion  "
-                        + cursor.getString(0) + " "
-        );
+//        Log.d("request!", "getAssessmentsQuestionsQuestion  "
+//                        + cursor.getString(0) + " "
+//        );
 
         int returnQuestion = Integer.parseInt(cursor.getString(0));
         cursor.close();
@@ -503,7 +507,7 @@ public class DBHelper extends SQLiteOpenHelper{
                         "  and aa.date_created = pa.date_created " +
                         "  and a.assessment_id = aq.assessment_id  " +
                         "  and aa.question = aq.assessments_questions_id" +
-                        "), ' ') as answer " +
+                        "), '') as answer " +
                         "from person_to_assessments pa " +
                         "join person p on p.person_id = pa.person_id " +
                         "join assessments a on pa.assessment_id = a.assessment_id " +
@@ -536,7 +540,7 @@ public class DBHelper extends SQLiteOpenHelper{
                         " and aq.itemtype = 'text' " +
                         "order by aq.itemorder ";
 
-        Log.d("request!", "Query: " + query);
+        //Log.d("request!", "Query: " + query);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -562,8 +566,6 @@ public class DBHelper extends SQLiteOpenHelper{
     }
 
     public void setEditPageRow(PersonToAssessments pa, int question_id, String new_answer){
-        // when scrolling viewHolder we get events without value, do nothing
-        if(new_answer.equals("")) return;
         // select from answers, if (answer) update answer else insert answer
         AssessmentsAnswers assessmentsAnswers =
                 this.getAssessmentsAnswers(
@@ -575,7 +577,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         if(assessmentsAnswers != null){
             this.updateAssessmentsAnswers(assessmentsAnswers.get_assess_id(), new_answer);
-            Log.d("request!", "update: " + new_answer);
+            Log.d("request!", "update: " + assessmentsAnswers.get_assess_id() + " " + assessmentsAnswers.get_question() + " " + new_answer);
         } else {
             this.insertAssessmentsAnswers(
                     pa.get_person_id(),
@@ -584,7 +586,7 @@ public class DBHelper extends SQLiteOpenHelper{
                     pa.get_assessment_id(),
                     question_id,
                     new_answer );
-            Log.d("request!", "insert: " + new_answer);
+            Log.d("request!", "insert: " + " " + question_id + " " +  new_answer);
         }
 
 //            Log.d("request!", "helperTest setEditPageData editPageObjectList > "
@@ -943,15 +945,15 @@ public class DBHelper extends SQLiteOpenHelper{
 
         if (cursor != null)
             cursor.moveToFirst();
-        Log.d("request!", "getPersonToAssessments  "
-                        + cursor.getString(0) + " "
-                        + cursor.getString(1) + " "
-                        + cursor.getString(2) + " "
-                        + cursor.getString(3) + " "
-                        + cursor.getString(4) + " "
-                        + cursor.getString(5) + " "
-                        + cursor.getString(6) + " "
-        );
+//        Log.d("request!", "getPersonToAssessments  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//                        + cursor.getString(3) + " "
+//                        + cursor.getString(4) + " "
+//                        + cursor.getString(5) + " "
+//                        + cursor.getString(6) + " "
+//        );
 
         PersonToAssessments person_to_assessments = new PersonToAssessments(
                 Integer.parseInt(cursor.getString(0)),
@@ -1269,31 +1271,31 @@ public class DBHelper extends SQLiteOpenHelper{
 
     protected void load_person_to_assessments() {
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.execSQL("delete from person_to_assessments ");
+
         db.execSQL("insert into person_to_assessments values (19,1,1,\"2015-09-15\",2,1,1);");
     }
 
     protected void load_assessments_answers() {
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.execSQL("delete from assessments_answers ");
-        db.execSQL("insert into assessments_answers values (3485,1,1,\"2015-09-15\",2,14,\"A\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3486,1,1,\"2015-09-15\",2,16,\"B\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3487,1,1,\"2015-09-15\",2,17,\"text area\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3488,1,1,\"2015-09-15\",2,18,\"text area\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3489,1,1,\"2015-09-15\",2,19,\"D\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3490,1,1,\"2015-09-15\",2,21,\"E\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3491,1,1,\"2015-09-15\",2,22,\"3.2\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3492,1,1,\"2015-09-15\",2,23,\"3.3\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3493,1,1,\"2015-09-15\",2,24,\"3.4\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3494,1,1,\"2015-09-15\",2,25,\"3.5\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3495,1,1,\"2015-09-15\",2,26,\"3.6\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3496,1,1,\"2015-09-15\",2,27,\"3.7\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3497,1,1,\"2015-09-15\",2,28,\"3.8\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3498,1,1,\"2015-09-15\",2,29,\"3.9\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3499,1,1,\"2015-09-15\",2,30,\"3.10\",\"Y\");");
-        db.execSQL("insert into assessments_answers values (3500,1,1,\"2015-09-15\",2,40,\"5.1\",\"Y\");");
+
+//        db.execSQL("insert into assessments_answers values (3485,1,1,\"2015-09-15\",2,14,\"A\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3486,1,1,\"2015-09-15\",2,16,\"B\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3487,1,1,\"2015-09-15\",2,17,\"text area\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3488,1,1,\"2015-09-15\",2,18,\"text area\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3489,1,1,\"2015-09-15\",2,19,\"D\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3490,1,1,\"2015-09-15\",2,21,\"E\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3491,1,1,\"2015-09-15\",2,22,\"3.2\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3492,1,1,\"2015-09-15\",2,23,\"3.3\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3493,1,1,\"2015-09-15\",2,24,\"3.4\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3494,1,1,\"2015-09-15\",2,25,\"3.5\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3495,1,1,\"2015-09-15\",2,26,\"3.6\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3496,1,1,\"2015-09-15\",2,27,\"3.7\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3497,1,1,\"2015-09-15\",2,28,\"3.8\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3498,1,1,\"2015-09-15\",2,29,\"3.9\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3499,1,1,\"2015-09-15\",2,30,\"3.ten\",\"Y\");");
+//        db.execSQL("insert into assessments_answers values (3500,1,1,\"2015-09-15\",2,40,\"5.1\",\"Y\");");
 
     }
 

@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +16,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 
 /**
@@ -71,65 +68,19 @@ public class
     @Override
     public void onResume() {
         super.onResume();
-        Log.d("request!", "onResume");
+        //Log.d("request!", "onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("request!", "onPause");
-
-        for (Map.Entry<String, Object> entry : _buffer.entrySet()) {
-
-            if (entry.getValue() instanceof String) {
-                Log.d("request!", "String: " + entry.getValue());
-            } else if (entry.getValue() instanceof PersonToAssessments) {
-                PersonToAssessments pToA = (PersonToAssessments)entry.getValue();
-                Log.d("request!", "pToA: " +
-                        pToA.get_person_id() + ":" +
-                        pToA.get_facility_id() + ":" +
-                        pToA.get_date_created() + ":" +
-                        pToA.get_assessment_id());
-            } else {
-                throw new IllegalStateException("Expecting either String or Class as entry value");
-            }
-        }
-
-        PersonToAssessments pToA = null;
-        int itemOrder = 0;
-        String newAnswer = "";
-        Set set = _buffer.entrySet();
-        Iterator i = set.iterator();
-        while(i.hasNext()) {
-
-            Map.Entry entry = (Map.Entry)i.next();
-            itemOrder = Integer.parseInt(entry.getValue().toString());
-            Map.Entry obj = (Map.Entry)i.next();
-            pToA = (PersonToAssessments)obj.getValue();
-            Map.Entry answer = (Map.Entry)i.next();
-            newAnswer = answer.getValue().toString();
-
-            int question_id =  dbHelp.getAssessmentsQuestionsQuestion(pToA.get_assessment_id(), itemOrder);
-            dbHelp.setEditPageRow(pToA, question_id, newAnswer);
-
-        }
-        _buffer.clear();
-
-//        Log.d("request!", "itemOrder: " + itemOrder);
-//        Log.d("request!", "pToA: " +
-//                pToA.get_person_id() + ":" +
-//                pToA.get_facility_id() + ":" +
-//                pToA.get_date_created() + ":" +
-//                pToA.get_assessment_id());
-//        Log.d("request!", "newAnswer: " + newAnswer);
-
-
+        //Log.d("request!", "onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d("request!", "onStop");
+        //Log.d("request!", "onStop");
     }
 
     @Override
@@ -224,53 +175,59 @@ public class
 
         public void afterTextChanged(Editable editable) {
 
-            _saveData.remove(position);
-            _saveData.put(position, editable.toString());
-
-
             Integer relativePos = position+1;
-            //Log.d("request!", "load: " + relativePos + " " + editable.toString());
-            _buffer.put("0",editable.toString());
-            _buffer.put("1",pToA);
-            _buffer.put("2", relativePos.toString());
-
+            //Log.d("request!", "load_buffer0: " + relativePos + ">" + editable.toString() + "<");
+            int question_id =  dbHelp.getAssessmentsQuestionsQuestion(pToA.get_assessment_id(), relativePos);
+            AssessmentsAnswers assessmentsAnswers = dbHelp.getAssessmentsAnswers(pToA.get_person_id(), pToA.get_facility_id(), pToA.get_date_created(), pToA.get_assessment_id(), question_id );
+            // gnr: This logic tests if the event is a "real user" edit or a timing bug when the user fast scrolls
+            //      by determining if the new answer value is a possible result of a single character edit of the db value
+            if (assessmentsAnswers != null) {
+                boolean writeFlag = false;
+                if( (editable.length() -  assessmentsAnswers.get_answer().length()) == 1 ||
+                        (assessmentsAnswers.get_answer().length() - editable.length()) == 1) {
+                    if( (editable.length() -  assessmentsAnswers.get_answer().length()) == 1 && editable.toString().contains(assessmentsAnswers.get_answer()) ) {
+                        writeFlag = true;
+                    }
+                    if( ( assessmentsAnswers.get_answer().length() - editable.length())  == 1 && assessmentsAnswers.get_answer().contains(editable.toString()) ) {
+                        writeFlag = true;
+                    }
+                    if( ( editable.toString().length() != 0 &&
+                            assessmentsAnswers.get_answer().length() != 0 &&
+                            assessmentsAnswers.get_answer().charAt(0) == editable.toString().charAt(0) &&
+                            assessmentsAnswers.get_answer().charAt(assessmentsAnswers.get_answer().length()-1) == editable.toString().charAt(editable.toString().length()-1)) ) {
+                        writeFlag = true;
+                    }
+                    if( editable.toString().equals("") )  {
+                        writeFlag = true;
+                    }
+                    if(writeFlag) {
+                        pageData.get(position).set_answer(editable.toString());
+                        dbHelp.setEditPageRow(pToA, question_id, editable.toString());
+                    }
+                }
+            } else {
+                if( editable.length() == 1 ) {
+                    pageData.get(position).set_answer(editable.toString());
+                    dbHelp.setEditPageRow(pToA, question_id, editable.toString());
+                }
+            }
         }
 
-        public void beforeTextChanged(CharSequence s, int start, int count,
-                                      int after) {
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             //Log.d("request!", "beforeTextChanged:editable: " + s +  ":" + start + ":" + count + ":" + after);
-            // TODO Auto-generated method stub
-
         }
 
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            if(s.toString().equals("")){
-
-            } else {
-//                int real_pos = position + 1;
-//                Log.d("request!", "onTextChanged:s:" + s + ":" +
-//                                //start + ":" + before + ":" + count +
-//                                " > " +
-//                                //pToA.get_person_id() + " " +
-//                                //pToA.get_facility_id() + " " +
-//                                //pToA.get_date_created() + " " +
-//                                //pToA.get_assessment_id() + " " +
-//                                pageData.get(position).get_assessments_questions_id() + ":" +
-//                                //position + ":" +
-//                                real_pos
-//
-//                );
-            }
-
-            // TODO Auto-generated method stub
-
+            //Log.d("request!", "onTextChanged: " );
         }
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            _saveData.remove(position);
-            _saveData.put(position, convertProgressToStr(progress));
+            //_saveData.remove(position);
+            //_saveData.put(position, convertProgressToStr(progress));
+
+            pageData.get(position).set_answer(convertProgressToStr(progress));
+            dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertProgressToStr(progress));
         }
 
         @Override
@@ -280,16 +237,15 @@ public class
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-
         }
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            _saveData.remove(position);
-            //Log.d("Checked:", convertCheckedToStr(isChecked));
-            String pos = position + "";
-            //Log.d("Position:", pos);
-            _saveData.put(position, convertCheckedToStr(isChecked));
+           // _saveData.remove(position);
+            //_saveData.put(position, convertCheckedToStr(isChecked));
+
+            pageData.get(position).set_answer(convertCheckedToStr(isChecked));
+            dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertCheckedToStr(isChecked));
         }
 
         public String convertProgressToStr (int progressInt) {

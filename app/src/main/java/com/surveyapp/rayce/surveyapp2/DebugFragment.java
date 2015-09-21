@@ -87,12 +87,12 @@ public class DebugFragment extends Fragment {
             }
         });
 
-        Button btnDelete = (Button) view.findViewById(R.id.btnDelete);
-        btnDelete.setOnClickListener(new View.OnClickListener() {
+        Button btnTest = (Button) view.findViewById(R.id.btnTest);
+        btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Log.d("request!", "delete button");
+                Log.d("request!", "test button");
                 _dbHelp.helperTest();
             }
         });

@@ -92,6 +92,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
+
         View view = convertView;
         EditFragment.ViewHolder holder;
         int type = getItemViewType(position);
@@ -124,18 +125,15 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
                     view = inflater.inflate(R.layout.edit_questiontext, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
-
 //                  http://stackoverflow.com/questions/9438676/edittext-in-listview-without-it-recycling-input
 //                  holder.editText.setText(pageData.get(position).get_answer());
-
                     holder.editText = (EditText) view.findViewById(R.id.editText);
 
-                    String oldText = pageData.get(position).get_answer();
-                    holder.editText.setText(oldText == null ? "" : oldText);
+                    String _text = pageData.get(position).get_answer();
+                    holder.editText.setText(_text == null ? "" : _text);
                     holder.position = position;
                     holder.editText.addTextChangedListener(holder);
                     view.setTag(holder);
-                    //Log.d("request!", "case 2: " + position + " " + oldText );
                     break;
 
                 case 3: //Switch
@@ -182,8 +180,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     break;
                 case 2:
-                    //Log.d("request!", "else 2: " + position + " " + pageData.get(position).get_answer());
-                    //holder.editText.removeTextChangedListener(holder);
                     holder.editText.setText(pageData.get(position).get_answer());
                     break;
                 case 3:
@@ -195,7 +191,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
             }
             holder.position = position;
-            //dbHelp.setEditPageData(pToA, pageData);
+
         }
 
         Set set = saveData.entrySet();
