@@ -6,6 +6,8 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.MultiAutoCompleteTextView;
 
 
 /**
@@ -29,7 +31,7 @@ public class CreateFragment extends Fragment {
     //private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    private DBHelper dbHelp;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -61,13 +63,21 @@ public class CreateFragment extends Fragment {
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        dbHelp = new DBHelper(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
-
+//        String[] dropdown = dbHelp.getAllPersonIDs();
+        String[] dropdown = new String [] {
+                "Belgium", "France", "Italy", "Germany", "Spain"
+        };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, dropdown);
+        MultiAutoCompleteTextView nameView = (MultiAutoCompleteTextView) getActivity().findViewById(R.id.multiAutoCompleteTextView);
+        nameView.setAdapter(adapter);
+        nameView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         // Inflate the layout for this fragment
         return view;
     }
