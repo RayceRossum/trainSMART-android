@@ -2,6 +2,7 @@ package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -68,7 +70,6 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
             //mParam1 = getArguments().getString(ARG_PARAM1);
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
         dbHelp = new DBHelper(getActivity());
     }
 
@@ -76,6 +77,21 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
 
+        final Button button = (Button) view.findViewById(R.id.createButton);
+        button.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+               Fragment fragment;
+               fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
+
+               PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
+//                   PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
+               fragment = EditFragment.newInstance(pToA);
+
+               FragmentTransaction ft = getFragmentManager().beginTransaction();
+               //ft.setCustomAnimations(R.anim.abc_fade_in, R.anim.abc_fade_out);
+               ft.replace(R.id.container, fragment, EditFragment.TAG).commit();
+           }
+        });
         loadPersonIDDropdown(view);
         loadAssessmentTypeDropdown(view);
 

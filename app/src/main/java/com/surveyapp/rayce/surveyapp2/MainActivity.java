@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerCallbacks, EditFragment.OnFragmentInteractionListener, CreateFragment.OnFragmentInteractionListener, DebugFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerCallbacks, EditFragment.OnFragmentInteractionListener, CreateFragment.OnFragmentInteractionListener, DebugFragment.OnFragmentInteractionListener, RecentFragment.OnFragmentInteractionListener {
 
     public static Boolean LOGGED_IN = false;
 
@@ -58,7 +58,25 @@ public class MainActivity extends ActionBarActivity
         DBHelper dbHelp = new DBHelper(this);
         Fragment fragment;
         switch(position) {
+            case 0:
+                fragment = getFragmentManager().findFragmentByTag(CreateFragment.TAG);
+                if (fragment == null) {
+                    fragment = CreateFragment.newInstance();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
+
+                break;
+
             case 1:
+                fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
+                if (fragment == null) {
+                    fragment = RecentFragment.newInstance();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
+
+                break;
+
+            case 2:
                 fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
                 if (fragment == null) {
                     PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
@@ -70,16 +88,7 @@ public class MainActivity extends ActionBarActivity
 
                 break;
 
-            case 0:
-                fragment = getFragmentManager().findFragmentByTag(CreateFragment.TAG);
-                if (fragment == null) {
-                    fragment = CreateFragment.newInstance();
-                }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
-
-                break;
-
-            case 4:
+            case 5:
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
@@ -128,6 +137,11 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onFragmentInteraction(int position) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
 
     }
 }
