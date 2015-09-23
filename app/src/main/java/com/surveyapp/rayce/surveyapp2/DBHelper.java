@@ -280,8 +280,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
 
 
-            String[] allPersonID = {""};
-            allPersonID = getAllPersonIDs();
+            List<String> allPersonID = getAllPersonIDs();
             String parts[] = {};
             for (String personID : allPersonID){
                 parts = personID.split("_");
@@ -366,7 +365,7 @@ public class DBHelper extends SQLiteOpenHelper{
         return returnQuestion;
     }
 
-    public String[] getAllPersonIDs(){
+    public List<String> getAllPersonIDs(){
         SQLiteDatabase db = this.getReadableDatabase();
         List<String> personID = new ArrayList<String>();
 
@@ -391,7 +390,7 @@ public class DBHelper extends SQLiteOpenHelper{
 //                                + cursor.getString(3) + " "
 //                );
 
-                personID.add(cursor.getString(0) + "_" + cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3) + " " + cursor.getString(4));
+                personID.add(cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3) + " " + cursor.getString(4));
             } while (cursor.moveToNext());
         }
 
@@ -404,10 +403,50 @@ public class DBHelper extends SQLiteOpenHelper{
         personID.addAll(noDups);
 
         // convert to array
-        String[] stringArrayPersonID = new String[ personID.size() ];
-        personID.toArray(stringArrayPersonID);
+//        String[] stringArrayPersonID = new String[ personID.size() ];
+//        personID.toArray(stringArrayPersonID);
 
-        return stringArrayPersonID;
+        return personID;
+    }
+
+    public List<String> getAllAssessmentTypes(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> assessmentTypes = new ArrayList<String>();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ASSESSMENT_TYPE
+        };
+
+        String whereClause = "1=1 ";
+
+        String[] whereArgs = new String[]{};
+
+        String orderBy = ASSESSMENTS_ASSESSMENT_ID;
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, orderBy);
+
+        if (cursor.moveToFirst()) {
+            do {
+//                Log.d("request!", "getAllFacilityNames  "
+//                                + cursor.getString(0)
+//                );
+                assessmentTypes.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // remove duplicates
+        Set<String> noDups = new LinkedHashSet<>(assessmentTypes);
+        assessmentTypes.clear();;
+        assessmentTypes.addAll(noDups);
+
+        // convert to array
+        String[] stringArrayFacilityNames = new String[ assessmentTypes.size() ];
+        assessmentTypes.toArray(stringArrayFacilityNames);
+
+        return assessmentTypes;
     }
 
     public String[] getAllFacilityNames(){

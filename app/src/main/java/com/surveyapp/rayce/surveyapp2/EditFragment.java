@@ -223,9 +223,6 @@ public class
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            //_saveData.remove(position);
-            //_saveData.put(position, convertProgressToStr(progress));
-
             pageData.get(position).set_answer(convertProgressToStr(progress));
             dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertProgressToStr(progress));
         }
@@ -241,9 +238,6 @@ public class
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-           // _saveData.remove(position);
-            //_saveData.put(position, convertCheckedToStr(isChecked));
-
             pageData.get(position).set_answer(convertCheckedToStr(isChecked));
             dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertCheckedToStr(isChecked));
         }

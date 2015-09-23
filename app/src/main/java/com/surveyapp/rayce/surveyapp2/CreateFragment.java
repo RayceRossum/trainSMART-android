@@ -1,13 +1,19 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 /**
@@ -18,7 +24,7 @@ import android.widget.MultiAutoCompleteTextView;
  * Use the {@link CreateFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateFragment extends Fragment {
+public class CreateFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     public static String TAG = "createTag";
@@ -67,20 +73,21 @@ public class CreateFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
-//        String[] dropdown = dbHelp.getAllPersonIDs();
-        String[] dropdown = new String [] {
-                "Belgium", "France", "Italy", "Germany", "Spain"
-        };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, dropdown);
-        MultiAutoCompleteTextView nameView = (MultiAutoCompleteTextView) getActivity().findViewById(R.id.multiAutoCompleteTextView);
-        nameView.setAdapter(adapter);
-        nameView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+        loadPersonIDDropdown(view);
+        loadAssessmentTypeDropdown(view);
+
+        //nameView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
         // Inflate the layout for this fragment
         return view;
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {}
+
+    public void onNothingSelected(AdapterView<?> arg0) {}
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onListItemPressed(int position) {
@@ -119,6 +126,57 @@ public class CreateFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(int position);
+
+    }
+
+
+
+    public void loadPersonIDDropdown(View view) {
+
+        List<String> personIDs = dbHelp.getAllPersonIDs();
+        // convert to array
+        String[] stringArrayPersonID = new String[ personIDs.size() ];
+        personIDs.toArray(stringArrayPersonID);
+
+        final MultiAutoCompleteTextView dropdown = (MultiAutoCompleteTextView) view.findViewById(R.id.name);
+        dropdown.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, stringArrayPersonID);
+        dropdown.setThreshold(1);
+        dropdown.setAdapter(dataAdapter);
+
+        dropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int index, long position) {
+                String text = dropdown.getText().toString();
+                Log.d("request!", "name selected: " + text);
+            }
+        });
+
+    }
+
+
+
+    public void loadAssessmentTypeDropdown(View view) {
+        Spinner dropdown = (Spinner) view.findViewById(R.id.assessment_type);
+        dropdown.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                Log.d("request!", "assessment_type item selected: " + item);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.d("request!", "spinner nothing selected");
+            }
+        });
+
+
+        List<String> assessmentTypes = dbHelp.getAllAssessmentTypes();
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, assessmentTypes);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dropdown.setAdapter(dataAdapter);
 
     }
 

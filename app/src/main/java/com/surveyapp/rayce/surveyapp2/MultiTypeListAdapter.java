@@ -3,7 +3,6 @@
 package com.surveyapp.rayce.surveyapp2;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Rayce on 8/7/2015.
@@ -87,8 +83,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
         return type;
     }
-
-
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
@@ -172,7 +166,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
             }
         }
         else {
-
             holder = (EditFragment.ViewHolder) view.getTag();
 
             switch(type) {
@@ -191,33 +184,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
             }
             holder.position = position;
-
-        }
-
-        Set set = saveData.entrySet();
-        Iterator i = set.iterator();
-        while(i.hasNext()) {
-            Map.Entry me = (Map.Entry)i.next();
-
-            if(me.getValue().equals(pageData.get(position).get_answer()) || me.getValue().equals("") ) {
-                if( me.getValue().equals("")) {
-                    Log.d("request!", "Empty: " + me.getKey());
-                }
-
-            }
-            else {
-                //Log.d("request!", "not equal key: " + me.getKey() + ":" + me.getValue() + ":" + position + ":" + pageData.get(position).get_answer());
-
-//                Log.d("request!", "add/update: " +
-//                                pToA.get_person_id() + " " +
-//                                pToA.get_date_created() + " " +
-//                                pToA.get_assessment_id() + " " +
-//                                pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id()
-//                );
-                pageData.get(Integer.parseInt(me.getKey().toString())).set_answer(me.getValue().toString());
-                dbHelp.setEditPageRow(pToA, pageData.get(Integer.parseInt(me.getKey().toString())).get_assessments_questions_id(), me.getValue().toString());
-            }
-            i.remove();
         }
         holder.textView.setText(pageData.get(position).get_question());
         return view;
