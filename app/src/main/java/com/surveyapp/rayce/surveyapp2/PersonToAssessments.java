@@ -50,6 +50,14 @@ public class PersonToAssessments {
         this._user_id = user_id;
     }
 
+    public PersonToAssessments(int person_id, int facility_id, String date_created, int assessment_id, int user_id) {
+        this._person_id = person_id;
+        this._facility_id = facility_id;
+        this._date_created = date_created;
+        this._assessment_id = assessment_id;
+        this._user_id = user_id;
+    }
+
     public void dump() {
         Log.d("request!", "dumpPersonToAssessments: " +
                         this.get_person_to_assessments_id() + " " +

@@ -4,6 +4,7 @@
     android:stretchColumns="0"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <!--
     <Button	  android:id="@+id/btnAdd"
         android:text="@string/add"
         android:layout_x="22dp"
@@ -52,6 +53,7 @@
         android:layout_y="188dp"
         android:layout_width="100dp"
         android:layout_height="40dp"/>
+        -->
     <Button   android:id="@+id/btnDownload"
         android:text="@string/download"
         android:layout_x="22dp"
@@ -64,5 +66,16 @@
         android:layout_y="274dp"
         android:layout_width="150dp"
         android:layout_height="70dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adminTitle"
+        android:id="@+id/debugTitle"
+        android:paddingTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_x="101dp"
+        android:layout_y="18dp" />
 
 </AbsoluteLayout>

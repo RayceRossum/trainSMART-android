@@ -8,17 +8,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerCallbacks, EditFragment.OnFragmentInteractionListener, CreateFragment.OnFragmentInteractionListener, DebugFragment.OnFragmentInteractionListener {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks,
+        EditFragment.OnFragmentInteractionListener,
+        CreateFragment.OnFragmentInteractionListener,
+        DebugFragment.OnFragmentInteractionListener,
+        CreatePersonFragment.OnFragmentInteractionListener,
+        SearchFragment.OnFragmentInteractionListener,
+        RecentFragment.OnFragmentInteractionListener
+{
 
     public static Boolean LOGGED_IN = false;
 
     public static final String BASE_URL = "http://android.trainingdata.org/";
-//    public static final String BASE_URL = "http://50.115.116.23/";
-//    public static final String BASE_URL = "http://173.244.210.165/";
 
     public static final String GET_TABLE_URL = BASE_URL + "getTable.php";
     public static final String TAG_SUCCESS = "success";
@@ -26,9 +29,6 @@ public class MainActivity extends ActionBarActivity
     public static SQLiteDatabase db;
     static String _user = "rossumg";
     static String _pass = "rossumg";
-
-
-
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -54,19 +54,16 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
         DBHelper dbHelp = new DBHelper(this);
         Fragment fragment;
         switch(position) {
             case 1:
-                fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
+                fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
                 if (fragment == null) {
-                    PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
-//                  PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
-                    fragment = EditFragment.newInstance(pToA);
+                    fragment = RecentFragment.newInstance("main", "");
                 }
-
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
 
                 break;
 
@@ -79,7 +76,29 @@ public class MainActivity extends ActionBarActivity
 
                 break;
 
+
+            case 2:
+                fragment = getFragmentManager().findFragmentByTag(SearchFragment.TAG);
+                if (fragment == null) {
+                    fragment = SearchFragment.newInstance();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).commit();
+
+                break;
+
+            case 3:
+                fragment = getFragmentManager().findFragmentByTag(CreatePersonFragment.TAG);
+                if (fragment == null) {
+                    fragment = CreatePersonFragment.newInstance();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreatePersonFragment.TAG).commit();
+
+                break;
+
             case 4:
+                break;
+
+            case 5:
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();

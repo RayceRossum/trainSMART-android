@@ -100,7 +100,12 @@ public class
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-//        PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
+
+        // for demo, remove/fix after
+        if(pToA == null){
+            PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
+        }
+
 //        PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
 //        dbHelp.putPersonToAssessments(person_id, facility_id, date_created, assessment_id);
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA), pToA);

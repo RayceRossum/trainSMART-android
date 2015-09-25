@@ -22,6 +22,15 @@
            android:layout_alignStart="@+id/textView0" />
 -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/createTitle"
+        android:id="@+id/textView"
+        android:paddingTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/textView2" />
+
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
@@ -33,14 +42,14 @@
            />
 
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
         android:layout_below="@+id/textView0"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_marginLeft="78dp"
+        android:layout_marginRight="78dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:singleLine="true" />
@@ -61,8 +70,8 @@
        android:id="@+id/nationalid"
        android:layout_below="@+id/textView2"
 
-       android:layout_marginLeft="128dp"
-       android:layout_marginRight="128dp"
+       android:layout_marginLeft="78dp"
+       android:layout_marginRight="78dp"
        android:layout_alignParentEnd="true"
        android:layout_alignParentStart="true"
        android:singleLine="true" />
@@ -81,8 +90,8 @@
            android:layout_height="wrap_content"
            android:id="@+id/facility"
            android:layout_below="@+id/textView3"
-           android:layout_marginLeft="128dp"
-           android:layout_marginRight="128dp"
+           android:layout_marginLeft="78dp"
+           android:layout_marginRight="78dp"
            android:layout_alignParentEnd="true"
            android:layout_alignParentStart="true"
            android:singleLine="true" />
@@ -103,8 +112,8 @@
               android:id="@+id/assessment_type"
 
               android:layout_below="@+id/textView4"
-              android:layout_marginLeft="128dp"
-              android:layout_marginRight="128dp"
+              android:layout_marginLeft="78dp"
+              android:layout_marginRight="78dp"
               android:layout_alignParentEnd="true"
               android:layout_alignParentStart="true"/>
 
@@ -113,11 +122,14 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:text="Create"
-                  android:id="@+id/button"
+                  android:id="@+id/btnCreate"
                   android:paddingTop="12dp"
                   android:layout_centerVertical="true"
                   android:layout_below="@+id/assessment_type"
-                  android:layout_alignEnd="@+id/assessment_type" />
+                  android:layout_alignEnd="@+id/assessment_type"
+                  android:layout_marginTop="32dp" />
+
+
 
 
 </RelativeLayout>

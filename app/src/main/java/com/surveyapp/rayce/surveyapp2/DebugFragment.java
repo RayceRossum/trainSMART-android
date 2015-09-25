@@ -87,15 +87,15 @@ public class DebugFragment extends Fragment {
             }
         });
 
-        Button btnTest = (Button) view.findViewById(R.id.btnTest);
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.d("request!", "test button");
-                _dbHelp.helperTest();
-            }
-        });
+//        Button btnTest = (Button) view.findViewById(R.id.btnTest);
+//        btnTest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Log.d("request!", "test button");
+//                _dbHelp.helperTest();
+//            }
+//        });
 
         Button btnUpload = (Button) view.findViewById(R.id.btnUpload);
         btnUpload.setOnClickListener(new View.OnClickListener() {

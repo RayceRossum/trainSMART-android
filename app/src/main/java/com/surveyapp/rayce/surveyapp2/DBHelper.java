@@ -333,6 +333,207 @@ public class DBHelper extends SQLiteOpenHelper{
         }
     }
 
+    public List<String> getReadablAssessments(String person_id, String national_id, String facility_name, String assessment_type, String from_date, String to_date) {
+        List<String> readableRecentAssessmentsList = new ArrayList<String>();
+        Log.d("request!", "readableRecentAssessments: ");
+        // all params can be null or ""
+        String whereClause = "";
+
+//        if (person == null) {
+//            Log.d("request!", "Search button person is null: ");
+//        } else {
+//            Log.d("request!", "Search button person: " + person.get_person_id());
+//        }
+//        if (assessment == null) {
+//            Log.d("request!", "Search button assessment is null: ");
+//        } else {
+//            Log.d("request!", "Search button assessment: " + assessment.get_assessment_type());
+//        }
+//        if (facility_name.equals("")) {
+//            Log.d("request!", "Search button facility is null: ");
+//        } else {
+//            Log.d("request!", "Search button facilityName: " + facility_name);
+//        }
+//        if (national_id.equals("")) {
+//            Log.d("request!", "Search button nationalID is null: ");
+//        } else {
+//            Log.d("request!", "Search button nationalID: " + national_id);
+//        }
+
+        if (person_id.equals("")) {
+            Log.d("request!", "person is null: ");
+        } else {
+            Log.d("request!", "person: " + person_id);
+            whereClause = whereClause + "and p.person_id = " + person_id + " ";
+        }
+        if (assessment_type.equals("")) {
+            Log.d("request!", "assessment is null: ");
+        } else {
+            Log.d("request!", "assessment: " + assessment_type);
+            whereClause = whereClause + "and a.assessment_type = '" + assessment_type + "' ";
+        }
+        if (facility_name.equals("")) {
+            Log.d("request!", "facility is null: ");
+        } else {
+            Log.d("request!", "facilityName: " + facility_name);
+            // test for single quote
+            StringBuilder name = new StringBuilder(facility_name);
+            if(facility_name.indexOf("'") != -1) {
+                name.setCharAt(facility_name.indexOf("'"), '_');
+            }
+            whereClause = whereClause + "and p.facility_name like '" + name + "' ";
+        }
+        if (national_id.equals("")) {
+            Log.d("request!", "nationalID is null: ");
+        } else {
+            Log.d("request!", "nationalID: " + national_id);
+            // test for single quote
+            StringBuilder id = new StringBuilder(national_id);
+            if(national_id.indexOf("'") != -1) {
+                id.setCharAt(facility_name.indexOf("'"), '_');
+            }
+            whereClause = whereClause + "and p.national_id like '" + id + "' ";
+        }
+        if (from_date.equals("")||to_date.equals("")) {
+            Log.d("request!", "from_date || to_date is null: ");
+        } else {
+            Log.d("request!", "from_date: " + from_date);
+            Log.d("request!", "to_date: " + to_date);
+            whereClause = whereClause + "and ptoa.date_created between '" + from_date + "' and '" + to_date + " ";
+        }
+
+        String query =
+                "select " +
+                        "ptoa.person_to_assessments_id, " +
+                        "p.first_name, " +
+                        "p.last_name, " +
+                        "p.facility_name, " +
+                        "ptoa.date_created, " +
+                        "a.assessment_type " +
+                        "from person_to_assessments ptoa " +
+                        "join person p on p.person_id = ptoa.person_id " +
+                        "join assessments a on ptoa.assessment_id = a.assessment_id " +
+                        "where  1=1 " +
+                        whereClause +
+                        "order by ptoa.person_to_assessments_id desc " +
+                        "limit 20";
+
+        Log.d("request!", "Query: " + query);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String readableRecentAssessment = "";
+                readableRecentAssessment =
+                        cursor.getString(0) + ") " +
+                                cursor.getString(1) + " " +
+                                cursor.getString(2) + " " +
+                                cursor.getString(3) + " " +
+                                cursor.getString(4) + "\r\n\t" +
+                                cursor.getString(5);
+
+                // Adding object to list
+                readableRecentAssessmentsList.add(readableRecentAssessment);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return person list
+        return readableRecentAssessmentsList;
+    }
+
+    public List<String> getReadableRecentAssessments() {
+        List<String> readableRecentAssessmentsList = new ArrayList<String>();
+        Log.d("request!", "readableRecentAssessments: ");
+        String query =
+                "select " +
+                        "ptoa.person_to_assessments_id, " +
+                        "p.first_name, " +
+                        "p.last_name, " +
+                        "p.facility_name, " +
+                        "ptoa.date_created, " +
+                        "a.assessment_type " +
+                        "from person_to_assessments ptoa " +
+                        "join person p on p.person_id = ptoa.person_id " +
+                        "join assessments a on ptoa.assessment_id = a.assessment_id " +
+                        "where  1=1 " +
+                        "order by ptoa.person_to_assessments_id desc " +
+                        "limit 20";
+
+        Log.d("request!", "Query: " + query);
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                String readableRecentAssessment = "";
+                readableRecentAssessment =
+                        cursor.getString(0) + ") " +
+                        cursor.getString(1) + " " +
+                        cursor.getString(2) + " " +
+                        cursor.getString(3) + " " +
+                        cursor.getString(4) + "\r\n\t" +
+                        cursor.getString(5);
+
+                // Adding object to list
+                readableRecentAssessmentsList.add(readableRecentAssessment);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        // return person list
+        return readableRecentAssessmentsList;
+    }
+
+    public List<String> getRecentAssessments(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> recentAssessements = new ArrayList<String>();
+
+        String[] tableColumns = new String[] {
+                PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID, PERSON_TO_ASSESSMENTS_PERSON_ID, PERSON_TO_ASSESSMENTS_FACILITY_ID, PERSON_TO_ASSESSMENTS_DATE_CREATED, PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, PERSON_TO_ASSESSMENTS_USER_ID, PERSON_TO_ASSESSMENTS_STATUS
+
+        };
+
+        String whereClause = "1=1 ";
+
+        String[] whereArgs = new String[]{};
+
+        String orderBy = PERSON_TO_ASSESSMENTS_DATE_CREATED;
+
+        Cursor cursor = db.query(TABLE_PERSON_TO_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, orderBy);
+
+        if (cursor.moveToFirst()) {
+            do {
+//                Log.d("request!", "getAllPersonIDs  "
+//                                + cursor.getString(0) + " "
+//                                + cursor.getString(1) + " "
+//                                + cursor.getString(2) + " "
+//                                + cursor.getString(3) + " "
+//                );
+                recentAssessements.add(cursor.getString(0) + ", " + cursor.getString(1) + ", " + cursor.getString(2) + ",  " + cursor.getString(3) + ", " + cursor.getString(4) + ", " + cursor.getString(5) + ",  " + cursor.getString(6));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        // remove duplicates
+//        Set<String> noDups = new LinkedHashSet<>(recentAssessements);
+//        recentAssessements.clear();;
+//        recentAssessements.addAll(noDups);
+
+        // convert to array
+//        String[] stringArrayPersonID = new String[ personID.size() ];
+//        personID.toArray(stringArrayPersonID);
+
+        return recentAssessements;
+    }
+
     public int getAssessmentsQuestionsQuestion(int assessment_id, int itemorder){
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -370,7 +571,7 @@ public class DBHelper extends SQLiteOpenHelper{
         List<String> personID = new ArrayList<String>();
 
         String[] tableColumns = new String[] {
-                PERSON_PERSON_ID, PERSON_LAST_NAME, PERSON_FIRST_NAME,  PERSON_NATIONAL_ID, PERSON_FACILITY_NAME
+                PERSON_PERSON_ID, PERSON_FIRST_NAME, PERSON_LAST_NAME,  PERSON_NATIONAL_ID, PERSON_FACILITY_NAME
         };
 
         String whereClause = "1=1 ";
@@ -389,8 +590,7 @@ public class DBHelper extends SQLiteOpenHelper{
 //                                + cursor.getString(2) + " "
 //                                + cursor.getString(3) + " "
 //                );
-
-                personID.add(cursor.getString(1) + " " + cursor.getString(2) + " " + cursor.getString(3) + " " + cursor.getString(4));
+                personID.add(cursor.getString(1) + ", " + cursor.getString(2) + ", " + cursor.getString(3) + ",  " + cursor.getString(4));
             } while (cursor.moveToNext());
         }
 
@@ -490,6 +690,28 @@ public class DBHelper extends SQLiteOpenHelper{
         return stringArrayFacilityNames;
     }
 
+    public int getFacilityID(String facility_name){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int facility_id;
+        Log.d("request!", "getFacilityID: ");
+        String query =
+                "select " +
+                        "p.facility_id " +
+                        "from person p " +
+                        "where  1=1 " +
+                        "and facility_name = '" + facility_name + "' " +
+                        "limit 1";
+
+        Log.d("request!", "Query: " + query);
+
+        Cursor cursor = db.rawQuery(query, null);
+        facility_id = Integer.parseInt(cursor.getString(0));
+
+        cursor.close();
+        db.close();
+        return facility_id;
+    }
+
     public String[] getAllNationalIDs(){
         SQLiteDatabase db = this.getReadableDatabase();
         List<String> nationalIds = new ArrayList<String>();
@@ -579,7 +801,7 @@ public class DBHelper extends SQLiteOpenHelper{
                         " and aq.itemtype = 'text' " +
                         "order by aq.itemorder ";
 
-        //Log.d("request!", "Query: " + query);
+        Log.d("request!", "Query: " + query);
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -700,6 +922,40 @@ public class DBHelper extends SQLiteOpenHelper{
                         + cursor.getString(1) + " "
                         + cursor.getString(2) + " "
         );
+
+        Assessments assessments = new Assessments(
+                Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1)
+
+        );
+        cursor.close();
+        db.close();
+        return assessments;
+    }
+
+    public Assessments getAssessments(String assessments_assessment_type) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] tableColumns = new String[] {
+                ASSESSMENTS_ASSESSMENT_ID, ASSESSMENTS_ASSESSMENT_TYPE
+        };
+
+        String whereClause = "1=1 and " +
+                ASSESSMENTS_ASSESSMENT_TYPE + " = ?";
+
+        String[] whereArgs = new String[]{
+                assessments_assessment_type };
+
+        Cursor cursor = db.query(TABLE_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+//        Log.d("request!", "geAssessments  "
+//                        + cursor.getString(0) + " "
+//                        + cursor.getString(1) + " "
+//                        + cursor.getString(2) + " "
+//        );
 
         Assessments assessments = new Assessments(
                 Integer.parseInt(cursor.getString(0)),
@@ -969,8 +1225,9 @@ public class DBHelper extends SQLiteOpenHelper{
     public PersonToAssessments getPersonToAssessments(int pa_pa_id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
+        PersonToAssessments person_to_assessments = null;
 
-        String[] tableColumns = new String[] {
+        String[] tableColumns = new String[]{
                 PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID, PERSON_TO_ASSESSMENTS_PERSON_ID, PERSON_TO_ASSESSMENTS_FACILITY_ID, PERSON_TO_ASSESSMENTS_DATE_CREATED, PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, PERSON_TO_ASSESSMENTS_USER_ID, PERSON_TO_ASSESSMENTS_STATUS
         };
 
@@ -978,39 +1235,42 @@ public class DBHelper extends SQLiteOpenHelper{
                 PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID + " = ?";
 
         String[] whereArgs = new String[]{
-                Integer.toString(pa_pa_id) };
+                Integer.toString(pa_pa_id)};
 
         Cursor cursor = db.query(TABLE_PERSON_TO_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
 
-        if (cursor != null)
-            cursor.moveToFirst();
-//        Log.d("request!", "getPersonToAssessments  "
-//                        + cursor.getString(0) + " "
-//                        + cursor.getString(1) + " "
-//                        + cursor.getString(2) + " "
-//                        + cursor.getString(3) + " "
-//                        + cursor.getString(4) + " "
-//                        + cursor.getString(5) + " "
-//                        + cursor.getString(6) + " "
-//        );
-
-        PersonToAssessments person_to_assessments = new PersonToAssessments(
-                Integer.parseInt(cursor.getString(0)),
-                Integer.parseInt(cursor.getString(1)),
-                Integer.parseInt(cursor.getString(2)),
-                cursor.getString(3),
-                Integer.parseInt(cursor.getString(4)),
-                Integer.parseInt(cursor.getString(5))
-
+        if (cursor.moveToFirst()) {
+        Log.d("request!", "getPersonToAssessments  "
+                        + cursor.getString(0) + " "
+                        + cursor.getString(1) + " "
+                        + cursor.getString(2) + " "
+                        + cursor.getString(3) + " "
+                        + cursor.getString(4) + " "
+                        + cursor.getString(5) + " "
+                        + cursor.getString(6) + " "
         );
-        cursor.close();
-        db.close();
-        return person_to_assessments;
+            person_to_assessments = new PersonToAssessments(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)),
+                    cursor.getString(3),
+                    Integer.parseInt(cursor.getString(4)),
+                    Integer.parseInt(cursor.getString(5))
+
+            );
+            cursor.close();
+            db.close();
+            return person_to_assessments;
+        } else {
+            cursor.close();
+            db.close();
+            return person_to_assessments;
+        }
     }
 
     public PersonToAssessments getPersonToAssessments(int person_id, int facility_id, String date_created, int assessment_id) {
-
         SQLiteDatabase db = this.getReadableDatabase();
+        PersonToAssessments personToAssessments = null;
 
         String[] tableColumns = new String[] {
                 PERSON_TO_ASSESSMENTS_PERSON_TO_ASSESSMENTS_ID, PERSON_TO_ASSESSMENTS_PERSON_ID, PERSON_TO_ASSESSMENTS_FACILITY_ID, PERSON_TO_ASSESSMENTS_DATE_CREATED, PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, PERSON_TO_ASSESSMENTS_USER_ID, PERSON_TO_ASSESSMENTS_STATUS
@@ -1027,7 +1287,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         Cursor cursor = db.query(TABLE_PERSON_TO_ASSESSMENTS, tableColumns, whereClause, whereArgs, null, null, null);
 
-        if (cursor != null) cursor.moveToFirst();
+        if ( cursor.moveToFirst() ) {
 
 //        Log.d("request!", "getPersonToAssessments  "
 //                        + cursor.getString(0) + " "
@@ -1039,18 +1299,45 @@ public class DBHelper extends SQLiteOpenHelper{
 //                        + cursor.getString(6) + " "
 //        );
 
-        PersonToAssessments person_to_assessments = new PersonToAssessments(
-                Integer.parseInt(cursor.getString(0)),
-                Integer.parseInt(cursor.getString(1)),
-                Integer.parseInt(cursor.getString(2)),
-                cursor.getString(3),
-                Integer.parseInt(cursor.getString(4)),
-                Integer.parseInt(cursor.getString(5))
+            personToAssessments = new PersonToAssessments(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    Integer.parseInt(cursor.getString(2)),
+                    cursor.getString(3),
+                    Integer.parseInt(cursor.getString(4)),
+                    Integer.parseInt(cursor.getString(5))
 
-        );
-        cursor.close();
-        db.close();
-        return person_to_assessments;
+            );
+            cursor.close();
+            db.close();
+            return personToAssessments;
+        } else {
+            cursor.close();
+            db.close();
+            return personToAssessments;
+        }
+    }
+
+    public boolean addPersonToAssessments(PersonToAssessments pToA){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(PERSON_TO_ASSESSMENTS_PERSON_ID, pToA.get_person_id());
+        values.put(PERSON_TO_ASSESSMENTS_FACILITY_ID, pToA.get_facility_id());
+        values.put(PERSON_TO_ASSESSMENTS_DATE_CREATED, pToA.get_date_created());
+        values.put(PERSON_TO_ASSESSMENTS_ASSESSMENT_ID, pToA.get_assessment_id());
+        values.put(PERSON_TO_ASSESSMENTS_USER_ID, pToA.get_user_id());
+        values.put(PERSON_TO_ASSESSMENTS_STATUS, 1);
+
+        try {
+            db.insert(TABLE_PERSON_TO_ASSESSMENTS, null, values);
+            Log.d("request!", "addPersonToAssessments insert: ");
+        } catch (Exception ex) {
+            db.close();
+            Log.d("request!", "addPersonToAssessments catch " + ex.toString());
+            return false;
+        }
+        return true;
     }
 
     public boolean addPerson(Person person) {
@@ -1074,48 +1361,56 @@ public class DBHelper extends SQLiteOpenHelper{
         return true;
     }
 
-    public Person getPerson(String person_first_name, String person_last_name, String person_national_id) {
-
+    public Person getPerson(String person_first_name, String person_last_name, String person_national_id, String person_facility_name) {
+        Person person = null;
         SQLiteDatabase db = this.getReadableDatabase();
+        Log.d("request!", "getPerson: " + person_first_name + " " + person_last_name + " " + person_national_id + " " + person_facility_name);
 
         String[] tableColumns = new String[] {
                 PERSON_ROWID, PERSON_PERSON_ID, PERSON_FIRST_NAME, PERSON_LAST_NAME, PERSON_NATIONAL_ID, PERSON_FACILITY_ID, PERSON_FACILITY_NAME
         };
 
         String whereClause = "1=1 and " +
-                PERSON_FIRST_NAME + " like ? and " +
-                PERSON_LAST_NAME + " like ? and " +
-                PERSON_NATIONAL_ID + " like ?";
+                PERSON_FIRST_NAME + " like trim(?) and " +
+                PERSON_LAST_NAME + " like trim(?) and " +
+                PERSON_NATIONAL_ID + " like trim(?) and " +
+                PERSON_FACILITY_NAME + " like trim(?)";
+
+        Log.d("request!", "getPerson whereClause: " + whereClause);
 
         String[] whereArgs = new String [] {
-                person_first_name, person_last_name, person_national_id };
+                person_first_name, person_last_name, person_national_id, person_facility_name };
 
         Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, null);
 
-        if (cursor != null)
-            cursor.moveToFirst();
-        Log.d("request!", "getPerson  "
-                        + cursor.getString(0) + " "
-                        + cursor.getString(1) + " "
-                        + cursor.getString(2) + " "
-                        + cursor.getString(3) + " "
-                        + cursor.getString(4) + " "
-                        + cursor.getString(5) + " "
-                        + cursor.getString(6) + " "
-        );
+        if (cursor.moveToFirst()) {
+            Log.d("request!", "getPerson  "
+                            + cursor.getString(0) + " "
+                            + cursor.getString(1) + " "
+                            + cursor.getString(2) + " "
+                            + cursor.getString(3) + " "
+                            + cursor.getString(4) + " "
+                            + cursor.getString(5) + " "
+                            + cursor.getString(6) + " "
+            );
 
-        Person person = new Person(
-                Integer.parseInt(cursor.getString(0)),
-                Integer.parseInt(cursor.getString(1)),
-                cursor.getString(2),
-                cursor.getString(3),
-                cursor.getString(4),
-                Integer.parseInt(cursor.getString(5)),
-                cursor.getString(6)
-        );
-        cursor.close();
-        db.close();
-        return person;
+            person = new Person(
+                    Integer.parseInt(cursor.getString(0)),
+                    Integer.parseInt(cursor.getString(1)),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    Integer.parseInt(cursor.getString(5)),
+                    cursor.getString(6)
+            );
+            cursor.close();
+            db.close();
+            return person;
+        } else {
+            cursor.close();
+            db.close();
+            return person;
+        }
     }
 
     public Person getPerson(int person_person_id) {

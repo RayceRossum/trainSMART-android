@@ -18,7 +18,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Unnamed-0" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="req" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc049944-85d8-4ba8-ac3a-16ed9bfcb0eb" name="Default" comment="" />
@@ -48,131 +48,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77922076">
-              <caret line="153" column="5" selection-start-line="146" selection-start-column="4" selection-end-line="153" selection-end-column="5" />
-              <folding>
-                <element signature="docComment;class#CreateFragment#0" expanded="false" />
-                <element signature="class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
-                <element signature="e#6325#6333#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-61.482758">
-              <caret line="165" column="40" selection-start-line="165" selection-start-column="40" selection-end-line="165" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#EditFragment#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
-                <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
-                <element signature="e#6312#6414#0" expanded="false" />
-                <element signature="method#beforeTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
-                <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_create.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.413794">
-              <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+            <state vertical-scroll-proportion="-12.586206">
+              <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+      <file leaf-file-name="SearchFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="392" column="29" selection-start-line="392" selection-start-column="29" selection-end-line="392" selection-end-column="29" />
+            <state vertical-scroll-proportion="-14.620689">
+              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
-                <element signature="docComment;class#DBHelper#0" expanded="false" />
-                <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#7605#7664#0" expanded="false" />
-                <element signature="e#14429#14482#0" expanded="false" />
-                <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#17303#17366#0" expanded="false" />
-                <element signature="e#18285#18340#0" expanded="false" />
-                <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#19753#19812#0" expanded="false" />
-                <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#20979#21038#0" expanded="false" />
-                <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#22200#22257#0" expanded="false" />
-                <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#27921#28003#0" expanded="false" />
-                <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#29866#29948#0" expanded="false" />
-                <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#32233#32286#0" expanded="false" />
-                <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#34565#34618#0" expanded="false" />
-                <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#36905#36958#0" expanded="false" />
-                <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#44110#44164#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#46198#46252#0" expanded="false" />
-                <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#55844#55893#0" expanded="false" />
-                <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#57765#57872#0" expanded="false" />
-                <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#72902#73041#0" expanded="false" />
-                <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#74220#74260#0" expanded="false" />
-                <element signature="e#76184#76222#0" expanded="false" />
+                <element signature="e#3067#8092#0" expanded="true" />
+                <element signature="e#8091#8092#0" expanded="true" />
+                <element signature="e#10391#11508#0" expanded="true" />
+                <element signature="e#11507#11508#0" expanded="true" />
+                <element signature="e#11830#11838#0" expanded="true" />
+                <element signature="e#12023#12361#0" expanded="true" />
+                <element signature="e#12360#12361#0" expanded="true" />
+                <element signature="e#12685#12693#0" expanded="true" />
+                <element signature="e#12880#13220#0" expanded="true" />
+                <element signature="e#13219#13220#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <file leaf-file-name="RecentFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.862069">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.4482758">
+              <caret line="141" column="54" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="54" />
               <folding>
-                <element signature="e#3795#3905#0" expanded="false" />
+                <element signature="e#4233#4241#0" expanded="true" />
+                <element signature="e#4463#4524#0" expanded="false" />
+                <element signature="e#5118#5175#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.74017465">
+              <caret line="395" column="9" selection-start-line="395" selection-start-column="9" selection-end-line="395" selection-end-column="9" />
+              <folding>
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4325#4326#0" expanded="true" />
+                <element signature="e#16814#16845#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,6 +124,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="layoutResourceFile_vertical" />
       </list>
     </option>
@@ -1628,27 +1570,43 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_person.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreatePersonFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_recent.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="NamedScopeManager">
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="187" />
-    <option name="y" value="13" />
+    <option name="x" value="148" />
+    <option name="y" value="3" />
     <option name="width" value="1750" />
-    <option name="height" value="1000" />
+    <option name="height" value="993" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1673,9 +1631,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1742,7 +1699,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1752,6 +1710,14 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MyFirstApp" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rossumg\AndroidStudioProjects\trainSMART-android\app\src\main\res\layout" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.surveyapp.rayce.surveyapp2" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1950,26 +1916,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="187" y="13" width="1750" height="1000" extended-state="0" />
-    <editor active="false" />
+    <frame x="148" y="3" width="1750" height="993" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277512" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.51420116" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25885558" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.4857988" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277512" sideWeight="0.4857988" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3839713" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.51420116" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38434163" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16508876" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25016204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="4" side_tool="true" content_ui="tabs" />
@@ -1995,11 +1961,143 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="41" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#CreateFragment#0" expanded="false" />
+            <element signature="class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
+            <element signature="method#loadPersonIDDropdown#0;class#CreateFragment#0" expanded="false" />
+            <element signature="method#loadAssessmentTypeDropdown#0;class#CreateFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="165" column="40" selection-start-line="165" selection-start-column="40" selection-end-line="165" selection-end-column="40" />
+          <folding>
+            <element signature="docComment;class#EditFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
+            <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
+            <element signature="e#6390#6492#0" expanded="false" />
+            <element signature="method#beforeTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+            <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="392" column="29" selection-start-line="392" selection-start-column="29" selection-end-line="392" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#DBHelper#0" expanded="false" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4325#4326#0" expanded="true" />
+            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#7605#7664#0" expanded="false" />
+            <element signature="e#14429#14482#0" expanded="false" />
+            <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#25959#26022#0" expanded="false" />
+            <element signature="e#26941#26996#0" expanded="false" />
+            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#28412#28471#0" expanded="false" />
+            <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#29638#29697#0" expanded="false" />
+            <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#31562#31619#0" expanded="false" />
+            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#37281#37363#0" expanded="false" />
+            <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#39226#39308#0" expanded="false" />
+            <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#42672#42725#0" expanded="false" />
+            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#42672#42725#0" expanded="false" />
+            <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#45004#45057#0" expanded="false" />
+            <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#56836#56890#0" expanded="false" />
+            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#68118#68167#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#70039#70146#0" expanded="false" />
+            <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#85176#85315#0" expanded="false" />
+            <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#86494#86534#0" expanded="false" />
+            <element signature="e#88458#88496#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1033#1034#0" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="false" />
+            <element signature="e#1128#1129#0" expanded="false" />
+            <element signature="e#1159#1160#0" expanded="false" />
+            <element signature="e#1216#1217#0" expanded="false" />
+            <element signature="e#1247#1248#0" expanded="false" />
+            <element signature="e#1298#1299#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="false" />
+            <element signature="e#3795#3905#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditPageObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9100642">
@@ -2008,51 +2106,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67413443">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="e#2857#3069#0" expanded="false" />
-            <element signature="e#3068#3069#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="27" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="27" />
-          <folding>
-            <element signature="e#381#382#0" expanded="false" />
-            <element signature="e#409#410#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/refs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2081,48 +2138,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1033#1034#0" expanded="false" />
+            <element signature="e#1071#1072#0" expanded="false" />
+            <element signature="e#1128#1129#0" expanded="false" />
+            <element signature="e#1159#1160#0" expanded="false" />
+            <element signature="e#1216#1217#0" expanded="false" />
+            <element signature="e#1247#1248#0" expanded="false" />
+            <element signature="e#1298#1299#0" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="false" />
+            <element signature="e#3795#3905#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create_person.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#1008#1035#0" expanded="false" />
+            <element signature="e#1345#1359#0" expanded="false" />
+            <element signature="e#2130#2151#0" expanded="false" />
+            <element signature="e#2860#2883#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding>
+            <element signature="e#381#382#0" expanded="false" />
+            <element signature="e#409#410#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#540#541#0" expanded="false" />
+            <element signature="e#568#569#0" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+            <element signature="e#637#638#0" expanded="false" />
+            <element signature="e#687#688#0" expanded="false" />
+            <element signature="e#723#724#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
+            <element signature="e#609#610#0" expanded="false" />
+            <element signature="e#1273#2283#0" expanded="false" />
+            <element signature="e#2282#2283#0" expanded="false" />
+            <element signature="e#3147#3148#0" expanded="false" />
+            <element signature="e#3202#3203#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_default.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_navigation_drawer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6206896">
-          <caret line="22" column="95" selection-start-line="22" selection-start-column="95" selection-end-line="22" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="93.10345">
-          <caret line="119" column="0" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5172415">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2141,93 +2237,26 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/refs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.36">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="392" column="29" selection-start-line="392" selection-start-column="29" selection-end-line="392" selection-end-column="29" />
-          <folding>
-            <element signature="docComment;class#DBHelper#0" expanded="false" />
-            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#7605#7664#0" expanded="false" />
-            <element signature="e#14429#14482#0" expanded="false" />
-            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#17303#17366#0" expanded="false" />
-            <element signature="e#18285#18340#0" expanded="false" />
-            <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#19753#19812#0" expanded="false" />
-            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#20979#21038#0" expanded="false" />
-            <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#22200#22257#0" expanded="false" />
-            <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#27921#28003#0" expanded="false" />
-            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#29866#29948#0" expanded="false" />
-            <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#32233#32286#0" expanded="false" />
-            <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#34565#34618#0" expanded="false" />
-            <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#36905#36958#0" expanded="false" />
-            <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#44110#44164#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#46198#46252#0" expanded="false" />
-            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#55844#55893#0" expanded="false" />
-            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#57765#57872#0" expanded="false" />
-            <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#72902#73041#0" expanded="false" />
-            <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#74220#74260#0" expanded="false" />
-            <element signature="e#76184#76222#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.413794">
-          <caret line="116" column="43" selection-start-line="116" selection-start-column="43" selection-end-line="116" selection-end-column="43" />
+        <state vertical-scroll-proportion="-11.724138">
+          <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
           <folding />
         </state>
       </provider>
@@ -2235,29 +2264,75 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_navigation_drawer.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.862069">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8095238">
+          <caret line="22" column="95" selection-start-line="22" selection-start-column="95" selection-end-line="22" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31160897">
+          <caret line="126" column="43" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
           <folding>
-            <element signature="e#3795#3905#0" expanded="false" />
+            <element signature="e#2169#2187#0" expanded="true" />
+            <element signature="e#2392#2408#0" expanded="true" />
+            <element signature="e#2676#2696#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreatePersonFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="101" selection-start-line="162" selection-start-column="18" selection-end-line="162" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-22/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8064516">
+          <caret line="791" column="38" selection-start-line="791" selection-start-column="38" selection-end-line="791" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-61.482758">
-          <caret line="165" column="40" selection-start-line="165" selection-start-column="40" selection-end-line="165" selection-end-column="40" />
+        <state vertical-scroll-proportion="-8.862069">
+          <caret line="105" column="68" selection-start-line="105" selection-start-column="46" selection-end-line="105" selection-end-column="68" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="docComment;class#EditFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onListItemPressed#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#EditFragment#0" expanded="false" />
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#EditFragment#0" expanded="false" />
-            <element signature="e#6312#6414#0" expanded="false" />
+            <element signature="e#6390#6492#0" expanded="false" />
             <element signature="method#beforeTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onTextChanged#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
             <element signature="method#onStartTrackingTouch#0;class#ViewHolder#0;class#EditFragment#0" expanded="false" />
@@ -2265,14 +2340,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18046708">
+          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="9" selection-start-line="67" selection-start-column="2" selection-end-line="70" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recent.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#431#459#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/Assessments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41129032">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.620689">
+          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9257642">
+          <caret line="125" column="43" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77922076">
-          <caret line="153" column="5" selection-start-line="146" selection-start-column="4" selection-end-line="153" selection-end-column="5" />
+        <state vertical-scroll-proportion="-12.586206">
+          <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.620689">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#CreateFragment#0" expanded="false" />
-            <element signature="class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
-            <element signature="e#6325#6333#0" expanded="true" />
+            <element signature="e#3067#8092#0" expanded="true" />
+            <element signature="e#8091#8092#0" expanded="true" />
+            <element signature="e#10391#11508#0" expanded="true" />
+            <element signature="e#11507#11508#0" expanded="true" />
+            <element signature="e#11830#11838#0" expanded="true" />
+            <element signature="e#12023#12361#0" expanded="true" />
+            <element signature="e#12360#12361#0" expanded="true" />
+            <element signature="e#12685#12693#0" expanded="true" />
+            <element signature="e#12880#13220#0" expanded="true" />
+            <element signature="e#13219#13220#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4482758">
+          <caret line="141" column="54" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="54" />
+          <folding>
+            <element signature="e#4233#4241#0" expanded="true" />
+            <element signature="e#4463#4524#0" expanded="false" />
+            <element signature="e#5118#5175#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74017465">
+          <caret line="395" column="9" selection-start-line="395" selection-start-column="9" selection-end-line="395" selection-end-column="9" />
+          <folding>
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4325#4326#0" expanded="true" />
+            <element signature="e#16814#16845#0" expanded="false" />
           </folding>
         </state>
       </provider>

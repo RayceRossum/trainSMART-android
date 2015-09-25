@@ -1,5 +1,10 @@
 <resources>
 
+    <string name="searchTitle">Search Assessments</string>
+    <string name="createPersonTitle">Create Person</string>
+    <string name="createTitle">Create Assessment</string>
+    <string name="recentSurveysTitle">Recent Assessments</string>
+    <string name="adminTitle">Administration</string>
 
 
     <string name="app_name">TrainSMART</string>
