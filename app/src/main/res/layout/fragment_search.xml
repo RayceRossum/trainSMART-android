@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.surveyapp.rayce.surveyapp2.CreateFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- Spinner Element
+       <TextView
+           android:layout_width="227dp"
+           android:layout_height="69dp"
+           android:layout_marginTop="10dip"
+           android:text="Category:"
+           android:layout_marginBottom="5dp" />
+
+
+       <Spinner
+           android:id="@+id/test_spinner"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:prompt="@string/spinner_title"
+           android:layout_alignParentTop="true"
+           android:layout_alignStart="@+id/textView0" />
+-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/searchTitle"
+        android:id="@+id/textViewTitle"
+        android:paddingTop="28dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/textView3" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/name"
+           android:id="@+id/textView0"
+           android:paddingTop="128dp"
+           android:layout_alignParentTop="true"
+           android:layout_alignStart="@+id/name"
+           />
+
+
+    <AutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:layout_below="@+id/textView0"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="78dp"
+        android:layout_marginRight="78dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/national_id"
+       android:id="@+id/textView2"
+       android:paddingTop="12dp"
+       android:layout_below="@+id/name"
+       android:layout_alignStart="@+id/nationalid" />
+
+   <AutoCompleteTextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/nationalid"
+       android:layout_below="@+id/textView2"
+
+       android:layout_marginLeft="78dp"
+       android:layout_marginRight="78dp"
+       android:layout_alignParentEnd="true"
+       android:layout_alignParentStart="true"
+       android:singleLine="true" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/facility_name"
+           android:id="@+id/textView3"
+           android:paddingTop="12dp"
+           android:layout_below="@+id/nationalid"
+           android:layout_alignStart="@+id/facility" />
+
+       <AutoCompleteTextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/facility"
+           android:layout_below="@+id/textView3"
+           android:layout_marginLeft="78dp"
+           android:layout_marginRight="78dp"
+           android:layout_alignParentEnd="true"
+           android:layout_alignParentStart="true"
+           android:singleLine="true" />
+
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/assessment_name"
+              android:id="@+id/textView4"
+              android:paddingTop="12dp"
+              android:layout_below="@+id/facility"
+              android:layout_alignStart="@+id/assessment_type" />
+
+          <Spinner
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/assessment_type"
+
+              android:layout_below="@+id/textView4"
+              android:layout_marginLeft="78dp"
+              android:layout_marginRight="78dp"
+              android:layout_alignParentEnd="true"
+              android:layout_alignParentStart="true"/>
+
+    <!--       -->
+              <Button
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Search"
+                  android:id="@+id/btnSearch"
+                  android:paddingTop="12dp"
+                  android:layout_centerVertical="true"
+                  android:layout_below="@+id/assessment_type"
+                  android:layout_alignEnd="@+id/assessment_type" />
+
+
+</RelativeLayout>
