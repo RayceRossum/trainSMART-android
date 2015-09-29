@@ -35,13 +35,14 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
+        if (mListener != null) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
 
-            int pToA_id = Integer.parseInt( mAdapter.getItem(position).toString().substring(0,mAdapter.getItem(position).toString().indexOf(")")) );
-            Log.d("request!", "onClicki: " + pToA_id);
+            int pToA_id = Integer.parseInt(mAdapter.getItem(position).toString().substring(0, mAdapter.getItem(position).toString().indexOf(")")));
+            Log.d("request!", "recentFragment onItemClick: " + pToA_id);
             PersonToAssessments pToADB = dbHelp.getPersonToAssessments( pToA_id);
+
             Fragment fragment;
             fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
             if (fragment == null) {
@@ -78,8 +79,8 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+//     * @param param1 Parameter 1.
+//     * @param param2 Parameter 2.
      * @return A new instance of fragment RecentFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -96,14 +97,15 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
         // Required empty public constructor
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString("searchAssessments");
             mParam2 = getArguments().getString("searchParams");
-            Log.d("request!", "param1: " + mParam1.toString());
-            Log.d("request!", "param2:>" + mParam2.toString() + "<");
+            Log.d("request!", "recentFragment onCreate param1: " + mParam1.toString());
+            Log.d("request!", "recentFragment onCreate param2:>" + mParam2.toString() + "<");
         }
 
         DBHelper dbHelp = new DBHelper(getActivity());

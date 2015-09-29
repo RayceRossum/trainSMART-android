@@ -195,11 +195,12 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                 String parts[] = {};
                 parts = nameText.split(", ");
 
-                String first_name = parts[0];
-                String last_name = parts[1];
-                String national_id =  parts[2];
-                String facility_name = parts[3];
-                Log.d("request!", "person selected: " + first_name + " " + last_name + " " + national_id + " " + facility_name);
+                String first_name = parts[0].trim();
+                String last_name = parts[1].trim();
+                String national_id =  parts[2].trim();
+                String facility_name = parts[3].trim();
+                Log.d("request!", "facility selected:" + facility_name + ":");
+                Log.d("request!", "person selected:" + first_name + ":" + last_name + ":" + national_id + ":" + facility_name + ":");
                 person = dbHelp.getPerson(first_name, last_name, national_id, facility_name);
                 Log.d("request!", "person_id selected: " + person.get_person_id());
 //                Log.d("request!", "first_name selected: " + first_name);

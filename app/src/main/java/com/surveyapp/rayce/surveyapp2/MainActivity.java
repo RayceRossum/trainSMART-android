@@ -36,10 +36,15 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
 
+    //public static PersonToAssessments _PToA = null;
+    public static boolean configChange = false;
+    private static String ALL = "request!";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
@@ -54,8 +59,18 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        //Toast.makeText(this, "Menu item selected -> " + position, Toast.LENGTH_SHORT).show();
+
+        if(MainActivity.configChange == true) { // config change from edit
+            configChange = false;
+            return;
+        }
+
         DBHelper dbHelp = new DBHelper(this);
+
+        // left over (recent) list fragment
+        //Fragment destroyFragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
+        //getFragmentManager().beginTransaction().remove(destroyFragment).commit();
+
         Fragment fragment;
         switch(position) {
             case 1:
@@ -87,18 +102,18 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 break;
 
             case 3:
-                fragment = getFragmentManager().findFragmentByTag(CreatePersonFragment.TAG);
-                if (fragment == null) {
-                    fragment = CreatePersonFragment.newInstance();
-                }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreatePersonFragment.TAG).commit();
+//                fragment = getFragmentManager().findFragmentByTag(CreatePersonFragment.TAG);
+//                if (fragment == null) {
+//                    fragment = CreatePersonFragment.newInstance();
+//                }
+//                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreatePersonFragment.TAG).commit();
 
-                break;
-
-            case 4:
                 break;
 
             case 5:
+                break;
+
+            case 4:
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
@@ -143,7 +158,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onFragmentInteraction(int position) {

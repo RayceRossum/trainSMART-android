@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -28,15 +27,13 @@ import java.util.Map;
  * Use the {@link EditFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class
-
-        EditFragment extends Fragment {
+public class EditFragment extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    public static String ALL = "request!";
     public static String TAG = "editTag";
-    static PersonToAssessments pToA;
     DBHelper dbHelp;
-    public static Map<String, Object> _buffer = new HashMap<String, Object>();
+    private static PersonToAssessments _pToA;
     //private static final String ARG_PARAM1 = "param1";
     //private static final String ARG_PARAM2 = "param2";
 
@@ -51,11 +48,13 @@ public class
      * @return A new instance of fragment EditFragment.
      */
 
-  //  public static EditFragment newInstance(String param1, String param2) {
+
     public static EditFragment newInstance(PersonToAssessments pToA) {
         EditFragment fragment = new EditFragment();
         Bundle args = new Bundle();
-        EditFragment.pToA = pToA;
+
+         _pToA = pToA;
+
 
         fragment.setArguments(args);
         return fragment;
@@ -84,6 +83,14 @@ public class
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Remember the current text, to restore if we later restart.
+        MainActivity.configChange = true;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -100,18 +107,8 @@ public class
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.editListView);
-
-        // for demo, remove/fix after
-        if(pToA == null){
-            PersonToAssessments pToA = dbHelp.getPersonToAssessments(19);
-        }
-
-//        PersonToAssessments pToA = dbHelp.getPersonToAssessments(person_id, facility_id, date_created, assessment_id);
-//        dbHelp.putPersonToAssessments(person_id, facility_id, date_created, assessment_id);
-        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(pToA), pToA);
-//        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getQuestionData(1, 1, 1, 2));
+        MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(_pToA), _pToA);
         listView.setItemsCanFocus(true);
-
         listView.setAdapter(adapter);
 
         // Inflate the layout for this fragment
@@ -140,6 +137,7 @@ public class
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
     }
 
     /**
@@ -181,7 +179,6 @@ public class
         public void afterTextChanged(Editable editable) {
 
             Integer relativePos = position+1;
-            //Log.d("request!", "load_buffer0: " + relativePos + ">" + editable.toString() + "<");
             int question_id =  dbHelp.getAssessmentsQuestionsQuestion(pToA.get_assessment_id(), relativePos);
             AssessmentsAnswers assessmentsAnswers = dbHelp.getAssessmentsAnswers(pToA.get_person_id(), pToA.get_facility_id(), pToA.get_date_created(), pToA.get_assessment_id(), question_id );
             // gnr: This logic tests if the event is a "real user" edit or a timing bug when the user fast scrolls

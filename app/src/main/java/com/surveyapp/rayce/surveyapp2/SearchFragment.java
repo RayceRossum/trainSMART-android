@@ -135,41 +135,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 }
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
 
-/*
-                Log.d("request!", "create button: " + person.get_person_id() + " " + person.get_facility_id() + " " + sqlDate + " " + assessment.get_assessment_id());
-                PersonToAssessments pToANew = new PersonToAssessments(person.get_person_id(), person.get_facility_id(), sqlDate.toString(), assessment.get_assessment_id(), 1);
-                pToANew.dump();
-                // check for exists
-                PersonToAssessments pToADB = dbHelp.getPersonToAssessments(pToANew.get_person_id(), pToANew.get_facility_id(), pToANew.get_date_created(), pToANew.get_assessment_id());
-                Log.d("request!", "create button: check db");
-                if (pToADB == null) {
-                    Log.d("request!", "create button: not in db");
-                    if (dbHelp.addPersonToAssessments(pToANew)) {
-                        Log.d("request!", "create button pToA added");
-                        Fragment fragment;
-                        fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
-                        if (fragment == null) {
-                            PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToANew.get_person_id(), pToANew.get_facility_id(), pToANew.get_date_created(), pToANew.get_assessment_id());
-                            pToA.dump();
-                            fragment = EditFragment.newInstance(pToA);
-                        }
-                        getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
-                        Log.d("request!", "Assessment Created");
-                        Toast.makeText(v.getContext(), "Assessment Created", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    Log.d("request!", "create button: existing");
-                    Fragment fragment;
-                    fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
-                    if (fragment == null) {
-                        PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToADB.get_person_to_assessments_id());
-                        fragment = EditFragment.newInstance(pToA);
-                    }
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
-                    Log.d("request!", "Existing Assessment");
-                    Toast.makeText(v.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
-                }
-                */
+
             }
         });
 
@@ -242,10 +208,10 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 String parts[] = {};
                 parts = nameText.split(", ");
 
-                String first_name = parts[0];
-                String last_name = parts[1];
-                String national_id =  parts[2];
-                String facility_name = parts[3];
+                String first_name = parts[0].trim();
+                String last_name = parts[1].trim();
+                String national_id =  parts[2].trim();
+                String facility_name = parts[3].trim();
                 Log.d("request!", "person selected: " + first_name + "." + last_name + "." + national_id + "." + facility_name + ".");
                 person = dbHelp.getPerson(first_name, last_name, national_id, facility_name);
                 Log.d("request!", "person_id selected: " + person.get_person_id());
