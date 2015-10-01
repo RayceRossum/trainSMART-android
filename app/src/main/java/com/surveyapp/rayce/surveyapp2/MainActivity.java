@@ -27,18 +27,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     public static final String TAG_SUCCESS = "success";
     public static final String TAG_MESSAGE = "message";
     public static SQLiteDatabase db;
-    static String _user = "rossumg";
-    static String _pass = "rossumg";
+    public static String _user = "rossumg";
+    public static String _pass = "rossumg";
+    public static boolean configChange = false;
+    public static String ALL = "request!";
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-
-    //public static PersonToAssessments _PToA = null;
-    public static boolean configChange = false;
-    private static String ALL = "request!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         // update the main content by replacing fragments
 
         if(MainActivity.configChange == true) { // config change from edit
-            configChange = false;
+            MainActivity.configChange = false;
             return;
         }
 

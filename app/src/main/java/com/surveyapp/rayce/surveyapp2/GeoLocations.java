@@ -10,29 +10,38 @@ public class GeoLocations {
     int _longitude;
     int _latitude;
     String _device_id;
-    String _timestamp;
+    String _created_at;
     String _username;
     String _password;
 
     // Empty constructor
     public GeoLocations() {
+
+        // get location
+        this.set_longitude(123);
+        this.set_latitude(456);
+
+        // _system table ?
+        this.set_device_id("789");
+        this.set_username("user");
+        this.set_password("pass");
     }
 
-    public GeoLocations(int _rowid, int _longitude, int _latitude, String _device_id, String _timestamp, String _username, String _password) {
+    public GeoLocations(int _rowid, int _longitude, int _latitude, String _device_id, String _created_at, String _username, String _password) {
         this._rowid = _rowid;
         this._longitude = _longitude;
         this._latitude = _latitude;
         this._device_id = _device_id;
-        this._timestamp = _timestamp;
+        this._created_at = _created_at;
         this._username = _username;
         this._password = _password;
     }
 
-    public GeoLocations(int _longitude, int _latitude, String _device_id, String _timestamp, String _username, String _password) {
+    public GeoLocations(int _longitude, int _latitude, String _device_id, String _created_at, String _username, String _password) {
         this._longitude = _longitude;
         this._latitude = _latitude;
         this._device_id = _device_id;
-        this._timestamp = _timestamp;
+        this._created_at = _created_at;
         this._username = _username;
         this._password = _password;
     }
@@ -69,12 +78,12 @@ public class GeoLocations {
         this._device_id = _device_id;
     }
 
-    public String get_timestamp() {
-        return _timestamp;
+    public String get_created_at() {
+        return _created_at;
     }
 
-    public void set_timestamp(String _timestamp) {
-        this._timestamp = _timestamp;
+    public void set_created_at(String _created_at) {
+        this._created_at = _created_at;
     }
 
     public String get_username() {

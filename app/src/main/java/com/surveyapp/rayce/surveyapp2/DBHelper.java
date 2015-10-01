@@ -32,7 +32,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String TABLE_ASSESSMENTS_QUESTIONS = "assessments_questions";
     private static final String TABLE_PERSON = "person";
     private static final String TABLE_PERSON_TO_ASSESSMENTS = "person_to_assessments";
-    private static final String TABLE_GEOLOCATION = "geolocation";
+    private static final String TABLE_GEOLOCATIONS = "geolocations";
 
     // assessments table column names
     private static final String ASSESSMENTS_ROWID = "rowid";
@@ -135,14 +135,14 @@ public class DBHelper extends SQLiteOpenHelper{
             //try { db.execSQL("delete from person;"); } catch(Exception ex) {}
 
         String CREATE_GEOLOCATIONS_TABLE = "CREATE TABLE IF NOT EXISTS geolocations(" +
-                "rowid int, " +
-                "longitude int, " +
-                "latitude int, " +
+                "geolocations_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, " +
+                "longitude INTEGER, " +
+                "latitude INTEGER, " +
                 "device_id varchar, " +
-                "timestamp varchar, " +
+                "created_at datetime default CURRENT_TIMESTAMP, " +
                 "username varchar, " +
                 "password varchar);";
-            db.execSQL(CREATE_ASSESSMENTS_QUESTIONS_TABLE);
+            db.execSQL(CREATE_GEOLOCATIONS_TABLE);
         //try { db.execSQL("delete from person;"); } catch(Exception ex) {}
 
         String CREATE_PERSON_TABLE = "CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, national_id varchar, facility_id int, facility_name varchar);";
@@ -674,19 +674,19 @@ public class DBHelper extends SQLiteOpenHelper{
 
         List<GeoLocations> geoLocationsList = new ArrayList<GeoLocations>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_GEOLOCATION;
+        String selectQuery = "SELECT  * FROM " + TABLE_GEOLOCATIONS;
          SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
          // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
                 GeoLocations geoLocations = new GeoLocations();
-                geoLocations.set_longitude(Integer.parseInt(cursor.getString(0)));
-                geoLocations.set_latitude(Integer.parseInt(cursor.getString(1)));
-                geoLocations.set_device_id(cursor.getString(2));
-                geoLocations.set_timestamp(cursor.getString(3));
-                geoLocations.set_username(cursor.getString(4));
-                geoLocations.set_password(cursor.getString(5));
+                geoLocations.set_longitude(Integer.parseInt(cursor.getString(1)));
+                geoLocations.set_latitude(Integer.parseInt(cursor.getString(2)));
+                geoLocations.set_device_id(cursor.getString(3));
+                geoLocations.set_created_at(cursor.getString(4));
+                geoLocations.set_username(cursor.getString(5));
+                geoLocations.set_password(cursor.getString(6));
                  // Adding person to list
                 geoLocationsList.add(geoLocations);
             } while (cursor.moveToNext());
@@ -695,6 +695,28 @@ public class DBHelper extends SQLiteOpenHelper{
         db.close();
 
         return geoLocationsList;
+    }
+
+    public boolean addGeoLocation(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        GeoLocations geoLocations = new GeoLocations();
+
+        ContentValues values = new ContentValues();
+        values.put(GEOLOCATIONS_LONGITUDE, geoLocations.get_longitude());
+        values.put(GEOLOCATIONS_LATITUDE, geoLocations.get_latitude());
+        values.put(GEOLOCATIONS_DEVICE_ID, geoLocations.get_device_id());
+        values.put(GEOLOCATIONS_USERNAME, geoLocations.get_username());
+        values.put(GEOLOCATIONS_PASSWORD, geoLocations.get_password());
+
+        try {
+            db.insert(TABLE_GEOLOCATIONS, null, values);
+        } catch (Exception ex) {
+            db.close();
+            Log.d("request!", "addGeoLocation catch " + ex.toString());
+            return false;
+        }
+        return true;
     }
 
     public String[] getAllFacilityNames(){
@@ -1429,7 +1451,7 @@ public class DBHelper extends SQLiteOpenHelper{
         String[] whereArgs = new String [] {
                 person_first_name, person_last_name, person_national_id, person_facility_name };
 
-        Log.d("request!", "getPerson whereArgs:" +  whereArgs[0] + ":" + whereArgs[1] + ":" + whereArgs[2] + ":" + whereArgs[3] + ":");
+        Log.d("request!", "getPerson whereArgs:" + whereArgs[0] + ":" + whereArgs[1] + ":" + whereArgs[2] + ":" + whereArgs[3] + ":");
 
         Cursor cursor = db.query(TABLE_PERSON, tableColumns, whereClause, whereArgs, null, null, null);
 
@@ -1636,7 +1658,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public void uploadDBData() {
         Log.d("request!", "uploadDBData ");
-        new putMySQLGeoLocationTable(this).execute();
+        new putMySQLGeoLocationsTable(this).execute();
         new putMySQLPersonToAssessmentsTable(this).execute();
         new putMySQLAssessmentsAnswersTable(this).execute();
     }
@@ -1646,19 +1668,12 @@ public class DBHelper extends SQLiteOpenHelper{
         load_person_to_assessments();
         Log.d("request!", "load assessments_answers ");
         load_assessments_answers();
-        Log.d("request!", "load geoLocation ");
-        load_geoLlocation();
         Log.d("request!", "downloadDBData getMySQLPersonTable");
         new getMySQLPersonTable(this).execute();
         Log.d("request!", "downloadDBData getMySQLAssessmentsQuestionsTable");
         new getMySQLAssessmentsQuestionsTable(this).execute();
         Log.d("request!", "downloadDBData getMySQLAssessmentsTable");
         new getMySQLAssessmentsTable(this).execute();
-    }
-
-    protected void load_geoLlocation() {
-        SQLiteDatabase db = this.getWritableDatabase();
-
     }
 
     protected void load_person_to_assessments() {

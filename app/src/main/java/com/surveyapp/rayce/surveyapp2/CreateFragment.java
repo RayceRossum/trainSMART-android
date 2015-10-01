@@ -87,6 +87,10 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(person == null) {
+                    Toast.makeText(v.getContext(), "Valid name must entered.", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 java.util.Calendar cal = java.util.Calendar.getInstance();
                 java.util.Date utilDate = cal.getTime();
                 java.sql.Date sqlDate = new Date(utilDate.getTime());
@@ -95,11 +99,8 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                 pToANew.dump();
                 // check for exists
                 PersonToAssessments pToADB  = dbHelp.getPersonToAssessments(pToANew.get_person_id(), pToANew.get_facility_id(), pToANew.get_date_created(), pToANew.get_assessment_id());
-                Log.d("request!", "create button: check db");
                 if(pToADB == null) {
-                    Log.d("request!", "create button: not in db");
                     if (dbHelp.addPersonToAssessments(pToANew)) {
-                        Log.d("request!", "create button pToA added");
                         Fragment fragment;
                         fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
                         if (fragment == null) {

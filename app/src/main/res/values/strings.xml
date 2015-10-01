@@ -22,6 +22,7 @@
 
 
     <string name="hello">Hello World, MainActivity!</string>
+    <string name="geoLocation">GeoLocation</string>
     <string name="title">Person Details</string>
     <string name="national_id">National ID </string>
     <string name="name">Name </string>

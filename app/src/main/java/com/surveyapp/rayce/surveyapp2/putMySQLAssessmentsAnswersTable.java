@@ -62,13 +62,14 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
             int i = 0;
             String[] recs = new String[assessmentsAnswersList.size()];
             for (AssessmentsAnswers poa: assessmentsAnswersList) {
+                // no pipes in answers
                 recs[i] =
-                        Integer.toString(poa.get_assess_id()) + "," +
-                        Integer.toString(poa.get_person()) + "," +
-                        Integer.toString(poa.get_facility()) + "," +
-                        poa.get_date_created() + "," +
-                        Integer.toString(poa.get_assessment_id()) + "," +
-                        Integer.toString(poa.get_question()) + "," +
+                        Integer.toString(poa.get_assess_id()) + "|" +
+                        Integer.toString(poa.get_person()) + "|" +
+                        Integer.toString(poa.get_facility()) + "|" +
+                        poa.get_date_created() + "|" +
+                        Integer.toString(poa.get_assessment_id()) + "|" +
+                        Integer.toString(poa.get_question()) + "|" +
                         poa.get_answer();
 
                 Log.d("request!", "loop: " + recs[i] + "<");

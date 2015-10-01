@@ -48,218 +48,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.037117902">
-              <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2413793">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="28" />
-              <folding>
-                <element signature="docComment;class#CreateFragment#0" expanded="false" />
-                <element signature="e#1081#1133#0" expanded="false" />
-                <element signature="docComment;method#newInstance#0;class#CreateFragment#0" expanded="false" />
-                <element signature="method#newInstance#0;class#CreateFragment#0" expanded="false" />
-                <element signature="e#1942#1979#0" expanded="false" />
-                <element signature="e#2099#2127#0" expanded="false" />
-                <element signature="e#2342#2391#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#CreateFragment#0" expanded="false" />
-                <element signature="method#onListItemPressed#0;class#CreateFragment#0" expanded="false" />
-                <element signature="method#onAttach#0;class#CreateFragment#0" expanded="false" />
-                <element signature="method#onDetach#0;class#CreateFragment#0" expanded="false" />
-                <element signature="docComment;class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
-                <element signature="class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
-                <element signature="e#8880#8954#0" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#9451:10281" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="211" column="51" selection-start-line="211" selection-start-column="51" selection-end-line="211" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#3067#5561#0" expanded="false" />
-                <element signature="e#5560#5561#0" expanded="false" />
-                <element signature="e#7659#7667#0" expanded="false" />
-                <element signature="e#7860#9005#0" expanded="false" />
-                <element signature="e#9004#9005#0" expanded="false" />
-                <element signature="e#9520#9858#0" expanded="false" />
-                <element signature="e#9857#9858#0" expanded="false" />
-                <element signature="e#10377#10717#0" expanded="false" />
-                <element signature="e#10716#10717#0" expanded="false" />
-                <element signature="e#11885#11893#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecentFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1424" column="41" selection-start-line="1424" selection-start-column="41" selection-end-line="1424" selection-end-column="41" />
+            <state vertical-scroll-proportion="2.5799181">
+              <caret line="1658" column="1" selection-start-line="1658" selection-start-column="1" selection-end-line="1658" selection-end-column="1" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="docComment;class#DBHelper#0" expanded="false" />
-                <element signature="e#4839#4840#0" expanded="false" />
-                <element signature="e#4908#4909#0" expanded="false" />
+                <element signature="e#4841#4842#0" expanded="true" />
+                <element signature="e#4910#4911#0" expanded="true" />
                 <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#8697#8756#0" expanded="false" />
-                <element signature="e#15521#15574#0" expanded="false" />
-                <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#17762#17770#0" expanded="false" />
-                <element signature="e#17906#17937#0" expanded="false" />
+                <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#8785#8844#0" expanded="false" />
+                <element signature="e#15609#15662#0" expanded="false" />
+                <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#17994#18025#0" expanded="false" />
+                <element signature="method#getReadableRecentAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getRecentAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#22578#22586#0" expanded="false" />
-                <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#24492#24500#0" expanded="false" />
-                <element signature="e#25152#25207#0" expanded="false" />
-                <element signature="e#25821#25841#0" expanded="false" />
-                <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#27056#27119#0" expanded="false" />
-                <element signature="e#27482#27490#0" expanded="false" />
-                <element signature="e#28038#28093#0" expanded="false" />
-                <element signature="e#28787#28806#0" expanded="false" />
-                <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#29537#29596#0" expanded="false" />
-                <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#30324#30338#0" expanded="false" />
+                <element signature="e#24580#24588#0" expanded="true" />
+                <element signature="e#25240#25295#0" expanded="false" />
+                <element signature="e#25909#25929#0" expanded="false" />
+                <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#27144#27207#0" expanded="false" />
+                <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#27570#27578#0" expanded="true" />
+                <element signature="e#28126#28181#0" expanded="false" />
+                <element signature="e#28875#28894#0" expanded="false" />
+                <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#29625#29684#0" expanded="false" />
                 <element signature="method#getAllGeoLocations#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#31529#31537#0" expanded="false" />
-                <element signature="e#31931#31990#0" expanded="false" />
+                <element signature="method#addGeoLocation#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#32853#32912#0" expanded="false" />
+                <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#34777#34834#0" expanded="false" />
                 <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#33457#33465#0" expanded="false" />
-                <element signature="e#33855#33912#0" expanded="false" />
+                <element signature="e#40496#40578#0" expanded="false" />
                 <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#34656#34672#0" expanded="false" />
-                <element signature="e#39574#39656#0" expanded="false" />
+                <element signature="e#42441#42523#0" expanded="false" />
+                <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#44641#44686#0" expanded="false" />
                 <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#41519#41601#0" expanded="false" />
+                <element signature="e#45887#45940#0" expanded="false" />
                 <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#48219#48272#0" expanded="false" />
                 <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#43719#43764#0" expanded="false" />
+                <element signature="e#50559#50612#0" expanded="false" />
                 <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#44965#45018#0" expanded="false" />
                 <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#47297#47350#0" expanded="false" />
                 <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#49637#49690#0" expanded="false" />
                 <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#59129#59183#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-                <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#60051#60105#0" expanded="false" />
+                <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
-                <element signature="e#65946#65954#0" expanded="false" />
                 <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#65946#65954#0" expanded="false" />
                 <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#67169#67189#0" expanded="false" />
                 <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#70549#70598#0" expanded="false" />
                 <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#71470#71519#0" expanded="false" />
                 <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#72353#72412#0" expanded="false" />
+                <element signature="e#73093#73152#0" expanded="false" />
                 <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#72630#72679#0" expanded="false" />
+                <element signature="e#73370#73419#0" expanded="false" />
                 <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
                 <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#87818#87957#0" expanded="false" />
+                <element signature="e#88558#88697#0" expanded="false" />
                 <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-                <element signature="e#89136#89176#0" expanded="false" />
-                <element signature="e#91100#91138#0" expanded="false" />
-                <marker date="1443538537528" expanded="false" signature="29118:29126" placeholder="&lt;~&gt;" />
-                <marker date="1443538537528" expanded="false" signature="38517:40020" placeholder="{...}" />
+                <element signature="e#89876#89916#0" expanded="false" />
+                <element signature="e#91840#91878#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NavigationDrawerFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java">
+      <file leaf-file-name="GeoLocations.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/GeoLocations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
+            <state vertical-scroll-proportion="-8.793103">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#4067#4068#0" expanded="false" />
-                <element signature="e#4112#4113#0" expanded="false" />
-                <element signature="e#4157#4158#0" expanded="false" />
-                <element signature="e#4193#4194#0" expanded="false" />
-                <element signature="e#4271#4272#0" expanded="false" />
-                <element signature="e#4307#4308#0" expanded="false" />
-                <element signature="e#4404#4420#0" expanded="false" />
-                <element signature="e#5653#5673#0" expanded="false" />
-                <element signature="e#5675#5696#0" expanded="false" />
-                <element signature="e#6973#7119#0" expanded="false" />
-                <element signature="e#7118#7119#0" expanded="false" />
-                <element signature="e#7626#7627#0" expanded="false" />
-                <element signature="e#7690#7691#0" expanded="false" />
-                <element signature="e#7723#7724#0" expanded="false" />
-                <element signature="e#7788#7789#0" expanded="false" />
-                <element signature="e#9212#9213#0" expanded="false" />
-                <element signature="e#9289#9290#0" expanded="false" />
-                <element signature="e#10070#10071#0" expanded="false" />
-                <element signature="e#10125#10126#0" expanded="false" />
-                <element signature="e#10558#10559#0" expanded="false" />
-                <element signature="e#10607#10608#0" expanded="false" />
-                <element signature="e#10660#10661#0" expanded="false" />
-                <element signature="e#10714#10715#0" expanded="false" />
-                <element signature="e#10774#10775#0" expanded="false" />
-                <element signature="e#10817#10818#0" expanded="false" />
-                <element signature="e#10878#10879#0" expanded="false" />
-                <element signature="e#10922#10923#0" expanded="false" />
-                <element signature="e#11386#11387#0" expanded="false" />
-                <element signature="e#11424#11425#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.068966">
-              <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1392#1393#0" expanded="true" />
+                <element signature="e#1987#1988#0" expanded="true" />
+                <element signature="e#2021#2022#0" expanded="true" />
+                <element signature="e#2157#2158#0" expanded="true" />
+                <element signature="e#2189#2190#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1721,23 +1608,25 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MultiTypeListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_person.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreatePersonFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/PersonToAssessments.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_recent.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/GeoLocations.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLGeoLocationTable.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/refs.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLAssessmentsAnswersTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLGeoLocationTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLGeoLocationsTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/GeoLocations.java" />
       </list>
     </option>
   </component>
@@ -1752,10 +1641,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="148" />
-    <option name="y" value="3" />
-    <option name="width" value="1750" />
-    <option name="height" value="993" />
+    <option name="x" value="143" />
+    <option name="y" value="14" />
+    <option name="width" value="1766" />
+    <option name="height" value="994" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1799,10 +1688,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1834,16 +1719,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="surveyapp2" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="trainSMART-android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2065,8 +1940,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="148" y="3" width="1750" height="993" extended-state="0" />
-    <editor active="false" />
+    <frame x="143" y="14" width="1766" height="994" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277512" sideWeight="0.48084545" order="13" side_tool="false" content_ui="tabs" />
@@ -2080,10 +1955,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277512" sideWeight="0.4857988" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3839713" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38351256" sideWeight="0.48678997" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.51420116" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16508876" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16354045" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25016204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2110,7 +1985,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2166,41 +2041,42 @@
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="docComment;class#DBHelper#0" expanded="false" />
-            <element signature="e#4839#4840#0" expanded="false" />
-            <element signature="e#4908#4909#0" expanded="false" />
+            <element signature="e#4841#4842#0" expanded="true" />
+            <element signature="e#4910#4911#0" expanded="true" />
             <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
             <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
             <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#8697#8756#0" expanded="false" />
-            <element signature="e#15521#15574#0" expanded="false" />
+            <element signature="e#8785#8844#0" expanded="false" />
+            <element signature="e#15609#15662#0" expanded="false" />
             <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#27056#27119#0" expanded="false" />
-            <element signature="e#28038#28093#0" expanded="false" />
+            <element signature="e#27144#27207#0" expanded="false" />
+            <element signature="e#28126#28181#0" expanded="false" />
             <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#29537#29596#0" expanded="false" />
-            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#31931#31990#0" expanded="false" />
+            <element signature="e#29625#29684#0" expanded="false" />
+            <element signature="method#addGeoLocation#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#32853#32912#0" expanded="false" />
+            <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#34777#34834#0" expanded="false" />
             <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#33855#33912#0" expanded="false" />
             <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#40496#40578#0" expanded="false" />
             <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#39574#39656#0" expanded="false" />
-            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#41519#41601#0" expanded="false" />
+            <element signature="e#42441#42523#0" expanded="false" />
+            <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#45887#45940#0" expanded="false" />
             <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#44965#45018#0" expanded="false" />
+            <element signature="e#45887#45940#0" expanded="false" />
             <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#47297#47350#0" expanded="false" />
+            <element signature="e#48219#48272#0" expanded="false" />
             <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#49637#49690#0" expanded="false" />
             <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
             <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
             <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
             <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#59129#59183#0" expanded="false" />
+            <element signature="e#60051#60105#0" expanded="false" />
+            <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
@@ -2208,21 +2084,20 @@
             <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#71470#71519#0" expanded="false" />
             <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#70549#70598#0" expanded="false" />
             <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
             <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
             <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
             <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#72681#72788#0" expanded="false" />
+            <element signature="e#73421#73528#0" expanded="false" />
             <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
             <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#87818#87957#0" expanded="false" />
+            <element signature="e#88558#88697#0" expanded="false" />
             <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#89136#89176#0" expanded="false" />
-            <element signature="e#91100#91138#0" expanded="false" />
+            <element signature="e#89876#89916#0" expanded="false" />
+            <element signature="e#91840#91878#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2362,21 +2237,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="43" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
-          <folding>
-            <element signature="e#2169#2187#0" expanded="true" />
-            <element signature="e#2392#2408#0" expanded="true" />
-            <element signature="e#2676#2696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreatePersonFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2389,22 +2249,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8064516">
           <caret line="791" column="38" selection-start-line="791" selection-start-column="38" selection-end-line="791" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18046708">
-          <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="9" selection-start-line="67" selection-start-column="2" selection-end-line="70" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -2456,24 +2300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/GeoLocations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding>
-            <element signature="e#1162#1163#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLPersonToAssessmentsTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -2547,14 +2373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLGeoLocationTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/NavigationDrawerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2594,124 +2412,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1424" column="41" selection-start-line="1424" selection-start-column="41" selection-end-line="1424" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#DBHelper#0" expanded="false" />
-            <element signature="e#4839#4840#0" expanded="false" />
-            <element signature="e#4908#4909#0" expanded="false" />
-            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#8697#8756#0" expanded="false" />
-            <element signature="e#15521#15574#0" expanded="false" />
-            <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#17762#17770#0" expanded="false" />
-            <element signature="e#17906#17937#0" expanded="false" />
-            <element signature="method#getRecentAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#22578#22586#0" expanded="false" />
-            <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#24492#24500#0" expanded="false" />
-            <element signature="e#25152#25207#0" expanded="false" />
-            <element signature="e#25821#25841#0" expanded="false" />
-            <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#27056#27119#0" expanded="false" />
-            <element signature="e#27482#27490#0" expanded="false" />
-            <element signature="e#28038#28093#0" expanded="false" />
-            <element signature="e#28787#28806#0" expanded="false" />
-            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#29537#29596#0" expanded="false" />
-            <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#30324#30338#0" expanded="false" />
-            <element signature="method#getAllGeoLocations#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#31529#31537#0" expanded="false" />
-            <element signature="e#31931#31990#0" expanded="false" />
-            <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#33457#33465#0" expanded="false" />
-            <element signature="e#33855#33912#0" expanded="false" />
-            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#34656#34672#0" expanded="false" />
-            <element signature="e#39574#39656#0" expanded="false" />
-            <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#41519#41601#0" expanded="false" />
-            <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#43719#43764#0" expanded="false" />
-            <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#44965#45018#0" expanded="false" />
-            <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#47297#47350#0" expanded="false" />
-            <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#49637#49690#0" expanded="false" />
-            <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#59129#59183#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
-            <element signature="e#65946#65954#0" expanded="false" />
-            <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#65946#65954#0" expanded="false" />
-            <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#67169#67189#0" expanded="false" />
-            <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#70549#70598#0" expanded="false" />
-            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#72353#72412#0" expanded="false" />
-            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#72630#72679#0" expanded="false" />
-            <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
-            <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#87818#87957#0" expanded="false" />
-            <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
-            <element signature="e#89136#89176#0" expanded="false" />
-            <element signature="e#91100#91138#0" expanded="false" />
-            <marker date="1443538537528" expanded="false" signature="29118:29126" placeholder="&lt;~&gt;" />
-            <marker date="1443538537528" expanded="false" signature="38517:40020" placeholder="{...}" />
-          </folding>
+        <state vertical-scroll-proportion="-9.344828">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/SearchFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="211" column="51" selection-start-line="211" selection-start-column="51" selection-end-line="211" selection-end-column="51" />
+        <state vertical-scroll-proportion="-5.2413793">
+          <caret line="135" column="63" selection-start-line="135" selection-start-column="63" selection-end-line="135" selection-end-column="63" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3067#5561#0" expanded="false" />
-            <element signature="e#5560#5561#0" expanded="false" />
-            <element signature="e#7659#7667#0" expanded="false" />
-            <element signature="e#7860#9005#0" expanded="false" />
-            <element signature="e#9004#9005#0" expanded="false" />
-            <element signature="e#9520#9858#0" expanded="false" />
-            <element signature="e#9857#9858#0" expanded="false" />
-            <element signature="e#10377#10717#0" expanded="false" />
-            <element signature="e#10716#10717#0" expanded="false" />
-            <element signature="e#11885#11893#0" expanded="false" />
+            <element signature="e#9327#9335#0" expanded="false" />
+            <element signature="e#10182#10190#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2413793">
+          <caret line="51" column="59" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59388644">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLPersonToAssessmentsTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLAssessmentsAnswersTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33264887">
+          <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.2">
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_debug.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2413793">
+          <caret line="62" column="36" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+          <folding>
+            <element signature="e#2179#2200#0" expanded="true" />
+            <element signature="e#2408#2426#0" expanded="true" />
+            <element signature="e#2632#2648#0" expanded="true" />
+            <element signature="e#2916#2936#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/CreateFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2413793">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="69" selection-start-line="93" selection-start-column="16" selection-end-line="95" selection-end-column="69" />
           <folding>
             <element signature="docComment;class#CreateFragment#0" expanded="false" />
             <element signature="e#1081#1133#0" expanded="false" />
@@ -2720,41 +2509,122 @@
             <element signature="e#1942#1979#0" expanded="false" />
             <element signature="e#2099#2127#0" expanded="false" />
             <element signature="e#2342#2391#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#CreateFragment#0" expanded="false" />
             <element signature="method#onListItemPressed#0;class#CreateFragment#0" expanded="false" />
             <element signature="method#onAttach#0;class#CreateFragment#0" expanded="false" />
             <element signature="method#onDetach#0;class#CreateFragment#0" expanded="false" />
             <element signature="docComment;class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
             <element signature="class#OnFragmentInteractionListener#0;class#CreateFragment#0" expanded="false" />
-            <element signature="e#8880#8954#0" expanded="false" />
-            <element signature="method#onNothingSelected#0;class#9451:10281" expanded="false" />
+            <element signature="e#8869#8943#0" expanded="false" />
+            <element signature="method#onNothingSelected#0;class#9440:10270" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/RecentFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/putMySQLGeoLocationsTable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/GeoLocations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.068966">
-          <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
+        <state vertical-scroll-proportion="-8.793103">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2021#2022#0" expanded="true" />
+            <element signature="e#2157#2158#0" expanded="true" />
+            <element signature="e#2189#2190#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/EditFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/surveyapp/rayce/surveyapp2/DBHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037117902">
-          <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="2.5799181">
+          <caret line="1658" column="1" selection-start-line="1658" selection-start-column="1" selection-end-line="1658" selection-end-column="1" />
+          <folding>
+            <element signature="docComment;class#DBHelper#0" expanded="false" />
+            <element signature="e#4841#4842#0" expanded="true" />
+            <element signature="e#4910#4911#0" expanded="true" />
+            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#8785#8844#0" expanded="false" />
+            <element signature="e#15609#15662#0" expanded="false" />
+            <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#17994#18025#0" expanded="false" />
+            <element signature="method#getReadableRecentAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getRecentAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#24580#24588#0" expanded="true" />
+            <element signature="e#25240#25295#0" expanded="false" />
+            <element signature="e#25909#25929#0" expanded="false" />
+            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#27144#27207#0" expanded="false" />
+            <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#27570#27578#0" expanded="true" />
+            <element signature="e#28126#28181#0" expanded="false" />
+            <element signature="e#28875#28894#0" expanded="false" />
+            <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#29625#29684#0" expanded="false" />
+            <element signature="method#getAllGeoLocations#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#addGeoLocation#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#32853#32912#0" expanded="false" />
+            <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#34777#34834#0" expanded="false" />
+            <element signature="method#getEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#40496#40578#0" expanded="false" />
+            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#42441#42523#0" expanded="false" />
+            <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#44641#44686#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#45887#45940#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#48219#48272#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#50559#50612#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#60051#60105#0" expanded="false" />
+            <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#71470#71519#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#73093#73152#0" expanded="false" />
+            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#73370#73419#0" expanded="false" />
+            <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#88558#88697#0" expanded="false" />
+            <element signature="method#getQuestionData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#89876#89916#0" expanded="false" />
+            <element signature="e#91840#91878#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

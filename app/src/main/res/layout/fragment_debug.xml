@@ -54,12 +54,22 @@
         android:layout_width="100dp"
         android:layout_height="40dp"/>
         -->
+
+    <Button
+        android:id="@+id/btnGeoLocation"
+        android:text="@string/geoLocation"
+        android:layout_x="22dp"
+        android:layout_y="93dp"
+        android:layout_width="150dp"
+        android:layout_height="70dp" />
+
     <Button   android:id="@+id/btnDownload"
         android:text="@string/download"
         android:layout_x="22dp"
         android:layout_y="274dp"
         android:layout_width="150dp"
         android:layout_height="70dp"/>
+
     <Button   android:id="@+id/btnUpload"
         android:text="@string/upload"
         android:layout_x="200dp"
@@ -77,5 +87,7 @@
         android:layout_alignEnd="@+id/textView2"
         android:layout_x="101dp"
         android:layout_y="18dp" />
+
+
 
 </AbsoluteLayout>
