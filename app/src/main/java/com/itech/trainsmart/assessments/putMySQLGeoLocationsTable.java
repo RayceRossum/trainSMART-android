@@ -61,8 +61,8 @@ class putMySQLGeoLocationsTable extends AsyncTask<String, String, String> {
             String[] recs = new String[geoLocationsList.size()];
             for (GeoLocations geoLocations: geoLocationsList) {
                 recs[i] =
-                        Integer.toString(geoLocations.get_longitude()) + "," +
-                                Integer.toString(geoLocations.get_latitude()) + "," +
+                        Float.toString(geoLocations.get_longitude()) + "," +
+                                Float.toString(geoLocations.get_latitude()) + "," +
                                 geoLocations.get_device_id() + "," +
                                 geoLocations.get_created_at() + "," +
                                 geoLocations.get_username() + "," +
@@ -84,6 +84,7 @@ class putMySQLGeoLocationsTable extends AsyncTask<String, String, String> {
                 Log.d("request!", "putMySQLGeoLocationsTable Success: ");
             } else {
                 Log.d("request!", "putMySQLGeoLocationTable: Not Successful");
+                MainActivity._pass = "";
                 LOGGED_IN = false;
             }
         } catch (Exception e) {

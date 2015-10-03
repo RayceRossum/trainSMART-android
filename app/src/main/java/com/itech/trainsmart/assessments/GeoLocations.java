@@ -7,8 +7,8 @@ public class GeoLocations {
 
     //private variables
     int _rowid;
-    int _longitude;
-    int _latitude;
+    float _longitude;
+    float _latitude;
     String _device_id;
     String _created_at;
     String _username;
@@ -17,17 +17,15 @@ public class GeoLocations {
     // Empty constructor
     public GeoLocations() {
 
-        // get location
-        this.set_longitude(123);
-        this.set_latitude(456);
+        this.set_longitude(MainActivity.lng);
+        this.set_latitude(MainActivity.lat);
+        this.set_device_id(MainActivity.deviceId);
 
-        // _system table ?
-        this.set_device_id("789");
-        this.set_username("user");
-        this.set_password("pass");
+        this.set_username(MainActivity._user);
+        this.set_password(MainActivity._pass);
     }
 
-    public GeoLocations(int _rowid, int _longitude, int _latitude, String _device_id, String _created_at, String _username, String _password) {
+    public GeoLocations(int _rowid, float _longitude, float _latitude, String _device_id, String _created_at, String _username, String _password) {
         this._rowid = _rowid;
         this._longitude = _longitude;
         this._latitude = _latitude;
@@ -37,7 +35,7 @@ public class GeoLocations {
         this._password = _password;
     }
 
-    public GeoLocations(int _longitude, int _latitude, String _device_id, String _created_at, String _username, String _password) {
+    public GeoLocations(float _longitude, float _latitude, String _device_id, String _created_at, String _username, String _password) {
         this._longitude = _longitude;
         this._latitude = _latitude;
         this._device_id = _device_id;
@@ -54,19 +52,19 @@ public class GeoLocations {
         this._rowid = _rowid;
     }
 
-    public int get_longitude() {
+    public float get_longitude() {
         return _longitude;
     }
 
-    public void set_longitude(int _longitude) {
+    public void set_longitude(float _longitude) {
         this._longitude = _longitude;
     }
 
-    public int get_latitude() {
+    public float get_latitude() {
         return _latitude;
     }
 
-    public void set_latitude(int _latitude) {
+    public void set_latitude(float _latitude) {
         this._latitude = _latitude;
     }
 

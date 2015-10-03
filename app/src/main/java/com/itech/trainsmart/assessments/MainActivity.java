@@ -1,15 +1,21 @@
 package com.itech.trainsmart.assessments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.surveyapp.rayce.assessments.R;
+import java.util.UUID;
 
 
 public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks,
@@ -30,9 +36,16 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     public static final String TAG_MESSAGE = "message";
     public static SQLiteDatabase db;
     public static String _user = "rossumg";
-    public static String _pass = "rossumg";
+    public static String _pass = "";
     public static boolean configChange = false;
-    public static String ALL = "request!";
+    public static String TAG = "request!";
+
+    private static LocationManager locationManager;
+    private static String provider;
+    public static float lat = 0;
+    public static float lng = 0;
+
+    public static String deviceId = "";
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -54,7 +67,58 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         // populate the navigation drawer
         //mNavigationDrawerFragment.setUserData("Rayce Rossum", "Rayce.Rossum@gmail.com", BitmapFactory.decodeResource(getResources(), R.drawable.avatar));
         //mNavigationDrawerFragment.setUserData("Zimbabwe", "Rayce.Rossum");
+
+        final TelephonyManager tm = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        final String tmDevice, tmSerial, androidId;
+        tmDevice = "" + tm.getDeviceId();
+        tmSerial = "" + tm.getSimSerialNumber();
+        androidId = "" + android.provider.Settings.Secure.getString(this.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+
+        UUID deviceUuid = new UUID(androidId.hashCode(), ((long) tmDevice.hashCode() << 32) | tmSerial.hashCode());
+        deviceId = deviceUuid.toString();
+        Log.d("request!", "mainActivity:onCreate:deviceId: " + deviceId);
+
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // Define the criteria how to select the locatioin provider -> use
+        // default
+        Criteria criteria = new Criteria();
+        provider = locationManager.getBestProvider(criteria, true);
+        Location location = locationManager.getLastKnownLocation(provider);
+
+        // Initialize the location fields
+        if (location != null) {
+            System.out.println("Provider " + provider + " has been selected.");
+            onLocationChanged(location);
+        } else {
+            Log.d(TAG, "location is null");
+            //latituteField.setText("Location not available");
+            //longitudeField.setText("Location not available");
+        }
     }
+
+    /* Request updates at startup */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //locationManager.requestLocationUpdates(provider, 400, 1, this);
+    }
+
+    /* Remove the locationlistener updates when Activity is paused */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //locationManager.removeUpdates(this);
+    }
+
+    //@Override
+    public void onLocationChanged(Location location) {
+        lat = (float) (location.getLatitude());
+        lng = (float) (location.getLongitude());
+        Log.d(TAG, "mainActivity:lat: " + String.valueOf((lat)));
+        Log.d(TAG, "mainActivity:lng: " + String.valueOf((lng)));
+    }
+
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {

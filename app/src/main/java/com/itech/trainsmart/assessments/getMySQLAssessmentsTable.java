@@ -82,6 +82,7 @@ class getMySQLAssessmentsTable extends AsyncTask<String, String, String> {
                 } // foreach
             } else {
                 Log.d("request!", "Login Failed");
+                MainActivity._pass = "";
                 LOGGED_IN = false;
             }
         } catch (Exception e) {

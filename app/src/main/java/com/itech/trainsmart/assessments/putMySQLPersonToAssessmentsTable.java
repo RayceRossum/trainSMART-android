@@ -86,6 +86,7 @@ class putMySQLPersonToAssessmentsTable extends AsyncTask<String, String, String>
                 Log.d("request!", "putMySQLPersonToAssessmentsTable Success: ");
             } else {
                 Log.d("request!", "putMySQLPersonToAssessmentsTable: Not Successful");
+                MainActivity._pass = "";
                 LOGGED_IN = false;
             }
         } catch (Exception e) {

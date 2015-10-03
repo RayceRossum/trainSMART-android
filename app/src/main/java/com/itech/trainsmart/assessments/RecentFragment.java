@@ -15,7 +15,6 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.surveyapp.rayce.assessments.R;
 
 import java.util.ArrayList;
 import java.util.List;

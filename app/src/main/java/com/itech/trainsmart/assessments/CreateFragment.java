@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.surveyapp.rayce.assessments.R;
-
 import java.sql.Date;
 import java.util.List;
 

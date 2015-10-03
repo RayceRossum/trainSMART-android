@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
 
-import com.surveyapp.rayce.assessments.R;
 
 import java.util.List;
 

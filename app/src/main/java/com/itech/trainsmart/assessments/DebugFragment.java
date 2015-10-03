@@ -2,15 +2,16 @@ package com.itech.trainsmart.assessments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import com.surveyapp.rayce.assessments.R;
+import android.widget.EditText;
 
 
 /**
@@ -27,7 +28,8 @@ public class DebugFragment extends Fragment {
     //private static final String ARG_PARAM1 = "param1";
     //private static final String ARG_PARAM2 = "param2";
 
-    public static String TAG = "debugTag";
+    public static String TAG = "request!";
+//    public static String deviceId = "";
 
     //public DBHelper dbHelp = new DBHelper(getActivity());
     // moved to onCreate: http://stackoverflow.com/questions/23449384/getwritabledatabase-throwing-null-pointer-exception-in-my-apps
@@ -43,8 +45,8 @@ public class DebugFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * param param1 Parameter 1.
+     * param param2 Parameter 2.
      * @return A new instance of fragment DebugFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -70,7 +72,19 @@ public class DebugFragment extends Fragment {
         }
         DBHelper dbHelp = new DBHelper(getActivity());
         this._dbHelp = dbHelp;
+
+//        final TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+//
+//        final String tmDevice, tmSerial, androidId;
+//        tmDevice = "" + tm.getDeviceId();
+//        tmSerial = "" + tm.getSimSerialNumber();
+//        androidId = "" + android.provider.Settings.Secure.getString(getActivity().getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+//
+//        UUID deviceUuid = new UUID(androidId.hashCode(), ((long) tmDevice.hashCode() << 32) | tmSerial.hashCode());
+//        deviceId = deviceUuid.toString();
+//        Log.d("request!", "debugFragemnt:onCreate:id: " + deviceId);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,7 +96,45 @@ public class DebugFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d("request!", "download button");
-                _dbHelp.downloadDBData();
+
+                if(MainActivity._pass.equals("")) {
+
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Password");
+
+                    final EditText input = new EditText(getActivity());
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    builder.setView(input);
+
+// Set up the buttons
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            MainActivity._pass = input.getText().toString();
+                            _dbHelp.downloadDBData();
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    builder.show();
+                }
+
+                if(MainActivity._pass.equals("")){
+                    //requires password
+                    //Toast.makeText(v.getContext(), "Valid password required.", Toast.LENGTH_LONG).show();
+                } else {
+                    // try
+                    _dbHelp.downloadDBData();
+                }
+
+                Log.d(TAG, "onDownload: " + MainActivity._user + " " + MainActivity._pass);
             }
         });
 
@@ -93,8 +145,10 @@ public class DebugFragment extends Fragment {
 
                 Log.d("request!", "GeoLocation button");
                 _dbHelp.addGeoLocation();
+
             }
         });
+
 
         Button btnUpload = (Button) view.findViewById(R.id.btnUpload);
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -102,13 +156,54 @@ public class DebugFragment extends Fragment {
             public void onClick(View v) {
 
                 Log.d("request!", "upload button");
-                _dbHelp.uploadDBData();
+
+                if(MainActivity._pass.equals("")) {
+
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("Password");
+
+                    final EditText input = new EditText(getActivity());
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    builder.setView(input);
+
+// Set up the buttons
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            MainActivity._pass = input.getText().toString();
+                            _dbHelp.uploadDBData();
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    builder.show();
+                }
+
+                if(MainActivity._pass.equals("")){
+                    //requires password
+                    //Toast.makeText(v.getContext(), "Valid password required.", Toast.LENGTH_LONG).show();
+                } else {
+                    // try
+                    _dbHelp.uploadDBData();
+                }
+
+                Log.d(TAG, "onUpload: " + MainActivity._user + " " + MainActivity._pass);
+
             }
         });
 
         // Inflate the layout for this fragment
         return view;
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int position) {

@@ -89,6 +89,7 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
                 Log.d("request!", "putMySQLAssessmentsAnswersTable Success: ");
             } else {
                 Log.d("request!", "putMySQLAssessmentsAnswersTable: Not Successful");
+                MainActivity._pass = "";
                 LOGGED_IN = false;
             }
         } catch (Exception e) {

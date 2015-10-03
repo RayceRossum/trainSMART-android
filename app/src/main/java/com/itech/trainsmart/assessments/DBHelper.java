@@ -136,8 +136,8 @@ public class DBHelper extends SQLiteOpenHelper{
 
         String CREATE_GEOLOCATIONS_TABLE = "CREATE TABLE IF NOT EXISTS geolocations(" +
                 "geolocations_id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE, " +
-                "longitude INTEGER, " +
-                "latitude INTEGER, " +
+                "longitude REAL, " +
+                "latitude REAL, " +
                 "device_id varchar, " +
                 "created_at datetime default CURRENT_TIMESTAMP, " +
                 "username varchar, " +
@@ -681,8 +681,8 @@ public class DBHelper extends SQLiteOpenHelper{
         if (cursor.moveToFirst()) {
             do {
                 GeoLocations geoLocations = new GeoLocations();
-                geoLocations.set_longitude(Integer.parseInt(cursor.getString(1)));
-                geoLocations.set_latitude(Integer.parseInt(cursor.getString(2)));
+                geoLocations.set_longitude(Float.parseFloat(cursor.getString(1)));
+                geoLocations.set_latitude(Float.parseFloat(cursor.getString(2)));
                 geoLocations.set_device_id(cursor.getString(3));
                 geoLocations.set_created_at(cursor.getString(4));
                 geoLocations.set_username(cursor.getString(5));

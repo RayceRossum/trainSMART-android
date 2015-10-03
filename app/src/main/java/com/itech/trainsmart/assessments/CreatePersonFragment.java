@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 
-import com.surveyapp.rayce.assessments.R;
 
 import java.util.List;
 

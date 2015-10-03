@@ -15,8 +15,6 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.surveyapp.rayce.assessments.R;
-
 import java.util.HashMap;
 import java.util.List;
 
