@@ -26,6 +26,7 @@
     <string name="title">Person Details</string>
     <string name="national_id">National ID </string>
     <string name="name">Name </string>
+    <string name="name_nationalId_facility">Name, National Id, Facility </string>
     <string name="first_name">First Name </string>
     <string name="last_name">Last Name </string>
     <string name="facility_id">Enter Facility Id: </string>

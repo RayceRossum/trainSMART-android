@@ -165,7 +165,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
                 break;
 
-            case 3:
+            case 34:
 //                fragment = getFragmentManager().findFragmentByTag(CreatePersonFragment.TAG);
 //                if (fragment == null) {
 //                    fragment = CreatePersonFragment.newInstance();
@@ -177,7 +177,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             case 5:
                 break;
 
-            case 4:
+            case 3:
                 fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
