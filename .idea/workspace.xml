@@ -46,31 +46,122 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NavigationDrawerFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/NavigationDrawerFragment.java">
+      <file leaf-file-name="getMySQLPersonTable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/getMySQLPersonTable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/CreateFragment.java">
+      <file leaf-file-name="DebugFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/DebugFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state vertical-scroll-proportion="-8.551724">
+              <caret line="133" column="42" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MainActivity.java">
+      <file leaf-file-name="DBHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/DBHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09289618">
-              <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="93" column="77" selection-start-line="93" selection-start-column="77" selection-end-line="93" selection-end-column="77" />
+              <folding>
+                <element signature="docComment;class#DBHelper#0" expanded="false" />
+                <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#8784#8843#0" expanded="false" />
+                <element signature="e#15608#15661#0" expanded="false" />
+                <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#17993#18024#0" expanded="false" />
+                <element signature="method#getReadableRecentAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getRecentAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#25239#25294#0" expanded="false" />
+                <element signature="e#25908#25928#0" expanded="false" />
+                <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#27143#27206#0" expanded="false" />
+                <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#28125#28180#0" expanded="false" />
+                <element signature="e#28874#28893#0" expanded="false" />
+                <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#29624#29683#0" expanded="false" />
+                <element signature="method#getAllGeoLocations#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#addGeoLocation#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#32852#32911#0" expanded="false" />
+                <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#34776#34833#0" expanded="false" />
+                <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#40532#40614#0" expanded="false" />
+                <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#42477#42559#0" expanded="false" />
+                <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#44677#44722#0" expanded="false" />
+                <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#45923#45976#0" expanded="false" />
+                <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#48255#48308#0" expanded="false" />
+                <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#50595#50648#0" expanded="false" />
+                <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+                <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+                <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+                <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
+                <element signature="e#60087#60141#0" expanded="false" />
+                <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#71506#71555#0" expanded="false" />
+                <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#73129#73188#0" expanded="false" />
+                <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#73406#73455#0" expanded="false" />
+                <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+                <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+                <element signature="e#88594#88733#0" expanded="false" />
+                <element signature="e#89912#89952#0" expanded="false" />
+                <element signature="e#91876#91914#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/EditFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-47.551723">
+              <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiTypeListAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MultiTypeListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.0">
+              <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -1528,6 +1619,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/getMySQLPersonTable.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/DBHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MultiTypeListAdapter.java" />
       </list>
     </option>
   </component>
@@ -1535,10 +1629,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="143" />
-    <option name="y" value="26" />
-    <option name="width" value="1473" />
-    <option name="height" value="910" />
+    <option name="x" value="293" />
+    <option name="y" value="15" />
+    <option name="width" value="1551" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1563,6 +1657,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1674,9 +1770,7 @@
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1686,7 +1780,7 @@
     <property name="ExportApk.ApkPath" value="C:\Users\rossumg\AndroidStudioProjects\trainSMART-android\app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="30045a27b0922200" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="FullScreen" value="false" />
   </component>
@@ -1794,7 +1888,7 @@
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="true" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1841,7 +1935,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="143" y="26" width="1473" height="910" extended-state="0" />
+    <frame x="293" y="15" width="1551" height="988" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1851,15 +1945,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.50272477" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32974505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25885558" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35723773" sideWeight="0.4861996" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35619736" sideWeight="0.48356807" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47675964" sideWeight="0.477707" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31606907" sideWeight="0.522293" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43200964" sideWeight="0.46948355" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43200964" sideWeight="0.53051645" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27530077" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26022804" sideWeight="0.49380532" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25016204" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1898017" sideWeight="0.5061947" order="4" side_tool="true" content_ui="tabs" />
@@ -1870,6 +1963,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25885558" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1889,6 +1983,68 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/NavigationDrawerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4070#4071#0" expanded="false" />
+            <element signature="e#4115#4116#0" expanded="false" />
+            <element signature="e#4160#4161#0" expanded="false" />
+            <element signature="e#4196#4197#0" expanded="false" />
+            <element signature="e#4274#4275#0" expanded="false" />
+            <element signature="e#4310#4311#0" expanded="false" />
+            <element signature="e#7047#7048#0" expanded="false" />
+            <element signature="e#7113#7114#0" expanded="false" />
+            <element signature="e#7631#7632#0" expanded="false" />
+            <element signature="e#7695#7696#0" expanded="false" />
+            <element signature="e#7728#7729#0" expanded="false" />
+            <element signature="e#7793#7794#0" expanded="false" />
+            <element signature="e#9217#9218#0" expanded="false" />
+            <element signature="e#9294#9295#0" expanded="false" />
+            <element signature="e#10075#10076#0" expanded="false" />
+            <element signature="e#10130#10131#0" expanded="false" />
+            <element signature="e#10563#10564#0" expanded="false" />
+            <element signature="e#10612#10613#0" expanded="false" />
+            <element signature="e#10665#10666#0" expanded="false" />
+            <element signature="e#10719#10720#0" expanded="false" />
+            <element signature="e#10779#10780#0" expanded="false" />
+            <element signature="e#10822#10823#0" expanded="false" />
+            <element signature="e#10883#10884#0" expanded="false" />
+            <element signature="e#10927#10928#0" expanded="false" />
+            <element signature="e#11391#11392#0" expanded="false" />
+            <element signature="e#11429#11430#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/CreateFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1917,7 +2073,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="126" column="10" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#4070#4071#0" expanded="false" />
+            <element signature="e#4115#4116#0" expanded="false" />
+            <element signature="e#4160#4161#0" expanded="false" />
+            <element signature="e#4196#4197#0" expanded="false" />
+            <element signature="e#4274#4275#0" expanded="false" />
+            <element signature="e#4310#4311#0" expanded="false" />
+            <element signature="e#7047#7048#0" expanded="false" />
+            <element signature="e#7113#7114#0" expanded="false" />
+            <element signature="e#7631#7632#0" expanded="false" />
+            <element signature="e#7695#7696#0" expanded="false" />
+            <element signature="e#7728#7729#0" expanded="false" />
+            <element signature="e#7793#7794#0" expanded="false" />
+            <element signature="e#9217#9218#0" expanded="false" />
+            <element signature="e#9294#9295#0" expanded="false" />
+            <element signature="e#10075#10076#0" expanded="false" />
+            <element signature="e#10130#10131#0" expanded="false" />
+            <element signature="e#10563#10564#0" expanded="false" />
+            <element signature="e#10612#10613#0" expanded="false" />
+            <element signature="e#10665#10666#0" expanded="false" />
+            <element signature="e#10719#10720#0" expanded="false" />
+            <element signature="e#10779#10780#0" expanded="false" />
+            <element signature="e#10822#10823#0" expanded="false" />
+            <element signature="e#10883#10884#0" expanded="false" />
+            <element signature="e#10927#10928#0" expanded="false" />
+            <element signature="e#11391#11392#0" expanded="false" />
+            <element signature="e#11429#11430#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1925,19 +2109,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_create.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.206897">
           <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -1950,8 +2136,119 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09289618">
-          <caret line="167" column="19" selection-start-line="167" selection-start-column="19" selection-end-line="167" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/DebugFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.551724">
+          <caret line="133" column="42" selection-start-line="133" selection-start-column="28" selection-end-line="133" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/getMySQLPersonTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/EditFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-47.551723">
+          <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/DBHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="77" selection-start-line="93" selection-start-column="77" selection-end-line="93" selection-end-column="77" />
+          <folding>
+            <element signature="docComment;class#DBHelper#0" expanded="false" />
+            <element signature="method#onCreate#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#onUpgrade#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#helperTest#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#8784#8843#0" expanded="false" />
+            <element signature="e#15608#15661#0" expanded="false" />
+            <element signature="method#getReadablAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#17993#18024#0" expanded="false" />
+            <element signature="method#getReadableRecentAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getRecentAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#25239#25294#0" expanded="false" />
+            <element signature="e#25908#25928#0" expanded="false" />
+            <element signature="method#getAssessmentsQuestionsQuestion#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#27143#27206#0" expanded="false" />
+            <element signature="method#getAllPersonIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#28125#28180#0" expanded="false" />
+            <element signature="e#28874#28893#0" expanded="false" />
+            <element signature="method#getAllAssessmentTypes#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#29624#29683#0" expanded="false" />
+            <element signature="method#getAllGeoLocations#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#addGeoLocation#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllFacilityNames#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#32852#32911#0" expanded="false" />
+            <element signature="method#getFacilityID#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllNationalIDs#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#34776#34833#0" expanded="false" />
+            <element signature="method#setEditPageRow#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#40532#40614#0" expanded="false" />
+            <element signature="method#setEditPageData#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#42477#42559#0" expanded="false" />
+            <element signature="method#getAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#44677#44722#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#45923#45976#0" expanded="false" />
+            <element signature="method#getAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#48255#48308#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#50595#50648#0" expanded="false" />
+            <element signature="method#updateAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#insertAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#insertAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#deleteAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#deleteAssessmentsAnswers#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonToAssessments#1;class#DBHelper#0" expanded="false" />
+            <element signature="e#60087#60141#0" expanded="false" />
+            <element signature="method#addPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#addPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPerson#1;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersons#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllAssessmentsAnswers#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getAllPersonToAssessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#getPersonsCount#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#71506#71555#0" expanded="false" />
+            <element signature="method#deletePerson#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#dropDatabase#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#uploadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#downloadDBData#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#73129#73188#0" expanded="false" />
+            <element signature="method#load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#73406#73455#0" expanded="false" />
+            <element signature="method#not_load_person_to_assessments#0;class#DBHelper#0" expanded="false" />
+            <element signature="method#not_load_assessments_answers#0;class#DBHelper#0" expanded="false" />
+            <element signature="e#88594#88733#0" expanded="false" />
+            <element signature="e#89912#89952#0" expanded="false" />
+            <element signature="e#91876#91914#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/itech/trainsmart/assessments/MultiTypeListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
           <folding />
         </state>
       </provider>

@@ -91,7 +91,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String ANSWER_TYPE_QUESTION110 = "question110";
     private static final String ANSWER_TYPE_QUESTIONTEXT = "questiontext";
     private static final String ANSWER_TYPE_QUESTIONYESNO = "questionyesno";
-    private static final String ANSWER_TYPE_QUESTIONMULTI = "questionmulti";
+    private static final String ANSWER_TYPE_QUESTIONMULTI = "questiontextarea";
     private static final String ANSWER_TYPE_TITLE = "title";
 
     public DBHelper(Context context) {
@@ -893,6 +893,7 @@ public class DBHelper extends SQLiteOpenHelper{
         cursor.close();
         db.close();
         // return person list
+        Log.d("request!", "Return");
         return editPageList;
     }
 

@@ -61,17 +61,24 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
                 int num_person_recs = json.getInt("number_records");
                 JSONArray person_array = json.getJSONArray("posts");
                 for (int i = 0; i< person_array.length(); i++) {
+                    //Log.d("request!", "getMySQLPersonTable loop0" + i);
                     JSONObject person_rec = person_array.getJSONObject(i);
+                    //Log.d("request!", "getMySQLPersonTable loop1" + i);
                     int person_id = person_rec.getInt("person_id");
+                    //Log.d("request!", "getMySQLPersonTable loop2" + i);
                     // escape single quotes
                     String first_name = person_rec.getString("first_name");
                     first_name = first_name.replace("'","''");
+                    //Log.d("request!", "getMySQLPersonTable loop3" + i);
                     String last_name = person_rec.getString("last_name");
                     last_name = last_name.replace("'","''");
+                    //Log.d("request!", "getMySQLPersonTable loop4" + i);
                     int facility_id = person_rec.getInt("facility_id");
+                    //Log.d("request!", "getMySQLPersonTable loop5" + i);
                     String national_id = person_rec.getString("national_id");
                     String facility_name = person_rec.getString("facility_name");
                     facility_name = facility_name.replace("'","''");
+                    //Log.d("request!", "getMySQLPersonTable loop6" + i);
                     String personInsert =
                             "insert into person values("
                                     + person_id + ","
@@ -81,7 +88,7 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
                                     + facility_id + ","
                                     + "'" + facility_name + "'" + ");";
                     try {
-                        //Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString());
+                        Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString() + " " + i);
                         _db.execSQL(personInsert.toString());
                     } catch (Exception ex) {
                         Log.d("request!", "getMySQLPersonTable loop exception > " + ex.toString());
