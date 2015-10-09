@@ -40,6 +40,7 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
         int success;
         String username = MainActivity._user;
         String password = MainActivity._pass;
+        Log.d("request!", "getMySQLPersonTable username/password: " + username + " " + password);
         String datatable = "Person";
         try {
             URL url = null;

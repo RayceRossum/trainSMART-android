@@ -113,6 +113,7 @@ public class DebugFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             MainActivity._pass = input.getText().toString();
+                            Log.d(TAG, "_pass: " + MainActivity._pass);
                             _dbHelp.downloadDBData();
                         }
                     });
@@ -131,7 +132,7 @@ public class DebugFragment extends Fragment {
                     //Toast.makeText(v.getContext(), "Valid password required.", Toast.LENGTH_LONG).show();
                 } else {
                     // try
-                    _dbHelp.downloadDBData();
+                    //_dbHelp.downloadDBData();
                 }
 
                 Log.d(TAG, "onDownload: " + MainActivity._user + " " + MainActivity._pass);
@@ -159,7 +160,6 @@ public class DebugFragment extends Fragment {
 
                 if(MainActivity._pass.equals("")) {
 
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Password");
 
@@ -173,6 +173,7 @@ public class DebugFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             MainActivity._pass = input.getText().toString();
+                            Log.d(TAG, "_pass: " + MainActivity._pass);
                             _dbHelp.uploadDBData();
                         }
                     });
