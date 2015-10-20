@@ -132,7 +132,7 @@ public class DebugFragment extends Fragment {
                     //Toast.makeText(v.getContext(), "Valid password required.", Toast.LENGTH_LONG).show();
                 } else {
                     // try
-                    //_dbHelp.downloadDBData();
+                    _dbHelp.downloadDBData();
                 }
 
                 Log.d(TAG, "onDownload: " + MainActivity._user + " " + MainActivity._pass);

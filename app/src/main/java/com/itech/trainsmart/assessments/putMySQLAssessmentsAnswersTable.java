@@ -1,8 +1,10 @@
 package com.itech.trainsmart.assessments;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -17,10 +19,13 @@ import java.util.List;
 class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
+    public Context _context;
     public SQLiteDatabase _db;
     DBHelper dbhelp;
+    public int i = 0;
 
-    putMySQLAssessmentsAnswersTable(DBHelper dbhelp){
+    putMySQLAssessmentsAnswersTable(Context context, DBHelper dbhelp){
+        this._context = context;
         this.dbhelp = dbhelp;
         this._db = dbhelp.getReadableDatabase();
     }
@@ -59,7 +64,8 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
             List<AssessmentsAnswers> assessmentsAnswersList = dbhelp.getAllAssessmentsAnswers();
             Log.d("request!", "putMySQLAssessmentsAnswersTable build rec: " + assessmentsAnswersList.size() );
             data += "&" + URLEncoder.encode("num_recs", "UTF-8") + "=" + URLEncoder.encode(Integer.toString(assessmentsAnswersList.size()), "UTF-8");
-            int i = 0;
+            i = 0;
+            publishProgress("0");
             String[] recs = new String[assessmentsAnswersList.size()];
             for (AssessmentsAnswers poa: assessmentsAnswersList) {
                 // no pipes in answers
@@ -97,7 +103,18 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
             Log.d("request!", "putMySQLAssessmentsAnswersTable exception > " + e.toString());
         }
         Log.d("request!", "putMySQLAssessmentsAnswersTable.doInBackground end");
-        return null;
+        return Integer.toString(i);
+    }
+
+    protected void onProgressUpdate(String... progress) {
+        Log.d("request!", "onProgressUpdate: " + progress[0]);
+        Toast toast = Toast.makeText(this._context, "Upload Started", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    protected void onPostExecute(String result) {
+        Log.d("request!", "onPostExecute: " + result);
+        Toast.makeText(this._context, "Upload Complete", Toast.LENGTH_LONG).show();
     }
 }
 

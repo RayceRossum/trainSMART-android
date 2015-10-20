@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -22,6 +23,7 @@ import java.util.Set;
 public class DBHelper extends SQLiteOpenHelper{
 
     private static final int DATABASE_VERSION = 1;
+    public Context _context;
 
     // Database Name
     private static final String DATABASE_NAME = "assessments.db";
@@ -96,6 +98,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this._context = context;
     }
 
     @Override
@@ -711,6 +714,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         try {
             db.insert(TABLE_GEOLOCATIONS, null, values);
+            Toast.makeText(this._context, "Record: " + geoLocations.get_longitude() + " " + geoLocations.get_latitude(), Toast.LENGTH_LONG).show();
         } catch (Exception ex) {
             db.close();
             Log.d("request!", "addGeoLocation catch " + ex.toString());
@@ -1661,7 +1665,7 @@ public class DBHelper extends SQLiteOpenHelper{
         Log.d("request!", "uploadDBData ");
         new putMySQLGeoLocationsTable(this).execute();
         new putMySQLPersonToAssessmentsTable(this).execute();
-        new putMySQLAssessmentsAnswersTable(this).execute();
+        new putMySQLAssessmentsAnswersTable(this._context, this).execute();
     }
 
     public void downloadDBData() {
@@ -1670,7 +1674,7 @@ public class DBHelper extends SQLiteOpenHelper{
         Log.d("request!", "load assessments_answers ");
         load_assessments_answers();
         Log.d("request!", "downloadDBData getMySQLPersonTable");
-        new getMySQLPersonTable(this).execute();
+        new getMySQLPersonTable(this._context, this).execute();
         Log.d("request!", "downloadDBData getMySQLAssessmentsQuestionsTable");
         new getMySQLAssessmentsQuestionsTable(this).execute();
         Log.d("request!", "downloadDBData getMySQLAssessmentsTable");

@@ -1,8 +1,10 @@
 package com.itech.trainsmart.assessments;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,9 +19,11 @@ import java.net.URLEncoder;
 class getMySQLPersonTable extends AsyncTask<String, String, String> {
 
     private boolean LOGGED_IN = false;
+    public Context _context;
     public SQLiteDatabase _db;
 
-    getMySQLPersonTable(DBHelper dbhelp){
+    getMySQLPersonTable(Context context, DBHelper dbhelp){
+        this._context = context;
         this._db = dbhelp.getWritableDatabase();
         this._db.execSQL("delete from person");
     }
@@ -38,6 +42,8 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
         // TODO Auto-generated method stub
         // Check for success tag
         int success;
+        int i = 0;
+
         String username = MainActivity._user;
         String password = MainActivity._pass;
         Log.d("request!", "getMySQLPersonTable username/password: " + username + " " + password);
@@ -57,11 +63,12 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
             String reply = jsonParser.makeHttpRequest(url, "POST", data);
             JSONObject json = new JSONObject(reply);
             success = json.getInt(MainActivity.TAG_SUCCESS);
+            int num_person_recs;
             if (success == 1) {
                 LOGGED_IN = true;
-                int num_person_recs = json.getInt("number_records");
+                num_person_recs = json.getInt("number_records");
                 JSONArray person_array = json.getJSONArray("posts");
-                for (int i = 0; i< person_array.length(); i++) {
+                for (i = 0; i< person_array.length(); i++) {
                     //Log.d("request!", "getMySQLPersonTable loop0" + i);
                     JSONObject person_rec = person_array.getJSONObject(i);
                     //Log.d("request!", "getMySQLPersonTable loop1" + i);
@@ -89,7 +96,13 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
                                     + facility_id + ","
                                     + "'" + facility_name + "'" + ");";
                     try {
-                        Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString() + " " + i);
+                        //num_person_recs
+                        int progress = (int)((i / (float) num_person_recs) * 100);
+
+                        publishProgress(Integer.toString(progress));
+
+                        //Log.d("request!", "getMySQLPersonTable personInsert " + personInsert.toString() + " " + i);
+                        //Log.d("request!", "getMySQLPersonTable personInsert " + " " + i);
                         _db.execSQL(personInsert.toString());
                     } catch (Exception ex) {
                         Log.d("request!", "getMySQLPersonTable loop exception > " + ex.toString());
@@ -105,8 +118,25 @@ class getMySQLPersonTable extends AsyncTask<String, String, String> {
             Log.d("request!", "getMySQLPersonTable exception > " + e.toString());
         }
         Log.d("request!", "getMySQLPersonTable.doInBackground end");
-        return null;
+        return Integer.toString(i);
     }
+
+    String displayed = "";
+    protected void onProgressUpdate(String... progress) {
+        //Log.d("request!", "onProgressUpdate: " + progress[0]);
+        Toast toast = Toast.makeText(this._context, progress[0] + "% downloaded", Toast.LENGTH_SHORT);
+        if(!displayed.equals(progress[0]) && Integer.parseInt(progress[0])%5 == 0 ){
+            toast.show();
+            displayed = progress[0];
+        }
+    }
+
+    protected void onPostExecute(String result) {
+        Log.d("request!", "onPostExecute: " + result);
+        Toast.makeText(this._context, "Downloaded " + result + " persons", Toast.LENGTH_LONG).show();
+        Toast.makeText(this._context, "Download Complete", Toast.LENGTH_LONG).show();
+    }
+
 }
 
 
