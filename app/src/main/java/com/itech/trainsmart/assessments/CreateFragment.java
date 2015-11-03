@@ -108,7 +108,7 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                             pToA.dump();
                             fragment = EditFragment.newInstance(pToA);
                         }
-                        getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
+                        getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
                         Log.d("request!", "Assessment Created");
                         Toast.makeText(v.getContext(), "Assessment Created", Toast.LENGTH_LONG).show();
                     }
@@ -120,7 +120,7 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                         PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToADB.get_person_to_assessments_id());
                         fragment = EditFragment.newInstance(pToA);
                     }
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
                     Log.d("request!", "Existing Assessment");
                     Toast.makeText(v.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
                 }

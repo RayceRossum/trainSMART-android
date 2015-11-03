@@ -119,7 +119,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         Log.d(TAG, "mainActivity:lng: " + String.valueOf((lng)));
     }
 
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
@@ -129,12 +128,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             return;
         }
 
-        DBHelper dbHelp = new DBHelper(this);
-
-        // left over (recent) list fragment
-        //Fragment destroyFragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
-        //getFragmentManager().beginTransaction().remove(destroyFragment).commit();
-
         Fragment fragment;
         switch(position) {
             case 1:
@@ -142,7 +135,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     fragment = RecentFragment.newInstance("main", "");
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
 
                 break;
 
@@ -151,7 +144,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     fragment = CreateFragment.newInstance();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).addToBackStack("").commit();
 
                 break;
 
@@ -161,7 +154,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     fragment = SearchFragment.newInstance();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack("").commit();
 
                 break;
 
@@ -182,7 +175,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     fragment = DebugFragment.newInstance();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).addToBackStack("").commit();
 
                 break;
         }
@@ -190,11 +183,31 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     @Override
     public void onBackPressed() {
-        if (mNavigationDrawerFragment.isDrawerOpen())
+        if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
-        else
-            super.onBackPressed();
+            return;
+        }
+
+        int count = getFragmentManager().getBackStackEntryCount();
+        Log.d("Request!", "onBackPressed: " + count);
+        if (count == 1) {
+            //super.onBackPressed();
+            //additional code
+        } else {
+            getFragmentManager().popBackStack();
+        }
+
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        if (mNavigationDrawerFragment.isDrawerOpen())
+//            mNavigationDrawerFragment.closeDrawer();
+//        else {
+//            Log.d("request!", "main:onBackPressed: ");
+//            super.onBackPressed();
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -225,6 +238,9 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     @Override
     public void onFragmentInteraction(int position) {
-
     }
+
+
+
+
 }

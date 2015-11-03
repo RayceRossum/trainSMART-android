@@ -134,7 +134,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 if (fragment == null) {
                     fragment = RecentFragment.newInstance("search", paramPersonId + ":" + nationalID + ":" +  facilityName + ":" +  paramAssessmentType + ":" +  from_date +":" +  to_date + ":");
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
 
 
             }

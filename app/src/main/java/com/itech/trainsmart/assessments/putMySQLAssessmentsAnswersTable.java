@@ -1,8 +1,10 @@
 package com.itech.trainsmart.assessments;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -65,8 +67,19 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
             Log.d("request!", "putMySQLAssessmentsAnswersTable build rec: " + assessmentsAnswersList.size() );
             data += "&" + URLEncoder.encode("num_recs", "UTF-8") + "=" + URLEncoder.encode(Integer.toString(assessmentsAnswersList.size()), "UTF-8");
             i = 0;
-            publishProgress("0");
+            //publishProgress("0");
+
+            NotificationManager mNotifyManager = (NotificationManager) this._context.getSystemService(this._context.NOTIFICATION_SERVICE);
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this._context);
+
+            mBuilder.setContentTitle("Data Upload")
+                    .setContentText("Upload in progress")
+                    .setSmallIcon(R.drawable.upload);
+
+            int id = 1;
+
             String[] recs = new String[assessmentsAnswersList.size()];
+            int num_answer_recs = assessmentsAnswersList.size();
             for (AssessmentsAnswers poa: assessmentsAnswersList) {
                 // no pipes in answers
                 recs[i] =
@@ -80,10 +93,16 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
 
                 Log.d("request!", "loop: " + recs[i] + "<");
 
+                int incr = (int)((i / (float) num_answer_recs) * 100);
+                mBuilder.setProgress(100, incr, false);
+                mNotifyManager.notify(id, mBuilder.build());
+
                 //data += "&" + URLEncoder.encode(Integer.toString(i), "UTF-8") + "=" + URLEncoder.encode(rec, "UTF-8");
                 data += "&" + URLEncoder.encode("recs"+Integer.toString(i), "UTF-8") + "=" + URLEncoder.encode(recs[i], "UTF-8");
                 i++;
             }
+            mBuilder.setContentText("Upload complete (" + i + " records)").setProgress(0, 0, false);
+            mNotifyManager.notify(id, mBuilder.build());
 
             JSONParser jsonParser = new JSONParser();
             String reply = jsonParser.makeHttpRequest(url, "POST", data);
@@ -106,11 +125,12 @@ class putMySQLAssessmentsAnswersTable extends AsyncTask<String, String, String> 
         return Integer.toString(i);
     }
 
-    protected void onProgressUpdate(String... progress) {
-        Log.d("request!", "onProgressUpdate: " + progress[0]);
-        Toast toast = Toast.makeText(this._context, "Upload Started", Toast.LENGTH_LONG);
-        toast.show();
-    }
+// no longer used
+//    protected void onProgressUpdate(String... progress) {
+//        Log.d("request!", "onProgressUpdate: " + progress[0]);
+//        Toast toast = Toast.makeText(this._context, "Upload Started", Toast.LENGTH_LONG);
+//        toast.show();
+//    }
 
     protected void onPostExecute(String result) {
         Log.d("request!", "onPostExecute: " + result);

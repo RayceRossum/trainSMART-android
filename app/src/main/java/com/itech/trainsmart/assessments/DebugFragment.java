@@ -85,7 +85,6 @@ public class DebugFragment extends Fragment {
 //        Log.d("request!", "debugFragemnt:onCreate:id: " + deviceId);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,7 +97,6 @@ public class DebugFragment extends Fragment {
                 Log.d("request!", "download button");
 
                 if(MainActivity._pass.equals("")) {
-
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Password");
@@ -149,7 +147,6 @@ public class DebugFragment extends Fragment {
 
             }
         });
-
 
         Button btnUpload = (Button) view.findViewById(R.id.btnUpload);
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -203,8 +200,6 @@ public class DebugFragment extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-
-
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(int position) {

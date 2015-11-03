@@ -50,7 +50,7 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
                 PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToADB.get_person_to_assessments_id());
                 fragment = EditFragment.newInstance(pToA);
             }
-            getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
+            getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
             Log.d("request!", "Existing Assessment");
             Toast.makeText(view.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
         }
@@ -142,7 +142,7 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
 //                    from_date + "," +
 //                    to_date + "," );
 
-            assessments = dbHelp.getReadablAssessments(person_id, nationalID, facilityName, assessment, from_date, to_date);
+            assessments = dbHelp.getReadableAssessments(person_id, nationalID, facilityName, assessment, from_date, to_date);
         }else {
             assessments = dbHelp.getReadableRecentAssessments();
         }

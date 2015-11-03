@@ -357,7 +357,7 @@ public class DBHelper extends SQLiteOpenHelper{
         }
     }
 
-    public List<String> getReadablAssessments(String person_id, String national_id, String facility_name, String assessment_type, String from_date, String to_date) {
+    public List<String> getReadableAssessments(String person_id, String national_id, String facility_name, String assessment_type, String from_date, String to_date) {
         List<String> readableRecentAssessmentsList = new ArrayList<String>();
         Log.d("request!", "readableRecentAssessments: ");
         // all params can be null or ""
