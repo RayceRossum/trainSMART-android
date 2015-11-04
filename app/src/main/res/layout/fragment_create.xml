@@ -3,33 +3,6 @@
     android:layout_height="match_parent"
     tools:context="com.itech.trainsmart.assessments.CreateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- Spinner Element
-       <TextView
-           android:layout_width="227dp"
-           android:layout_height="69dp"
-           android:layout_marginTop="10dip"
-           android:text="Category:"
-           android:layout_marginBottom="5dp" />
-
-
-       <Spinner
-           android:id="@+id/test_spinner"
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:prompt="@string/spinner_title"
-           android:layout_alignParentTop="true"
-           android:layout_alignStart="@+id/textView0" />
--->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/createTitle"
-        android:id="@+id/textView"
-        android:paddingTop="28dp"
-        android:layout_alignParentTop="true" />
-
        <TextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"

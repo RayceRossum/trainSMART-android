@@ -992,15 +992,15 @@ public class DBHelper extends SQLiteOpenHelper{
 
         if (cursor != null)
             cursor.moveToFirst();
-        Log.d("request!", "geAssessments  "
+        Log.d("request!", "getAssessments  "
                         + cursor.getString(0) + " "
                         + cursor.getString(1) + " "
                         + cursor.getString(2) + " "
         );
 
         Assessments assessments = new Assessments(
-                Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1)
+                Integer.parseInt(cursor.getString(1)),
+                cursor.getString(2)
 
         );
         cursor.close();

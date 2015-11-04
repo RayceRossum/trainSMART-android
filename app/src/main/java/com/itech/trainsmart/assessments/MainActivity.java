@@ -24,7 +24,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
         DebugFragment.OnFragmentInteractionListener,
         CreatePersonFragment.OnFragmentInteractionListener,
         SearchFragment.OnFragmentInteractionListener,
-        RecentFragment.OnFragmentInteractionListener
+        RecentFragment.OnFragmentInteractionListener,
+        ActionFragment.OnFragmentInteractionListener
 {
 
     public static Boolean LOGGED_IN = false;
@@ -130,14 +131,6 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         Fragment fragment;
         switch(position) {
-            case 1:
-                fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
-                if (fragment == null) {
-                    fragment = RecentFragment.newInstance("main", "");
-                }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
-
-                break;
 
             case 0:
                 fragment = getFragmentManager().findFragmentByTag(CreateFragment.TAG);
@@ -148,6 +141,14 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
                 break;
 
+            case 1:
+                fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
+                if (fragment == null) {
+                    fragment = RecentFragment.newInstance("main", "");
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
+
+                break;
 
             case 2:
                 fragment = getFragmentManager().findFragmentByTag(SearchFragment.TAG);
@@ -155,6 +156,25 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                     fragment = SearchFragment.newInstance();
                 }
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack("").commit();
+
+                break;
+
+            case 3:
+                Log.d("Request!", "actionFragment");
+                fragment = getFragmentManager().findFragmentByTag(ActionFragment.TAG);
+                if (fragment == null) {
+                    fragment = ActionFragment.newInstance("main", "");
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).addToBackStack("").commit();
+
+                break;
+
+            case 4:
+                fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
+                if (fragment == null) {
+                    fragment = DebugFragment.newInstance();
+                }
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).addToBackStack("").commit();
 
                 break;
 
@@ -170,14 +190,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             case 5:
                 break;
 
-            case 3:
-                fragment = getFragmentManager().findFragmentByTag(DebugFragment.TAG);
-                if (fragment == null) {
-                    fragment = DebugFragment.newInstance();
-                }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, DebugFragment.TAG).addToBackStack("").commit();
 
-                break;
         }
     }
 

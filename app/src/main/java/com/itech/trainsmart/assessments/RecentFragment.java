@@ -158,6 +158,8 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recent, container, false);
 
+        getActivity().setTitle(getResources().getString(R.string.recentTitle));
+
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);

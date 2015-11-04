@@ -4,14 +4,6 @@
     android:layout_height="match_parent"
     tools:context="com.itech.trainsmart.assessments.RecentFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recentSurveysTitle"
-        android:id="@+id/textView"
-        android:paddingTop="28dp"
-        android:layout_alignParentTop="true" />
-
     <ListView android:id="@android:id/list" android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="78dp" />

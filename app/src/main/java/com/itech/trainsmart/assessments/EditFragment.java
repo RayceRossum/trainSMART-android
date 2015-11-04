@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,6 +100,7 @@ public class EditFragment extends Fragment {
         }
 
         dbHelp = new DBHelper(getActivity());
+
     }
 
     @Override
@@ -106,7 +108,23 @@ public class EditFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit, container, false);
 
-        ListView listView = (ListView)view.findViewById(R.id.editListView);
+        Person person = dbHelp.getPerson(_pToA.get_person_id());
+        Assessments assessment = dbHelp.getAssessments(_pToA.get_assessment_id());
+
+        Log.d("request!", "editFrag: " +
+                person.get_last_name() + ", " +
+                person.get_first_name() + " " +
+                person.get_national_id() + " " +
+                person.get_facility_name() + " " +
+                assessment.get_assessment_type());
+
+        getActivity().setTitle(person.get_first_name() + ", " +
+                person.get_last_name() + " " +
+                _pToA.get_date_created() + " " +
+                person.get_facility_name());
+
+        ListView listView = (ListView) view.findViewById(R.id.editListView);
+
         MultiTypeListAdapter adapter = new MultiTypeListAdapter(this.getActivity(), dbHelp.getEditPageData(_pToA), _pToA);
         listView.setItemsCanFocus(true);
         listView.setAdapter(adapter);

@@ -74,11 +74,14 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
         }
 
         dbHelp = new DBHelper(getActivity());
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
+
+        getActivity().setTitle(getResources().getString(R.string.createTitle));
 
         loadPersonIDDropdown(view);
         loadAssessmentTypeDropdown(view);
@@ -120,6 +123,7 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                         PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToADB.get_person_to_assessments_id());
                         fragment = EditFragment.newInstance(pToA);
                     }
+
                     getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
                     Log.d("request!", "Existing Assessment");
                     Toast.makeText(v.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
