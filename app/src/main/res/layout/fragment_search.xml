@@ -14,7 +14,7 @@
            />
 
 
-    <AutoCompleteTextView
+    <com.itech.trainsmart.assessments.ClearableAutoCompleteTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/name"
@@ -26,7 +26,6 @@
         android:layout_alignParentStart="true"
         android:singleLine="true" />
 
-
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
        android:layout_below="@+id/name"
        android:layout_alignStart="@+id/nationalid" />
 
-   <AutoCompleteTextView
+   <com.itech.trainsmart.assessments.ClearableAutoCompleteTextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:id="@+id/nationalid"
@@ -57,7 +56,7 @@
            android:layout_below="@+id/nationalid"
            android:layout_alignStart="@+id/facility" />
 
-       <AutoCompleteTextView
+    <com.itech.trainsmart.assessments.ClearableAutoCompleteTextView
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:id="@+id/facility"

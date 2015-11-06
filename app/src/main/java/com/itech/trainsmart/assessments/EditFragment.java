@@ -243,13 +243,14 @@ public class EditFragment extends Fragment {
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            Log.d("Request!", "onProgressChanged: " + progress);
+
             pageData.get(position).set_answer(convertProgressToStr(progress));
             dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertProgressToStr(progress));
         }
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
-
         }
 
         @Override

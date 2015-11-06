@@ -30,6 +30,8 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     public static Boolean LOGGED_IN = false;
 
+    public static String currentFragmentId = "";
+
     public static final String BASE_URL = "http://android.trainingdata.org/";
 
     public static final String GET_TABLE_URL = BASE_URL + "getTable.php";
@@ -135,18 +137,28 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             case 0:
                 fragment = getFragmentManager().findFragmentByTag(CreateFragment.TAG);
                 if (fragment == null) {
+                    Log.d("request!", "before add create to back stack: " + getFragmentManager().getBackStackEntryCount());
                     fragment = CreateFragment.newInstance();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).addToBackStack("Create").commit();
+                    Log.d("request!", "after add create to back stack: " + getFragmentManager().getBackStackEntryCount());
+                } else {
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).addToBackStack("").commit();
+                currentFragmentId = "Create";
 
                 break;
 
             case 1:
                 fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
                 if (fragment == null) {
+                    Log.d("request!", "before add recent to back stack: " + getFragmentManager().getBackStackEntryCount());
                     fragment = RecentFragment.newInstance("main", "");
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("Recent").commit();
+                    Log.d("request!", "after add recent to back stack: " + getFragmentManager().getBackStackEntryCount());
+                } else {
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
+                currentFragmentId = "Recent";
 
                 break;
 
@@ -154,18 +166,23 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 fragment = getFragmentManager().findFragmentByTag(SearchFragment.TAG);
                 if (fragment == null) {
                     fragment = SearchFragment.newInstance();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack("Search").commit();
+                } else {
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).commit();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack("").commit();
+                currentFragmentId = "Search";
 
                 break;
 
             case 3:
-                Log.d("Request!", "actionFragment");
                 fragment = getFragmentManager().findFragmentByTag(ActionFragment.TAG);
                 if (fragment == null) {
                     fragment = ActionFragment.newInstance("main", "");
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).addToBackStack("Action").commit();
+                } else {
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).commit();
                 }
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).addToBackStack("").commit();
+                currentFragmentId = "Action";
 
                 break;
 
@@ -201,9 +218,10 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             return;
         }
 
+
         int count = getFragmentManager().getBackStackEntryCount();
-        Log.d("Request!", "onBackPressed: " + count);
-        if (count == 1) {
+        Log.d("Request!", "onBackPressed: " + count + ", " + currentFragmentId);
+        if (count == 1 || (count > 1 && currentFragmentId.equals("Create"))) {
             //super.onBackPressed();
             //additional code
         } else {

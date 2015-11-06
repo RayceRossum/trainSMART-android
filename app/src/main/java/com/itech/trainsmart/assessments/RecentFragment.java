@@ -49,8 +49,11 @@ public class RecentFragment extends Fragment implements AbsListView.OnItemClickL
             if (fragment == null) {
                 PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToADB.get_person_to_assessments_id());
                 fragment = EditFragment.newInstance(pToA);
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("Edit").commit();
+            } else {
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).commit();
             }
-            getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
+            MainActivity.currentFragmentId = "Edit";
             Log.d("request!", "Existing Assessment");
             Toast.makeText(view.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
         }

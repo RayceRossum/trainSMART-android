@@ -73,6 +73,8 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
             //mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        Log.d("request!", "createFragment:onCreate: ");
+
         dbHelp = new DBHelper(getActivity());
 
     }
@@ -80,8 +82,10 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create, container, false);
+        Log.d("request!", "createFragment:onCreateView: ");
 
         getActivity().setTitle(getResources().getString(R.string.createTitle));
+
 
         loadPersonIDDropdown(view);
         loadAssessmentTypeDropdown(view);
@@ -182,17 +186,21 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
 
     private Person person;
     public void loadPersonIDDropdown(View view) {
-
+        Log.d("request!", "loadPersonIDDropdown: ");
         List<String> personIDs = dbHelp.getAllPersonIDs();
         // convert to array
         String[] stringArrayPersonID = new String[ personIDs.size() ];
         personIDs.toArray(stringArrayPersonID);
 
-        final AutoCompleteTextView dropdown = (AutoCompleteTextView) view.findViewById(R.id.name);
-        //dropdown.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        final ClearableAutoCompleteTextView dropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.name);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, stringArrayPersonID);
         dropdown.setThreshold(1);
+
+//        dropdown.setAdapter(null);
+//        dropdown.setText((CharSequence) "", false);
+
         dropdown.setAdapter(dataAdapter);
+
 
         dropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int index, long position) {

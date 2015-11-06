@@ -112,7 +112,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     holder.position = position;
                     holder.seekBar.setOnSeekBarChangeListener(holder);
-                    //holder.textView.setText("Is the candidate good at what they're doing?");
                     view.setTag(holder);
                     break;
 

@@ -108,10 +108,11 @@ public class DBHelper extends SQLiteOpenHelper{
 
         //try { db.execSQL("delete from assessments;"); } catch(Exception ex) {Log.d("request!", "DBHelper.onCreate nothing to delete" + ex.toString());}
         try {
-            String CREATE_ASSESSMENTS_TABLE = "CREATE TABLE IF NOT EXISTS assessments(assessment_id int, assessment_type varchar, status int);";
+            String CREATE_ASSESSMENTS_TABLE = "CREATE TABLE IF NOT EXISTS assessments(" +
+                    "assessment_id int, " +
+                    "assessment_type varchar, " +
+                    "status int);";
             db.execSQL(CREATE_ASSESSMENTS_TABLE);
-
-
 
         //db.execSQL("delete from assessments_answers;");
         String CREATE_ASSESSMENTS_ANSWERS_TABLE = "CREATE TABLE IF NOT EXISTS assessments_answers(" +
@@ -148,7 +149,14 @@ public class DBHelper extends SQLiteOpenHelper{
             db.execSQL(CREATE_GEOLOCATIONS_TABLE);
         //try { db.execSQL("delete from person;"); } catch(Exception ex) {}
 
-        String CREATE_PERSON_TABLE = "CREATE TABLE IF NOT EXISTS person(person_id int, first_name varchar, last_name varchar, national_id varchar, facility_id int, facility_name varchar);";
+        String CREATE_PERSON_TABLE = "CREATE TABLE IF NOT EXISTS person(" +
+                "person_id int, " +
+                "first_name varchar, " +
+                "last_name varchar, " +
+                "national_id varchar, " +
+                "facility_id int, " +
+                "facility_name varchar);";
+
         db.execSQL(CREATE_PERSON_TABLE);
 
         //db.execSQL("delete from person_to_assessments;");

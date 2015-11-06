@@ -107,7 +107,8 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 } else {
                     Log.d("request!", "Search button person: " + person.get_person_id());
                     int _var = person.get_person_id();
-                    paramPersonId = new Integer(person.get_person_id()).toString();                }
+                    paramPersonId = new Integer(person.get_person_id()).toString();
+                }
                 if (assessment == null) {
                     Log.d("request!", "Search button assessment is null: ");
                 } else {
@@ -129,17 +130,14 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 String to_date = "";
 
                 // get ptoa's where params and goto list
-
                 //List<String> searchAssessments = dbHelp.getReadablAssessments(paramPersonId, nationalID, facilityName, paramAssessmentType, from_date, to_date);
 
                 Fragment fragment;
-                fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
-                if (fragment == null) {
-                    fragment = RecentFragment.newInstance("search", paramPersonId + ":" + nationalID + ":" +  facilityName + ":" +  paramAssessmentType + ":" +  from_date +":" +  to_date + ":");
-                }
+                //fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
+                //if (fragment == null) {
+                    fragment = RecentFragment.newInstance("search", paramPersonId + ":" + nationalID + ":" + facilityName + ":" + paramAssessmentType + ":" + from_date + ":" + to_date + ":");
+                //}
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
-
-
             }
         });
 
@@ -200,8 +198,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         String[] stringArrayPersonID = new String[ personIDs.size() ];
         personIDs.toArray(stringArrayPersonID);
 
-        final AutoCompleteTextView dropdown = (AutoCompleteTextView) view.findViewById(R.id.name);
-        //dropdown.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+        final ClearableAutoCompleteTextView dropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.name);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, stringArrayPersonID);
         dropdown.setThreshold(1);
         dropdown.setAdapter(dataAdapter);
@@ -231,7 +228,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void loadNationalIDDropdown(View view) {
         String[] nationalIDs = dbHelp.getAllNationalIDs();
 
-        final AutoCompleteTextView dropdown = (AutoCompleteTextView) view.findViewById(R.id.nationalid);
+        final ClearableAutoCompleteTextView dropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.nationalid);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, nationalIDs);
         dropdown.setThreshold(1);
         dropdown.setAdapter(dataAdapter);
@@ -249,7 +246,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     public void loadFacilityDropdown(View view) {
         String[] facilityNames = dbHelp.getAllFacilityNames();
 
-        final AutoCompleteTextView dropdown = (AutoCompleteTextView) view.findViewById(R.id.facility);
+        final ClearableAutoCompleteTextView dropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.facility);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, facilityNames);
         dropdown.setThreshold(1);
         dropdown.setAdapter(dataAdapter);
