@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/myLayout"
     android:stretchColumns="0"
     android:layout_width="match_parent"
@@ -87,6 +88,15 @@
         android:layout_alignEnd="@+id/textView2"
         android:layout_x="101dp"
         android:layout_y="18dp" />
+
+    <com.itech.trainsmart.assessments.DiscreteSeekBar
+        android:id="@+id/discrete1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dsb_min="0"
+        app:dsb_max="5"
+        app:dsb_value="0"
+        />
 
 
 
