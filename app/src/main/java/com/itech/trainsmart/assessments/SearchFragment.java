@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
-
 
 import java.util.List;
 
@@ -85,10 +83,14 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
         getActivity().setTitle(getResources().getString(R.string.searchTitle));
 
-        loadPersonIDDropdown(view);
+        loadPersonNameDropdown(view);
         loadAssessmentTypeDropdown(view);
         loadNationalIDDropdown(view);
         loadFacilityDropdown(view);
+
+        final ClearableAutoCompleteTextView facilityDropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.facility);
+        final ClearableAutoCompleteTextView nameDropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.name);
+        final ClearableAutoCompleteTextView nationalIdDropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.nationalid);
 
         Button btnSearch = (Button) view.findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -100,14 +102,19 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 
                 Log.d("request!", "Search button: ");
+
                 String paramPersonId = "";
                 String paramAssessmentType = "";
-                if (person == null) {
-                    Log.d("request!", "Search button person is null: ");
+                String paramFacilityName = "";
+                String paramNationalID = "";
+                Log.d("request!", "Search button name: " + nameDropdown.getText().toString() + "<");
+
+                if (person == null || nameDropdown.getText().toString().equals("")) {
+                    Log.d("request!", "Search button name is null: ");
                 } else {
-                    Log.d("request!", "Search button person: " + person.get_person_id());
-                    int _var = person.get_person_id();
-                    paramPersonId = new Integer(person.get_person_id()).toString();
+                    Log.d("request!", "Search button name: " + nameDropdown.getText().toString());
+                    int personId = new Integer(person.get_person_id());
+                    paramPersonId = Integer.toString(personId);
                 }
                 if (assessment == null) {
                     Log.d("request!", "Search button assessment is null: ");
@@ -115,15 +122,17 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                     Log.d("request!", "Search button assessment: " + assessment.get_assessment_type());
                     paramAssessmentType = assessment.get_assessment_type();
                 }
-                if (facilityName.equals("")) {
+                if (facilityDropdown.getText().equals("")) {
                     Log.d("request!", "Search button facility is null: ");
                 } else {
-                    Log.d("request!", "Search button facilityName: " + facilityName);
+                    Log.d("request!", "Search button facilityName: " + facilityDropdown.getText().toString());
+                    paramFacilityName = facilityDropdown.getText().toString();
                 }
-                if (nationalID.equals("")) {
+                if (nationalIdDropdown.equals("")) {
                     Log.d("request!", "Search button nationalID is null: ");
                 } else {
-                    Log.d("request!", "Search button nationalID: " + nationalID);
+                    Log.d("request!", "Search button nationalID: " + nationalIdDropdown.getText());
+                    paramNationalID = nationalIdDropdown.getText().toString();
                 }
 
                 String from_date = "";
@@ -135,7 +144,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 Fragment fragment;
                 //fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
                 //if (fragment == null) {
-                    fragment = RecentFragment.newInstance("search", paramPersonId + ":" + nationalID + ":" + facilityName + ":" + paramAssessmentType + ":" + from_date + ":" + to_date + ":");
+                    fragment = RecentFragment.newInstance("search", paramPersonId + ":" + paramNationalID + ":" + paramFacilityName + ":" + paramAssessmentType + ":" + from_date + ":" + to_date + ":");
                 //}
                 getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
             }
@@ -191,7 +200,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private Person person;
-    public void loadPersonIDDropdown(View view) {
+    public void loadPersonNameDropdown(View view) {
 
         List<String> personIDs = dbHelp.getAllPersonIDs();
         // convert to array
@@ -224,7 +233,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
         });
     }
 
-    private String nationalID = "";
     public void loadNationalIDDropdown(View view) {
         String[] nationalIDs = dbHelp.getAllNationalIDs();
 
@@ -235,14 +243,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
         dropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int index, long position) {
-                String nameText = dropdown.getText().toString();
-                nationalID = nameText;
-                Log.d("request!", "nationalID selected: " + nationalID);
+                Log.d("request!", "nationalID selected: " + dropdown.getText());
             }
         });
     }
 
-    private String facilityName = "";
     public void loadFacilityDropdown(View view) {
         String[] facilityNames = dbHelp.getAllFacilityNames();
 
@@ -253,9 +258,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
 
         dropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int index, long position) {
-                String nameText = dropdown.getText().toString();
-                facilityName = nameText;
-                Log.d("request!", "facility selected: " + facilityName);
+                Log.d("request!", "facility selected: " + dropdown.getText());
             }
         });
 
@@ -268,11 +271,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String assessmentTypeText  = dropdown.getSelectedItem().toString();
-                Log.d("request!", "assessmentTypeText: " + assessmentTypeText);
+                Log.d("request!", "assessmentTypeText: " + assessmentTypeText + "<");
                 // because of the all option, not available in create
                 if(!assessmentTypeText.equals("")) {
                     assessment = dbHelp.getAssessments(assessmentTypeText);
-                }
+                } else assessment = null;
             }
 
             @Override

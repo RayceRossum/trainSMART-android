@@ -100,4 +100,6 @@ public class ClearableAutoCompleteTextView extends AutoCompleteTextView {
         this.setCompoundDrawablesWithIntrinsicBounds(null, null, imgClearButton, null);
     }
 
+
+
 }

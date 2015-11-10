@@ -1,8 +1,8 @@
 <resources>
 
-    <string name="GEOLOCATION">GEOLOCATION</string>
-    <string name="UPLOAD">UPLOAD</string>
-    <string name="DOWNLOAD">DOWNLOAD</string>
+    <string name="GEOLOCATION">Geolocation</string>
+    <string name="UPLOAD">Upload</string>
+    <string name="DOWNLOAD">Download</string>
 
     <string name="searchTitle">Search Assessments</string>
     <string name="createPersonTitle">Create Person</string>

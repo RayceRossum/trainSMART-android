@@ -1,7 +1,9 @@
 package com.itech.trainsmart.assessments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Criteria;
 import android.location.Location;
@@ -221,11 +223,29 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
         int count = getFragmentManager().getBackStackEntryCount();
         Log.d("Request!", "onBackPressed: " + count + ", " + currentFragmentId);
-        if (count == 1 || (count > 1 && currentFragmentId.equals("Create"))) {
-            //super.onBackPressed();
-            //additional code
-        } else {
+        //if (count == 1 || (count > 1 && currentFragmentId.equals("Create"))) {
+        if (count > 1) {
             getFragmentManager().popBackStack();
+        } else {
+            Log.d("Request!", "onBackPressed:exit: " + count + ", " + currentFragmentId);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Confirm exit");
+            // Set up the buttons
+            builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    MainActivity.super.onBackPressed();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
         }
 
     }

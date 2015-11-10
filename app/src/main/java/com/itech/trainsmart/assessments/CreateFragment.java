@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -90,11 +89,13 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
         loadPersonIDDropdown(view);
         loadAssessmentTypeDropdown(view);
 
+        final ClearableAutoCompleteTextView nameDropdown = (ClearableAutoCompleteTextView) view.findViewById(R.id.name);
+
         Button btnCreate = (Button) view.findViewById(R.id.btnCreate);
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(person == null) {
+                if(person == null || nameDropdown.getText().toString().equals("")) {
                     Toast.makeText(v.getContext(), "Valid name must entered.", Toast.LENGTH_LONG).show();
                     return;
                 }
