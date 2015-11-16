@@ -3,6 +3,7 @@
 package com.itech.trainsmart.assessments;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,6 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-
 
 import java.util.HashMap;
 import java.util.List;
@@ -108,7 +108,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     view = inflater.inflate(R.layout.edit_question110, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
                     holder.seekBar = (SeekBar) view.findViewById(R.id.seekBar);
-
                     holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     holder.position = position;
                     holder.seekBar.setOnSeekBarChangeListener(holder);
@@ -116,13 +115,11 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
 
                 case 2: //Single line editText
-
                     view = inflater.inflate(R.layout.edit_questiontext, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
 //                  http://stackoverflow.com/questions/9438676/edittext-in-listview-without-it-recycling-input
 //                  holder.editText.setText(pageData.get(position).get_answer());
                     holder.editText = (EditText) view.findViewById(R.id.editText);
-
                     String _text = pageData.get(position).get_answer();
                     holder.editText.setText(_text == null ? "" : _text);
                     holder.position = position;
@@ -146,13 +143,13 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 case 4: //Multi line editText
                     view = inflater.inflate(R.layout.edit_questionmulti, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
+                    holder.textView.setText(pageData.get(position).get_question());
+//                    Log.d("request!", "get_question: " + pageData.get(position).get_question());
                     holder.editText2 = (EditText) view.findViewById(R.id.editText2);
-
-                    String oldText2 = pageData.get(position).get_answer();
-                    holder.editText2.setText(pageData.get(position).get_answer());
+                    String _text2 = pageData.get(position).get_answer();
+                    holder.editText2.setText(_text2 == null ? "" : _text2);
                     holder.position = position;
                     holder.editText2.addTextChangedListener(holder);
-                    //holder.textView.setText("Does the candidate like the smell of bacon?");
                     view.setTag(holder);
                     break;
 
@@ -186,6 +183,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
             holder.position = position;
         }
         holder.textView.setText(pageData.get(position).get_question());
+//        Log.d("request!", "get_question: " + pageData.get(position).get_question());
         return view;
     }
 

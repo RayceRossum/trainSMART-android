@@ -227,6 +227,7 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
 
     private Assessments assessment = null;
     public void loadAssessmentTypeDropdown(View view) {
+        Log.d("request!", "loadAssessmentTypeDropdown: ");
 
         final Spinner dropdown = (Spinner) view.findViewById(R.id.assessment_type);
         dropdown.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {

@@ -21,13 +21,13 @@
         android:layout_marginRight="16sp"
         android:layout_marginTop="8sp"
         android:layout_marginBottom="8sp"
-        android:inputType="text"
+
         android:focusableInTouchMode="false" />
 
     <EditText
+        android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_gravity="center_horizontal"
