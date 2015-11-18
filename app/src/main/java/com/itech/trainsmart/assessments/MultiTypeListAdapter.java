@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -86,7 +85,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
 
         View view = convertView;
         EditFragment.ViewHolder holder;
@@ -107,10 +106,31 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 case 1: //1-10
                     view = inflater.inflate(R.layout.edit_question110, parent, false);
                     holder.textView = (TextView) view.findViewById(R.id.textq);
-                    holder.seekBar = (SeekBar) view.findViewById(R.id.seekBar);
-                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
+                    holder.discreteSeekBar = (com.itech.trainsmart.assessments.DiscreteSeekBar) view.findViewById(R.id.discreteSeekBar);
+                    holder.discreteSeekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     holder.position = position;
-                    holder.seekBar.setOnSeekBarChangeListener(holder);
+//                    holder.seekBar.setOnSeekBarChangeListener(holder);
+
+                    DiscreteSeekBar.OnProgressChangeListener listener = new DiscreteSeekBar.OnProgressChangeListener() {
+
+                        @Override
+                        public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
+                            Log.d("request!", "onProgressChanged:value: " + value + " " + position );
+
+                            pageData.get(position).set_answer(convertProgressToStr(value));
+                            dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertProgressToStr(value));
+                        }
+
+                        @Override
+                        public void onStartTrackingTouch(DiscreteSeekBar seekBar) {
+                        }
+
+                        @Override
+                        public void onStopTrackingTouch(DiscreteSeekBar seekBar) {
+                        }
+                    };
+                    holder.discreteSeekBar.setOnProgressChangeListener(listener);
+
                     view.setTag(holder);
                     break;
 
@@ -167,7 +187,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
             switch(type) {
                 case 1:
-                    holder.seekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
+                    holder.discreteSeekBar.setProgress(convertProgressToInt(pageData.get(position).get_answer()));
                     break;
                 case 2:
                     holder.editText.setText(pageData.get(position).get_answer());
@@ -218,6 +238,31 @@ public class MultiTypeListAdapter extends BaseAdapter {
         } else {
             return false;
         }
+    }
+
+    public String convertProgressToStr (int progressInt) {
+        String value = "";
+        switch (progressInt) {
+            case 0 :
+                value = "F";
+                break;
+            case 1 :
+                value = "A";
+                break;
+            case 2 :
+                value = "B";
+                break;
+            case 3 :
+                value = "C";
+                break;
+            case 4 :
+                value = "D";
+                break;
+            case 5 :
+                value = "E";
+                break;
+        }
+        return value;
     }
 }
 

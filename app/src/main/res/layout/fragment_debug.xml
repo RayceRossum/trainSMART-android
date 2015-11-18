@@ -91,7 +91,9 @@
 
     <com.itech.trainsmart.assessments.DiscreteSeekBar
         android:id="@+id/discrete1"
-        android:layout_width="match_parent"
+        android:layout_x="22dp"
+        android:layout_y="400dp"
+        android:layout_width="500dp"
         android:layout_height="wrap_content"
         app:dsb_min="0"
         app:dsb_max="5"

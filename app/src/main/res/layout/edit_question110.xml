@@ -22,10 +22,10 @@
         android:layout_marginBottom="8sp" />
 
 
-    <SeekBar
+    <com.itech.trainsmart.assessments.DiscreteSeekBar
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
+        android:id="@+id/discreteSeekBar"
         android:paddingLeft="32sp"
         android:paddingRight="32sp"
         android:max="5"

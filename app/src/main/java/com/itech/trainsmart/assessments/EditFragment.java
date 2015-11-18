@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -174,7 +173,7 @@ public class EditFragment extends Fragment {
 
     }
 
-    public static class ViewHolder implements TextWatcher, SeekBar.OnSeekBarChangeListener, Switch.OnCheckedChangeListener {
+    public static class ViewHolder implements TextWatcher, com.itech.trainsmart.assessments.DiscreteSeekBar.OnProgressChangeListener, Switch.OnCheckedChangeListener {
 
         public HashMap _saveData = new HashMap();
         public int position;
@@ -182,7 +181,7 @@ public class EditFragment extends Fragment {
         public Switch switchWidget;
         public EditText editText;
         public EditText editText2;
-        public SeekBar seekBar;
+        public com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar;
         public DBHelper dbHelp;
         public PersonToAssessments pToA;
         public List<EditPageObject> pageData;
@@ -242,19 +241,19 @@ public class EditFragment extends Fragment {
         }
 
         @Override
-        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            Log.d("Request!", "onProgressChanged: " + progress);
+        public void onProgressChanged(com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar, int progress, boolean fromUser) {
+            Log.d("request!", "onProgressChanged: " + progress);
 
             pageData.get(position).set_answer(convertProgressToStr(progress));
             dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), convertProgressToStr(progress));
         }
 
         @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
+        public void onStartTrackingTouch(com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar) {
         }
 
         @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
+        public void onStopTrackingTouch(com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar) {
         }
 
         @Override

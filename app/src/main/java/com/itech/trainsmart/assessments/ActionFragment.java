@@ -208,7 +208,7 @@ public class ActionFragment extends Fragment implements AbsListView.OnItemClickL
         String[] _stringArray = new String[ actions.size() ];
         actions.toArray(_stringArray);
         mAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_single_choice, android.R.id.text1, actions);
+                android.R.layout.simple_list_item_1, android.R.id.text1, actions);
 
     }
 

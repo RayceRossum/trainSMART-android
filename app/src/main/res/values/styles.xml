@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/myPrimaryColor</item>
         <item name="colorPrimaryDark">@color/myPrimaryDarkColor</item>
-        <item name="colorAccent">@color/myAccentColor</item>
+        <item name="colorAccent">@color/myPrimaryDarkColor</item>
         <item name="android:textColorPrimary">@color/myTextPrimaryColor</item>
         <item name="android:navigationBarColor">@color/myNavigationColor</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
@@ -15,6 +15,7 @@
 
         <item name="android:windowBackground">@color/myWindowBackground</item>
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:colorControlActivated">@color/myPrimaryDarkColor</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -29,7 +30,7 @@
     </style>
 
 
-    <color name="dsb_progress_color">#ff009688</color>
+    <color name="dsb_progress_color">@color/myPrimaryDarkColor</color>
     <color name="dsb_track_color">#ff939393</color>
     <color name="dsb_disabled_color">#66939393</color>
     <color name="dsb_ripple_color_pressed">#77939393</color>
@@ -41,7 +42,7 @@
         <item name="dsb_trackColor">@color/dsb_track_color_list</item>
         <item name="dsb_rippleColor">@color/dsb_ripple_color_list</item>
         <item name="dsb_indicatorColor">@color/dsb_progress_color</item>
-        <item name="dsb_indicatorElevation">4dp</item>
+        <item name="dsb_indicatorElevation">6dp</item>
         <item name="dsb_mirrorForRtl">true</item>
     </style>
 
