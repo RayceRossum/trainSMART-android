@@ -144,9 +144,9 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemSelect
                 Fragment fragment;
                 //fragment = getFragmentManager().findFragmentByTag(RecentFragment.TAG);
                 //if (fragment == null) {
-                    fragment = RecentFragment.newInstance("search", paramPersonId + ":" + paramNationalID + ":" + paramFacilityName + ":" + paramAssessmentType + ":" + from_date + ":" + to_date + ":");
+                fragment = RecentFragment.newInstance("search", paramPersonId + ":" + paramNationalID + ":" + paramFacilityName + ":" + paramAssessmentType + ":" + from_date + ":" + to_date + ":");
                 //}
-                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("").commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("Search").commit();
             }
         });
 

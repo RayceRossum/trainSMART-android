@@ -141,7 +141,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     Log.d("request!", "before add create to back stack: " + getFragmentManager().getBackStackEntryCount());
                     fragment = CreateFragment.newInstance();
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).addToBackStack("Create").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).addToBackStack(currentFragmentId).commit();
                     Log.d("request!", "after add create to back stack: " + getFragmentManager().getBackStackEntryCount());
                 } else {
                     getFragmentManager().beginTransaction().replace(R.id.container, fragment, CreateFragment.TAG).commit();
@@ -155,7 +155,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 if (fragment == null) {
                     Log.d("request!", "before add recent to back stack: " + getFragmentManager().getBackStackEntryCount());
                     fragment = RecentFragment.newInstance("main", "");
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack("Recent").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).addToBackStack(currentFragmentId).commit();
                     Log.d("request!", "after add recent to back stack: " + getFragmentManager().getBackStackEntryCount());
                 } else {
                     getFragmentManager().beginTransaction().replace(R.id.container, fragment, RecentFragment.TAG).commit();
@@ -168,7 +168,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 fragment = getFragmentManager().findFragmentByTag(SearchFragment.TAG);
                 if (fragment == null) {
                     fragment = SearchFragment.newInstance();
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack("Search").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).addToBackStack(currentFragmentId).commit();
                 } else {
                     getFragmentManager().beginTransaction().replace(R.id.container, fragment, SearchFragment.TAG).commit();
                 }
@@ -180,7 +180,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
                 fragment = getFragmentManager().findFragmentByTag(ActionFragment.TAG);
                 if (fragment == null) {
                     fragment = ActionFragment.newInstance("main", "");
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).addToBackStack("Action").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).addToBackStack(currentFragmentId).commit();
                 } else {
                     getFragmentManager().beginTransaction().replace(R.id.container, fragment, ActionFragment.TAG).commit();
                 }
@@ -220,14 +220,24 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
             return;
         }
 
-
         int count = getFragmentManager().getBackStackEntryCount();
-        Log.d("Request!", "onBackPressed: " + count + ", " + currentFragmentId);
-        //if (count == 1 || (count > 1 && currentFragmentId.equals("Create"))) {
+        Log.d("Back!", "onBackPressed: " + count + ", " + currentFragmentId);
+//        FragmentManager.BackStackEntry entry = getFragmentManager().getBackStackEntryAt(count-1);
+        for (int i = count-1; i > -1; i--){
+            Log.d("Back!", "onBackPressed:stack: " + i + ", " + getFragmentManager().getBackStackEntryAt(i).getName());
+        }
+
+        Log.d("Back!", "onBackPressed:test: " + currentFragmentId + ", " + getFragmentManager().getBackStackEntryAt(count-1).getName());
+
+        if(currentFragmentId.equals("Recent")) {
+            return;
+        }
+
         if (count > 1) {
             getFragmentManager().popBackStack();
+            currentFragmentId = getFragmentManager().getBackStackEntryAt(count-1).getName();
         } else {
-            Log.d("Request!", "onBackPressed:exit: " + count + ", " + currentFragmentId);
+            Log.d("Back!", "onBackPressed:exit: " + count + ", " + currentFragmentId);
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Confirm exit");

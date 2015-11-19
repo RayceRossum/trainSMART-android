@@ -76,6 +76,9 @@ public class MultiTypeListAdapter extends BaseAdapter {
             case "questiontextarea":
                 type = 4;
                 break;
+            case "questionmulti":
+                type = 4;
+                break;
             case "title":
                 type = 5;
                 break;

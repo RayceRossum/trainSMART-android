@@ -111,12 +111,12 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                     if (dbHelp.addPersonToAssessments(pToANew)) {
                         Fragment fragment;
                         fragment = getFragmentManager().findFragmentByTag(EditFragment.TAG);
-                        if (fragment == null) {
+                        if (fragment == null || true) {
                             PersonToAssessments pToA = dbHelp.getPersonToAssessments(pToANew.get_person_id(), pToANew.get_facility_id(), pToANew.get_date_created(), pToANew.get_assessment_id());
                             pToA.dump();
                             fragment = EditFragment.newInstance(pToA);
                         }
-                        getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
+                        getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("Create").commit();
                         Log.d("request!", "Assessment Created");
                         Toast.makeText(v.getContext(), "Assessment Created", Toast.LENGTH_LONG).show();
                     }
@@ -129,7 +129,7 @@ public class CreateFragment extends Fragment implements AdapterView.OnItemSelect
                         fragment = EditFragment.newInstance(pToA);
                     }
 
-                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("").commit();
+                    getFragmentManager().beginTransaction().replace(R.id.container, fragment, EditFragment.TAG).addToBackStack("Create").commit();
                     Log.d("request!", "Existing Assessment");
                     Toast.makeText(v.getContext(), "Existing Assessment", Toast.LENGTH_LONG).show();
                 }
