@@ -34,9 +34,11 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
 
     public static String currentFragmentId = "";
 
+    public static String COUNTRY = "mobile_demo";
+
     public static final String BASE_URL = "http://android.trainingdata.org/";
 
-    public static final String GET_TABLE_URL = BASE_URL + "getTable.php";
+    public static final String GET_TABLE_URL = BASE_URL + COUNTRY + "/" + "getTable.php";
     public static final String TAG_SUCCESS = "success";
     public static final String TAG_MESSAGE = "message";
     public static SQLiteDatabase db;
