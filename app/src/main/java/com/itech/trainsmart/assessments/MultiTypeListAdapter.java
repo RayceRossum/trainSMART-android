@@ -7,12 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -53,7 +58,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return 6;
+        return 8;
     }
 
     @Override
@@ -81,6 +86,12 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 break;
             case "title":
                 type = 5;
+                break;
+            case "questiondropdown":
+                type = 6;
+                break;
+            case "questiondate":
+                type = 7;
                 break;
         }
 
@@ -182,6 +193,54 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     //holder.textView.setText("Assessment, Rayce Rossum, 8/24/2015, 10132027");
                     view.setTag(holder);
                     break;
+                case 6: //Dropdown
+                    view = inflater.inflate(R.layout.edit_questiondropdown, parent, false);
+                    holder.textView = (TextView) view.findViewById(R.id.textq);
+                    holder.spinnerWidget = (Spinner) view.findViewById(R.id.spinner);
+
+                    holder.position = position;
+                    final int assessment_position = position;
+                    final ArrayList<String> spinnerArray = dbHelp.getDropdownOptions(pageData.get(position).get_assessments_questions_id());
+                    spinnerArray.add(0, "NA");
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, spinnerArray);
+                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    holder.spinnerWidget.setAdapter(spinnerArrayAdapter);
+
+//                    Log.d("request!", "getView case 6:question_id: " + pageData.get(position).get_assessments_questions_id());
+                    String dropdownValue = pageData.get(position).get_answer();
+//                    Log.d("request!", "getView case 6:dropdownValue: " + dropdownValue);
+                    holder.spinnerWidget.setSelection(convertStrToOptionInt(dropdownValue, spinnerArray));
+
+                    holder.spinnerWidget.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+//                            Log.d("request!", "getView case 6:onItemSelected: " + position + " " + convertOptionIntToStr(position, spinnerArray));
+                            // insert
+                            pageData.get(position).set_answer(convertOptionIntToStr(position, spinnerArray));
+                            dbHelp.setEditPageRow(pToA, pageData.get(assessment_position).get_assessments_questions_id(),convertOptionIntToStr(position, spinnerArray) );
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parentView) {
+                            // your code here
+//                            Log.d("request!", "getView case 6:nothingSelected: " );
+                        }
+
+                    });
+                    view.setTag(holder);
+                    break;
+                case 7: //Date convert from switch
+                    view = inflater.inflate(R.layout.edit_questionyesno, parent, false);
+                    holder.textView = (TextView) view.findViewById(R.id.textq);
+                    holder.switchWidget = (Switch) view.findViewById(R.id.yesnoswitch);
+
+                    holder.position = position;
+                    String dateValue = pageData.get(position).get_answer();
+                    holder.switchWidget.setChecked(convertStrToChecked(dateValue));
+//                    Log.d("Checked:", checked);
+                    holder.switchWidget.setOnCheckedChangeListener(holder);
+                    view.setTag(holder);
+                    break;
 
             }
         }
@@ -202,12 +261,52 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 case 4:
                     holder.editText2.setText(pageData.get(position).get_answer());
                     break;
+                case 5: // text, no answer
+                    break;
+                case 6: // dropdown
+                    ArrayList<String> spinnerArray = dbHelp.getDropdownOptions(pageData.get(position).get_assessments_questions_id());
+                    spinnerArray.add(0, "NA");
+                    holder.spinnerWidget.setSelection(convertStrToOptionInt(holder.spinnerWidget.getSelectedItem().toString(), spinnerArray));
+
+                    break;
+                case 7: // date
+                    holder.editText2.setText(pageData.get(position).get_answer());
+                    break;
             }
             holder.position = position;
         }
         holder.textView.setText(pageData.get(position).get_question());
 //        Log.d("request!", "get_question: " + pageData.get(position).get_question());
         return view;
+    }
+
+    public int convertStrToOptionInt (String dropdownValue, List spinnerArray) {
+//        Log.d("request!", "convertStrToOptionInt:dropdownValue: " + dropdownValue);
+        Iterator iterator = spinnerArray.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+//            Log.d("request!", "convertStrToOptionInt:spinnerArray: " + iterator.next());
+            if(dropdownValue.equals(iterator.next())){
+                return i;
+            }
+            i++;
+        }
+        return 0;
+    }
+
+    public String convertOptionIntToStr (int optionInt, List spinnerArray){
+//        Log.d("request!", "convertOptionIntToStr:optionInt: " + optionInt);
+        Iterator iterator = spinnerArray.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            if(optionInt == i){
+                return iterator.next().toString();
+            } else {
+                iterator.next();
+            }
+            i++;
+        }
+        return "";
     }
 
     public int convertProgressToInt (String progressStr) {

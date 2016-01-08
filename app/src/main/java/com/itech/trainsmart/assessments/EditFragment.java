@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -181,6 +182,7 @@ public class EditFragment extends Fragment {
         public Switch switchWidget;
         public EditText editText;
         public EditText editText2;
+        public Spinner spinnerWidget;
         public com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar;
         public DBHelper dbHelp;
         public PersonToAssessments pToA;
@@ -194,7 +196,7 @@ public class EditFragment extends Fragment {
         }
 
         public void afterTextChanged(Editable editable) {
-
+//            Log.d("request!", "editFrag:afterTextChanged: ");
             Integer relativePos = position+1;
             int question_id =  dbHelp.getAssessmentsQuestionsQuestion(pToA.get_assessment_id(), relativePos);
             AssessmentsAnswers assessmentsAnswers = dbHelp.getAssessmentsAnswers(pToA.get_person_id(), pToA.get_facility_id(), pToA.get_date_created(), pToA.get_assessment_id(), question_id );

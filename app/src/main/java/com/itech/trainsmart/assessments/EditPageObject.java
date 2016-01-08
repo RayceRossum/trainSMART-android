@@ -12,6 +12,7 @@ public class EditPageObject {
     String _itemtype;
     int _itemorder;
     String _answer;
+    String _dropdown_tablename;
 
 
 
@@ -19,19 +20,21 @@ public class EditPageObject {
     public EditPageObject() {
     }
 
-    public EditPageObject(int _rowid, String _question, String _itemtype, int _itemorder, String _answer) {
+    public EditPageObject(int _rowid, String _question, String _itemtype, int _itemorder, String _answer, String _dropdown_tablename) {
         this._rowid = _rowid;
         this._question = _question;
         this._itemtype = _itemtype;
         this._itemorder = _itemorder;
         this._answer = _answer;
+        this._dropdown_tablename = _dropdown_tablename;
     }
 
-    public EditPageObject(String _question, int _question_id, String _itemtype, int _itemorder, String _answer) {
+    public EditPageObject(String _question, int _question_id, String _itemtype, int _itemorder, String _answer, String _dropdown_tablename) {
         this._question = _question;
         this._itemtype = _itemtype;
         this._itemorder = _itemorder;
         this._answer = _answer;
+        this._dropdown_tablename = _dropdown_tablename;
     }
 
     public int get_assessments_questions_id() {
@@ -73,6 +76,14 @@ public class EditPageObject {
 
     public void set_answer(String _answer) {
         this._answer = _answer;
+    }
+
+    public String get_dropdown_tablename() {
+        return _dropdown_tablename;
+    }
+
+    public void set_dropdown_tablename(String _dropdown_tablename) {
+        this._dropdown_tablename = _dropdown_tablename;
     }
 
 

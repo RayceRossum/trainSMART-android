@@ -35,6 +35,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String TABLE_PERSON = "person";
     private static final String TABLE_PERSON_TO_ASSESSMENTS = "person_to_assessments";
     private static final String TABLE_GEOLOCATIONS = "geolocations";
+    private static final String TABLE_QUESTION_DROPDOWN_OPTION = "question_dropdown";
 
     // assessments table column names
     private static final String ASSESSMENTS_ROWID = "rowid";
@@ -62,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String ASSESSMENTS_QUESTIONS_STATUS = "status";
 
     // geolocations table column names
-    private static final String GEOLOCATIONS_ROWID = "rowid";
+    private static final String GEOLOCATIONS_ID = "rowid";
     private static final String GEOLOCATIONS_LONGITUDE = "longitude";
     private static final String GEOLOCATIONS_LATITUDE = "latitude";
     private static final String GEOLOCATIONS_DEVICE_ID = "device_id";
@@ -87,6 +88,12 @@ public class DBHelper extends SQLiteOpenHelper{
     private static final String PERSON_TO_ASSESSMENTS_ASSESSMENT_ID = "assessment_id";
     private static final String PERSON_TO_ASSESSMENTS_USER_ID = "user_id";
     private static final String PERSON_TO_ASSESSMENTS_STATUS = "status";
+
+    // question_dropdown table column names
+    private static final String QUESTION_DROPDOWN_OPTION_QUESTION_DROPDOWN_OPTION_ID = "question_dropdown_option_id";
+    private static final String QUESTION_DROPDOWN_OPTION_QUESTION_ID = "question_id";
+    private static final String QUESTION_DROPDOWN_OPTION_DROPDOWN_OPTION_ID = "dropdown_option_id";
+    private static final String QUESTION_DROPDOWN_OPTION_STATUS = "status";
 
     // answer types
     private static final String ANSWER_TYPE_TEXT = "text";
@@ -170,6 +177,13 @@ public class DBHelper extends SQLiteOpenHelper{
                         "status INTEGER);";
         db.execSQL(CREATE_PERSON_TO_ASSESSEMNTS_TABLE);
 
+        //db.execSQL("delete from question_dropdown_option;");
+        String CREATE_QUESTION_DROPDOWN_OPTION_TABLE = "CREATE  TABLE IF NOT EXISTS question_dropdown_option(" +
+                    "assessment_question_id INTEGER, " +
+                    "dropdown_option VARCHAR, " +
+                    "status INTEGER);";
+        db.execSQL(CREATE_QUESTION_DROPDOWN_OPTION_TABLE);
+
         } catch (Exception ex) {
             Log.d("request!", "DBHelper.onCreate catch" + ex.toString());
         }
@@ -183,6 +197,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ASSESSMENTS_QUESTIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSON);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSON_TO_ASSESSMENTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION_DROPDOWN_OPTION);
 
         // Create tables again
         onCreate(db);
@@ -363,6 +378,40 @@ public class DBHelper extends SQLiteOpenHelper{
         } catch (Exception ex) {
             Log.d("request!", "helperTest catch " + ex.toString());
         }
+    }
+
+    public ArrayList<String> getDropdownOptions(int assessments_question_id) {
+//        Log.d("request!", "getDropdownOptions: ");
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<String> dropdownOptionsList = new ArrayList<String>();
+        String whereClause = "";
+        whereClause = whereClause + "and assessment_question_id = " + assessments_question_id + " ";
+
+    String query =
+            "select " +
+                    "dropdown_option " +
+                    "from question_dropdown_option " +
+                    "where  1=1 " +
+                    whereClause;
+
+//    Log.d("request!", "Query: " + query);
+    Cursor cursor = db.rawQuery(query, null);
+
+    // looping through all rows and adding to list
+    if (cursor.moveToFirst()) {
+        do {
+            String dropdownOptions = "";
+            dropdownOptions =
+                    cursor.getString(0);
+
+            // Adding object to list
+            dropdownOptionsList.add(dropdownOptions);
+        } while (cursor.moveToNext());
+    }
+    cursor.close();
+    db.close();
+    // return list
+    return dropdownOptionsList;
     }
 
     public List<String> getReadableAssessments(String person_id, String national_id, String facility_name, String assessment_type, String from_date, String to_date) {
@@ -897,10 +946,13 @@ public class DBHelper extends SQLiteOpenHelper{
                 editPageObject.set_itemtype(cursor.getString(2));
                 editPageObject.set_itemorder(Integer.parseInt(cursor.getString(3)));
                 editPageObject.set_answer(cursor.getString(4));
+                editPageObject.set_dropdown_tablename("");
 
                         // Adding object to list
                 editPageList.add(editPageObject);
             } while (cursor.moveToNext());
+
+
         }
         cursor.close();
         db.close();
@@ -1687,6 +1739,8 @@ public class DBHelper extends SQLiteOpenHelper{
         new getMySQLAssessmentsQuestionsTable(this).execute();
         Log.d("request!", "downloadDBData getMySQLAssessmentsTable");
         new getMySQLAssessmentsTable(this).execute();
+        Log.d("request!", "downloadDBData getMySQLQuestionDropdownOptionTable");
+        new getMySQLQuestionDropdownOptionTable(this).execute();
     }
 
     protected void load_person_to_assessments() {
