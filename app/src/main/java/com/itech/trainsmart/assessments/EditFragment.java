@@ -1,6 +1,7 @@
 package com.itech.trainsmart.assessments;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 
@@ -174,7 +176,7 @@ public class EditFragment extends Fragment {
 
     }
 
-    public static class ViewHolder implements TextWatcher, com.itech.trainsmart.assessments.DiscreteSeekBar.OnProgressChangeListener, Switch.OnCheckedChangeListener {
+    public static class ViewHolder implements TextWatcher, com.itech.trainsmart.assessments.DiscreteSeekBar.OnProgressChangeListener, Switch.OnCheckedChangeListener, EditText.OnClickListener {
 
         public HashMap _saveData = new HashMap();
         public int position;
@@ -183,6 +185,10 @@ public class EditFragment extends Fragment {
         public EditText editText;
         public EditText editText2;
         public Spinner spinnerWidget;
+        public EditText editDate;
+        public DatePickerDialog datePickerDialog;
+        public SimpleDateFormat dateFormater;
+
         public com.itech.trainsmart.assessments.DiscreteSeekBar discreteSeekBar;
         public DBHelper dbHelp;
         public PersonToAssessments pToA;
@@ -194,6 +200,11 @@ public class EditFragment extends Fragment {
             this.pToA = pToA;
             this.pageData = pageData;
         }
+
+        public void onClick(View view) {
+            Log.d("request!", "on click: ");
+        }
+
 
         public void afterTextChanged(Editable editable) {
 //            Log.d("request!", "editFrag:afterTextChanged: ");
@@ -298,4 +309,7 @@ public class EditFragment extends Fragment {
         }
 
     }
+
+
+
 }
