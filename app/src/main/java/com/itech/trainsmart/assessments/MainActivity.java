@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerC
     public static String currentFragmentId = "";
 
     public static String COUNTRY = "mobile_demo";
+//    public static String COUNTRY = "zimbabwe";
 
     public static final String BASE_URL = "http://android.trainingdata.org/";
 

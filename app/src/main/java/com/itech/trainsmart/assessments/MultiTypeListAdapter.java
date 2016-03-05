@@ -219,7 +219,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 holder.spinnerWidget.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-//                            Log.d("request!", "getView case 6:onItemSelected: " + position + " " + convertOptionIntToStr(position, spinnerArray));
+                        Log.d("request!", "getView case 6:onItemSelected: " + position + " " + convertOptionIntToStr(position, spinnerArray));
                         // insert
                         pageData.get(position).set_answer(convertOptionIntToStr(position, spinnerArray));
                         dbHelp.setEditPageRow(pToA, pageData.get(assessment_position).get_assessments_questions_id(), convertOptionIntToStr(position, spinnerArray));
@@ -234,12 +234,13 @@ public class MultiTypeListAdapter extends BaseAdapter {
                 });
                 view.setTag(holder);
                 break;
-            case 7: //Date convert from text
+            case 7: //Date
                 view = inflater.inflate(R.layout.edit_questiondate, parent, false);
                 holder.textView = (TextView) view.findViewById(R.id.textq);
                 holder.editDate = (EditText) view.findViewById(R.id.editDate);
                 final EditText extEditDate = (EditText) view.findViewById(R.id.editDate);
-                String _date = pageData.get(position).get_answer();
+                holder.editDate.setText(pageData.get(position).get_answer());
+                holder.position = position;
 
                 final SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
@@ -252,7 +253,10 @@ public class MultiTypeListAdapter extends BaseAdapter {
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(year, monthOfYear, dayOfMonth);
                         extEditDate.setText(dateFormatter.format(newDate.getTime()));
-                        Log.d("request!", "insert: ");
+
+                        Log.d("request!", "getView case 7:onDateSet: " + position + " " + dateFormatter.format(newDate.getTime()));
+                        pageData.get(position).set_answer(dateFormatter.format(newDate.getTime()));
+                        dbHelp.setEditPageRow(pToA, pageData.get(position).get_assessments_questions_id(), dateFormatter.format(newDate.getTime()));
                     }
 
                 }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -269,7 +273,6 @@ public class MultiTypeListAdapter extends BaseAdapter {
 
                 view.setTag(holder);
                 break;
-
         }
         else {
             holder = (EditFragment.ViewHolder) view.getTag();
@@ -298,6 +301,7 @@ public class MultiTypeListAdapter extends BaseAdapter {
                     break;
                 case 7: // date
                     holder.editDate.setText(pageData.get(position).get_answer());
+//                    Log.d("request!", "Got answer: " + pageData.get(position).get_answer());
                     break;
             }
             holder.position = position;
